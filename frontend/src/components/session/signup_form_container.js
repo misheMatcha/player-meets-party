@@ -4,7 +4,7 @@ import { signup, login } from '../../actions/session_actions';
 import SignupForm from './signup_form';
 
 const mSTP = state => ({
-  errors: state.errors.session
+  errors: Object.values(state.errors.session)
 });
 
 const mDTP = dispatch => ({

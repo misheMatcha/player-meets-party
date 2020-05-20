@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 
 const SignupForm = props => {
   const [name, setName] = useState('');
@@ -23,7 +24,7 @@ const SignupForm = props => {
   useEffect(() => {
     return(() => {
     });
-  }, );
+  }, []);
 
   const handleInput = (event, field) => {
     switch(field){
@@ -54,12 +55,22 @@ const SignupForm = props => {
 
   return(
     <div className="signup-form">
+      <Link to="/" className="pmp-logo">PMP</Link>
 
       <form className="signup-form-wrap" onSubmit={handleNewUser}>
+        <div className="signup-form-header">
+          <Link to="/" className="fas fa-chevron-left"/>
+          <p className="signup-form-header-title">About you</p>
+        </div>
         <ul>
+          {
+            props.errors.map((err, idx) => (
+              <li key={idx} className="">{err}</li>
+            ))
+          }
         </ul>
         <div className="signup-form-section">
-          {/* <p className="">Welcome! Who are you?</p> */}
+          <p className="signup-form-section-title">Welcome! Who are you?</p>
           <label>Name
             <input type="text" placeholder='name' onChange={event => {
               handleInput(event, 'name');

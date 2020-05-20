@@ -13,9 +13,8 @@ span, article, footer, time, small {
   text-decoration: inherit;
   vertical-align: inherit;
   box-sizing: inherit;
-  background-color: transparent;
-  font-family: 'Roboto', sans-serif;
-  font-size: 15px;
+  background: transparent;
+  font-family: inherit;
 }
 
 ul {
@@ -34,12 +33,40 @@ input[type="text"],
 input[type="submit"],
 textarea,
 button {
-  font-family: 'Roboto', sans-serif;
   -webkit-appearance: none;
   -moz-appearance: none;
+  appearance: none;
 }
 
 button,
 input[type="submit"] {
   cursor: pointer;
+}
+
+.group:after {
+  content: "";
+  display: block;
+  clear: both;
+}
+
+/* General additions after reset */
+
+html, body{
+  height: 100%;
+}
+body{
+  display: flex;
+}
+
+#root{
+  width: 100%;
+}
+
+.app{
+  height: 100%;
+}
+
+@font-face{
+  font-family: "plexi";
+  src: url("../fonts/Plexifont-BV/plexifont.ttf") format("truetype")
 }
