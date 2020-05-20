@@ -53,4 +53,32 @@ router.post('/register', (req, res) => {
   });
 });
 
+router.post('/login', (req, res) => {
+  const email = req.body.email;
+  const password = req.body.password;
+
+  User.findOne({email}).then(user => {
+    if(!user) return res.status(404).json({email: 'This user does not exist'});
+
+    bcrypt.compare(password, user.password).then(isMatch => {
+      if(isMatch){
+        const payload = {
+          id: user.id,
+          name: user.name,
+          email: user.email
+        };
+
+        jwt.sign(payload, keys.secretOrKey, { expiresIn: 3600 }, (err, token) => {
+          res.json({
+            success: true,
+            token: "Bearer " + token
+          });
+        });
+      }else{
+        res.status(400).json({password: 'Incorrect email or password'})
+      }
+    })
+  });
+});
+
 module.exports = router;

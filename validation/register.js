@@ -19,11 +19,10 @@ module.exports = validRegisterInput = data => {
 
   if(!Validator.isLength(data.password, { min: 6, max: 30 })) errors.password = 'Password must be between 6 and 30 characters';
   if(Validator.isEmpty(data.password)) errors.password = 'Password is required';
-  
+
   if(!Validator.isBefore(data.birthday, '2002-01-01')) errors.birthday = 'Must be 18 or older to register';
   if(Validator.isEmpty(data.birthday)) errors.birthday = 'Birthday is required';
 
-  // if(!Validator.isLength(data.password, { min: 6, max: 30 })) errors.password = 'Password must be between 6 and 30 characters';
   if(Validator.isEmpty(data.state)) errors.state = 'State is required';
 
   if(!Validator.isLength(data.zip, { min: 5, max: 5 })) errors.zip = 'Zip code must be 5 digits';
