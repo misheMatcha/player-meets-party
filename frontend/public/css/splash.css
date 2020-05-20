@@ -1,0 +1,18 @@
+.splash{
+  /* border: 1px solid blue; */
+}
+  .splash-content{
+    /* border: 1px solid red; */
+  }
+    .splash-hero{
+      /* border: 1px solid green; */
+    }
+      .splash-hero-image{
+        /* border: 1px solid orange; */
+      }
+    .splash-details{
+      /* border: 1px solid purple; */
+    }
+  .splash-footer{
+    /* border: 1px solid purple; */
+  }
