@@ -2,7 +2,7 @@ import * as ApiUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
 
 export const LOGIN_USER = 'LOGIN_USER';
-export const SESSION_ERRORS = 'SESSION_ERRORS';
+export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const LOGOUT_USER = 'LOGOUT_USER';
 
 export const loginUser = user => ({
@@ -15,7 +15,7 @@ export const logoutUser = () => ({
 });
 
 export const receiveErrors = errors => ({
-  type: SESSION_ERRORS,
+  type: RECEIVE_SESSION_ERRORS,
   errors
 });
 
