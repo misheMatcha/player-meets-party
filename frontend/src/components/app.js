@@ -8,11 +8,11 @@ import Doubletake from './doubletake/doubletake_container';
 import Navbar from './navbar/navbar_container';
 
 const App = () => (
-  <div className="app">
-    <Navbar/>
+  <div className='app'>
+    <ProtectedRoute path='/' component={Navbar}/>
     <Switch>
-      <AuthRoute exact path="/" component={Splash}/>
-      <AuthRoute exact path="/signup" component={SignupForm}/>
+      <AuthRoute exact path='/' component={Splash}/>
+      <AuthRoute exact path='/signup' component={SignupForm}/>
       <ProtectedRoute exact path='/doubletake' component={Doubletake}/>
     </Switch>
   </div>
