@@ -47,15 +47,62 @@
         transition: 1s;
       }
 
-
-    @keyframes testy {
-      0% { opacity: 1; }
-      50% { opacity: 0; }
-      100% { opacity: 1; }
+  .authbar-content-wrap{
+    /* border: 1px solid blue; */
+    width: 1180px;
+    height: 100%;
+  }
+    .authbar-content{
+      /* border: 1px solid blue; */
     }
+      .authbar-content-title{
+        /* border: 1px solid red; */
+        font-size: 53px;
+        font-weight: 700;
+        width: 512px;
+      }
+      .authbar-content-desc{
+        /* border: 1px solid orange; */
+        width: 460px;
+        font-size: 20px;
+        padding-bottom: 25px;
+      }
+      .authbar-content-tos{
+        /* border: 1px solid red; */
+        font-size: 12px;
+        width: 290px;
+      }
+      .authbar-content-signup-btn-wrap{
+        /* border: 1px solid purple; */
+        height: 84px;
+        width: 290px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+        .authbar-content-signup-btn{
+          height: 62px;
+          background-color: black;
+          color: white;
+          border-radius: 5px;
+          width: 100%;
+          text-align: center;
+        }
+      .authbar-content-mobile{
+        /* border: 1px solid green; */
+        font-size: 14px;
+        font-weight: 500;
+      }
 
-    @keyframes bgtrans {
-      50% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/facepaint.jpg"); }
-      75% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/eyemasks.jpg"); }
-      100% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/couch.jpg"); }
-    }
+
+@keyframes testy {
+  0% { opacity: 1; }
+  50% { opacity: 0; }
+  100% { opacity: 1; }
+}
+
+@keyframes bgtrans {
+  50% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/facepaint.jpg"); }
+  75% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/eyemasks.jpg"); }
+  100% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/couch.jpg"); }
+}
