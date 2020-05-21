@@ -3,9 +3,6 @@
   height: 0; */
   display: none;
 }
-.buffer{
-  height: 69px;
-}
 
 .signup-form{
   background-color: #f0f2f6;
@@ -79,7 +76,7 @@
           height: 360px;
           width: 70%;
           display: flex;
-          justify-content: space-evenly;
+          justify-content: center;
           align-items: center;
           flex-direction: column;
         }
@@ -121,6 +118,7 @@
             display: flex;
             align-items: center;
             justify-content: space-between;
+            padding-bottom: 10px;
           }
             .signup-form-section-field{
               /* border: 1px solid red; */
@@ -202,4 +200,9 @@
           .signup-form-section-next:hover{
             background-color: #8caae6;
             transition: 1s;
+          }
+
+
+          .signup-form-button.demo{
+            margin-top: 10px;
           }

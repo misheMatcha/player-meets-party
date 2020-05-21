@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useRef } from 'react';
 import { Link } from 'react-router-dom';
 
 const SignupForm = props => {
@@ -24,10 +24,10 @@ const SignupForm = props => {
   const [stage, setStage] = useState(1);
 
   useEffect(() => {
-    console.log(user)
+    console.log(user.name)
     return(() => {
     });
-  }, [user, props.errors, stage]);
+  }, [user, props.errors]);
 
   const handleInput = (event, field) => {
     switch(field){
@@ -94,21 +94,19 @@ const SignupForm = props => {
         <div className={'signup-form-section' + (stage === 1 ? '' : ' hide')}>
           <p className="signup-form-section-title">Welcome! Who are you?</p>
           <div className="signup-form-section-input-container">
-            <div className="">
-              <div className="signup-form-section-field-details">
-                <p className="signup-form-section-field">Name</p>
-                <p className="signup-form-section-error">{props.errors.name}</p>
-              </div>
-              <label className="signup-form-section-label">
-                <input className="signup-form-section-input" type="text" placeholder='Kratos, Isabelle, etc...' onChange={event => {
-                  handleInput(event, 'name');
-                  checkErrors('name')
-                  }}/>
-                <p className="fas fa-exclamation" style={
-                  props.errors.name ? {opacity:1} : {opacity:0}
-                }/>
-              </label>
+            <div className="signup-form-section-field-details">
+              <p className="signup-form-section-field">Name</p>
+              <p className="signup-form-section-error">{props.errors.name}</p>
             </div>
+            <label className="signup-form-section-label">
+              <input className="signup-form-section-input" type="text" placeholder='Kratos, Isabelle, etc...' onChange={event => {
+                handleInput(event, 'name');
+                // checkErrors('name')
+                }}/>
+              <p className="fas fa-exclamation" style={
+                props.errors.name ? {opacity:1} : {opacity:0}
+              }/>
+            </label>
           </div>
         </div>
 
@@ -206,7 +204,6 @@ const SignupForm = props => {
             </div>
           </div>
         </div>
-        <div className="buffer"/>
         {
           stage <= 4 ? (
             <div className="signup-form-button">
@@ -220,7 +217,9 @@ const SignupForm = props => {
         </div>
           )
         }
-        
+        <div className="signup-form-button demo">
+          <button type="button" className="signup-form-button-p" onClick={() => props.login(guest)}>DEMO LOGIN</button>
+        </div>
       </form>
     </div>
   );
