@@ -3,17 +3,35 @@ import React from 'react';
 const Splash = props => {
   return(
     <div className='splash'>
-
       <div className='splash-main'>
         <div className='splash-bg'>
           <div className='splash-bg-colors'/>
           <div className='splash-bg-images'/>
         </div>
-        <div className='splash-content'>
-          fg
+        <div className='splash-content-container'>
+          <div className='splash-nav'>
+            <div className='splash-nav-logo'>PMP</div>
+            <div className='splash-nav-login'>Have an account? <button className='splash-nav-login-btn'>Sign in</button></div>
+          </div>
+          <div className='splash-content'>
+            <div className='splash-content-wrap'>
+              <h3 className='splash-content-title'>DATING DESERVES BETTER</h3>
+              <div className='splash-content-desc'>
+                On Player Meets Party, you’re more than just a photo. You have stories to tell, and passions to share, and things to talk about that are more interesting than the weather. Get noticed for who you are, not what you look like. Because you deserve what dating deserves: <b>better</b>.
+              </div>
+              <div className='splash-content-tos'>
+                By clicking Join, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.
+              </div>
+              <div className='splash-content-join'>
+                <button className='splash-content-join-btn'>JOIN PMP</button>
+              </div>
+              <div className='splash-content-mobile'>
+                Coming soon to android and iOS.
+              </div>
+            </div>
+          </div>
         </div>
       </div>
-      
       <div className='splash-footer'>
         <div className='splash-footer-container'>
           <div className='splash-footer-join'>
@@ -66,7 +84,6 @@ const Splash = props => {
           </div>
         </div>
       </div>
-
     </div>
   );
 };
