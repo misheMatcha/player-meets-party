@@ -1,52 +1,101 @@
 .splash{
-  height: 196px;
-  background-color: #1a1a1a;
-  padding-top: 56px;
-  color: white;
   font-family: 'IBM Plex Sans', sans-serif;
-  display: flex;
-  justify-content: center;
+  background-color: #f9d5d5;
+  /* animation: bgcolors 5s infinite; */
 }
-  .splash-footer{
-    width: 1180px;
-    display: flex;
-    justify-content: space-evenly;
+
+  .splash-main{
+    height: 766px;
+    display: flex; /* overlay */
+    flex-flow: row nowrap; /* overlay */
   }
-    .splash-footer-join{
+  .splash-main .splash-bg, .splash-main .splash-content{
+    box-sizing: border-box; /* overlay */
+    width: 100%; /* overlay */
+    flex: none; /* overlay */
+  }
+    .splash-bg{
+      /* background-color: blue; */
       display: flex;
-      flex-direction: column;
+      height: 100%;
+    }
+      .splash-bg-colors{
+        background-color: blue;
+        width: 50%;
+      }
+      .splash-bg-images{
+        background-color: yellow;
+        width: 50%;
+      }
+    .splash-content{
+      /* background-color: rebeccapurple; */
+      margin-left: -100%; /* overlay */
+      width: 1180px;
+      display: flex;
+      justify-content: center;
       align-items: center;
     }
-      .splash-footer-join-btn{
-        background-color: #34f;
-        color: white;
-        height: 48px;
-        width: 224px;
-        text-align: center;
-        border-radius: 5px;
-        transition: 1s;
-      }
-      .splash-footer-join-btn:hover{
-        background-color: #8caae6;
-        transition: 1s;
-      }
-      .splash-footer-join-copyright{
-        font-size: 11px;
-        padding: 15px;
-      }
 
-    .splash-footer-section{
+  .splash-footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #1a1a1a;
+    color: #f3f5f9;
+    height: 196px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+    .splash-footer-container{
+      width: 1180px;
+      display: flex;
+      justify-content: space-evenly;
     }
-      .splash-footer-section-title{
-        font-weight: 500;
-        font-size: 16px;
-        padding-bottom: 5px;
-        letter-spacing: 1px;
+      .splash-footer-join{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
       }
-      .splash-footer-section-links{
-        font-size: 12px;
-      }
-        .splash-footer-section-link{
-          padding-top: 5px;
-          height: 28px;
+        .splash-footer-join-btn{
+          background-color: #34f;
+          height: 48px;
+          width: 224px;
+          text-align: center;
+          border-radius: 5px;
+          transition: 1s;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 1px;
         }
+        .splash-footer-join-btn:hover{
+          background-color: #8caae6;
+          transition: 1s;
+        }
+        .splash-footer-join-copyright{
+          font-size: 11px;
+          padding: 15px;
+          color: #666666;
+        }
+
+      .splash-footer-section{
+      }
+        .splash-footer-section-title{
+          font-weight: 500;
+          font-size: 16px;
+          padding-bottom: 5px;
+          letter-spacing: 1px;
+        }
+        .splash-footer-section-links{
+          font-size: 14px;
+        }
+          .splash-footer-section-link{
+            padding-top: 5px;
+            height: 28px;
+          }
+
+@keyframes bgcolors {
+  25% { background-color: #eac1dc; }
+  50% { background-color: #c3b4df; }
+  75% { background-color: #97addd; }
+  100% { background-color: #f9d5d5; }
+}
