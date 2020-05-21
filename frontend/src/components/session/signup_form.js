@@ -24,10 +24,9 @@ const SignupForm = props => {
   const [stage, setStage] = useState(1);
 
   useEffect(() => {
-    console.log(user.name)
     return(() => {
     });
-  }, [user, props.errors]);
+  }, [user, props.errors, props.loggedIn]);
 
   const handleInput = (event, field) => {
     switch(field){
