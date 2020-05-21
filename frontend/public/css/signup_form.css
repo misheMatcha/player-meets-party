@@ -1,0 +1,180 @@
+.hide{
+  display: none;
+}
+
+.signup-form{
+  background-color: #f0f2f6;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+  .pmp-logo{
+    font-family: 'plexi';
+    font-size: 60px;
+    position: fixed;
+    top: 50px;
+    left: 50px;
+  }
+  .signup-form-wrap{
+    height: 610px;
+    width: 460px;
+    display: flex;
+    flex-direction: column;
+  }
+    .signup-form-header{
+      display: flex;
+      justify-content: space-evenly;
+      height: 66px;
+    }
+      .fas.fa-chevron-left{
+        font-size: 13px;
+        width: 5%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+      .signup-form-header-title{
+        width: 95%;
+        font-size: 19px;
+        font-weight: 400;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+      }
+
+    .signup-form-section{
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    .signup-form-section.hide{
+      display: none;
+    }
+      .signup-form-section-title{
+        font-size: 32px;
+        font-weight: 600;
+        height: 44px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding-top: 10px;
+      }
+      .signup-form-section-input-container{
+        height: 360px;
+        width: 70%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+        /* only for location part of signup form -- start */
+        .signup-form-section-input-wrap{
+          width: 100%;
+          display: flex;
+          justify-content: space-between;
+        }
+          .signup-form-section-input-state{
+            width: 30%;
+          }
+          .signup-form-section-field-details-location{
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+          }
+          .signup-form-section-input-zip{
+            width: 50%;
+          }
+            .signup-form-section-error-location{
+              color: #fb674e;
+              transition: 1s;
+              font-size: 12px;
+              padding-bottom: 5px;
+            }
+        /* end */
+        .signup-form-section-field-details{
+            width: 100%;
+            height: 28px;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding-bottom: 10px;
+        }
+          .signup-form-section-field{
+          }
+          .signup-form-section-error{
+            color: #fb674e;
+            transition: 1s;
+            font-size: 12px;
+          }
+
+        .signup-form-section-label{
+          height: 50px;
+          width: 100%;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+          background-color: white;
+          border-radius: 3px;
+        }
+          .signup-form-section-input{
+            width: 90%;
+            height: 90%;
+          }
+          .signup-form-section-input::placeholder{
+            color: lightgray;
+          }
+          .fas.fa-exclamation{
+            opacity: 0;
+            color: #fb674e;
+            transition: 1s;
+            font-size: 15px;
+          }
+
+      .signup-form-button{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+      }
+        .signup-form-button-p{
+          width: 320px;
+          height: 58px;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          font-size: 15px;
+          font-weight: 500;
+          color: white;
+          border-radius: 5px;
+          background-color: #949aa6;
+          letter-spacing: 1px;
+          transition: 1s;
+        }
+        .signup-form-button-p:hover{
+          background-color: #616772;
+          transition: 1s;
+        }
+        .signup-form-section-next{
+          height: 58px;
+          width: 320px;
+          background-color: #0000bf;
+          color: white;
+          font-weight: 500;
+          letter-spacing: 1px;
+          border-radius: 5px;
+          transition: 1s;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .signup-form-section-next:hover{
+          background-color: #8caae6;
+          transition: 1s;
+        }
+        .signup-form-button.demo{
+            margin-top: 10px;
+          }

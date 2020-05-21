@@ -1,0 +1,216 @@
+.splash{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+}
+
+  .splash-main{
+    height: 766px;
+    display: flex; /* overlay */
+    flex-flow: row nowrap; /* overlay */
+  }
+  .splash-main .splash-bg, .splash-main .splash-content-container{
+    box-sizing: border-box; /* overlay */
+    width: 100%; /* overlay */
+    flex: none; /* overlay */
+  }
+    .splash-bg{
+      display: flex;
+      height: 100%;
+    }
+      .splash-bg-colors{
+        background-color: #f9d5d5;
+        width: 55%;
+        animation: bgcolors 30s infinite;
+      }
+      .splash-bg-images{
+        width: 45%;
+        /* animation: bgimages 60s infinite; */
+        background-image: url('../images/splash/splash-couch.jpg');
+        background-repeat: no-repeat;
+        background-position: 6% 74%;
+        background-size: auto;
+      }
+
+    .splash-content-container{
+      margin-left: -100%; /* overlay */
+      width: 1180px;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+      .splash-nav{
+        padding: 20px 65px;
+        width: 1180px;
+        display: flex;
+        justify-content: space-between;
+      }
+        .splash-nav-logo{
+          font-family: 'plexi';
+          font-size: 55px;
+          color: orangered;
+        }
+        .splash-nav-login{
+          color: white;
+          filter: drop-shadow(0 0 0.75rem black);
+        }
+          .splash-nav-login-btn{
+            border: 1px solid white;
+            border-radius: 5px;
+            margin-left: 10px;
+            padding: 0px 14px;
+            height: 36px;
+            transition: 1s;
+            filter: drop-shadow(0 0 0.75rem black);
+          }
+          .splash-nav-login-btn:hover{
+            border: 1px solid yellow;
+            color: yellow;
+            transition: 1s;
+          }
+
+      .splash-content{
+        width: 1180px;
+        height: 100%;
+      }
+        .splash-content-wrap{
+          width: 50%;
+          margin-left: 65px;
+        }
+          .splash-content-title{
+            font-size: 53px;
+            font-weight: 700;
+            width: 512px;
+            margin: auto;
+            margin-left: 0;
+            padding-bottom: 5px;
+            line-height: 45px;
+          }
+          .splash-content-desc{
+            width: 460px;
+            font-size: 17px;
+            padding-bottom: 25px;
+            padding-top: 25px;
+            line-height: 30px;
+          }
+          .splash-content-tos{
+            font-size: 12px;
+            width: 290px;
+          }
+          .splash-content-join{
+            width: 290px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+          }
+            .splash-content-join-btn{
+              height: 62px;
+              background-color: black;
+              color: white;
+              border-radius: 5px;
+              width: 100%;
+              text-align: center;
+            }
+          .splash-content-mobile{
+            font-size: 14px;
+            font-weight: 500;
+            height: 43px;
+            display: flex;
+            align-items: center;
+          }
+
+  .splash-footer{
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    background-color: #1a1a1a;
+    color: #f3f5f9;
+    height: 196px;
+    padding-top: 56px;
+    padding-bottom: 56px;
+  }
+    .splash-footer-container{
+      width: 1180px;
+      display: flex;
+      justify-content: space-evenly;
+    }
+      .splash-footer-join{
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+        .splash-footer-join-btn{
+          background-color: #34f;
+          height: 48px;
+          width: 224px;
+          text-align: center;
+          border-radius: 5px;
+          transition: 1s;
+          font-size: 14px;
+          font-weight: 500;
+          letter-spacing: 1px;
+        }
+        .splash-footer-join-btn:hover{
+          background-color: #8caae6;
+          transition: 1s;
+        }
+        .splash-footer-join-copyright{
+          font-size: 11px;
+          padding: 15px;
+          color: #666666;
+        }
+
+      .splash-footer-section{
+      }
+        .splash-footer-section-title{
+          font-weight: 500;
+          font-size: 16px;
+          padding-bottom: 5px;
+          letter-spacing: 1px;
+        }
+        .splash-footer-section-links{
+          font-size: 14px;
+        }
+          .splash-footer-section-link{
+            padding-top: 5px;
+            height: 28px;
+          }
+
+@keyframes bgcolors {
+  25% { background-color: #eac1dc; }
+  50% { background-color: #c3b4df; }
+  75% { background-color: #97addd; }
+  100% { background-color: #f9d5d5; }
+}
+
+@keyframes bgimages {
+  0% {
+    background-image: url('../images/splash/splash-couch.jpg');
+    background-repeat: no-repeat;
+    background-position: 6% 74%;
+    background-size: cover;
+  }
+  25% {
+    background-image: url('../images/splash/splash-group.jpg');
+    background-repeat: no-repeat;
+    background-position: 6% 74%;
+    background-size: cover;
+  }
+  50% {
+    background-image: url('../images/splash/splash-newcomer.jpg');
+    background-repeat: no-repeat;
+    background-position: 6% 74%;
+    background-size: cover;
+  }
+  75% {
+    background-image: url('../images/splash/splash-group.jpg');
+    background-repeat: no-repeat;
+    background-position: 6% 74%;
+    background-size: cover;
+  }
+  100% {
+    background-image: url('../images/splash/splash-group.jpg');
+    background-repeat: no-repeat;
+    background-position: 6% 74%;
+    background-size: cover;
+  }
+}
