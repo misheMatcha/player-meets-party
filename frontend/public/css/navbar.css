@@ -1,0 +1,61 @@
+.authbar{
+  /* border: 1px solid blue; */
+  height: 766px;
+  background-color: yellow;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+  .authbar-nav{
+    /* border: 1px solid red; */
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px 65px;
+    width: 1180px;
+    font-size: 14px;
+  }
+    .authbar-nav-logo{
+      /* border: 1px solid red; */
+      font-family: 'plexi';
+      font-size: 55px;
+      /* display: flex;
+      justify-content: center;
+      align-items: center; */
+    }
+      .authbar-nav-logo-p{
+        /* border: 1px solid blue; */
+        /* display: flex;
+        justify-content: center;
+        align-items: center; */
+      }
+    .authbar-nav-login{
+      /* border: 1px solid red; */
+    }
+      .authbar-nav-login-btn{
+        border: 1px solid black;
+        border-radius: 5px;
+        margin-left: 10px;
+        padding: 0px 14px;
+        height: 36px;
+        transition: 1s;
+      }
+      .authbar-nav-login-btn:hover{
+        border: 1px solid gray;
+        color: gray;
+        transition: 1s;
+      }
+
+
+    @keyframes testy {
+      0% { opacity: 1; }
+      50% { opacity: 0; }
+      100% { opacity: 1; }
+    }
+
+    @keyframes bgtrans {
+      50% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/facepaint.jpg"); }
+      75% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/eyemasks.jpg"); }
+      100% { background-image: url("https://chillabit-pro.s3-us-west-1.amazonaws.com/couch.jpg"); }
+    }
