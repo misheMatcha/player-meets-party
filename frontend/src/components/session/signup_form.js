@@ -24,7 +24,7 @@ const SignupForm = props => {
   useEffect(() => {
     return(() => {
     });
-  }, []);
+  }, [user, props.errors]);
 
   const handleInput = (event, field) => {
     switch(field){
@@ -49,75 +49,109 @@ const SignupForm = props => {
     }
   };
 
+  const checkErrors = field => {
+    // if(props.errors[field] && !user[field].length) props.clearErrors();
+    switch(field){
+      case 'name':
+        if(!user[field].length || user[field].length > 0) props.clearErrors()
+        break;
+      case 'email':
+        break;
+      case 'password':
+        break;
+      case 'birthday':
+        break;
+      case 'state':
+        break;
+      case 'zip':
+        break;
+    }
+  };
+
   const handleNewUser = () => {
     props.signup(user);
   };
 
   return(
-    <div className="signup-form">
-      <Link to="/" className="pmp-logo">PMP</Link>
+    <div className='signup-form'>
+      <Link to='/' className='pmp-logo'>PMP</Link>
 
-      <form className="signup-form-wrap" onSubmit={handleNewUser}>
-        <div className="signup-form-header">
+      <form className='signup-form-wrap' onSubmit={handleNewUser}>
+        <div className='signup-form-header'>
           <Link to="/" className="fas fa-chevron-left"/>
           <p className="signup-form-header-title">About you</p>
         </div>
-        <ul>
-          {
-            props.errors.map((err, idx) => (
-              <li key={idx} className="">{err}</li>
-            ))
-          }
-        </ul>
+
+
         <div className="signup-form-section">
           <p className="signup-form-section-title">Welcome! Who are you?</p>
-          <label>Name
-            <input type="text" placeholder='name' onChange={event => {
-              handleInput(event, 'name');
-            }}/>
-          </label>
+          <div className="signup-form-section-input-container">
+            <div className="signup-form-section-field-details">
+              <p className="signup-form-section-field">Name</p>
+              <p className="signup-form-section-error">{props.errors.name}</p>
+            </div>
+            <label className="signup-form-section-label">
+              <input className="signup-form-section-input" type="text" placeholder='Kratos, Isabelle, etc...' onChange={event => {
+                handleInput(event, 'name');
+                checkErrors('name')
+                }}/>
+              <p className="fas fa-exclamation" style={
+                props.errors.name ? {opacity:1} : {opacity:0}
+              }/>
+            </label>
+          </div>
         </div>
+{/* 
+
+        <div className="signup-form-section">
+          <p className="signup-form-section-title">Let's connect! What's your email?</p>
+          <div className="signup-form-section-input-container">
+            <div className="signup-form-section-field-details">
+              <p className="signup-form-section-field">Name</p>
+              <p className="signup-form-section-error">{props.errors.name}</p>
+            </div>
+            <label className="signup-form-section-label">
+              <input className="signup-form-section-input" type="text" placeholder='Kratos, Isabelle, etc...' onChange={event => {
+                handleInput(event, 'name');
+                checkErrors('name')
+                }}/>
+              <p className="fas fa-exclamation" style={
+                props.errors.name ? {opacity:1} : {opacity:0}
+              }/>
+            </label>
+          </div>
+        </div>
+
+
+        <div className="signup-form-section">
+          <p className="signup-form-section-title">Welcome! Who are you?</p>
+          <div className="signup-form-section-input-container">
+            <div className="signup-form-section-field-details">
+              <p className="signup-form-section-field">Name</p>
+              <p className="signup-form-section-error">{props.errors.name}</p>
+            </div>
+            <label className="signup-form-section-label">
+              <input className="signup-form-section-input" type="text" placeholder='Kratos, Isabelle, etc...' onChange={event => {
+                handleInput(event, 'name');
+                checkErrors('name')
+                }}/>
+              <p className="fas fa-exclamation" style={
+                props.errors.name ? {opacity:1} : {opacity:0}
+              }/>
+            </label>
+          </div>
+        </div> */}
+
+
+
+
+
+
+
+
+
         
-        <div className="signup-form-section">
-          {/* <p className="signup-form-title">Welcome! Who are you?</p> */}
-          <label>Email
-            <input type="email" placeholder='your.email@example.com' onChange={event => {
-              handleInput(event, 'email');
-            }}/>
-          </label>
-        </div>
-
-        <div className="signup-form-section">
-          {/* <p className="">Welcome! Who are you?</p> */}
-          <label>Password
-            <input type="password" placeholder='password' onChange={event => {
-              handleInput(event, 'password');
-            }}/>
-          </label>
-        </div>
-
-        <div className="signup-form-section">
-          {/* <p className="">Welcome! Who are you?</p> */}
-          <label>Birthday
-            <input type="text" placeholder='birthday' onChange={event => {
-              handleInput(event, 'birthday');
-            }}/>
-          </label>
-        </div>
-
-        <div className="signup-form-section">
-          {/* <p className="">Welcome! Who are you?</p> */}
-          <label>State
-            <input type="text" placeholder='state' onChange={event => {
-              handleInput(event, 'state');
-            }}/>
-          </label>
-          <label>Zip
-            <input type="number" placeholder='94043, etc...' onChange={event => {
-              handleInput(event, 'zip');
-            }}/>
-          </label>
-        </div>
+       
         <button type="submit">submit</button>
       </form>
     </div>
