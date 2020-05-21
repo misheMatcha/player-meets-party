@@ -21,13 +21,10 @@ const SignupForm = props => {
     password: 'password',
   };
 
-  const [stage, setStage] = useState(1);
-
   useEffect(() => {
-    console.log(user)
     return(() => {
     });
-  }, [user, props.errors, stage]);
+  }, [user, props.errors]);
 
   const handleInput = (event, field) => {
     switch(field){
@@ -84,35 +81,31 @@ const SignupForm = props => {
 
       <form className='signup-form-wrap' onSubmit={handleNewUser}>
         <div className='signup-form-header'>
-          {
-            stage > 1 ? <button type="button" className="fas fa-chevron-left" onClick={() => setStage(stage - 1)}/> : <Link to="/" className="fas fa-chevron-left"/>
-          }
-          
+          <Link to="/" className="fas fa-chevron-left"/>
           <p className="signup-form-header-title">About you</p>
         </div>
 
-        <div className={'signup-form-section' + (stage === 1 ? '' : ' hide')}>
+        <div className="signup-form-section ">
           <p className="signup-form-section-title">Welcome! Who are you?</p>
           <div className="signup-form-section-input-container">
-            <div className="">
-              <div className="signup-form-section-field-details">
-                <p className="signup-form-section-field">Name</p>
-                <p className="signup-form-section-error">{props.errors.name}</p>
-              </div>
-              <label className="signup-form-section-label">
-                <input className="signup-form-section-input" type="text" placeholder='Kratos, Isabelle, etc...' onChange={event => {
-                  handleInput(event, 'name');
-                  checkErrors('name')
-                  }}/>
-                <p className="fas fa-exclamation" style={
-                  props.errors.name ? {opacity:1} : {opacity:0}
-                }/>
-              </label>
+            <div className="signup-form-section-field-details">
+              <p className="signup-form-section-field">Name</p>
+              <p className="signup-form-section-error">{props.errors.name}</p>
             </div>
+            <label className="signup-form-section-label">
+              <input className="signup-form-section-input" type="text" placeholder='Kratos, Isabelle, etc...' onChange={event => {
+                handleInput(event, 'name');
+                checkErrors('name')
+                }}/>
+              <p className="fas fa-exclamation" style={
+                props.errors.name ? {opacity:1} : {opacity:0}
+              }/>
+            </label>
+            <button className="signup-form-section-next" type="button">NEXT</button>
           </div>
         </div>
 
-        <div className={'signup-form-section' + (stage === 2 ? '' : ' hide')}>
+        <div className="signup-form-section hide">
           <p className="signup-form-section-title">Let's connect!<br/>What's your email?</p>
           <div className="signup-form-section-input-container">
             <div className="signup-form-section-field-details">
@@ -131,7 +124,7 @@ const SignupForm = props => {
           </div>
         </div>
 
-        <div className={'signup-form-section' + (stage === 3 ? '' : ' hide')}>
+        <div className="signup-form-section hide">
           <p className="signup-form-section-title">Create a password</p>
           <div className="signup-form-section-input-container">
             <div className="signup-form-section-field-details">
@@ -150,7 +143,7 @@ const SignupForm = props => {
           </div>
         </div>
 
-        <div className={'signup-form-section' + (stage === 4 ? '' : ' hide')}>
+        <div className="signup-form-section hide">
           <p className="signup-form-section-title">When's your birthday?</p>
           <div className="signup-form-section-input-container">
             <div className="signup-form-section-field-details">
@@ -169,7 +162,7 @@ const SignupForm = props => {
           </div>
         </div>
 
-        <div className={'signup-form-section' + (stage === 5 ? '' : ' hide')}>
+        <div className="signup-form-section hide">
           <p className="signup-form-section-title">Where you at?</p>
           <div className="signup-form-section-input-container">
             <div className="signup-form-section-input-wrap">
@@ -206,21 +199,8 @@ const SignupForm = props => {
             </div>
           </div>
         </div>
-        <div className="buffer"/>
-        {
-          stage <= 4 ? (
-            <div className="signup-form-button">
-          <button type="button" className="signup-form-section-next" onClick={() => {
-            if(stage < 5) setStage(stage + 1);
-          }}>NEXT</button>
-        </div>
-          ) : (
-            <div className="signup-form-button">
-          <button type="submit" className="signup-form-button-p">SIGN UP</button>
-        </div>
-          )
-        }
-        
+
+        <button className="signup-form-button hide" type="submit"><p className="signup-form-button-p hide">SIGN UP</p></button>
       </form>
     </div>
   );
