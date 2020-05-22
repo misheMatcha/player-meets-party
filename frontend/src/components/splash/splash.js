@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 const Splash = props => {
   return(
@@ -11,7 +12,7 @@ const Splash = props => {
         <div className='splash-content-container'>
           <div className='splash-nav'>
             <div className='splash-nav-logo'>PMP</div>
-            <div className='splash-nav-login'>Have an account? <button className='splash-nav-login-btn'>Sign in</button></div>
+            <div className='splash-nav-login'>Have an account? {props.login}</div>
           </div>
           <div className='splash-content'>
             <div className='splash-content-wrap'>
@@ -23,7 +24,7 @@ const Splash = props => {
                 By clicking Join, you agree to our Terms. Learn how we process your data in our Privacy Policy and Cookies Policy.
               </div>
               <div className='splash-content-join'>
-                <button className='splash-content-join-btn'>JOIN PMP</button>
+                <Link to='/signup' className='splash-content-join-btn'>JOIN PLAYER MEETS PARTY</Link>
               </div>
               <div className='splash-content-mobile'>
                 Coming soon to android and iOS.
@@ -35,7 +36,7 @@ const Splash = props => {
       <div className='splash-footer'>
         <div className='splash-footer-container'>
           <div className='splash-footer-join'>
-            <button className='splash-footer-join-btn'>JOIN PMP</button>
+            <Link to='/signup' className='splash-footer-join-btn'>JOIN PLAYER MEETS PARTY</Link>
             <p className='splash-footer-join-copyright'>© PMP 2020</p>
           </div>
           <div className='splash-footer-section'>
