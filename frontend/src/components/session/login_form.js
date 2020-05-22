@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const LoginForm = props => {
   const [email, setEmail] = useState('');
@@ -12,7 +12,22 @@ const LoginForm = props => {
     password: 'password'
   };
 
-  console.log(props.errors)
+  useEffect(() => {
+    console.log(user)
+    return(() => {
+    });
+  }, [user]);
+
+  const handleInput = (event, field) => {
+    switch(field){
+      case 'email':
+        setEmail(event.target.value);
+        break;
+      case 'password':
+        setPassword(event.target.value);
+        break;
+    }
+  };
 
   return(
     <div className='login-form-container'>
@@ -20,29 +35,33 @@ const LoginForm = props => {
         <p className='fas fa-times' onClick={props.closeModal}/>
       </div>
       <div className='login-form-title'>Enter email and password</div>
-      <form className='login-form' onSubmit={() => console.log('submitted')}>
+      <form className='login-form' onSubmit={() => props.login(user)}>
         <div className='login-form-section-wrap'>
           <div className='login-form-section'>
             <div className='login-form-section-header'>
               <p className='login-form-section-title'>Email</p>
-              <p className='login-form-section-error'></p>
             </div>
             <label className='login-form-section-label'>
-              <input className='login-form-section-input' type='email' placeholder='Email'/>
+              <input className='login-form-section-input' type='email' placeholder='Email' onChange={event => handleInput(event, 'email')}/>
             </label>
           </div>
-          <div className='login-form-section'>
+          <div className='login-form-section lfs-pw'>
             <div className='login-form-section-header'>
               <p className='login-form-section-title'>Password</p>
-              <p className='login-form-section-error'></p>
             </div>
             <label className='login-form-section-label'>
-              <input className='login-form-section-input' type='password' placeholder='Password'/>
+              <input className='login-form-section-input' type='password' placeholder='Password' onChange={event => handleInput(event, 'password')}/>
             </label>
           </div>
         </div>
+        <ul className='login-form-errorlist'>
+          {
+            props.errors.map((err, idx) => (
+              <li key={idx} className='login-form-error'>* {err}</li>
+            ))
+          }
+        </ul>
         <button className='login-form-btn' type='submit'>NEXT</button>
-
         <p className='login-form-pw'>FORGOT PASSWORD?</p>
         <div className='login-form-misc'>
           <div className='login-form-hr'/><p className='or'>or</p><div className='login-form-hr'/>
