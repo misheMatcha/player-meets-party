@@ -14,8 +14,8 @@ const Modal = props => {
   }
 
   return(
-    <div className='' onClick={props.closeModal}>
-      <div className='' onClick={event => event.stopPropagation()}>
+    <div className='modal-background' onClick={props.closeModal}>
+      <div className='modal-child' onClick={event => event.stopPropagation()}>
         { component }
       </div>
     </div>

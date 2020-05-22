@@ -12,7 +12,7 @@ const Splash = props => {
         <div className='splash-content-container'>
           <div className='splash-nav'>
             <div className='splash-nav-logo'>PMP</div>
-            <div className='splash-nav-login'>Have an account? <button className='splash-nav-login-btn'>Sign in</button></div>
+            <div className='splash-nav-login'>Have an account? {props.login}</div>
           </div>
           <div className='splash-content'>
             <div className='splash-content-wrap'>
