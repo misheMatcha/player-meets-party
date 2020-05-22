@@ -1,11 +1,15 @@
 import { connect } from 'react-redux';
 import { login } from '../../actions/session_actions';
-import SessionFrom from './login_form';
+import { closeModal } from '../../actions/modal_actions';
+import LoginForm from './login_form';
 
 const mSTP = state => ({
+  errors: state.errors.session
 });
 
 const mDTP = dispatch => ({
+  login: user => dispatch(login(user)),
+  closeModal: () => dispatch(closeModal())
 });
 
-export default connect(mSTP, mDTP)(SessionFrom);
+export default connect(mSTP, mDTP)(LoginForm);

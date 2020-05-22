@@ -1,0 +1,116 @@
+.login-form-container{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  height: 520px;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  border-radius: 5px;
+}
+  .login-form-close{
+    width: 90%;
+    display: flex;
+    justify-content: flex-end;
+    height: 30px;
+    align-items: center;
+    padding: 3px 0px;
+  }
+    .fas.fa-times{
+      padding: 3px;
+      cursor: pointer;
+      margin-top: 17px;
+    }
+  .login-form-title{
+    font-size: 24px;
+    font-weight: 600;
+  }
+  .login-form{
+    width: 295px;
+    padding: 30px 40px;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+  }
+    .login-form-section-wrap{
+    }
+      .login-form-section{
+        width: 100%;
+        padding-bottom: 5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        flex-direction: column;
+      }
+        .login-form-section-header{
+          display: flex;
+          justify-content: flex-start;
+          width: 100%;
+        }
+          .login-form-section-title{
+            height: 30px;
+          }
+          .login-form-section-error{
+          }
+
+        .login-form-section-label{
+          border: 1px solid gray;
+          width: 100%;
+          height: 50px;
+          border-radius: 5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+          .login-form-section-input{
+            width: 85%;
+            height: 90%;
+          }
+
+    .login-form-btn{
+      width: 100%;
+      background-color: #2a2f35;
+      height: 58px;
+      border-radius: 5px;
+      color: white;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .login-form-pw{
+      height: 58px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+    .login-form-misc{
+      display: flex;
+      width: 100%;
+      justify-content: space-evenly;
+      align-items: center;
+      padding-bottom: 20px;
+    }
+      .login-form-hr{
+        border-bottom: .1px solid black;
+        width: 100px;
+      }
+      .or{
+        letter-spacing: 1px;
+      }
+
+    .login-form-demo{
+      background-color: #97addd;
+      height: 58px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      color: yellow;
+      border-radius: 5px;
+      transition: 1s;
+    }
+    .login-form-demo:hover{
+      background-color: #c3b4df;
+      transition: 1s;
+    }
