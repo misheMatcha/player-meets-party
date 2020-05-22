@@ -13,10 +13,9 @@ const LoginForm = props => {
   };
 
   useEffect(() => {
-    console.log(user)
     return(() => {
     });
-  }, [user]);
+  }, []);
 
   const handleInput = (event, field) => {
     switch(field){
@@ -35,7 +34,10 @@ const LoginForm = props => {
         <p className='fas fa-times' onClick={props.closeModal}/>
       </div>
       <div className='login-form-title'>Enter email and password</div>
-      <form className='login-form' onSubmit={() => props.login(user)}>
+      <form className='login-form' onSubmit={() => {
+        props.login(user)
+        props.clearErrors()
+        }}>
         <div className='login-form-section-wrap'>
           <div className='login-form-section'>
             <div className='login-form-section-header'>
