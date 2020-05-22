@@ -18,22 +18,59 @@
       height: 100%;
     }
       .splash-bg-colors{
-        /* background-color: #f9d5d5; */
+        background-color: #f9d5d5;
         width: 55%;
-        /* animation: bgcolors 30s infinite; */
+        animation: bgcolors 80s infinite;
       }
       .splash-bg-images{
         width: 45%;
-        /* animation: bgimages 30s infinite; */
-        /* background-image: url('../images/splash/splash-couch.jpg');
-        background-repeat: no-repeat;
-        background-position: 6% 74%;
-        background-size: auto; */
-        background-image: url('../images/splash/splash-newcomer.jpg');
-        background-repeat: no-repeat;
-        /* background-position: 6% 74%; */
-        background-size: auto;
+        display: flex;
+        flex-flow: row nowrap;
       }
+      .splash-bg-images .splash-bg-image-1, .splash-bg-images .splash-bg-image-2, .splash-bg-images .splash-bg-image-3, .splash-bg-images .splash-bg-image-4, .splash-bg-images .splash-bg-image-5{
+          width: 100%;
+          box-sizing: border-box;
+          flex: none;
+        }
+        .splash-bg-images .splash-bg-image-2, .splash-bg-images .splash-bg-image-3, .splash-bg-images .splash-bg-image-4, .splash-bg-images .splash-bg-image-5{
+          margin-left: -100%;
+          opacity: 0;
+        }
+        .splash-bg-image-1{
+          background-image: url('../images/splash/splash-jenga.jpg');
+          background-repeat: no-repeat;
+          background-position: 6% 74%;
+          background-size: cover;
+          opacity: 1;
+        }
+        .splash-bg-image-2{
+          background-image: url('../images/splash/splash-newcomer.jpg');
+          background-repeat: no-repeat;
+          background-position: 6% 74%;
+          background-size: auto;
+          animation: bgtrans-1 80s alternate infinite;
+        }
+        .splash-bg-image-3{
+          background-image: url('../images/splash/splash-kiss.jpg');
+          background-repeat: no-repeat;
+          background-position: 6% 74%;
+          background-size: auto;
+          animation: bgtrans-2 80s alternate infinite;
+        }
+        .splash-bg-image-4{
+          background-image: url('../images/splash/splash-cafe.jpg');
+          background-repeat: no-repeat;
+          background-position: 11% 3%;
+          background-size: auto;
+          /* animation: bgimages 10s 15s infinite; */
+        }
+        .splash-bg-image-5{
+          background-image: url('../images/splash/splash-sunlight.jpg');
+          background-repeat: no-repeat;
+          background-position: 26% 80%;
+          background-size: auto;
+          /* animation: bgimages 10s 20s infinite; */
+        }
 
     .splash-content-container{
       margin-left: -100%; /* overlay */
@@ -191,35 +228,27 @@
   100% { background-color: #f9d5d5; }
 }
 
-@keyframes bgimages {
-  0% {
-    background-image: url('../images/splash/splash-couch.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  25% {
-    background-image: url('../images/splash/splash-group.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  50% {
-    background-image: url('../images/splash/splash-newcomer.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  75% {
-    background-image: url('../images/splash/splash-group.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  100% {
-    background-image: url('../images/splash/splash-group.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
+@keyframes bgtrans-1 {
+  6% { opacity: 0; }
+  12%, 100% { opacity: 1; }
+}
+
+@keyframes bgtrans-2 {
+  18% { opacity: 0; }
+  21%, 100% { opacity: 1; }
+}
+
+@keyframes bgtrans-3 {
+  6% { opacity: 0; }
+  12%, 100% { opacity: 1; }
+}
+
+@keyframes bgtrans-4 {
+  6% { opacity: 0; }
+  12%, 100% { opacity: 1; }
+}
+
+@keyframes bgtrans-5 {
+  6% { opacity: 0; }
+  12%, 100% { opacity: 1; }
 }

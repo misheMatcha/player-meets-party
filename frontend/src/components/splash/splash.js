@@ -7,7 +7,13 @@ const Splash = props => {
       <div className='splash-main'>
         <div className='splash-bg'>
           <div className='splash-bg-colors'/>
-          <div className='splash-bg-images'/>
+          <div className='splash-bg-images'>
+            <div className='splash-bg-image-1'/>
+            <div className='splash-bg-image-2'/>
+            <div className='splash-bg-image-3'/>
+            <div className='splash-bg-image-4'/>
+            <div className='splash-bg-image-5'/>
+          </div>
         </div>
         <div className='splash-content-container'>
           <div className='splash-nav'>
