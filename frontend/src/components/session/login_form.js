@@ -25,6 +25,7 @@ const LoginForm = props => {
       case 'password':
         setPassword(event.target.value);
         break;
+      default:
     }
   };
 
