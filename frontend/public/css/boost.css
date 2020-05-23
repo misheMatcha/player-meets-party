@@ -4,15 +4,29 @@
   height: 449px;
   width: 840px;
   padding: 60px;
-  display: flex;
 }
-  .boost-content{
-    background-color: blue;
-    width: 50%;
+  .boost-wrap{
+    border-radius: 5px;
+    width: 100%;
+    display: flex;
   }
+  .boost-content{
+    background-color: #4c7bd9;
+    width: 296px;
+    padding: 32px;
+    display: flex;
+    justify-content: center;
+  }
+    .boost-mascot{
+      width: 182px;
+      height: 197.47px;
+      padding-bottom: 17px;
+    }
+
+
   .boost-options{
     background-color: white;
-    width: 50%;
+    width: 360px;
   }
     .boost-form{
       padding: 30px;

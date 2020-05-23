@@ -1,16 +1,17 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({boost}) => {
+const Navbar = ({boost, open}) => {
   const placeholder = {
     username: 'Michelle',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg'
   };
 
   useEffect(() => {
+    open()
     return(() => {
     })
-  }, []);
+  }, [open]);
 
   return(
     <div className='navbar-container'>
