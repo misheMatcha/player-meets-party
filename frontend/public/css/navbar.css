@@ -8,19 +8,22 @@
 }
   .navbar{
     width: 1440px;
-    border: 1px solid red;
+    /* border: 1px solid red; */
     height: 100%;
     display: flex;
     justify-content: space-between;
   }
     .navbar-content{
       border: 1px solid black;
+      display: flex;
+      justify-content: center;
+      align-items: center;
     }
       .navbar-content-logo{
         border: 1px solid black;
       }
       .navbar-content-links-wrap{
-        border: 1px solid black;
+        border: 1px solid blue;
       }
         .navbar-content-link{
           border: 1px solid red;
@@ -36,6 +39,16 @@
       .navbar-profile{
         border: 1px solid purple;
       }
+        .navbar-profile-img{
+          /* border: 1px solid purple; */
+          width: 40px;
+          height: 40px;
+          border-radius: 20px;
+        }
+        .navbar-profile-user{
+          border: 1px solid purple;
+        }
+
       .navbar-join{
         border: 1px solid purple;
       }
