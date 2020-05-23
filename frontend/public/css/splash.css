@@ -18,17 +18,14 @@
       height: 100%;
     }
       .splash-bg-colors{
-        background-color: #05ffa1;
+        background-color: #ff71ce;
         width: 55%;
-        animation: bgcolors 80s alternate;
+        animation: bgcolors 50s infinite;
       }
       .splash-bg-images{
         width: 45%;
         display: flex;
         flex-flow: row nowrap;
-        /* background-image: url('../images/splash/splash-normal.jpg'); */
-        /* background-repeat: no-repeat;
-        background-size: cover; */
       }
       .splash-bg-images .splash-bg-image-1, .splash-bg-images .splash-bg-image-2, .splash-bg-images .splash-bg-image-3, .splash-bg-images .splash-bg-image-4, .splash-bg-images .splash-bg-image-5{
           width: 100%;
@@ -226,10 +223,11 @@
           }
 
 @keyframes bgcolors {
-  25% { background-color: #ff71ce; }
-  50% { background-color: #b967ff; }
-  75% { background-color: #01cdfe; }
-  100% { background-color: #fffb96; }
+  8%, 68% { background-color: #ff71ce; }
+  10%, 16%, 60%, 66% { background-color: #05ffa1; }
+  18%, 24%, 52%, 58% { background-color: #b967ff; }
+  26%, 32%, 44%, 50% { background-color: #01cdfe; }
+  34%, 42% { background-color: #fffb96; }
 }
 
 @keyframes bgtrans-1 {
