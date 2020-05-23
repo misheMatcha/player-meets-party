@@ -10,9 +10,7 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
   boost: (
     <button className='navbar-btn nbboost' onClick={() => dispatch(openModal('boost'))}><div className='fas fa-bolt'/> BOOST</button>
-  ),
-  // for testing/styling
-  open: () => dispatch(openModal('boost'))
+  )
 });
 
 export default connect(mSTP, mDTP)(Navbar);

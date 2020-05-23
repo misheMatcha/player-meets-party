@@ -6,6 +6,12 @@ const Boost = ({closeModal}) => {
       <div className='boost-wrap'>
         <div className='boost-content'>
           <img className='boost-mascot' src='https://chillabit-pro.s3-us-west-1.amazonaws.com/boost-mascot-teal.png' alt='boost'/>
+          <div className='boost-content-desc'>
+            <div className='boost-content-desc-section'>
+              <p className='boost-content-desc-title'>Step into the spotlight</p>
+              <p className='boost-content-desc-detail'>We’ve supercharged Boost so you get more likes faster.</p>
+            </div>
+          </div>
         </div>
         <div className='boost-options'>
           <form className='boost-form' onSubmit={() => console.log('submitted')}>

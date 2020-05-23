@@ -1,17 +1,16 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({boost, open}) => {
+const Navbar = ({boost}) => {
   const placeholder = {
-    username: 'Michelle',
+    username: 'as',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg'
   };
 
   useEffect(() => {
-    open()
     return(() => {
     })
-  }, [open]);
+  }, []);
 
   return(
     <div className='navbar-container'>
@@ -22,7 +21,7 @@ const Navbar = ({boost, open}) => {
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/doubletake'><div className='far fa-images'/> DoubleTake</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/discover'><div className='far fa-compass'/> Discover</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/search'><div className='fas fa-search'/> Search</NavLink>
-            <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/likes'><div className='far fa-heart'/> Likes</NavLink>
+            <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/who-likes-you'><div className='far fa-heart'/> Likes</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/messages'><div className='far fa-comment-alt'/> Messages</NavLink>
           </div>
         </div>

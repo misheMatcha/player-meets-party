@@ -2,11 +2,15 @@
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
   height: 449px;
-  width: 840px;
+  /* width: 840px; */
   padding: 60px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
   .boost-wrap{
-    border-radius: 5px;
+    /* background-color: white; */
+    /* border-radius: 5px; */
     width: 100%;
     display: flex;
   }
@@ -15,14 +19,31 @@
     width: 296px;
     padding: 32px;
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    color: white;
+    text-align: center;
   }
     .boost-mascot{
       width: 182px;
       height: 197.47px;
       padding-bottom: 17px;
     }
-
+      .boost-content-desc{
+        /* border: 1px solid yellow; */
+      }
+        .boost-content-desc-section{
+          /* border: 1px solid yellow; */
+        }
+          .boost-content-desc-title{
+            /* border: 1px solid yellow; */
+            font-size: 23px;
+            padding-bottom: 16px;
+          }
+          .boost-content-desc-detail{
+            /* border: 1px solid yellow; */
+            font-size: 17px;
+          }
 
   .boost-options{
     background-color: white;
