@@ -64,7 +64,10 @@
       display: flex;
       align-items: center;
     }
-      .navbar-profile{
+
+    .navbar-profile-dropdown{}
+
+      .navbar-profile-btn{
         display: flex;
         align-items: center;
       }
