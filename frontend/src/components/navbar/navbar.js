@@ -8,7 +8,7 @@ const Navbar = ({boost, logout}) => {
     msgArr: {
       name: 'Alice',
       age: 36,
-      sent: '2020/04/03',
+      sent: '3 months ago',
       msg: 'Hi, this is some blurb to fill up space to test if my dropdown is working.'
     }
   };
@@ -43,7 +43,7 @@ const Navbar = ({boost, logout}) => {
                   </div>
                   {/* end */}
                 </div>
-                <button className='navbar-msg-all'>SEE ALL</button>
+                <button className='navbar-msg-all'>SEE ALL <p className='fas fa-angle-right'/></button>
               </div>
             </div>
           </div>

@@ -64,13 +64,15 @@
           margin-left: -347px;
           display: flex;
           flex-direction: column;
+          margin-top: 4px;
         }
           .navbar-msg-list{
             height: 312px;
           }
             .navbar-msg-section{
               display: flex;
-              padding: 16px;
+              padding: 16px;align-items: center;
+              height: 72px;
             }
               .navbar-msg-section-profile{
                 width: 70px;
@@ -78,23 +80,48 @@
                 border-radius: 40px;
               }
               .navbar-msg-section-details{
-                /* border: 1px solid black; */
                 margin-left: 15px;
+                color: white;
+                width: 200px;
+                height: 100%;
+                display: flex;
+                flex-direction: column;
+                justify-content: space-evenly;
               }
                 .navbar-msg-section-user{
-                  /* border: 1px solid black; */
+                  font-size: 20px;
                 }
                 .navbar-msg-section-msg{
-                  /* border: 1px solid black; */
+                  white-space: nowrap;
+                  overflow: hidden;
+                  text-overflow: ellipsis;
                 }
 
               .navbar-msg-section-date{
-                /* border: 1px solid black; */
+                height: 100%;
+                display: flex;
+                justify-content: center;
+                align-items: center;
+                font-size: 12px;
+                margin-left: 15px;
               }
 
           .navbar-msg-all{
             border: 1px solid #666;
             height: 52px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            font-weight: 500;
+            letter-spacing: .5px;
+          }
+            .fas.fa-angle-right{
+              margin-left: 5px;
+            }
+
+          .navbar-msg-all:hover, .navbar-msg-section:hover{
+            background-color: #333;
           }
 
         .far.fa-images, .far.fa-compass, .fas.fa-search, .far.fa-heart, .far.fa-comment-alt{
@@ -143,7 +170,6 @@
 
       .navbar-profile-list{
         background-color: #1a1a1a;
-        margin-top: -3px;
         border: 1px solid #666;
         width: 100%;
         border-radius: 2px;
@@ -189,7 +215,7 @@
   display: inline;
 }
   .dropdown-content{
-    /* display: none; */
+    display: none;
     position: absolute;
     z-index: 1;
   }
