@@ -1,0 +1,17 @@
+.boost{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  border: 1px solid black;
+  height: 549px;
+  width: 840px;
+  padding: 60px;
+  display: flex;
+}
+  .boost-content{
+    background-color: blue;
+    width: 50%;
+  }
+  .boost-options{
+    background-color: white;
+    width: 50%;
+  }

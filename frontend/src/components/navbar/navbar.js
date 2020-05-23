@@ -1,13 +1,14 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = props => {
+const Navbar = ({boost, open}) => {
   const placeholder = {
     username: 'Michelle',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg'
   };
 
   useEffect(() => {
+    open()
     return(() => {
     })
   }, []);
@@ -27,12 +28,12 @@ const Navbar = props => {
         </div>
         <div className='navbar-misc'>
           <div className='navbar-profile'>
-            <img className='navbar-profile-img' src={placeholder.profile}/>
+            <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
             <p className='navbar-profile-user'>{placeholder.username}</p>
             <div className='fas fa-angle-down'/>
           </div>
           <button className='navbar-btn nbjoin'>JOIN A-LIST</button>
-          <button className='navbar-btn nbboost'><div className='fas fa-bolt'/> BOOST</button>
+          {boost}
         </div>
       </div>
     </div>
