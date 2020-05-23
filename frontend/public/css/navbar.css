@@ -7,7 +7,6 @@
   color: white;
   display: flex;
   justify-content: center;
-  border-bottom: 4px solid #1a1a1a;
 }
   .navbar{
     width: 1440px;
@@ -25,21 +24,34 @@
         font-size: 50px;
         color: orangered;
         padding: 0 10px;
+        height: 100%;
+        display: flex;
+        align-items: center;
       }
       .navbar-content-links-wrap{
         display: flex;
         height: 100%;
         color: #8c8c8c;
+        margin: 0;
       }
         .navbar-content-link{
           padding: 0 16px;
-          height: 100%;
+          height: 94%;
           display: flex;
           align-items: center;
+        }
+        .navbar-content-link:hover{
+          background-color: #333;
+          border-bottom: 4px solid #333;
         }
         .navbar-content-link-active{
           border-bottom: 4px solid #ff71ce;
           color: white;
+        }
+        .navbar-content-link-active:hover{
+          border-bottom: 4px solid #ff71ce;
+          color: white;
+          background-color: #333;
         }
         .far.fa-images, .far.fa-compass, .fas.fa-search, .far.fa-heart, .far.fa-comment-alt{
           margin-right: 8px;
