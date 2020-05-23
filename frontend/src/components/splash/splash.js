@@ -1,18 +1,29 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Splash = props => {
+const Splash = ({login}) => {
+  useEffect(() => {
+    return(() => {
+    });
+  }, []);
+
   return(
     <div className='splash'>
       <div className='splash-main'>
         <div className='splash-bg'>
           <div className='splash-bg-colors'/>
-          <div className='splash-bg-images'/>
+          <div className='splash-bg-images'>
+            <div className='splash-bg-image-1'/>
+            <div className='splash-bg-image-2'/>
+            <div className='splash-bg-image-3'/>
+            <div className='splash-bg-image-4'/>
+            <div className='splash-bg-image-5'/>
+          </div>
         </div>
         <div className='splash-content-container'>
           <div className='splash-nav'>
             <div className='splash-nav-logo'>PMP</div>
-            <div className='splash-nav-login'>Have an account? {props.login}</div>
+            <div className='splash-nav-login'>Have an account? {login}</div>
           </div>
           <div className='splash-content'>
             <div className='splash-content-wrap'>
@@ -37,7 +48,7 @@ const Splash = props => {
         <div className='splash-footer-container'>
           <div className='splash-footer-join'>
             <Link to='/signup' className='splash-footer-join-btn'>JOIN PLAYER MEETS PARTY</Link>
-            <p className='splash-footer-join-copyright'>© PMP 2020</p>
+            <p className='splash-footer-join-copyright'>© Player Meets Party 2020</p>
           </div>
           <div className='splash-footer-section'>
             <div className='splash-footer-section-title'>COMPANY</div>

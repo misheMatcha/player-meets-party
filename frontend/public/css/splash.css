@@ -18,18 +18,60 @@
       height: 100%;
     }
       .splash-bg-colors{
-        background-color: #f9d5d5;
+        background-color: #b967ff;
         width: 55%;
-        animation: bgcolors 30s infinite;
+        animation: bgcolors 50s infinite;
       }
       .splash-bg-images{
         width: 45%;
-        /* animation: bgimages 60s infinite; */
-        background-image: url('../images/splash/splash-couch.jpg');
-        background-repeat: no-repeat;
-        background-position: 6% 74%;
-        background-size: auto;
+        display: flex;
+        flex-flow: row nowrap;
       }
+      .splash-bg-images .splash-bg-image-1, .splash-bg-images .splash-bg-image-2, .splash-bg-images .splash-bg-image-3, .splash-bg-images .splash-bg-image-4, .splash-bg-images .splash-bg-image-5{
+          width: 100%;
+          box-sizing: border-box;
+          flex: none;
+          transition: 1s;
+          background-repeat: no-repeat;
+          background-size: cover;
+        }
+        .splash-bg-images .splash-bg-image-2, .splash-bg-images .splash-bg-image-3, .splash-bg-images .splash-bg-image-4, .splash-bg-images .splash-bg-image-5{
+          margin-left: -100%;
+          opacity: 0;
+          transition: 5s;
+        }
+        .splash-bg-image-1{
+          background-image: url('../images/splash/splash-hello.jpg');
+          background-position: 0 14%;
+          opacity: 1;
+          animation: bgtrans-1 50s infinite;
+        }
+        .splash-bg-image-2{
+          background-image: url('../images/splash/splash-cafe.jpg');
+          background-position: 0% 3%;
+          animation: bgtrans-2 50s infinite;
+        }
+        .splash-bg-image-3{
+          background-image: url('../images/splash/splash-kiss.jpg');
+          background-position: 6% 74%;
+          animation: bgtrans-3 50s infinite;
+        }
+        .splash-bg-image-4{
+          background-image: url('../images/splash/splash-pink.jpg');
+          background-position: 15%;
+          animation: bgtrans-4 50s infinite;
+        }
+        .splash-bg-image-5{
+          background-image: url('../images/splash/splash-blue.jpg');
+          background-position: 50%;
+          animation: bgtrans-5 50s infinite;
+        }
+        .opacity-hide{
+          opacity: 0;
+        }
+        .opacity-show{
+          opacity: 1;
+        }
 
     .splash-content-container{
       margin-left: -100%; /* overlay */
@@ -60,7 +102,7 @@
             padding: 0px 14px;
             height: 36px;
             transition: 1s;
-            filter: drop-shadow(0 0 0.75rem black);
+            /* filter: drop-shadow(0 0 0.75rem black); */
           }
           .splash-nav-login-btn:hover{
             border: 1px solid yellow;
@@ -181,41 +223,39 @@
           }
 
 @keyframes bgcolors {
-  25% { background-color: #eac1dc; }
-  50% { background-color: #c3b4df; }
-  75% { background-color: #97addd; }
-  100% { background-color: #f9d5d5; }
+  8%, 68% { background-color: #b967ff; }
+  10%, 16%, 60%, 66% { background-color: #01cdfe; }
+  18%, 24%, 52%, 58% { background-color: #ff71ce; }
+  26%, 32%, 44%, 50% { background-color: #05ffa1; }
+  34%, 42% { background-color: #fffb96; }
 }
 
-@keyframes bgimages {
-  0% {
-    background-image: url('../images/splash/splash-couch.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  25% {
-    background-image: url('../images/splash/splash-group.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  50% {
-    background-image: url('../images/splash/splash-newcomer.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  75% {
-    background-image: url('../images/splash/splash-group.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
-  100% {
-    background-image: url('../images/splash/splash-group.jpg');
-    background-repeat: no-repeat;
-    background-position: 6% 74%;
-    background-size: cover;
-  }
+@keyframes bgtrans-1 {
+  8% { opacity: 1; }
+  10%, 66% { opacity: 0; }
+  67% { opacity: 1; }
+}
+
+@keyframes bgtrans-2 {
+  8% { opacity: 0; }
+  10%, 66% { opacity: 1; }
+  68%, 100% { opacity: 0; }
+}
+
+@keyframes bgtrans-3 {
+  16% { opacity: 0; }
+  18%, 58% { opacity: 1; }
+  60%, 100% { opacity: 0; }
+}
+
+@keyframes bgtrans-4 {
+  24% { opacity: 0; }
+  26%, 50% { opacity: 1; }
+  52%, 100% { opacity: 0; }
+}
+
+@keyframes bgtrans-5 {
+  32% { opacity: 0; }
+  34%, 42% { opacity: 1; }
+  44%, 100% { opacity: 0; }
 }

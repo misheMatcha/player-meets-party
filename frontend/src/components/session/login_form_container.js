@@ -4,7 +4,8 @@ import { closeModal } from '../../actions/modal_actions';
 import LoginForm from './login_form';
 
 const mSTP = state => ({
-  errors: Object.values(state.errors.session)
+  errors: Object.values(state.errors.session),
+  loggedIn: state.session.isAuthenticated
 });
 
 const mDTP = dispatch => ({
