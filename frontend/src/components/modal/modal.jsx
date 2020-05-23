@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginForm from '../session/login_form_container';
+import Boost from '../boost/boost_container';
 
 const Modal = props => {
   if(!props.modal) return null;
@@ -8,6 +9,9 @@ const Modal = props => {
   switch(props.modal){
     case 'login':
       component = <LoginForm />;
+      break;
+    case 'boost':
+      component = <Boost />;
       break;
     default:
       return null;
