@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import { withRouter } from 'react-router-dom';
 
 const LoginForm = props => {
   const [email, setEmail] = useState('');
@@ -13,9 +14,10 @@ const LoginForm = props => {
   };
 
   useEffect(() => {
+    console.log(props.loggedIn)
     return(() => {
     });
-  }, []);
+  }, [props.loggedIn]);
 
   const handleInput = (event, field) => {
     switch(field){
@@ -27,6 +29,17 @@ const LoginForm = props => {
         break;
       default:
     }
+  };
+
+  const handleLogin = type => {
+    console.log('beginning')
+    let userObj;
+    type === 'demo' ? (userObj = guest) : (userObj = user);
+    props.login(userObj).then(() => {
+      console.log('mid')
+      props.history.push('/doubletake')
+    })
+    console.log('end')
   };
 
   return(
@@ -69,10 +82,13 @@ const LoginForm = props => {
         <div className='login-form-misc'>
           <div className='login-form-hr'/><p className='or'>or</p><div className='login-form-hr'/>
         </div>
-        <button className='login-form-demo' onClick={() => props.login(guest)}>DEMO LOGIN</button>
+        <button type='button' className='login-form-demo' onClick={(event) => {
+          event.preventDefault()
+          handleLogin('demo')
+      }}>DEMO LOGIN</button>
       </form>
     </div>
   );
 };
 
-export default LoginForm;
+export default withRouter(LoginForm);

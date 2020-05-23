@@ -1,7 +1,12 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { Link } from 'react-router-dom';
 
-const Splash = props => {
+const Splash = ({login}) => {
+  useEffect(() => {
+    return(() => {
+    });
+  }, []);
+
   return(
     <div className='splash'>
       <div className='splash-main'>
@@ -18,7 +23,7 @@ const Splash = props => {
         <div className='splash-content-container'>
           <div className='splash-nav'>
             <div className='splash-nav-logo'>PMP</div>
-            <div className='splash-nav-login'>Have an account? {props.login}</div>
+            <div className='splash-nav-login'>Have an account? {login}</div>
           </div>
           <div className='splash-content'>
             <div className='splash-content-wrap'>
