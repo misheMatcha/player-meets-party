@@ -1,16 +1,16 @@
 import React, { useEffect } from 'react';
 import { NavLink } from 'react-router-dom';
 
-const Navbar = ({boost}) => {
+const Navbar = ({boost, logout}) => {
   const placeholder = {
     username: 'Mishe',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg',
-    msgArr: [{
+    msgArr: {
       name: 'Alice',
       age: 36,
       sent: '2020/04/03',
       msg: 'Hi, this is some blurb to fill up space to test if my dropdown is working.'
-    }]
+    }
   };
 
   useEffect(() => {
@@ -28,27 +28,22 @@ const Navbar = ({boost}) => {
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/discover'><div className='far fa-compass'/> Discover</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/search'><div className='fas fa-search'/> Search</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/who-likes-you'><div className='far fa-heart'/> Likes</NavLink>
-
-            <div className='navbar-content-link'>
-
-              <button>Messages</button>
-
-              <div className='navbar-msg-list'>
-
-
-
-
-                <div className='navbar-msg-section'>
-                  <img className='navbar-msg-section-profile' src={placeholder.profile} alt='profile'/>
-                  <div className='navbar-msg-section-details'>
-                    <p className='navbar-msg-section-user'>{placeholder.msgArr.name}, {placeholder.msgArr.age}</p>
-                    <p className='navbar-msg-section-msg'>{placeholder.msgArr.msg}</p>
+            <div className='navbar-content-link dropdown'>
+              <button className='navbar-content-link-btn'>Messages</button>
+              <div className='navbar-msg-list-wrap dropdown-content'>
+                <div className='navbar-msg-list'>
+                  {/* iterate over msgs in the future using this structure -- start */}
+                  <div className='navbar-msg-section'>
+                    <img className='navbar-msg-section-profile' src={placeholder.profile} alt='profile'/>
+                    <div className='navbar-msg-section-details'>
+                      <p className='navbar-msg-section-user'>{placeholder.msgArr.name}, {placeholder.msgArr.age}</p>
+                      <p className='navbar-msg-section-msg'>{placeholder.msgArr.msg}</p>
+                    </div>
+                    <p className='navbar-msg-section-date'>{placeholder.msgArr.sent}</p>
                   </div>
-                  <p className='navbar-msg-section-date'>{placeholder.msgArr.sent}</p>
+                  {/* end */}
                 </div>
-
-
-
+                <button className='navbar-msg-all'>SEE ALL</button>
               </div>
             </div>
           </div>
@@ -64,7 +59,7 @@ const Navbar = ({boost}) => {
               <p className='navbar-profile-item'>Profile</p>
               <p className='navbar-profile-item'>Settings</p>
               <p className='navbar-profile-item'>Help</p>
-              <p className='navbar-profile-item'>Sign Out</p>
+              <p className='navbar-profile-item' onClick={() => logout()}>Sign Out</p>
             </div>
           </div>
           <button className='navbar-btn nbjoin'>JOIN A-LIST</button>

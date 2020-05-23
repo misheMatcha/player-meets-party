@@ -53,6 +53,50 @@
           color: white;
           background-color: #333;
         }
+
+        .navbar-content-link-btn{
+          height: 100%;
+        }
+        .navbar-msg-list-wrap{
+          border: 1px solid #666;
+          width: 425px;
+          background-color: #1a1a1a;
+          margin-left: -347px;
+          display: flex;
+          flex-direction: column;
+        }
+          .navbar-msg-list{
+            height: 312px;
+          }
+            .navbar-msg-section{
+              display: flex;
+              padding: 16px;
+            }
+              .navbar-msg-section-profile{
+                width: 70px;
+                height: 70px;
+                border-radius: 40px;
+              }
+              .navbar-msg-section-details{
+                /* border: 1px solid black; */
+                margin-left: 15px;
+              }
+                .navbar-msg-section-user{
+                  /* border: 1px solid black; */
+                }
+                .navbar-msg-section-msg{
+                  /* border: 1px solid black; */
+                }
+
+              .navbar-msg-section-date{
+                /* border: 1px solid black; */
+              }
+
+          .navbar-msg-all{
+            border: 1px solid #666;
+            height: 52px;
+          }
+
         .far.fa-images, .far.fa-compass, .fas.fa-search, .far.fa-heart, .far.fa-comment-alt{
           margin-right: 8px;
         }
@@ -99,7 +143,7 @@
 
       .navbar-profile-list{
         background-color: #1a1a1a;
-        margin-top: -1px;
+        margin-top: -3px;
         border: 1px solid #666;
         width: 100%;
         border-radius: 2px;
@@ -107,6 +151,7 @@
         .navbar-profile-item{
           padding: 12px;
           border-bottom: 1px solid #666;
+          cursor: pointer;
         }
         .navbar-profile-item:hover{
           background-color: #333;
