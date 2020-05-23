@@ -1,4 +1,6 @@
 .navbar-container{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
   height: 65px;
   width: 100%;
   background-color: #1a1a1a;
@@ -34,24 +36,57 @@
 
 
     .navbar-misc{
-      border: 1px solid purple;
+      /* border: 1px solid purple; */
+      display: flex;
+      /* justify-content: center; */
+      align-items: center;
     }
       .navbar-profile{
-        border: 1px solid purple;
+        /* border: 1px solid purple; */
+        display: flex;
+        align-items: center;
       }
         .navbar-profile-img{
           /* border: 1px solid purple; */
           width: 40px;
           height: 40px;
           border-radius: 20px;
+          margin-right: 8px;
         }
         .navbar-profile-user{
-          border: 1px solid purple;
+          /* border: 1px solid purple; */
+        }
+        .fas.fa-angle-down{
+          height: 19.5px;
+          width: 19.5px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
         }
 
-      .navbar-join{
-        border: 1px solid purple;
+      .navbar-btn{
+        width: 112px;
+        height: 40px;
+        border-radius: 5px;
+        transition: 1s;
+        margin-left: 12.5px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        font-weight: 500;
       }
-      .navbar-boost{
-        border: 1px solid purple;
+      .nbjoin{
+        background-color: #01cdfe;
       }
+      .nbjoin:hover{
+        background-color: #13a7cc;
+      }
+      .nbboost{
+        background-color: #b967ff;
+      }
+      .nbboost:hover{
+        background-color: #8a43c9;
+      }
+        .fas.fa-bolt{
+          padding-right: 5px;
+        }
