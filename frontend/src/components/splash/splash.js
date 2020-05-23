@@ -48,7 +48,7 @@ const Splash = ({login}) => {
         <div className='splash-footer-container'>
           <div className='splash-footer-join'>
             <Link to='/signup' className='splash-footer-join-btn'>JOIN PLAYER MEETS PARTY</Link>
-            <p className='splash-footer-join-copyright'>© PMP 2020</p>
+            <p className='splash-footer-join-copyright'>© Player Meets Party 2020</p>
           </div>
           <div className='splash-footer-section'>
             <div className='splash-footer-section-title'>COMPANY</div>

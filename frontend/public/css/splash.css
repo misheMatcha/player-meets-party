@@ -18,7 +18,7 @@
       height: 100%;
     }
       .splash-bg-colors{
-        background-color: #ff71ce;
+        background-color: #b967ff;
         width: 55%;
         animation: bgcolors 50s infinite;
       }
@@ -41,14 +41,14 @@
           transition: 5s;
         }
         .splash-bg-image-1{
-          background-image: url('../images/splash/splash-sunlight.jpg');
-          background-position: 6% 74%;
+          background-image: url('../images/splash/splash-hello.jpg');
+          background-position: 0 14%;
           opacity: 1;
           animation: bgtrans-1 50s infinite;
         }
         .splash-bg-image-2{
-          background-image: url('../images/splash/splash-group.jpg');
-          background-position: 35%;
+          background-image: url('../images/splash/splash-cafe.jpg');
+          background-position: 0% 3%;
           animation: bgtrans-2 50s infinite;
         }
         .splash-bg-image-3{
@@ -57,13 +57,13 @@
           animation: bgtrans-3 50s infinite;
         }
         .splash-bg-image-4{
-          background-image: url('../images/splash/splash-cafe.jpg');
-          background-position: 0% 3%;
+          background-image: url('../images/splash/splash-pink.jpg');
+          background-position: 15%;
           animation: bgtrans-4 50s infinite;
         }
         .splash-bg-image-5{
-          background-image: url('../images/splash/splash-bench.jpg');
-          background-position: 0% 50%;
+          background-image: url('../images/splash/splash-blue.jpg');
+          background-position: 50%;
           animation: bgtrans-5 50s infinite;
         }
         .opacity-hide{
@@ -102,7 +102,7 @@
             padding: 0px 14px;
             height: 36px;
             transition: 1s;
-            filter: drop-shadow(0 0 0.75rem black);
+            /* filter: drop-shadow(0 0 0.75rem black); */
           }
           .splash-nav-login-btn:hover{
             border: 1px solid yellow;
@@ -223,10 +223,10 @@
           }
 
 @keyframes bgcolors {
-  8%, 68% { background-color: #ff71ce; }
-  10%, 16%, 60%, 66% { background-color: #05ffa1; }
-  18%, 24%, 52%, 58% { background-color: #b967ff; }
-  26%, 32%, 44%, 50% { background-color: #01cdfe; }
+  8%, 68% { background-color: #b967ff; }
+  10%, 16%, 60%, 66% { background-color: #01cdfe; }
+  18%, 24%, 52%, 58% { background-color: #ff71ce; }
+  26%, 32%, 44%, 50% { background-color: #05ffa1; }
   34%, 42% { background-color: #fffb96; }
 }
 
