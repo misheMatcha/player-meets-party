@@ -66,12 +66,6 @@
           background-position: 50%;
           animation: bgtrans-5 50s infinite;
         }
-        .opacity-hide{
-          opacity: 0;
-        }
-        .opacity-show{
-          opacity: 1;
-        }
 
     .splash-content-container{
       margin-left: -100%; /* overlay */

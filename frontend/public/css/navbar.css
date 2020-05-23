@@ -115,6 +115,7 @@
             color: white;
             font-weight: 500;
             letter-spacing: .5px;
+            width: 100%;
           }
             .fas.fa-angle-right{
               margin-left: 5px;
@@ -219,3 +220,7 @@
     position: absolute;
     z-index: 1;
   }
+
+.dropdown:hover .dropdown-content {
+  display: block;
+}
