@@ -3,7 +3,7 @@ import { NavLink } from 'react-router-dom';
 
 const Navbar = ({boost}) => {
   const placeholder = {
-    username: 'as',
+    username: 'Mishe',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg',
     msgArr: [{
       name: 'Alice',
@@ -28,7 +28,7 @@ const Navbar = ({boost}) => {
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/discover'><div className='far fa-compass'/> Discover</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/search'><div className='fas fa-search'/> Search</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/who-likes-you'><div className='far fa-heart'/> Likes</NavLink>
-            
+
             <div className='navbar-content-link'>
 
               <button>Messages</button>
@@ -54,22 +54,18 @@ const Navbar = ({boost}) => {
           </div>
         </div>
         <div className='navbar-misc'>
-
-          <div className='navbar-profile-dropdown'>
-
-            <button className='navbar-profile-btn'>
+          <div className='navbar-profile dropdown'>
+            <NavLink className='navbar-profile-btn' activeClassName='navbar-profile-btn-active' to='/profile'>
               <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
               <p className='navbar-profile-user'>{placeholder.username}</p>
               <div className='fas fa-angle-down'/>
-            </button>
-
-            <div className='navbar-profile-dropdown-content'>
-              <p className='navbar-profile-dropdown-content-link'>Profile</p>
-              <p className='navbar-profile-dropdown-content-link'>Settings</p>
-              <p className='navbar-profile-dropdown-content-link'>Help</p>
-              <p className='navbar-profile-dropdown-content-link'>Sign Out</p>
+            </NavLink>
+            <div className='navbar-profile-list dropdown-content'>
+              <p className='navbar-profile-item'>Profile</p>
+              <p className='navbar-profile-item'>Settings</p>
+              <p className='navbar-profile-item'>Help</p>
+              <p className='navbar-profile-item'>Sign Out</p>
             </div>
-
           </div>
           <button className='navbar-btn nbjoin'>JOIN A-LIST</button>
           {boost}

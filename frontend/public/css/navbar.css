@@ -65,11 +65,21 @@
       align-items: center;
     }
 
-    .navbar-profile-dropdown{}
+    .navbar-profile{
+      height: 100%;
+    }
 
       .navbar-profile-btn{
         display: flex;
         align-items: center;
+        height: 100%;
+        padding: 0 12px;
+      }
+      .navbar-profile-btn:hover{
+        background-color: #333;
+      }
+      .navbar-profile-btn-active{
+        background-color: #333;
       }
         .navbar-profile-img{
           width: 40px;
@@ -85,6 +95,21 @@
           display: flex;
           justify-content: center;
           align-items: center;
+        }
+
+      .navbar-profile-list{
+        background-color: #1a1a1a;
+        margin-top: -1px;
+        border: 1px solid #666;
+        width: 100%;
+        border-radius: 2px;
+      }
+        .navbar-profile-item{
+          padding: 12px;
+          border-bottom: 1px solid #666;
+        }
+        .navbar-profile-item:hover{
+          background-color: #333;
         }
 
       .navbar-btn{
@@ -113,3 +138,13 @@
         .fas.fa-bolt{
           padding-right: 5px;
         }
+
+.dropdown{
+  position: relative;
+  display: inline;
+}
+  .dropdown-content{
+    /* display: none; */
+    position: absolute;
+    z-index: 1;
+  }
