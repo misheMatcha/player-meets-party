@@ -1,6 +1,9 @@
 .profile{
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
 }
   .profile-basics{
     background-color: #1a1a1a;
@@ -20,7 +23,6 @@
       }
 
       .profile-basics-details{
-        /* border: 1px solid black; */
         display: flex;
         padding: 8px 12px 12px;
         margin-left: 8px;
@@ -29,19 +31,16 @@
         color: white;
       }
         .profile-basics-user{
-          /* border: 1px solid blue; */
           font-size: 35px;
           font-weight: 200;
           height: 50px;
         }
           .fas.fa-pencil-alt{
-            /* border: 1px solid red; */
             font-size: 17px;
             font-weight: 600;
           }
 
         .profile-basics-asl{
-          /* border: 1px solid purple; */
           font-size: 19px;
           font-weight: 300;
           height: 26px;
@@ -50,10 +49,8 @@
           align-items: center;
         }
           .profile-basics-asl-age{
-            /* border: 1px solid purple; */
           }
           .profile-basics-asl-spacer{
-            /* border: 1px solid purple; */
             margin-left: 4px;
             font-size: 15px;
             font-weight: 200;
@@ -64,6 +61,63 @@
             align-items: center;
           }
           .profile-basics-asl-location{
-            /* border: 1px solid purple; */
             margin-left: 4px;
           }
+
+  .profile-content-wrap{
+    /* border: 1px solid purple; */
+    display: flex;
+    justify-content: center;
+    padding-top: 20px;
+    margin-top: 30px;
+  }
+    .profile-content{
+      /* border: 1px solid orange; */
+      width: 1000px;
+      display: flex;
+      /* justify-content: center; */
+      /* align-items: center; */
+    }
+      .profile-content-questions{
+        /* border: 1px solid red; */
+        width: 53%;
+        background-color: white;
+        border-radius: 5px;
+        /* border: 1px solid #949aa6; */
+      }
+        .profile-content-section{
+          /* border: 1px solid fuchsia; */
+          /* width: 440px; */
+          display: flex;
+          padding: 20px;
+          align-items: center;
+          /* justify-content: space-between; */
+        }
+          .profile-content-aboutme{
+            /* border: 1px solid fuchsia; */
+            /* width: 100% */
+            width: 440px;
+          }
+            .profile-content-aboutme-title{
+              /* border: 1px solid fuchsia; */
+              color: #949aa6;
+              font-weight: 600;
+              font-size: 13px;
+              letter-spacing: 1px;
+              margin-bottom: 8px;
+            }
+            .profile-content-aboutme-question{
+              /* border: 1px solid fuchsia; */
+              font-size: 18px;
+              font-weight: 500;
+            }
+          .fas.fa-angle-right{
+            font-size: 20px;
+            padding: 1px;
+            width: 30px;
+          }
+
+      .profile-content-details{
+        /* border: 1px solid blue; */
+        width: 40%;
+      }
