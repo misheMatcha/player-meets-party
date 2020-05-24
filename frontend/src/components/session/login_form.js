@@ -14,10 +14,9 @@ const LoginForm = props => {
   };
 
   useEffect(() => {
-    console.log(props.loggedIn)
     return(() => {
     });
-  }, [props.loggedIn]);
+  }, []);
 
   const handleInput = (event, field) => {
     switch(field){
@@ -32,15 +31,12 @@ const LoginForm = props => {
   };
 
   const handleLogin = type => {
-    console.log('beginning')
     let userObj;
     type === 'demo' ? (userObj = guest) : (userObj = user);
     props.login(userObj).then(() => {
-      console.log('mid')
       // props.history.push('/doubletake')
       window.location.reload(true)
-    })
-    console.log('end')
+    });
   };
 
   return(

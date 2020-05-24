@@ -65,41 +65,32 @@
           }
 
   .profile-content-wrap{
-    /* border: 1px solid purple; */
     display: flex;
     justify-content: center;
     padding-top: 20px;
     margin-top: 30px;
   }
     .profile-content{
-      /* border: 1px solid orange; */
       width: 1000px;
       display: flex;
-      /* justify-content: center; */
-      /* align-items: center; */
     }
       .profile-content-questions{
-        /* border: 1px solid red; */
         width: 53%;
         background-color: white;
-        border-radius: 5px;
-        /* border: 1px solid #949aa6; */
+        border-radius: 3px;
+        border: 1px solid #f3f5f9;
       }
         .profile-content-section{
-          /* border: 1px solid fuchsia; */
-          /* width: 440px; */
+          border-bottom: 1px solid #f3f5f9;
           display: flex;
           padding: 20px;
           align-items: center;
-          /* justify-content: space-between; */
+          justify-content: space-between;
         }
           .profile-content-aboutme{
-            /* border: 1px solid fuchsia; */
-            /* width: 100% */
             width: 440px;
           }
             .profile-content-aboutme-title{
-              /* border: 1px solid fuchsia; */
               color: #949aa6;
               font-weight: 600;
               font-size: 13px;
@@ -107,7 +98,6 @@
               margin-bottom: 8px;
             }
             .profile-content-aboutme-question{
-              /* border: 1px solid fuchsia; */
               font-size: 18px;
               font-weight: 500;
             }
@@ -116,6 +106,20 @@
             padding: 1px;
             width: 30px;
           }
+
+        .profile-content-aboutme-essay{
+          padding: 20px;
+          font-size: 17px;
+          font-weight: 300;
+        }
+          .profile-content-aboutme-essay-text{
+            /* border: 1px solid fuchsia; */
+          }
+            .profile-content-aboutme-essay-edit{
+              /* border: 1px solid blue; */
+              padding-left: 10px;
+              font-size: 16px;
+            }
 
       .profile-content-details{
         /* border: 1px solid blue; */
