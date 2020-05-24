@@ -7,6 +7,7 @@ import Navbar from './navbar/navbar_container';
 import SignupForm from './session/signup_form_container';
 import Splash from './splash/splash_container';
 import Doubletake from './doubletake/doubletake_container';
+import Profile from './profile/profile_container';
 
 const App = () => (
   <div className='app'>
@@ -16,6 +17,7 @@ const App = () => (
       <AuthRoute exact path='/' component={Splash}/>
       <AuthRoute exact path='/signup' component={SignupForm}/>
       <ProtectedRoute exact path='/doubletake' component={Doubletake}/>
+      <ProtectedRoute exact path='/profile' component={Profile}/>
     </Switch>
   </div>
 );
