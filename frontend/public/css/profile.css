@@ -79,6 +79,8 @@
         background-color: white;
         border-radius: 3px;
         border: 1px solid #f3f5f9;
+        filter: drop-shadow(0 1mm 1mm #d6d8db);
+        margin-right: 50px;
       }
         .profile-content-section{
           border-bottom: 1px solid #f3f5f9;
@@ -121,7 +123,43 @@
               font-size: 16px;
             }
 
-      .profile-content-details{
+      .profile-content-details-container{
         /* border: 1px solid blue; */
-        width: 40%;
+        /* width: 40%; */
       }
+        .profile-content-details{
+          /* border: 1px solid red; */
+          /* width: 40%; */
+          display: flex;
+          align-items: center;
+          margin-bottom: -8px;
+        }
+          .profile-content-details-opt{
+            /* border: 1px solid purple; */
+            display: flex;
+          }
+            .profile-content-details .profile-content-details-opt i{
+              color: yellow;
+              font-size: 24px;
+              width: 40px;
+            }
+            .profile-content-details-desc{
+              width: 246px;
+              height: 50px;
+              font-size: 18px;
+            }
+
+          .profile-content-details-edit{
+            color: rebeccapurple;
+            /* padding-left: 10px; */
+            width: 30px;
+            height: 27px;
+            /* border: 1px solid black; */
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+            .profile-content-details-edit i{
+              /* padding-left: 10px; */
+              font-size: 18px;
+            }

@@ -49,8 +49,16 @@ const Profile = props => {
               </div>
             </div>
           </div>
-          <div className='profile-content-details'>
-            whatcha like?
+          <div className='profile-content-details-container'>
+            <div className='profile-content-details'>
+              <div className='profile-content-details-opt'>
+                <i className='fas fa-cubes'/>
+                <p className='profile-content-details-desc'>Bisexual, Woman, Single, Monogamous</p>
+              </div>
+              <div className='profile-content-details-edit'>
+                <i className='fas fa-chevron-right'/>
+              </div>
+            </div>
           </div>
         </div>
       </div>
