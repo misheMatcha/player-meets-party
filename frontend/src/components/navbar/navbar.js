@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
 const Navbar = ({boost, logout}) => {
+  const [hideOpts, setHideOpts] = useState(true);
+  const [hideMsgs, setHideMsgs] = useState(true);
   const placeholder = {
     username: 'Mishe',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg',
@@ -16,7 +18,19 @@ const Navbar = ({boost, logout}) => {
   useEffect(() => {
     return(() => {
     })
-  }, []);
+  }, [hideOpts, hideMsgs]);
+
+  const toggleDropdown = field => {
+    switch(field){
+      case 'opts':
+        hideOpts ? setHideOpts(false) : setHideOpts(true)
+        break;
+      case 'msgs':
+        hideMsgs ? setHideMsgs(false) : setHideMsgs(true)
+        break;
+      default:
+    }
+  };
 
   return(
     <div className='navbar-container'>
@@ -49,14 +63,14 @@ const Navbar = ({boost, logout}) => {
           </div>
         </div>
         <div className='navbar-misc'>
-          <div className='navbar-profile dropdown'>
-            <NavLink className='navbar-profile-btn' activeClassName='navbar-profile-btn-active' to='/profile'>
+          <div className={`navbar-profile dropdown ${hideOpts ? '' : 'block nav-hover-bg'}`} onClick={() => toggleDropdown('opts')}>
+            <div className='navbar-profile-btn'>
               <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
               <p className='navbar-profile-user'>{placeholder.username}</p>
               <div className='fas fa-angle-down'/>
-            </NavLink>
-            <div className='navbar-profile-list dropdown-content'>
-              <p className='navbar-profile-item'>Profile</p>
+            </div>
+            <div className={`navbar-profile-list dropdown-content ${hideOpts ? '' : 'block'}`}>
+              <p className='navbar-profile-item'><Link to='/profile'>Profile</Link></p>
               <p className='navbar-profile-item'>Settings</p>
               <p className='navbar-profile-item'>Help</p>
               <p className='navbar-profile-item' onClick={() => logout()}>Sign Out</p>

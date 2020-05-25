@@ -203,6 +203,7 @@
       }
       .nbboost{
         background-color: #b967ff;
+        margin-right: 10px;
       }
       .nbboost:hover{
         background-color: #8a43c9;
@@ -221,6 +222,9 @@
     z-index: 1;
   }
 
-.dropdown:hover .dropdown-content {
+.block{
   display: block;
+}
+.nav-hover-bg{
+  background-color: #333;
 }
