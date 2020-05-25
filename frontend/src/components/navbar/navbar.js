@@ -42,8 +42,8 @@ const Navbar = ({boost, logout}) => {
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/discover'><div className='far fa-compass'/> Discover</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/search'><div className='fas fa-search'/> Search</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/who-likes-you'><div className='far fa-heart'/> Likes</NavLink>
-            <div className={`navbar-content-link dropdown ${hideMsgs ? '' : 'nav-hover-bg'}`} onClick={() => toggleDropdown('msgs')}>
-              <button className='navbar-content-link-btn'>Messages</button>
+            <div className={`navbar-content-msgs dropdown ${hideMsgs ? '' : 'navbar-hover-bg'}`} onClick={() => toggleDropdown('msgs')}>
+              <div className='navbar-content-link-btn'>Messages</div>
               <div className={`navbar-msg-list-wrap dropdown-content ${hideMsgs ? '' : 'block'}`}>
                 <div className='navbar-msg-list'>
                   {/* iterate over msgs in the future using this structure -- start */}
@@ -63,7 +63,7 @@ const Navbar = ({boost, logout}) => {
           </div>
         </div>
         <div className='navbar-misc'>
-          <div className={`navbar-profile dropdown ${hideOpts ? '' : 'nav-hover-bg'}`} onClick={() => toggleDropdown('opts')}>
+          <div className={`navbar-profile dropdown ${hideOpts ? '' : 'navbar-hover-bg'}`} onClick={() => toggleDropdown('opts')}>
             <div className='navbar-profile-btn'>
               <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
               <p className='navbar-profile-user'>{placeholder.username}</p>
