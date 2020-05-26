@@ -136,7 +136,7 @@
             display: flex;
           }
             .profile-content-details .profile-content-details-opt i{
-              color: yellow;
+              /* color: yellow; */
               font-size: 24px;
               width: 40px;
             }
@@ -147,7 +147,7 @@
             }
 
           .profile-content-details-edit{
-            color: rebeccapurple;
+            /* color: rebeccapurple; */
             width: 30px;
             height: 27px;
             display: flex;

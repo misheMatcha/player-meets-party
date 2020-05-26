@@ -34,7 +34,11 @@ const UserSchema = new Schema({
     type: String,
     default: null
   },
-  relationship: {
+  relationship_type: {
+    type: String,
+    default: null
+  },
+  relationship_status: {
     type: String,
     default: null
   },
@@ -87,6 +91,10 @@ const UserSchema = new Schema({
   marijuana: {
     type: Boolean,
     default: false
+  },
+  diet: {
+    type: String,
+    default: null
   },
   kids: {
     type: Boolean,
