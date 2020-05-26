@@ -33,10 +33,7 @@ const LoginForm = props => {
   const handleLogin = type => {
     let userObj;
     type === 'demo' ? (userObj = guest) : (userObj = user);
-    props.login(userObj).then(() => {
-      // props.history.push('/doubletake')
-      window.location.reload(true)
-    });
+    props.login(userObj);
   };
 
   return(
