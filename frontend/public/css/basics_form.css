@@ -69,3 +69,29 @@
           justify-content: center;
           height: 42px;
         }
+
+      .basics-form-content-inputs{
+        /* background-color: red; */
+        display: flex;
+        font-size: 18px;
+        justify-content: space-between;
+      }
+        .basics-form-content-inputs-label{
+          /* background-color: blue; */
+          width: 249.50px;
+          height: 46px;
+        }
+          .basics-form .basics-form-content .basics-form-content-inputs .basics-form-content-inputs-label ul{
+            border: 1px solid blue;
+          }
+            .basics-form .basics-form-content .basics-form-content-inputs .basics-form-content-inputs-label ul li{
+              border: 1px solid red;
+            }
+
+
+        .basics-form-content-inputs-button{
+          width: 249.50px;
+          background-color: white;
+          border: 1px solid #ccd0d9;
+          border-radius: 3px;
+        }

@@ -9,13 +9,13 @@ const BasicsForm = props => {
       <div className='basics-form-header'>
         <span>Basics</span>
         <div className='basics-form-header-icon' onClick={() => props.closeModal()}>
-          <i class="fas fa-times"/>
+          <i className="fas fa-times"/>
         </div>
-        </div>
+      </div>
       <div className='basics-form-content'>
         <p className='basics-form-content-title'>I am a...</p>
 
-        <div className='basics-form-content-tag-container'>
+        <div className='basics-form-content-tag-container hide'>
           <p className='basics-form-content-tag-title'>Select up to 5</p>
           <div className='basics-form-content-tag-list'>
             {
@@ -32,13 +32,18 @@ const BasicsForm = props => {
           </div>
         </div>
 
-        <div className=''>
-          <label className=''>
-            <input className='' type='text' placeholder='orientation'/>
+        <div className='basics-form-content-inputs'>
+
+          <label className='basics-form-content-inputs-label'>
+            <ul>
+              <li>Straight</li>
+              <li>Gay</li>
+              <li>Bisexual</li>
+              <li>More options</li>
+            </ul>
           </label>
-          <label className=''>
-            <input className='' type='text' placeholder='gender'/>
-          </label>
+          
+          <button className='basics-form-content-inputs-button'></button>
         </div>
 
       </div>

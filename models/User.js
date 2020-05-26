@@ -28,31 +28,31 @@ const UserSchema = new Schema({
   },
   gender: {
     type: String,
-    default: null
+    default: 'Gender'
   },
   orientation: {
     type: String,
-    default: null
+    default: 'Orientation'
   },
   relationship_type: {
     type: String,
-    default: null
+    default: 'Monogomoy'
   },
   relationship_status: {
     type: String,
-    default: null
+    default: 'Status'
   },
   pronouns: {
     type: String,
-    default: null
+    default: 'Pronouns'
   },
   height: {
     type: Number,
-    default: null
+    default: 0
   },
   body_type: {
     type: String,
-    default: null
+    default: 'Body type'
   },
   ethnicity: {
     type: Array
@@ -62,23 +62,23 @@ const UserSchema = new Schema({
   },
   politics: {
     type: String,
-    default: null
+    default: 'Politics'
   },
   education: {
     type: String,
-    default: null
+    default: 'Education'
   },
   occupation: {
     type: String,
-    default: null
+    default: 'Occupation'
   },
   religion: {
     type: String,
-    default: null
+    default: 'Religion'
   },
   sign: {
     type: String,
-    default: null
+    default: 'Sign'
   },
   tobacco: {
     type: Boolean,
@@ -94,7 +94,7 @@ const UserSchema = new Schema({
   },
   diet: {
     type: String,
-    default: null
+    default: 'Diet'
   },
   kids: {
     type: Boolean,
@@ -112,23 +112,23 @@ const UserSchema = new Schema({
   },
   platform: {
     type: String,
-    default: null
+    default: 'Platform'
   },
   pref_gender: {
     type: String,
-    default: null
+    default: 'Gender'
   },
   pref_distance: {
     type: Number,
-    default: null
+    default: 0
   },
   pref_age: {
     type: Number,
-    default: null
+    default: 18
   },
   pref_connections: {
     type: String,
-    default: null
+    default: 'Connections'
   },
   profile_questions: {
     type: Array
