@@ -7,21 +7,14 @@
 
 /* basics form x */
 .basics-form-header-icon{
-  /* border: 1px solid blue; */
   height: 50px;
   width: 50px;
-  /* background-color: blue; */
-  /* width: 100%; */
   margin-top: -34px;
   margin-right: -39px;
 }
   .basics-form-header .basics-form-header-icon i{
     color: gray;
     font-size: 20px;
-    /* margin-top: -17px; */
     display: flex;
-    /* align-items: center; */
     justify-content: center;
-    /* margin: 0; */
-    /* padding-left: 20px; */
   }

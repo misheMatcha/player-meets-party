@@ -8,12 +8,64 @@
   .basics-form-header{
     height: 85px;
     padding: 0 40px;
-    font-size: 19px;
     display: flex;
     align-items: center;
     justify-content: space-between;
   }
+    .basics-form-header span{
+      font-size: 19px;
+      font-weight: 500;
+    }
+
   .basics-form-content{
     background-color: #f3f5f9;
     padding: 40px;
   }
+    .basics-form-content-title{
+      font-size: 17px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .basics-form-content-tag-container{
+      font-size: 15px;
+    }
+      .basics-form-content-tag-title{
+      }
+      .basics-form-content-tag-list{
+        display: flex;
+        padding: 20px 0;
+        flex-wrap: wrap;
+      }
+        .basics-form-content-tag{
+          padding: 10px 8px;
+          margin: 5px 4px;
+          font-weight: 300;
+          background-color: white;
+          border: 1px solid #d8dce3;
+          border-radius: 3px;
+        }
+
+      .basics-form-content-tag-actions{
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+      }
+        .basics-form-content-tag-actions-cont{
+          background-color: #48e588;
+          width: 105px;
+          height: 42px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+          
+          font-weight: 300;
+          color: white;
+        }
+        .basics-form-content-tag-actions-cancel{
+          margin: 20px;
+          display: flex;
+          justify-content: center;
+          height: 42px;
+        }
