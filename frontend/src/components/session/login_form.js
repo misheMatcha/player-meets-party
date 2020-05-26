@@ -33,7 +33,7 @@ const LoginForm = props => {
   const handleLogin = type => {
     let userObj;
     type === 'demo' ? (userObj = guest) : (userObj = user);
-    props.login(userObj);
+    props.login(userObj).then(() => props.closeModal());
   };
 
   return(

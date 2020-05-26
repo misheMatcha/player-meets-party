@@ -1,12 +1,21 @@
 import { RECEIVE_ALL_USERS, RECEIVE_USER } from '../actions/user_actions';
 
-const UserReducer = (state = {}, action) => {
+const initialState = {
+  list: null,
+  user: null,
+  current: null
+};
+
+const UserReducer = (state = initialState, action) => {
   Object.freeze(state);
+  let newState = Object.assign({}, state);
   switch(action.type){
     case RECEIVE_ALL_USERS:
-      return Object.assign({}, state, action.users.data);
+      newState.list = action.users.data;
+      return newState;
     case RECEIVE_USER:
-      return Object.assign({}, state, {currentUser: action.user.data});
+      newState.user = action.user.data;
+      return newState;
     default:
       return state;
   }
