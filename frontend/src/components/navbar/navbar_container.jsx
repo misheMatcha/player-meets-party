@@ -5,6 +5,7 @@ import { logout } from '../../actions/session_actions';
 import Navbar from './navbar';
 
 const mSTP = state => ({
+  user: state.entities.users
 });
 
 const mDTP = dispatch => ({
