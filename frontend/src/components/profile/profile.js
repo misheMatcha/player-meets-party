@@ -19,6 +19,7 @@ const Profile = props => {
 
     useEffect(() => {
       setTitle();
+      props.test()
       return(() => {
       });
     }, []);
