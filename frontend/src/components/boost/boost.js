@@ -15,15 +15,15 @@ const Boost = ({closeModal}) => {
         </div>
         <div className='boost-options'>
           <form className='boost-form'>
-            <label for='10' className='boost-form-section'>
+            <label className='boost-form-section'>
               <input className='boost-form-radio' type='radio' id='10' name='boost' value='10'/>
               <p className='boost-form-amt'>10 Boosts</p> for $1.69 each
             </label>
-            <label for='5' className='boost-form-section'>
+            <label className='boost-form-section'>
               <input className='boost-form-radio' type='radio' id='5' name='boost' value='10'/>
               <p className='boost-form-amt'>5 Boosts</p> for $1.79 each
             </label>
-            <label for='1' className='boost-form-section'>
+            <label className='boost-form-section'>
               <input className='boost-form-radio' type='radio' id='1' name='boost' value='10'/>
               <p className='boost-form-amt'>1 Boosts</p> for $1.99 each
             </label>

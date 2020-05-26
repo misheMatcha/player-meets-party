@@ -194,6 +194,9 @@
         .navbar-profile-item:hover{
           background-color: #333;
         }
+        .navbar-profile-item a{
+          display: flex;
+        }
 
       .navbar-btn{
         width: 112px;

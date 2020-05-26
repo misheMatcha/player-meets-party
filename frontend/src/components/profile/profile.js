@@ -25,7 +25,6 @@ const Profile = props => {
       document.title = `${placeholder.username} / ${placeholder.age} / ${placeholder.location}`;
     };
     setTitle();
-    console.log(props)
 
     return(() => {
     });
