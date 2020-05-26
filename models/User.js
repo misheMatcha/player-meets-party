@@ -27,22 +27,28 @@ const UserSchema = new Schema({
     required: true
   },
   gender: {
-    type: String
+    type: String,
+    default: null
   },
   orientation: {
-    type: String
+    type: String,
+    default: null
   },
   relationship: {
-    type: String
+    type: String,
+    default: null
   },
   pronouns: {
-    type: String
+    type: String,
+    default: null
   },
   height: {
-    type: Number
+    type: Number,
+    default: null
   },
   body_type: {
-    type: String
+    type: String,
+    default: null
   },
   ethnicity: {
     type: Array
@@ -51,34 +57,44 @@ const UserSchema = new Schema({
     type: Array
   },
   politics: {
-    type: String
+    type: String,
+    default: null
   },
   education: {
-    type: String
+    type: String,
+    default: null
   },
   occupation: {
-    type: String
+    type: String,
+    default: null
   },
   religion: {
-    type: String
+    type: String,
+    default: null
   },
   sign: {
-    type: String
+    type: String,
+    default: null
   },
   tobacco: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   drinks: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   marijuana: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   kids: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   pets: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   gamelist: {
     type: Array
@@ -87,19 +103,24 @@ const UserSchema = new Schema({
     type: Array
   },
   platform: {
-    type: String
+    type: String,
+    default: null
   },
   pref_gender: {
-    type: String
+    type: String,
+    default: null
   },
   pref_distance: {
-    type: Number
+    type: Number,
+    default: null
   },
   pref_age: {
-    type: Number
+    type: Number,
+    default: null
   },
   pref_connections: {
-    type: String
+    type: String,
+    default: null
   },
   profile_questions: {
     type: Array
