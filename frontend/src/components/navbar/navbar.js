@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-const Navbar = ({user, boost, logout}) => {
+const Navbar = ({user, boost, logout, updateCurrentUser}) => {
   const [hideOpts, setHideOpts] = useState(true);
   const [hideMsgs, setHideMsgs] = useState(true);
   const placeholder = {
@@ -16,10 +16,13 @@ const Navbar = ({user, boost, logout}) => {
   };
 
   useEffect(() => {
-    console.log(user)
+    const checkCurrentUser = () => {
+      if(!user) updateCurrentUser(localStorage.currentId);
+    };
+    checkCurrentUser();
     return(() => {
     })
-  }, []);
+  }, [user, updateCurrentUser]);
 
   const toggleDropdown = field => {
     switch(field){
@@ -67,7 +70,7 @@ const Navbar = ({user, boost, logout}) => {
           <div className={`navbar-profile dropdown ${hideOpts ? '' : 'navbar-hover-bg'}`} onClick={() => toggleDropdown('opts')}>
             <button className='navbar-profile-btn'>
               <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
-              <p className='navbar-profile-user'>{placeholder.username}</p>
+              <p className='navbar-profile-user'>{user ? user.name : `loading...`}</p>
               <div className='fas fa-angle-down'/>
             </button>
             <div className={`navbar-profile-list dropdown-content ${hideOpts ? '' : 'block'}`}>
