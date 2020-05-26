@@ -15,48 +15,15 @@ const Profile = props => {
 
     Fusce posuere, nisi sit amet cursus bibendum, erat est fringilla libero, at iaculis urna ipsum quis eros. Nam nec ligula purus. Ut ut dictum mi. Cras id auctor nulla, sed commodo elit. Donec convallis volutpat leo in accumsan. Duis nec maximus tortor. Sed nec turpis justo. Proin posuere lobortis ipsum. Aenean vel eleifend mi, vitae tempor mauris. Fusce enim lectus, tristique vitae rhoncus id, commodo non tellus. Aliquam erat volutpat. Vestibulum gravida nunc a pulvinar aliquet. In condimentum tortor velit, vel pellentesque felis bibendum et. Nunc cursus vitae tortor eget lobortis.`
   };
-  const user = {
-    name: null,
-    age: null,
-    gender: null,
-    orientation: null,
-    relationship: null,
-    pronouns: null,
-    height: null,
-    body_type: null,
-    ethnicity: null,
-    languages: null,
-    politics: null,
-    education: null,
-    occupation: null,
-    religion: null,
-    sign: null,
-    tobacco: null,
-    drinks: null,
-    marijuana: null,
-    kids: null,
-    pets: null,
-    gamelist: null,
-    game_genres: null,
-    platform: null,
-    pref_gender: null,
-    pref_distance: null,
-    pref_age: null,
-    pref_connections: null,
-    profile_questions: null
-  };
-
-  // if(!props.user){
-  //   name, age, gender, orientation, relationship, pronouns, height, body_type, ethnicity, languages, politics, education, occupation, religion, sign, tobacco, drinks, marijuana, kids, pets, gamelist, game_genres, platform, pref_gender, pref_distance, pref_age, pref_connections, profile_questions = 'Loading...';
-  // }
+  const user = props.user;
 
   // const section = {
   //     aboutme: ['My self-summary', 'Favorite thing about the place I live', 'Me, a Haiku', 'Most people that know me would say I\'m', 'Favorite memory from my childhood', 'Thing\'s I am not']
   // };
 
-  const name = props.user ? props.user.name : 'loading...';
-  const age = props.user ? calculateAge(props.user.birthday) : 'loading...';
-  const gender = props.user ? props.user.gender : 'loading';
+  const name = user ? user.name : 'loading...';
+  const age = user ? calculateAge(user.birthday) : 'loading...';
+  const gender = user ? user.gender : 'loading';
 
   useEffect(() => {
     const setTitle = () => {
@@ -72,7 +39,6 @@ const Profile = props => {
     };
     currentOrOther()
     setTitle();
-    console.log(gender)
     return(() => {
     });
   }, [name, age]);

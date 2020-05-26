@@ -111,27 +111,28 @@
           font-weight: 300;
         }
           .profile-content-aboutme-essay-text{
-            /* border: 1px solid fuchsia; */
           }
             .profile-content-aboutme-essay-edit{
-              /* border: 1px solid blue; */
               padding-left: 10px;
               font-size: 16px;
             }
 
       .profile-content-details-container{
-        /* border: 1px solid blue; */
-        /* width: 40%; */
       }
         .profile-content-details{
-          /* border: 1px solid red; */
-          /* width: 40%; */
           display: flex;
           align-items: center;
           margin-bottom: -8px;
+          padding: 8px;
+          margin-top: -8px;
+          height: 72px;
+        }
+        .profile-content-details:hover{
+          background-color: white;
+          filter: drop-shadow(0 1mm 1mm #d6d8db);
+          border-radius: 3px;
         }
           .profile-content-details-opt{
-            /* border: 1px solid purple; */
             display: flex;
           }
             .profile-content-details .profile-content-details-opt i{
@@ -147,15 +148,12 @@
 
           .profile-content-details-edit{
             color: rebeccapurple;
-            /* padding-left: 10px; */
             width: 30px;
             height: 27px;
-            /* border: 1px solid black; */
             display: flex;
             justify-content: center;
             align-items: center;
           }
             .profile-content-details-edit i{
-              /* padding-left: 10px; */
               font-size: 18px;
             }
