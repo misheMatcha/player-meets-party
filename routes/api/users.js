@@ -90,7 +90,7 @@ router.get('/:id', (req, res) => {
   .catch(err => res.status(404).json({nouserfound: 'No user was found'}));
 });
 
-router.patch('/update/:id', (req, res) => {
+router.patch('/:id', (req, res) => {
   const filter = { _id: req.params.id };
   const update = req.body;
   User.findOneAndUpdate(filter, update, { new: true })
