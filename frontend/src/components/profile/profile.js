@@ -1,10 +1,13 @@
 import React, { useEffect } from 'react';
+import { withRouter } from 'react-router-dom'
+import { calculateAge } from '../../util/general_util';
 
 const Profile = props => {
   const placeholder = {
     username: 'Mishe',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg',
     age: 33,
+    birthday: '12/02/1986',
     location: 'Rainbow Road, MK',
     abtme: `Lorem ipsum dolor sit amet, consectetur adipiscing elit. Quisque congue diam id aliquam sagittis. Aenean ac dapibus sapien, sodales pretium sem. Mauris enim dolor, rhoncus consectetur porttitor non, volutpat in leo. Mauris nibh massa, blandit sit amet consequat sit amet, porttitor nec dolor. Ut congue quis lectus at dapibus. Pellentesque a justo non elit ornare fringilla. Donec in sodales sem. Donec convallis eget mauris et tincidunt. Cras dictum justo a pharetra tempor. Suspendisse molestie convallis sollicitudin. Quisque sapien justo, molestie sed eros vitae, pellentesque venenatis lorem. Interdum et malesuada fames ac ante ipsum primis in faucibus. Integer fermentum nunc odio, pellentesque lobortis dui ultrices vel. Sed a eros ligula. Donec luctus felis sed tortor accumsan, nec maximus velit cursus.
 
@@ -22,7 +25,8 @@ const Profile = props => {
       document.title = `${placeholder.username} / ${placeholder.age} / ${placeholder.location}`;
     };
     setTitle();
-    
+    console.log(props)
+
     return(() => {
     });
   }, [placeholder.username, placeholder.age, placeholder.location]);
@@ -76,4 +80,4 @@ const Profile = props => {
   );
 };
 
-export default Profile;
+export default withRouter(Profile);
