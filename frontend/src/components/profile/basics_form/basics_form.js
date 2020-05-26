@@ -5,7 +5,9 @@ const BasicsForm = props => {
     <div className='basics-form'>
       <div className='basics-form-header'>
         <span>Basics</span>
-        <i class="fas fa-times"/>
+        <div className='basics-form-header-icon' onClick={() => props.closeModal()}>
+          <i class="fas fa-times"/>
+        </div>
         </div>
       <div className='basics-form-content'>
         <p className=''>I am a...</p>

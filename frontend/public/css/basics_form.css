@@ -8,7 +8,12 @@
   .basics-form-header{
     height: 85px;
     padding: 0 40px;
+    font-size: 19px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
   }
   .basics-form-content{
     background-color: #f3f5f9;
+    padding: 40px;
   }
