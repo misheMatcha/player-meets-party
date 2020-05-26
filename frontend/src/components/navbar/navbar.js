@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { NavLink, Link } from 'react-router-dom';
 
-const Navbar = ({boost, logout}) => {
+const Navbar = ({current, authId, boost, logout, fetchCurrentUser}) => {
   const [hideOpts, setHideOpts] = useState(true);
   const [hideMsgs, setHideMsgs] = useState(true);
   const placeholder = {
@@ -16,9 +16,10 @@ const Navbar = ({boost, logout}) => {
   };
 
   useEffect(() => {
+    if(current === null) fetchCurrentUser(authId);
     return(() => {
     })
-  }, []);
+  }, [current, authId, fetchCurrentUser]);
 
   const toggleDropdown = field => {
     switch(field){

@@ -1,4 +1,4 @@
-import { RECEIVE_ALL_USERS, RECEIVE_USER } from '../actions/user_actions';
+import { RECEIVE_ALL_USERS, RECEIVE_USER, RECEIVE_CURRENT_USER } from '../actions/user_actions';
 
 const initialState = {
   list: null,
@@ -15,6 +15,9 @@ const UserReducer = (state = initialState, action) => {
       return newState;
     case RECEIVE_USER:
       newState.user = action.user.data;
+      return newState;
+    case RECEIVE_CURRENT_USER:
+      newState.current = action.user.data;
       return newState;
     default:
       return state;

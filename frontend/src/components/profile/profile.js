@@ -13,19 +13,19 @@ const Profile = props => {
     Fusce posuere, nisi sit amet cursus bibendum, erat est fringilla libero, at iaculis urna ipsum quis eros. Nam nec ligula purus. Ut ut dictum mi. Cras id auctor nulla, sed commodo elit. Donec convallis volutpat leo in accumsan. Duis nec maximus tortor. Sed nec turpis justo. Proin posuere lobortis ipsum. Aenean vel eleifend mi, vitae tempor mauris. Fusce enim lectus, tristique vitae rhoncus id, commodo non tellus. Aliquam erat volutpat. Vestibulum gravida nunc a pulvinar aliquet. In condimentum tortor velit, vel pellentesque felis bibendum et. Nunc cursus vitae tortor eget lobortis.`
   };
 
-  const section = {
-      aboutme: ['My self-summary', 'Favorite thing about the place I live', 'Me, a Haiku', 'Most people that know me would say I\'m', 'Favorite memory from my childhood', 'Thing\'s I am not']
-    };
+  // const section = {
+  //     aboutme: ['My self-summary', 'Favorite thing about the place I live', 'Me, a Haiku', 'Most people that know me would say I\'m', 'Favorite memory from my childhood', 'Thing\'s I am not']
+  // };
 
-    useEffect(() => {
-      setTitle();
-      return(() => {
-      });
-    }, []);
-
+  useEffect(() => {
     const setTitle = () => {
       document.title = `${placeholder.username} / ${placeholder.age} / ${placeholder.location}`;
     };
+    setTitle();
+    
+    return(() => {
+    });
+  }, [placeholder.username, placeholder.age, placeholder.location]);
 
   return(
     <div className='profile'>

@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 
 const LoginForm = props => {
   const [email, setEmail] = useState('');
@@ -85,4 +84,4 @@ const LoginForm = props => {
   );
 };
 
-export default withRouter(LoginForm);
+export default LoginForm;
