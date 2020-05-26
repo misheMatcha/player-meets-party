@@ -1,0 +1,14 @@
+.basics-form{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  background-color: white;
+  width: 600px;
+  border-radius: 5px;
+}
+  .basics-form-header{
+    height: 85px;
+    padding: 0 40px;
+  }
+  .basics-form-content{
+    background-color: #f3f5f9;
+  }

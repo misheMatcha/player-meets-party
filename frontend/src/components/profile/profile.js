@@ -81,6 +81,8 @@ const Profile = props => {
         props.fetchUser(localStorage.currentId);
       }
     };
+    // remove after styling is completed
+    props.basicsForm();
 
     currentOrOther()
     setTitle();

@@ -1,5 +1,11 @@
+/* profile header pencil */
 .profile-basics-details .profile-basics-user i{
   font-size: 17px;
   font-weight: 600;
   margin-left: 15px;
+}
+
+/* basics form x */
+.basics-form-header i{
+  color: gray;
 }
