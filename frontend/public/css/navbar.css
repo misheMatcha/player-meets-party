@@ -60,10 +60,14 @@
           align-items: center;
           height: 100%;
         }
+        .navbar-content-msgs:hover{
+          background-color: #333;
+        }
           .navbar-content-link-btn{
             height: 100%;
             display: flex;
             align-items: center;
+            cursor: pointer;
           }
           .navbar-msg-list-wrap{
             border: 1px solid #666;
