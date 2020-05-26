@@ -6,6 +6,6 @@ const receiveAllUsers = users => ({
   users
 });
 
-export const requestAllUsers = () => dispatch => UserApiUtil.requestAllUsers()
+export const requestAllUsers = () => dispatch => UserApiUtil.fetchUsers()
   .then(users => dispatch(receiveAllUsers(users)))
   .catch(err => console.log(err));
