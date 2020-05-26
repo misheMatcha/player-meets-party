@@ -90,6 +90,14 @@ router.get('/:id', (req, res) => {
   .catch(err => res.status(404).json({nouserfound: 'No user was found'}));
 });
 
+router.patch('/update/:id', (req, res) => {
+  const filter = { _id: req.params.id };
+  const update = req.body;
+  User.findOneAndUpdate(filter, update, { new: true })
+    .then(user => res.json(user))
+    .catch(err => res.status(400).json({unabletoupdateuser: 'Unable to update user'}))
+});
+
 router.get('/current', passport.authenticate('jwt', { session: false }), (req, res) => {
   res.json({
     id: req.user.id,
