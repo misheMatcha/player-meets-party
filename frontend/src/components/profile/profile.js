@@ -20,15 +20,27 @@ const Profile = props => {
   //     aboutme: ['My self-summary', 'Favorite thing about the place I live', 'Me, a Haiku', 'Most people that know me would say I\'m', 'Favorite memory from my childhood', 'Thing\'s I am not']
   // };
 
+  const name = props.user ? props.user.name : 'loading...';
+  const age = props.user ? calculateAge(props.user.birthday) : 'loading...';
+
   useEffect(() => {
     const setTitle = () => {
-      document.title = `${placeholder.username} / ${placeholder.age} / ${placeholder.location}`;
+      document.title = `${name} / ${age} / ${placeholder.location}`;
     };
-    setTitle();
 
+    const currentOrOther = () => {
+      if(!props.match.isExact){
+        props.fetchUser(props.history.location.pathname.slice(9));
+      }else{
+        props.fetchUser(localStorage.currentId);
+      }
+    };
+    currentOrOther()
+    setTitle();
+    
     return(() => {
     });
-  }, [placeholder.username, placeholder.age, placeholder.location]);
+  }, [name, age]);
 
   return(
     <div className='profile'>
@@ -36,9 +48,9 @@ const Profile = props => {
         <div className='profile-basics-info'>
           <img className='profile-basics-img' src={placeholder.profile} alt='profile'/>
           <div className='profile-basics-details'>
-            <div className='profile-basics-user'>{placeholder.username} <i className='fas fa-pencil-alt'/></div>
+            <div className='profile-basics-user'>{name} <i className='fas fa-pencil-alt'/></div>
             <div className='profile-basics-asl'>
-              <p className='profile-basics-asl-age'>{placeholder.age}</p>
+              <p className='profile-basics-asl-age'>{`${age}`}</p>
               <p className='profile-basics-asl-spacer'>•</p>
               <p className='profile-basics-asl-location'>{placeholder.location}</p>
             </div>

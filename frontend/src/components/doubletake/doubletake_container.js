@@ -1,13 +1,13 @@
 import { connect } from 'react-redux'
-import { logout } from '../../actions/session_actions';
+import { requestAllUsers } from '../../actions/user_actions';
 import Doubletake from './doubletake';
 
 const mSTP = state => ({
-  errors: state.errors.session
+  users: state.entities.users.list
 });
 
 const mDTP = dispatch => ({
-  logout: () => dispatch(logout())
+  fetchUsers: () => dispatch(requestAllUsers())
 });
 
 export default connect(mSTP, mDTP)(Doubletake);
