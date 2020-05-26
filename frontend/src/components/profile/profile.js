@@ -126,7 +126,7 @@ const Profile = props => {
 
           {/* attributes */}
           <div className='profile-content-details-container'>
-            <div className='profile-content-details'>
+            <div className='profile-content-details' onClick={() => props.basicsForm()}>
               <div className='profile-content-details-opt'>
                 <i className='fas fa-cubes'/>
                 <p className='profile-content-details-desc'>{`${orientation}, ${gender}, ${relStatus}, ${relType}`}</p>
