@@ -16,7 +16,7 @@ const BasicsForm = props => {
           <i className="fas fa-times"/>
         </div>
       </div>
-      <div className='basics-form-content'>
+      <form className='basics-form-content'>
         <p className='basics-form-content-title'>I am a...</p>
 
         <div className={`basics-form-content-tag-container ${hideGenderTags ? 'hide' : ''}`}>
@@ -36,18 +36,23 @@ const BasicsForm = props => {
           </div>
         </div>
 
-        <div className='basics-form-content-inputs'>
+        <div className='basics-form-content-inputs' style={{display: !hideGenderTags ? 'none' : 'flex' }}>
 
-          <label className={`basics-form-content-inputs-label ${!hideGenderTags ? 'hide' : ''}`}>
-            <ul>
-              <li>Straight</li>
-              <li>Gay</li>
-              <li>Bisexual</li>
-              <li>More options</li>
-            </ul>
-          </label>
-          
-          <button className={`basics-form-content-inputs-button ${!hideGenderTags ? 'hide' : ''}`} onClick={() => {
+          <div className='basics-form-content-inputs-list'>
+            <div className='select'>
+              <select name='orientation' id='orientation'>
+                <option value='Straight' selected='selected'>Straight</option>
+                <option value='Gay'>Gay</option>
+                <option value='Bisexual'>Bisexual</option>
+                <option value='---'>More options</option>
+              </select>
+            </div>
+            <div className='basics-form-content-inputs-list-arrow'>
+              <i className="fas fa-chevron-down"/>
+            </div>
+          </div>
+
+          <button className='basics-form-content-inputs-button'  onClick={() => {
             hideGenderTags ? setHideGenderTags(false) : setHideGenderTags(true)
             }}>
             <p className={`basics-form-content-inputs-button-gender ${gender === 'Gender' ? '' : 'black'}`}>{gender}</p>
@@ -55,7 +60,7 @@ const BasicsForm = props => {
             </button>
         </div>
 
-      </div>
+      </form>
     </div>
   );
 };

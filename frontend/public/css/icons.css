@@ -30,3 +30,8 @@
 .basics-form-content-inputs .basics-form-content-inputs-button:hover i{
   color: #1fc174;
 }
+
+/* down */
+.basics-form-content-inputs-list-arrow{}
+  .basics-form-content-inputs .basics-form-content-inputs-list .basics-form-content-inputs-list-arrow i{
+  }
