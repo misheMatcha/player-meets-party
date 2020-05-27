@@ -1,5 +1,6 @@
 import * as ApiUtil from '../util/session_api_util';
 import jwt_decode from 'jwt-decode';
+import { requestCurrentUser } from './user_actions';
 
 export const LOGIN_USER = 'LOGIN_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
@@ -37,11 +38,14 @@ export const login = user => dispatch => ApiUtil.login(user)
     ApiUtil.setAuthToken(token);
     const decoded = jwt_decode(token);
     dispatch(loginUser(decoded))
+    localStorage.setItem('currentId', decoded.id);
+    dispatch(requestCurrentUser(decoded.id))
   })
   .catch(err => dispatch(receiveErrors(err.response.data)));
 
 export const logout = () => dispatch => {
   localStorage.removeItem('jwtToken')
+  localStorage.removeItem('currentId')
   ApiUtil.setAuthToken(false)
   dispatch(logoutUser())
 };

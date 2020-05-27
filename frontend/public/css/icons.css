@@ -1,0 +1,38 @@
+.black{
+  color: #2a2f35;
+}
+
+/* profile header pencil */
+.profile-basics-details .profile-basics-user i{
+  font-size: 17px;
+  font-weight: 600;
+  margin-left: 15px;
+}
+
+/* basics form*/
+/* x */
+.basics-form-header-icon{
+  height: 50px;
+  width: 50px;
+  margin-top: -34px;
+  margin-right: -39px;
+}
+  .basics-form-header .basics-form-header-icon i{
+    color: gray;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+  }
+
+/* pencil */
+.basics-form-content-inputs .basics-form-content-inputs-button i{
+  font-size: 12px;
+}
+.basics-form-content-inputs .basics-form-content-inputs-button:hover i{
+  color: #1fc174;
+}
+
+/* down */
+.basics-form-content-inputs-list-arrow{}
+  .basics-form-content-inputs .basics-form-content-inputs-list .basics-form-content-inputs-list-arrow i{
+  }

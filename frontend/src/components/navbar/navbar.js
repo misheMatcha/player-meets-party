@@ -1,7 +1,9 @@
-import React, { useEffect } from 'react';
-import { NavLink } from 'react-router-dom';
+import React, { useEffect, useState } from 'react';
+import { NavLink, Link } from 'react-router-dom';
 
-const Navbar = ({boost, logout}) => {
+const Navbar = ({user, boost, logout, updateCurrentUser}) => {
+  const [hideOpts, setHideOpts] = useState(true);
+  const [hideMsgs, setHideMsgs] = useState(true);
   const placeholder = {
     username: 'Mishe',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg',
@@ -14,9 +16,25 @@ const Navbar = ({boost, logout}) => {
   };
 
   useEffect(() => {
+    const checkCurrentUser = () => {
+      if(!user) updateCurrentUser(localStorage.currentId);
+    };
+    checkCurrentUser();
     return(() => {
     })
-  }, []);
+  }, [user, updateCurrentUser]);
+
+  const toggleDropdown = field => {
+    switch(field){
+      case 'opts':
+        hideOpts ? setHideOpts(false) : setHideOpts(true);
+        break;
+      case 'msgs':
+        hideMsgs ? setHideMsgs(false) : setHideMsgs(true);
+        break;
+      default:
+    }
+  };
 
   return(
     <div className='navbar-container'>
@@ -28,9 +46,9 @@ const Navbar = ({boost, logout}) => {
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/discover'><div className='far fa-compass'/> Discover</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/search'><div className='fas fa-search'/> Search</NavLink>
             <NavLink className='navbar-content-link' activeClassName='navbar-content-link-active' to='/who-likes-you'><div className='far fa-heart'/> Likes</NavLink>
-            <div className='navbar-content-link dropdown'>
-              <button className='navbar-content-link-btn'>Messages</button>
-              <div className='navbar-msg-list-wrap dropdown-content'>
+            <div className={`navbar-content-msgs dropdown ${hideMsgs ? '' : 'navbar-hover-bg'}`} onClick={() => toggleDropdown('msgs')}>
+              <div className='navbar-content-link-btn'>Messages</div>
+              <div className={`navbar-msg-list-wrap dropdown-content ${hideMsgs ? '' : 'block'}`}>
                 <div className='navbar-msg-list'>
                   {/* iterate over msgs in the future using this structure -- start */}
                   <div className='navbar-msg-section'>
@@ -49,14 +67,14 @@ const Navbar = ({boost, logout}) => {
           </div>
         </div>
         <div className='navbar-misc'>
-          <div className='navbar-profile dropdown'>
-            <NavLink className='navbar-profile-btn' activeClassName='navbar-profile-btn-active' to='/profile'>
+          <div className={`navbar-profile dropdown ${hideOpts ? '' : 'navbar-hover-bg'}`} onClick={() => toggleDropdown('opts')}>
+            <button className='navbar-profile-btn'>
               <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
-              <p className='navbar-profile-user'>{placeholder.username}</p>
+              <p className='navbar-profile-user'>{user ? user.name : `loading...`}</p>
               <div className='fas fa-angle-down'/>
-            </NavLink>
-            <div className='navbar-profile-list dropdown-content'>
-              <p className='navbar-profile-item'>Profile</p>
+            </button>
+            <div className={`navbar-profile-list dropdown-content ${hideOpts ? '' : 'block'}`}>
+              <p className='navbar-profile-item'><Link to='/profile'>Profile</Link></p>
               <p className='navbar-profile-item'>Settings</p>
               <p className='navbar-profile-item'>Help</p>
               <p className='navbar-profile-item' onClick={() => logout()}>Sign Out</p>

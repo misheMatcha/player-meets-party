@@ -54,76 +54,87 @@
           background-color: #333;
         }
 
-        .navbar-content-link-btn{
+        .navbar-content-msgs{
+          padding: 0 16px;
+          display: flex;
+          align-items: center;
           height: 100%;
         }
-        .navbar-msg-list-wrap{
-          border: 1px solid #666;
-          width: 425px;
-          background-color: #1a1a1a;
-          margin-left: -347px;
-          display: flex;
-          flex-direction: column;
-          margin-top: 4px;
+        .navbar-content-msgs:hover{
+          background-color: #333;
         }
-          .navbar-msg-list{
-            height: 312px;
-          }
-            .navbar-msg-section{
-              display: flex;
-              padding: 16px;align-items: center;
-              height: 72px;
-            }
-              .navbar-msg-section-profile{
-                width: 70px;
-                height: 70px;
-                border-radius: 40px;
-              }
-              .navbar-msg-section-details{
-                margin-left: 15px;
-                color: white;
-                width: 200px;
-                height: 100%;
-                display: flex;
-                flex-direction: column;
-                justify-content: space-evenly;
-              }
-                .navbar-msg-section-user{
-                  font-size: 20px;
-                }
-                .navbar-msg-section-msg{
-                  white-space: nowrap;
-                  overflow: hidden;
-                  text-overflow: ellipsis;
-                }
-
-              .navbar-msg-section-date{
-                height: 100%;
-                display: flex;
-                justify-content: center;
-                align-items: center;
-                font-size: 12px;
-                margin-left: 15px;
-              }
-
-          .navbar-msg-all{
-            border: 1px solid #666;
-            height: 52px;
+          .navbar-content-link-btn{
+            height: 100%;
             display: flex;
-            justify-content: center;
             align-items: center;
-            color: white;
-            font-weight: 500;
-            letter-spacing: .5px;
-            width: 100%;
+            cursor: pointer;
           }
-            .fas.fa-angle-right{
-              margin-left: 5px;
+          .navbar-msg-list-wrap{
+            border: 1px solid #666;
+            width: 425px;
+            background-color: #1a1a1a;
+            margin-left: -347px;
+            display: flex;
+            flex-direction: column;
+          }
+            .navbar-msg-list{
+              height: 312px;
             }
+              .navbar-msg-section{
+                display: flex;
+                padding: 16px;align-items: center;
+                height: 72px;
+              }
+                .navbar-msg-section-profile{
+                  width: 70px;
+                  height: 70px;
+                  border-radius: 40px;
+                }
+                .navbar-msg-section-details{
+                  margin-left: 15px;
+                  color: white;
+                  width: 200px;
+                  height: 100%;
+                  display: flex;
+                  flex-direction: column;
+                  justify-content: space-evenly;
+                }
+                  .navbar-msg-section-user{
+                    font-size: 20px;
+                  }
+                  .navbar-msg-section-msg{
+                    white-space: nowrap;
+                    overflow: hidden;
+                    text-overflow: ellipsis;
+                  }
 
-          .navbar-msg-all:hover, .navbar-msg-section:hover{
-            background-color: #333;
-          }
+                .navbar-msg-section-date{
+                  height: 100%;
+                  display: flex;
+                  justify-content: center;
+                  align-items: center;
+                  font-size: 12px;
+                  margin-left: 15px;
+                }
+
+            .navbar-msg-all{
+              border: 1px solid #666;
+              height: 52px;
+              display: flex;
+              justify-content: center;
+              align-items: center;
+              color: white;
+              font-weight: 500;
+              letter-spacing: .5px;
+              width: 100%;
+            }
+              .fas.fa-angle-right{
+                margin-left: 5px;
+              }
+
+            .navbar-msg-all:hover, .navbar-msg-section:hover{
+              background-color: #333;
+            }
 
         .far.fa-images, .far.fa-compass, .fas.fa-search, .far.fa-heart, .far.fa-comment-alt{
           margin-right: 8px;
@@ -183,6 +194,9 @@
         .navbar-profile-item:hover{
           background-color: #333;
         }
+        .navbar-profile-item p{
+          /* display: flex; */
+        }
 
       .navbar-btn{
         width: 112px;
@@ -203,6 +217,7 @@
       }
       .nbboost{
         background-color: #b967ff;
+        margin-right: 10px;
       }
       .nbboost:hover{
         background-color: #8a43c9;
@@ -221,6 +236,9 @@
     z-index: 1;
   }
 
-.dropdown:hover .dropdown-content {
+.block{
   display: block;
+}
+.navbar-hover-bg{
+  background-color: #333;
 }

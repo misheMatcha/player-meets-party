@@ -27,22 +27,32 @@ const UserSchema = new Schema({
     required: true
   },
   gender: {
-    type: String
+    type: String,
+    default: 'Gender'
   },
   orientation: {
-    type: String
+    type: String,
+    default: 'Orientation'
   },
-  relationship: {
-    type: String
+  relationship_type: {
+    type: String,
+    default: 'Monogomoy'
+  },
+  relationship_status: {
+    type: String,
+    default: 'Single'
   },
   pronouns: {
-    type: String
+    type: String,
+    default: 'Pronouns'
   },
   height: {
-    type: Number
+    type: Number,
+    default: 0
   },
   body_type: {
-    type: String
+    type: String,
+    default: 'Body type'
   },
   ethnicity: {
     type: Array
@@ -51,34 +61,48 @@ const UserSchema = new Schema({
     type: Array
   },
   politics: {
-    type: String
+    type: String,
+    default: 'Politics'
   },
   education: {
-    type: String
+    type: String,
+    default: 'Education'
   },
   occupation: {
-    type: String
+    type: String,
+    default: 'Occupation'
   },
   religion: {
-    type: String
+    type: String,
+    default: 'Religion'
   },
   sign: {
-    type: String
+    type: String,
+    default: 'Sign'
   },
   tobacco: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   drinks: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   marijuana: {
-    type: Boolean
+    type: Boolean,
+    default: false
+  },
+  diet: {
+    type: String,
+    default: 'Diet'
   },
   kids: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   pets: {
-    type: Boolean
+    type: Boolean,
+    default: false
   },
   gamelist: {
     type: Array
@@ -87,19 +111,24 @@ const UserSchema = new Schema({
     type: Array
   },
   platform: {
-    type: String
+    type: String,
+    default: 'Platform'
   },
   pref_gender: {
-    type: String
+    type: String,
+    default: 'Gender'
   },
   pref_distance: {
-    type: Number
+    type: Number,
+    default: 0
   },
   pref_age: {
-    type: Number
+    type: Number,
+    default: 18
   },
   pref_connections: {
-    type: String
+    type: String,
+    default: 'Connections'
   },
   profile_questions: {
     type: Array

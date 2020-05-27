@@ -1,5 +1,4 @@
 import React, { useState, useEffect } from 'react';
-import { withRouter } from 'react-router-dom';
 
 const LoginForm = props => {
   const [email, setEmail] = useState('');
@@ -33,10 +32,7 @@ const LoginForm = props => {
   const handleLogin = type => {
     let userObj;
     type === 'demo' ? (userObj = guest) : (userObj = user);
-    props.login(userObj).then(() => {
-      // props.history.push('/doubletake')
-      window.location.reload(true)
-    });
+    props.login(userObj).then(() => props.closeModal());
   };
 
   return(
@@ -88,4 +84,4 @@ const LoginForm = props => {
   );
 };
 
-export default withRouter(LoginForm);
+export default LoginForm;

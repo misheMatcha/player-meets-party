@@ -1,0 +1,169 @@
+.basics-form{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  width: 600px;
+  border-radius: 5px;
+  color: #2a2f35;
+}
+  .basics-form-header{
+    height: 85px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+  }
+    .basics-form-header span{
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+  .basics-form-content{
+    background-color: #f3f5f9;
+    padding: 40px;
+    width: auto;
+    border-radius: 0 0 5px 5px;
+  }
+    .basics-form-content-title{
+      font-size: 17px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .basics-form-content-tag-container{
+      font-size: 15px;
+    }
+      .basics-form-content-tag-title{
+      }
+      .basics-form-content-tag-list{
+        display: flex;
+        padding: 20px 0;
+        flex-wrap: wrap;
+      }
+        .basics-form-content-tag{
+          padding: 10px 8px;
+          margin: 5px 4px;
+          font-weight: 300;
+          background-color: white;
+          border: 1px solid #d8dce3;
+          border-radius: 3px;
+        }
+        .basics-form-content-tag:hover{
+          background-color: #ebedf2;
+        }
+
+      .basics-form-content-tag-actions{
+        display: flex;
+        align-items: center;
+        font-size: 16px;
+      }
+        .basics-form-content-tag-actions-cont{
+          background-color: #48e588;
+          width: 105px;
+          height: 42px;
+          display: flex;
+          justify-content: center;
+          align-items: center;
+          border-radius: 5px;
+
+          font-weight: 300;
+          color: white;
+        }
+        .basics-form-content-tag-actions-cancel{
+          margin: 20px;
+          display: flex;
+          justify-content: center;
+          height: 42px;
+        }
+
+      .basics-form-content-inputs{
+        display: flex;
+        font-size: 18px;
+        justify-content: space-between;
+        height: 46px;
+      }
+      .basics-form-content-relationship{
+        padding-top: 20px;
+      }
+        .basics-form-content-inputs-list{
+          width: 249.50px;
+          background-color: white;
+          border: 1px solid #ccd0d9;
+          border-radius: 3px;
+          position: relative;
+          display: flex;
+          justify-content: space-evenly;
+          align-items: center;
+        }
+          .select{
+          }
+          .basics-form-content-inputs-list .select{
+            width: 80%;
+          }
+            .basics-form-content-inputs-list .select select{
+              position: relative;
+              -moz-appearance: none;
+              -webkit-appearance: none;
+              background: transparent;
+              border: transparent;
+              line-height: 1.5;
+              width: 100%;
+              padding: 10px;
+              font-size: 17px;
+              font-weight: 300;
+            }
+            .basics-form-content-inputs-list .select select:focus{
+              outline: 0;
+            }
+
+        .basics-form-content-inputs-button{
+          width: 249.50px;
+          background-color: white;
+          border: 1px solid #ccd0d9;
+          border-radius: 3px;
+          display: flex;
+          color: #aeb4bf;
+          align-items: center;
+        }
+        .basics-form-content-inputs-button:hover{
+          border: 1px solid #a9b1bd;
+        }
+          .basics-form-content-inputs-button .basics-form-content-inputs-button-gender{
+            padding: 0 10px;
+            width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
+
+      .basics-form-content-monogomy{
+        margin-top: 13px;
+      }
+
+      .basics-form-buttons{
+        height: 90px;
+        display: flex;
+        align-items: flex-end;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+      }
+        .basics-form-buttons-temp{
+          width: 120px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          border-radius: 3px;
+        }
+        .basics-form-buttons-temp.bfsubmit{
+          background-color: #0500be;
+        }
+        .basics-form-buttons-temp.bfcancel{
+          background-color: orange;
+          margin-left: 10px;
+        }
+
+.tag-selected{
+  background-color: #ebedf2;
+}
