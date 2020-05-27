@@ -6,7 +6,8 @@ const Doubletake = props => {
     if(!props.users) props.fetchUsers();
     return(() => {
     });
-  },[props.users]);
+  },[props]);
+
   return(
     <div className='doubletake'>
       <ul>

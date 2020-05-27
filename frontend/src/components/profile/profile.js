@@ -30,49 +30,30 @@ const Profile = props => {
   const pronouns = user ? user.pronouns : 'loading...';
 
   // looks
-  const height = user ? user.height : 'loading...';
-  const body_type = user ? user.body_type : 'loading...';
+  // const height = user ? user.height : 'loading...';
+  // const body_type = user ? user.body_type : 'loading...';
 
   useEffect(() => {
     const setTitle = () => {
       document.title = `${name} / ${age} / ${location}`;
     };
+    const userOr = () => {
+      if (!fetchedUser) {
+        if (!props.match.isExact) {
+          props.fetchUser(props.history.location.pathname.slice(9));
+        } else {
+          props.fetchUser(localStorage.currentId);
+        }
+        setFetchedUser(true);
+      }
+    };
     // remove after styling is completed
     props.basicsForm();
     userOr()
     setTitle();
-    // console.log(pronouns === 'Pronouns')
-    basicsDetails()
     return(() => {
     });
-  }, [props.user, pronouns]);
-
-  const userOr = () => {
-    if(!fetchedUser){
-      if (!props.match.isExact) {
-        props.fetchUser(props.history.location.pathname.slice(9));
-      } else {
-        props.fetchUser(localStorage.currentId);
-      }
-      setFetchedUser(true);
-    }
-  };
-
-  const basicsDetails = () => {
-    const isOrienDefault = orientation === 'Orientation';
-    const isGenderDefault = gender === 'Gender';
-    const isRelStatusDefault = relationship_status === 'Status';
-    const isRelTypeDefault = relationship_type === 'Monogomoy';
-
-    const orien = isOrienDefault ? `${orientation}, ` : '';
-    const gen = isGenderDefault ? `${gender}, ` : '';
-    const relS = isRelStatusDefault ? `${relationship_status}, ` : '';
-    const relT = isRelTypeDefault ? `${relationship_type}` : '';
-    
-    const hasDetails = (
-      <div className='profile-content-details-desc'>{orien}{gen}{relS}{relT}</div>
-    );
-  };
+  }, [props, pronouns, name, age, fetchedUser]);
 
   return(
     <div className='profile'>

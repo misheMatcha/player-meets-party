@@ -1,15 +1,21 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 
 const BasicsForm = props => {
-  const [hideGenderTags, setHideGenderTags] = useState(true);
-  const [hideOrienTags, setHideOrienTags] = useState(true);
   const [whichTag, setWhichTag] = useState('none')
   const orientationOpts = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
   const genderOpts = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
   const user = props.user;
   const gender = user ? user.gender : 'loading...';
   const orientation = user ? user.orientation : 'loading...';
+  const [formGender, setFormGender] = useState('');
+  const [formOrientation, setFormOrientation] = useState('');
+  const [formMonogmy, setFormMonogmy] = useState('');
 
+  useEffect(() => {
+    return () => {
+    };
+  }, []);
+  
   return(
     <div className='basics-form'>
       <div className='basics-form-header'>
@@ -22,7 +28,8 @@ const BasicsForm = props => {
         <p className='basics-form-content-title'>I am a...</p>
 
         <div className={`basics-form-content-tag-container ${whichTag === 'none' ? 'hide' : ''}`}>
-          <p className='basics-form-content-tag-title'>Select up to 5</p>
+          {/* refactor later for a more robust options */}
+          {/* <p className='basics-form-content-tag-title'>Select up to 5</p> */}
           { whichTag === 'gender' ?
             <div className='basics-form-content-tag-list'>
               {
@@ -53,7 +60,6 @@ const BasicsForm = props => {
         <div className='basics-form-content-inputs' style={{display: whichTag === 'gender' || whichTag === 'orientation' ? 'none' : 'flex' }}>
 
           <button className='basics-form-content-inputs-button' onClick={() => {
-            // hideOrienTags ? setHideOrienTags(false) : setHideOrienTags(true)
             if (whichTag === 'none') setWhichTag('orientation');
           }}>
             <p className={`basics-form-content-inputs-button-gender ${orientation === 'Orientation' ? '' : 'black'}`}>{orientation}</p>
@@ -61,7 +67,6 @@ const BasicsForm = props => {
           </button>
 
           <button className='basics-form-content-inputs-button'  onClick={() => {
-            // hideGenderTags ? setHideGenderTags(false) : setHideGenderTags(true)
             if(whichTag === 'none') setWhichTag('gender');
           }}>
             <p className={`basics-form-content-inputs-button-gender ${gender === 'Gender' ? '' : 'black'}`}>{gender}</p>
@@ -71,12 +76,12 @@ const BasicsForm = props => {
 
         <div className='basics-form-content-relationship'>
           <p className='basics-form-content-title'>Relationship Type</p>
-          <div className='basics-form-content-inputs' style={{ display: !hideGenderTags ? 'none' : 'flex' }}>
+          <div className='basics-form-content-inputs'>
 
             <div className='basics-form-content-inputs-list'>
               <div className='select'>
-                <select name='orientation' id='orientation'>
-                  <option value='Monogomous' selected='selected'>Monogomous</option>
+                <select name='orientation' defaultValue='Monogomous' id='orientation'>
+                  <option value='Monogomous'>Monogomous</option>
                   <option value='Non-monogomous'>Non-monogomous</option>
                   <option value='Open to either'>Open to either</option>
                 </select>
