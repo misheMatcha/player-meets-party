@@ -18,6 +18,8 @@ const BasicsForm = props => {
     orientation: formOrientation,
     relationship_type: formMonogmy
   };
+  const [genderIdx, setGenderIdx] = useState(null);
+  const [orientationIdx, setOrientationIdx] = useState(null);
 
   useEffect(() => {
     const checkInputs = () => {
@@ -28,11 +30,34 @@ const BasicsForm = props => {
       }
     };
     checkInputs();
+
+    console.log(genderIdx)
+    console.log(orientationIdx)
     return () => {
     };
-  }, [modifiedUser]);
+  });
+
+  // [user, modifiedUser, gender, orientation, relationship_type, genderIdx, orientationIdx]
 
   const updateInput = (event, field) => {
+    switch(field){
+      case 'gender':
+        setFormGender(event.target.value);
+        break;
+      default:
+    }
+  };
+
+  const setIdx = (field, idx) => {
+    switch(field){
+      case 'gender':
+        setGenderIdx(idx);
+        break;
+      case 'orientation':
+        setOrientationIdx(idx);
+        break;
+      default:
+    }
   };
 
   return(
@@ -49,12 +74,16 @@ const BasicsForm = props => {
         <div className={`basics-form-content-tag-container ${whichTag === 'none' ? 'hide' : ''}`}>
           {/* refactor later for a more robust options */}
           {/* <p className='basics-form-content-tag-title'>Select up to 5</p> */}
-          { whichTag === 'gender' ?
+          { whichTag === 'orientation' ?
             <div className='basics-form-content-tag-list'>
               {
                 orientationOpts.map((orienOpt, idx) => {
                   return(
-                    <button key={idx} className='basics-form-content-tag'>{orienOpt}</button>
+                    <button key={idx} type='button' className={`basics-form-content-tag ${orientationIdx === idx ? 'tag-selected' : ''}`} onClick={() => {
+                      setIdx('orientation', idx)
+                    }}>
+                      {orienOpt}
+                    </button>
                   );
                 })
               }
@@ -64,14 +93,18 @@ const BasicsForm = props => {
               {
                 genderOpts.map((genderOption, idx) => {
                   return(
-                    <button key={idx} className='basics-form-content-tag'>{genderOption}</button>
+                    <button key={idx} type='button' className={`basics-form-content-tag ${genderIdx === idx ? 'tag-selected' : ''}`} onClick={() => {
+                      setIdx('gender', idx)
+                    }}>
+                      {genderOption}
+                    </button>
                   );
                 })
               }
             </div>
           }
           <div className='basics-form-content-tag-actions'>
-            <button className='basics-form-content-tag-actions-cont'>Continue</button>
+            <button className='basics-form-content-tag-actions-cont' onClick={() => setWhichTag('none')}>Continue</button>
             <button className='basics-form-content-tag-actions-cancel' onClick={() => setWhichTag('none')}>Cancel</button>
           </div>
         </div>

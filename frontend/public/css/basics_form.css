@@ -49,6 +49,9 @@
           border: 1px solid #d8dce3;
           border-radius: 3px;
         }
+        .basics-form-content-tag:hover{
+          background-color: #ebedf2;
+        }
 
       .basics-form-content-tag-actions{
         display: flex;
@@ -160,3 +163,7 @@
           background-color: orange;
           margin-left: 10px;
         }
+
+.tag-selected{
+  background-color: #ebedf2;
+}
