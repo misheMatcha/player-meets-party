@@ -1,7 +1,6 @@
 .basics-form{
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
-  background-color: white;
   width: 600px;
   border-radius: 5px;
   color: #2a2f35;
@@ -12,6 +11,8 @@
     display: flex;
     align-items: center;
     justify-content: space-between;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
   }
     .basics-form-header span{
       font-size: 19px;
@@ -21,6 +22,8 @@
   .basics-form-content{
     background-color: #f3f5f9;
     padding: 40px;
+    width: auto;
+    border-radius: 0 0 5px 5px;
   }
     .basics-form-content-title{
       font-size: 17px;
@@ -72,7 +75,6 @@
         }
 
       .basics-form-content-inputs{
-        /* background-color: red; */
         display: flex;
         font-size: 18px;
         justify-content: space-between;
@@ -82,9 +84,7 @@
         padding-top: 20px;
       }
         .basics-form-content-inputs-list{
-          /* background-color: blue; */
           width: 249.50px;
-          /* height: 46px; */
           background-color: white;
           border: 1px solid #ccd0d9;
           border-radius: 3px;
