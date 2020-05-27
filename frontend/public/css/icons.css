@@ -1,3 +1,6 @@
+.black{
+  color: #2a2f35;
+}
 /* profile header pencil */
 .profile-basics-details .profile-basics-user i{
   font-size: 17px;
@@ -5,7 +8,8 @@
   margin-left: 15px;
 }
 
-/* basics form x */
+/* basics form*/
+/* x */
 .basics-form-header-icon{
   height: 50px;
   width: 50px;
@@ -18,3 +22,11 @@
     display: flex;
     justify-content: center;
   }
+
+/* pencil */
+.basics-form-content-inputs .basics-form-content-inputs-button i{
+  font-size: 12px;
+}
+.basics-form-content-inputs .basics-form-content-inputs-button:hover i{
+  color: #1fc174;
+}

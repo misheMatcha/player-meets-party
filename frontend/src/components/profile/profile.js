@@ -26,18 +26,26 @@ const Profile = props => {
   const relationship_type = user ? user.relationship_type : 'loading...';
   const relationship_status = user ? user.relationship_status : 'loading...';
 
+  // pronouns
+  const pronouns = user ? user.pronouns : 'loading...';
+
+  // looks
+  const height = user ? user.height : 'loading...';
+  const body_type = user ? user.body_type : 'loading...';
+
   useEffect(() => {
     const setTitle = () => {
       document.title = `${name} / ${age} / ${location}`;
     };
     // remove after styling is completed
-    // props.basicsForm();
+    props.basicsForm();
     userOr()
     setTitle();
-    console.log(props.user)
+    // console.log(pronouns === 'Pronouns')
+    basicsDetails()
     return(() => {
     });
-  }, [props.user]);
+  }, [props.user, pronouns]);
 
   const userOr = () => {
     if(!fetchedUser){
@@ -48,6 +56,22 @@ const Profile = props => {
       }
       setFetchedUser(true);
     }
+  };
+
+  const basicsDetails = () => {
+    const isOrienDefault = orientation === 'Orientation';
+    const isGenderDefault = gender === 'Gender';
+    const isRelStatusDefault = relationship_status === 'Status';
+    const isRelTypeDefault = relationship_type === 'Monogomoy';
+
+    const orien = isOrienDefault ? `${orientation}, ` : '';
+    const gen = isGenderDefault ? `${gender}, ` : '';
+    const relS = isRelStatusDefault ? `${relationship_status}, ` : '';
+    const relT = isRelTypeDefault ? `${relationship_type}` : '';
+    
+    const hasDetails = (
+      <div className='profile-content-details-desc'>{orien}{gen}{relS}{relT}</div>
+    );
   };
 
   return(
@@ -86,15 +110,31 @@ const Profile = props => {
 
           {/* attributes */}
           <div className='profile-content-details-container'>
+
             <div className='profile-content-details' onClick={() => props.basicsForm()}>
               <div className='profile-content-details-opt'>
                 <i className='fas fa-cubes'/>
-                <p className='profile-content-details-desc'>{`${orientation}, ${gender}, ${relationship_status}, ${relationship_type}`}</p>
+                <div className='profile-content-details-desc'>{`${orientation}, ${gender}, ${relationship_status}, ${relationship_type}`}</div>
               </div>
               <div className='profile-content-details-edit'>
                 <i className='fas fa-chevron-right'/>
               </div>
             </div>
+
+            <div className='profile-content-details' onClick={() => props.basicsForm()}>
+              <div className='profile-content-details-opt'>
+                <i className='fas fa-bullhorn'/>
+                {
+                  pronouns !== 'Pronouns' ?
+                  <div className='profile-content-details-desc'>{`${pronouns}`}</div> :
+                  <div className='profile-content-details-desc'>{`Add: ${pronouns}`}</div>
+                }
+              </div>
+              <div className='profile-content-details-edit'>
+                <i className='fas fa-chevron-right'/>
+              </div>
+            </div>
+
           </div>
 
         </div>

@@ -1,8 +1,12 @@
-import React from 'react';
+import React, { useState } from 'react';
 
 const BasicsForm = props => {
+  const [hideGenderTags, setHideGenderTags] = useState(true);
+  const [hideOrienTags, setHideOrienTags] = useState(true);
   const orientationOpts = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
   const genderOpts = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
+  const user = props.user;
+  const gender = user ? user.gender : 'loading...';
 
   return(
     <div className='basics-form'>
@@ -15,7 +19,7 @@ const BasicsForm = props => {
       <div className='basics-form-content'>
         <p className='basics-form-content-title'>I am a...</p>
 
-        <div className='basics-form-content-tag-container hide'>
+        <div className={`basics-form-content-tag-container ${hideGenderTags ? 'hide' : ''}`}>
           <p className='basics-form-content-tag-title'>Select up to 5</p>
           <div className='basics-form-content-tag-list'>
             {
@@ -28,13 +32,13 @@ const BasicsForm = props => {
           </div>
           <div className='basics-form-content-tag-actions'>
             <button className='basics-form-content-tag-actions-cont'>Continue</button>
-            <button className='basics-form-content-tag-actions-cancel'>Cancel</button>
+            <button className='basics-form-content-tag-actions-cancel' onClick={() =>setHideGenderTags(true)}>Cancel</button>
           </div>
         </div>
 
         <div className='basics-form-content-inputs'>
 
-          <label className='basics-form-content-inputs-label'>
+          <label className={`basics-form-content-inputs-label ${!hideGenderTags ? 'hide' : ''}`}>
             <ul>
               <li>Straight</li>
               <li>Gay</li>
@@ -43,7 +47,12 @@ const BasicsForm = props => {
             </ul>
           </label>
           
-          <button className='basics-form-content-inputs-button'></button>
+          <button className={`basics-form-content-inputs-button ${!hideGenderTags ? 'hide' : ''}`} onClick={() => {
+            hideGenderTags ? setHideGenderTags(false) : setHideGenderTags(true)
+            }}>
+            <p className={`basics-form-content-inputs-button-gender ${gender === 'Gender' ? '' : 'black'}`}>{gender}</p>
+            <i className='fas fa-pencil-alt'/>
+            </button>
         </div>
 
       </div>

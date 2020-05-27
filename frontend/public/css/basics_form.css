@@ -4,6 +4,7 @@
   background-color: white;
   width: 600px;
   border-radius: 5px;
+  color: #2a2f35;
 }
   .basics-form-header{
     height: 85px;
@@ -94,4 +95,17 @@
           background-color: white;
           border: 1px solid #ccd0d9;
           border-radius: 3px;
+          display: flex;
+          color: #aeb4bf;
+          align-items: center;
         }
+        .basics-form-content-inputs-button:hover{
+          border: 1px solid #a9b1bd;
+        }
+          .basics-form-content-inputs-button .basics-form-content-inputs-button-gender{
+            padding: 0 10px;
+            width: 80%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+          }
