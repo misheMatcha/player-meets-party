@@ -40,7 +40,7 @@ const UserSchema = new Schema({
   },
   relationship_status: {
     type: String,
-    default: 'Status'
+    default: 'Single'
   },
   pronouns: {
     type: String,

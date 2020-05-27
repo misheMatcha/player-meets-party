@@ -7,15 +7,34 @@ const BasicsForm = props => {
   const user = props.user;
   const gender = user ? user.gender : 'loading...';
   const orientation = user ? user.orientation : 'loading...';
+  const relationship_type = user ? user.relationship_type : 'loading...';
   const [formGender, setFormGender] = useState('');
   const [formOrientation, setFormOrientation] = useState('');
   const [formMonogmy, setFormMonogmy] = useState('');
+  // refactor later to add logic for status options based on relationship type
+  // currently default is single and non-toggleable by nature of being on a dating site
+  const modifiedUser = {
+    gender: formGender,
+    orientation: formOrientation,
+    relationship_type: formMonogmy
+  };
 
   useEffect(() => {
+    const checkInputs = () => {
+      if(user){
+        setFormGender(gender);
+        setFormOrientation(orientation);
+        setFormMonogmy(relationship_type);
+      }
+    };
+    checkInputs();
     return () => {
     };
-  }, []);
-  
+  }, [modifiedUser]);
+
+  const updateInput = (event, field) => {
+  };
+
   return(
     <div className='basics-form'>
       <div className='basics-form-header'>
