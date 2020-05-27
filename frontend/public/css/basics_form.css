@@ -78,6 +78,9 @@
         justify-content: space-between;
         height: 46px;
       }
+      .basics-form-content-relationship{
+        padding-top: 20px;
+      }
         .basics-form-content-inputs-list{
           /* background-color: blue; */
           width: 249.50px;
@@ -130,3 +133,30 @@
             overflow: hidden;
             text-overflow: ellipsis;
           }
+
+      .basics-form-content-monogomy{
+        margin-top: 13px;
+      }
+
+      .basics-form-buttons{
+        height: 90px;
+        display: flex;
+        align-items: flex-end;
+        color: white;
+        font-size: 16px;
+        font-weight: 600;
+      }
+        .basics-form-buttons-temp{
+          width: 120px;
+          height: 50px;
+          display: flex;
+          justify-content: center;
+          border-radius: 3px;
+        }
+        .basics-form-buttons-temp.bfsubmit{
+          background-color: #0500be;
+        }
+        .basics-form-buttons-temp.bfcancel{
+          background-color: orange;
+          margin-left: 10px;
+        }
