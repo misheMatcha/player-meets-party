@@ -10,7 +10,11 @@ Player Meets Party was designed to bridge the gap within the dating community fo
 
 ## Features
 ### Transitioning background
-Keyframes are used and percentages are calculated in order to create time intervals.
+Each div utilizes a keyframe to transition seamlessly between images. Since keyframes don’t have intervals, percentages are calculated specifically to account for a timed interval transition.
+
+https://github.com/misheMatcha/player-meets-party/blob/cdc062c443f4e3d805f8640c70f4d7d9f165656a/frontend/public/css/splash.css#L38-L53
+
+https://github.com/misheMatcha/player-meets-party/blob/cdc062c443f4e3d805f8640c70f4d7d9f165656a/frontend/public/css/splash.css#L227-L237
 
 ![splash-trans-nr](https://user-images.githubusercontent.com/52799217/83064010-f138a480-a015-11ea-84e9-9a125a50741f.gif)
 
@@ -22,7 +26,7 @@ By clicking 'Sign in' a modal will appear, which offers for a smooth transition 
 ![pmp-session-modal](https://user-images.githubusercontent.com/52799217/83065518-78871780-a018-11ea-9fd4-bc35414752a2.gif)
 
 ### Technologies Used
-Player Meets Party is build using MongoDB, Express, Node.js, and React with Redux.
+Player Meets Party is built using MongoDB, Express, Node.js, and React with Redux.
 
 ## Feature Roadmap
 -Profile modals/questions - user has the ability to update all profile details
