@@ -129,7 +129,7 @@ const BasicsForm = props => {
 
             <div className='basics-form-content-inputs-list'>
               <div className='select'>
-                <select name='orientation' defaultValue='Monogomous' id='orientation'>
+                <select>
                   <option value='Monogomous'>Monogomous</option>
                   <option value='Non-monogomous'>Non-monogomous</option>
                   <option value='Open to either'>Open to either</option>
