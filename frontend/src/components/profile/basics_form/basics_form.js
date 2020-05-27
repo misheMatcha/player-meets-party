@@ -30,9 +30,6 @@ const BasicsForm = props => {
       }
     };
     checkInputs();
-
-    console.log(genderIdx)
-    console.log(orientationIdx)
     return () => {
     };
   });
