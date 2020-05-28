@@ -1,35 +1,39 @@
 import React, { useState, useEffect } from 'react';
 
 const BasicsForm = props => {
+  const [fetched, setFetched] = useState(false);
   const [whichTag, setWhichTag] = useState('none')
   const orientationOpts = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
   const genderOpts = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
-  const user = props.user;
-  const gender = user ? user.gender : 'loading...';
-  const orientation = user ? user.orientation : 'loading...';
-  const relationship_type = user ? user.relationship_type : 'loading...';
-  const [formGender, setFormGender] = useState('');
-  const [formOrientation, setFormOrientation] = useState('');
-  const [formMonogmy, setFormMonogmy] = useState('');
+  let user;
+  // const gender = user ? user.gender : 'loading...';
+  // const orientation = user ? user.orientation : 'loading...';
+  // const relationship_type = user ? user.relationship_type : 'loading...';
+  const [gender, setGender] = useState('loading...');
+  const [orientation, setOrientation] = useState('loading...');
+  const [relationship_type, setRelationship_type] = useState('loading...');
   // refactor later to add logic for status options based on relationship type
   // currently default is single and non-toggleable by nature of being on a dating site
   const modifiedUser = {
-    gender: formGender,
-    orientation: formOrientation,
-    relationship_type: formMonogmy
   };
   const [genderIdx, setGenderIdx] = useState(null);
   const [orientationIdx, setOrientationIdx] = useState(null);
 
   useEffect(() => {
-    const checkInputs = () => {
-      if(user){
-        setFormGender(gender);
-        setFormOrientation(orientation);
-        setFormMonogmy(relationship_type);
+    const checkUser = () => {
+      if(props.user !== undefined){
+        user = props.user;
+        setFetched(true)
       }
     };
-    checkInputs();
+    if(!fetched) checkUser();
+    const setFetchedValues = () => {
+      // if(user.gender !== null) setGender(user.gender);
+      console.log(user.gender)
+      // setOrientation(user.orientation);
+      // setRelationship_type(user.relationship_type);
+    };
+    if(user) setFetchedValues();
     return () => {
     };
   });
@@ -39,7 +43,6 @@ const BasicsForm = props => {
   const updateInput = (event, field) => {
     switch(field){
       case 'gender':
-        setFormGender(event.target.value);
         break;
       default:
     }
@@ -130,8 +133,8 @@ const BasicsForm = props => {
             <div className='basics-form-content-inputs-list'>
               <div className='select'>
                 <select>
-                  <option value='Monogomous'>Monogomous</option>
-                  <option value='Non-monogomous'>Non-monogomous</option>
+                  <option value='Monogamous'>Monogamous</option>
+                  <option value='Non-Monogamous'>Non-Monogamous</option>
                   <option value='Open to either'>Open to either</option>
                 </select>
               </div>
@@ -141,7 +144,7 @@ const BasicsForm = props => {
             </div>
 
           </div>
-          <p className='basics-form-content-monogomy'>You will see and be seen by people who are monogamous and open to monogamy. Learn more.</p>
+          <p className='basics-form-content-monogamy'>You will see and be seen by people who are monogamous and open to monogamy. Learn more.</p>
         </div>
 
         <div className='basics-form-buttons'>

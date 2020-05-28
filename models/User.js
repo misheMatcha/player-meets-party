@@ -36,7 +36,7 @@ const UserSchema = new Schema({
   },
   relationship_type: {
     type: String,
-    default: 'Monogomoy'
+    default: 'Monogamy'
   },
   relationship_status: {
     type: String,
