@@ -15,6 +15,7 @@ const BasicsForm = props => {
   };
   const [genderIdx, setGenderIdx] = useState(null);
   const [orientationIdx, setOrientationIdx] = useState(null);
+  const [relTypeForm, setRelTypeForm] = useState(relationship_type);
 
   useEffect(() => {
     const checkUser = () => {
@@ -27,19 +28,13 @@ const BasicsForm = props => {
       setOrientation(user.orientation);
       setGender(user.gender)
       setRelationship_type(user.relationship_type);
+      setRelTypeForm(user.relationship_type);
     };
     const checkTagValues = () => {
-      // const checkedOrienIdx = orienlist.indexOf(orientation);
       setOrientationIdx(orienlist.indexOf(orientation))
       setGenderIdx(genderlist.indexOf(gender))
-      // const checkedGenderIdx = genderlist.indexOf(gender);
-      // if(checkedOrienIdx > -1) setOrientationIdx(checkedOrienIdx)
-      // if(checkedGenderIdx > -1) setGenderIdx(checkedGenderIdx)
     };
-    console.log(genderIdx)
-    console.log(orientationIdx)
-    // console.log(genderlist[genderIdx])
-    // console.log(orienlist[orientationIdx])
+    
     // checks
     if(!fetched) checkUser();
     if(user){
@@ -54,7 +49,8 @@ const BasicsForm = props => {
 
   const updateInput = (event, field) => {
     switch(field){
-      case 'orientation':
+      case 'relationship':
+        setRelationship_type(event.target.value);
         break;
       default:
     }
@@ -71,7 +67,7 @@ const BasicsForm = props => {
       default:
     }
   };
-
+  
   return(
     <div className='basics-form'>
       <div className='basics-form-header'>
@@ -126,14 +122,14 @@ const BasicsForm = props => {
           <button className='basics-form-content-inputs-button' onClick={() => {
             if (whichTag === 'none') setWhichTag('orientation');
           }}>
-            <p className={`basics-form-content-inputs-button-gender ${orientation === 'Orientation' ? '' : 'black'}`}>{orientationIdx > -1 ? orienlist[orientationIdx] : orientation}</p>
+            <p className={`basics-form-content-inputs-button-gender ${orientationIdx > -1 ? 'black' : ''}`}>{orientationIdx > -1 ? orienlist[orientationIdx] : orientation}</p>
             <i className='fas fa-pencil-alt' />
           </button>
 
           <button className='basics-form-content-inputs-button'  onClick={() => {
             if(whichTag === 'none') setWhichTag('gender');
           }}>
-            <p className={`basics-form-content-inputs-button-gender ${gender === 'Gender' ? '' : 'black'}`}>{genderIdx > -1 ? genderlist[genderIdx] : gender}</p>
+            <p className={`basics-form-content-inputs-button-gender ${genderIdx > -1 ? 'black' : ''}`}>{genderIdx > -1 ? genderlist[genderIdx] : gender}</p>
             <i className='fas fa-pencil-alt'/>
             </button>
         </div>
@@ -144,7 +140,7 @@ const BasicsForm = props => {
 
             <div className='basics-form-content-inputs-list'>
               <div className='select'>
-                <select>
+                <select value={relationship_type} onChange={event => updateInput(event, 'relationship')}>
                   <option value='Monogamous'>Monogamous</option>
                   <option value='Non-Monogamous'>Non-Monogamous</option>
                   <option value='Open to either'>Open to either</option>
