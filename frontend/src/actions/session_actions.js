@@ -39,6 +39,7 @@ export const login = user => dispatch => ApiUtil.login(user)
     const decoded = jwt_decode(token);
     dispatch(loginUser(decoded))
     localStorage.setItem('currentId', decoded.id);
+    // updates current user state upon login
     dispatch(requestCurrentUser(decoded.id))
   })
   .catch(err => dispatch(receiveErrors(err.response.data)));

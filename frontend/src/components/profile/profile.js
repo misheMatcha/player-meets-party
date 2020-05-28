@@ -39,13 +39,13 @@ const Profile = props => {
     };
     const userOr = () => {
       if (!fetchedUser) {
-        if (!props.match.isExact) {
-          props.fetchUser(props.history.location.pathname.slice(9));
-        } else {
-          props.fetchUser(localStorage.currentId);
-        }
-        setFetchedUser(true);
+        props.fetchUser(props.history.location.pathname.slice(9));
+        // if (!props.match.isExact) {
+        // } else {
+        //   props.fetchUser(localStorage.currentId);
+        // }
       }
+      setFetchedUser(true);
     };
     // remove after styling is completed
     // props.basicsForm();

@@ -6,12 +6,14 @@ const BasicsForm = props => {
   let user;
   const [fetched, setFetched] = useState(false);
   const [whichTag, setWhichTag] = useState('none')
+  const [userId, setUserId] = useState(null);
   const [gender, setGender] = useState('loading...');
   const [orientation, setOrientation] = useState('loading...');
   // refactor later to add logic for status (single, married, etc) options based on relationship type
   // currently default is single and non-toggleable by nature of being on a dating site
   const [relationship_type, setRelationship_type] = useState('loading...');
   const [modifiedUser, setModifiedUser] = useState({
+    id: null,
     orientation: null,
     gender: null,
     relationship_type: null
@@ -30,12 +32,14 @@ const BasicsForm = props => {
       setOrientation(user.orientation);
       setGender(user.gender)
       setRelationship_type(user.relationship_type);
+      setUserId(user._id);
     };
     const checkTagValues = () => {
       setOrientationIdx(orienlist.indexOf(orientation))
       setGenderIdx(genderlist.indexOf(gender))
     };
-
+    // console.log(userId)
+    
     // checks
     if(!fetched) checkUser();
     if(user){
@@ -71,6 +75,7 @@ const BasicsForm = props => {
 
   const handleSubmit = event => {
     setModifiedUser({
+      id: userId,
       orientation: orienlist[orientationIdx],
       gender: genderlist[genderIdx],
       relationship_type: relationship_type

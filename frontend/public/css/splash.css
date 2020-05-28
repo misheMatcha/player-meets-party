@@ -83,7 +83,8 @@
         .splash-nav-logo{
           font-family: 'plexi';
           font-size: 55px;
-          color: orangered;
+          /* color: orangered; */
+          color: white;
         }
         .splash-nav-login{
           color: white;

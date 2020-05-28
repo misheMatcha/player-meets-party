@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, withRouter } from 'react-router-dom';
 
-const Navbar = ({user, boost, logout, updateCurrentUser}) => {
+const Navbar = props => {
   const [hideOpts, setHideOpts] = useState(true);
   const [hideMsgs, setHideMsgs] = useState(true);
   const placeholder = {
-    username: 'Mishe',
     profile: 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg',
     msgArr: {
       name: 'Alice',
@@ -16,13 +15,12 @@ const Navbar = ({user, boost, logout, updateCurrentUser}) => {
   };
 
   useEffect(() => {
-    const checkCurrentUser = () => {
-      if(!user) updateCurrentUser(localStorage.currentId);
-    };
-    checkCurrentUser();
+    // checks
+    if(!props.authUser) window.location.reload(true);
+    if(!props.user && props.authUser) props.updateCurrentUser(props.authUser.id)
     return(() => {
     })
-  }, [user, updateCurrentUser]);
+  });
 
   const toggleDropdown = field => {
     switch(field){
@@ -70,22 +68,26 @@ const Navbar = ({user, boost, logout, updateCurrentUser}) => {
           <div className={`navbar-profile dropdown ${hideOpts ? '' : 'navbar-hover-bg'}`} onClick={() => toggleDropdown('opts')}>
             <button className='navbar-profile-btn'>
               <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
-              <p className='navbar-profile-user'>{user ? user.name : `loading...`}</p>
+              <p className='navbar-profile-user'>{props.user ? props.user.name : `loading...`}</p>
               <div className='fas fa-angle-down'/>
             </button>
             <div className={`navbar-profile-list dropdown-content ${hideOpts ? '' : 'block'}`}>
-              <p className='navbar-profile-item'><Link to='/profile'>Profile</Link></p>
+              <p className='navbar-profile-item'><Link to={`/profile/${props.authUser ? props.authUser.id : ''}`} onClick={() => {
+                // quick fix to ensure rerender
+                props.history.push(`/profile/${props.authUser.id}`)
+                window.location.reload(true)
+                }}>Profile</Link></p>
               <p className='navbar-profile-item'>Settings</p>
               <p className='navbar-profile-item'>Help</p>
-              <p className='navbar-profile-item' onClick={() => logout()}>Sign Out</p>
+              <p className='navbar-profile-item' onClick={() => props.logout()}>Sign Out</p>
             </div>
           </div>
           <button className='navbar-btn nbjoin'>JOIN A-LIST</button>
-          {boost}
+          {props.boost}
         </div>
       </div>
     </div>
   );
 };
 
-export default Navbar;
+export default withRouter(Navbar);

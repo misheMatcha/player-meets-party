@@ -6,7 +6,8 @@ import { requestCurrentUser } from '../../actions/user_actions';
 import Navbar from './navbar';
 
 const mSTP = state => ({
-  user: state.entities.users.current
+  user: state.entities.users.current,
+  authUser: state.session.user
 });
 
 const mDTP = dispatch => ({
