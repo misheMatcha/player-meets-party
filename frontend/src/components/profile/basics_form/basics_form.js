@@ -1,19 +1,16 @@
 import React, { useState, useEffect } from 'react';
 
 const BasicsForm = props => {
+  const orienlist = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
+  const genderlist = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
+  let user;
   const [fetched, setFetched] = useState(false);
   const [whichTag, setWhichTag] = useState('none')
-  const orientationOpts = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
-  const genderOpts = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
-  let user;
-  // const gender = user ? user.gender : 'loading...';
-  // const orientation = user ? user.orientation : 'loading...';
-  // const relationship_type = user ? user.relationship_type : 'loading...';
   const [gender, setGender] = useState('loading...');
   const [orientation, setOrientation] = useState('loading...');
-  const [relationship_type, setRelationship_type] = useState('loading...');
   // refactor later to add logic for status options based on relationship type
   // currently default is single and non-toggleable by nature of being on a dating site
+  const [relationship_type, setRelationship_type] = useState('loading...');
   const modifiedUser = {
   };
   const [genderIdx, setGenderIdx] = useState(null);
@@ -26,13 +23,29 @@ const BasicsForm = props => {
         setFetched(true)
       }
     };
-    if(!fetched) checkUser();
     const setFetchedValues = () => {
-      setGender(user.gender)
       setOrientation(user.orientation);
+      setGender(user.gender)
       setRelationship_type(user.relationship_type);
     };
-    if(user) setFetchedValues();
+    const checkTagValues = () => {
+      // const checkedOrienIdx = orienlist.indexOf(orientation);
+      setOrientationIdx(orienlist.indexOf(orientation))
+      setGenderIdx(genderlist.indexOf(gender))
+      // const checkedGenderIdx = genderlist.indexOf(gender);
+      // if(checkedOrienIdx > -1) setOrientationIdx(checkedOrienIdx)
+      // if(checkedGenderIdx > -1) setGenderIdx(checkedGenderIdx)
+    };
+    console.log(genderIdx)
+    console.log(orientationIdx)
+    // console.log(genderlist[genderIdx])
+    // console.log(orienlist[orientationIdx])
+    // checks
+    if(!fetched) checkUser();
+    if(user){
+      setFetchedValues();
+      checkTagValues();
+    }
     return () => {
     };
   });
@@ -41,7 +54,7 @@ const BasicsForm = props => {
 
   const updateInput = (event, field) => {
     switch(field){
-      case 'gender':
+      case 'orientation':
         break;
       default:
     }
@@ -76,7 +89,7 @@ const BasicsForm = props => {
           { whichTag === 'orientation' ?
             <div className='basics-form-content-tag-list'>
               {
-                orientationOpts.map((orienOpt, idx) => {
+                orienlist.map((orienOpt, idx) => {
                   return(
                     <button key={idx} type='button' className={`basics-form-content-tag ${orientationIdx === idx ? 'tag-selected' : ''}`} onClick={() => {
                       setIdx('orientation', idx)
@@ -90,7 +103,7 @@ const BasicsForm = props => {
             :
             <div className='basics-form-content-tag-list'>
               {
-                genderOpts.map((genderOption, idx) => {
+                genderlist.map((genderOption, idx) => {
                   return(
                     <button key={idx} type='button' className={`basics-form-content-tag ${genderIdx === idx ? 'tag-selected' : ''}`} onClick={() => {
                       setIdx('gender', idx)
@@ -113,14 +126,14 @@ const BasicsForm = props => {
           <button className='basics-form-content-inputs-button' onClick={() => {
             if (whichTag === 'none') setWhichTag('orientation');
           }}>
-            <p className={`basics-form-content-inputs-button-gender ${orientation === 'Orientation' ? '' : 'black'}`}>{orientation}</p>
+            <p className={`basics-form-content-inputs-button-gender ${orientation === 'Orientation' ? '' : 'black'}`}>{orientationIdx > -1 ? orienlist[orientationIdx] : orientation}</p>
             <i className='fas fa-pencil-alt' />
           </button>
 
           <button className='basics-form-content-inputs-button'  onClick={() => {
             if(whichTag === 'none') setWhichTag('gender');
           }}>
-            <p className={`basics-form-content-inputs-button-gender ${gender === 'Gender' ? '' : 'black'}`}>{gender}</p>
+            <p className={`basics-form-content-inputs-button-gender ${gender === 'Gender' ? '' : 'black'}`}>{genderIdx > -1 ? genderlist[genderIdx] : gender}</p>
             <i className='fas fa-pencil-alt'/>
             </button>
         </div>
