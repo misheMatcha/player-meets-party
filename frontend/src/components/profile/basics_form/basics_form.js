@@ -28,10 +28,9 @@ const BasicsForm = props => {
     };
     if(!fetched) checkUser();
     const setFetchedValues = () => {
-      // if(user.gender !== null) setGender(user.gender);
-      console.log(user.gender)
-      // setOrientation(user.orientation);
-      // setRelationship_type(user.relationship_type);
+      setGender(user.gender)
+      setOrientation(user.orientation);
+      setRelationship_type(user.relationship_type);
     };
     if(user) setFetchedValues();
     return () => {
