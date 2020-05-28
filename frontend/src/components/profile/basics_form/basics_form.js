@@ -8,14 +8,16 @@ const BasicsForm = props => {
   const [whichTag, setWhichTag] = useState('none')
   const [gender, setGender] = useState('loading...');
   const [orientation, setOrientation] = useState('loading...');
-  // refactor later to add logic for status options based on relationship type
+  // refactor later to add logic for status (single, married, etc) options based on relationship type
   // currently default is single and non-toggleable by nature of being on a dating site
   const [relationship_type, setRelationship_type] = useState('loading...');
-  const modifiedUser = {
-  };
+  const [modifiedUser, setModifiedUser] = useState({
+    orientation: null,
+    gender: null,
+    relationship_type: null
+  });
   const [genderIdx, setGenderIdx] = useState(null);
   const [orientationIdx, setOrientationIdx] = useState(null);
-  const [relTypeForm, setRelTypeForm] = useState(relationship_type);
 
   useEffect(() => {
     const checkUser = () => {
@@ -28,13 +30,12 @@ const BasicsForm = props => {
       setOrientation(user.orientation);
       setGender(user.gender)
       setRelationship_type(user.relationship_type);
-      setRelTypeForm(user.relationship_type);
     };
     const checkTagValues = () => {
       setOrientationIdx(orienlist.indexOf(orientation))
       setGenderIdx(genderlist.indexOf(gender))
     };
-    
+
     // checks
     if(!fetched) checkUser();
     if(user){
@@ -67,7 +68,16 @@ const BasicsForm = props => {
       default:
     }
   };
-  
+
+  const handleSubmit = event => {
+    setModifiedUser({
+      orientation: orienlist[orientationIdx],
+      gender: genderlist[genderIdx],
+      relationship_type: relationship_type
+    });
+    props.editUser(modifiedUser);
+  };
+
   return(
     <div className='basics-form'>
       <div className='basics-form-header'>
@@ -76,7 +86,7 @@ const BasicsForm = props => {
           <i className="fas fa-times"/>
         </div>
       </div>
-      <form className='basics-form-content' onSubmit={() => console.log('submitted')}>
+      <form className='basics-form-content' onSubmit={event => handleSubmit(event)}>
         <p className='basics-form-content-title'>I am a...</p>
 
         <div className={`basics-form-content-tag-container ${whichTag === 'none' ? 'hide' : ''}`}>
@@ -112,21 +122,21 @@ const BasicsForm = props => {
             </div>
           }
           <div className='basics-form-content-tag-actions'>
-            <button className='basics-form-content-tag-actions-cont' onClick={() => setWhichTag('none')}>Continue</button>
-            <button className='basics-form-content-tag-actions-cancel' onClick={() => setWhichTag('none')}>Cancel</button>
+            <button className='basics-form-content-tag-actions-cont' type='button' onClick={() => setWhichTag('none')}>Continue</button>
+            <button className='basics-form-content-tag-actions-cancel' type='button' onClick={() => setWhichTag('none')}>Cancel</button>
           </div>
         </div>
 
         <div className='basics-form-content-inputs' style={{display: whichTag === 'gender' || whichTag === 'orientation' ? 'none' : 'flex' }}>
 
-          <button className='basics-form-content-inputs-button' onClick={() => {
+          <button className='basics-form-content-inputs-button' type='button' onClick={() => {
             if (whichTag === 'none') setWhichTag('orientation');
           }}>
             <p className={`basics-form-content-inputs-button-gender ${orientationIdx > -1 ? 'black' : ''}`}>{orientationIdx > -1 ? orienlist[orientationIdx] : orientation}</p>
             <i className='fas fa-pencil-alt' />
           </button>
 
-          <button className='basics-form-content-inputs-button'  onClick={() => {
+          <button className='basics-form-content-inputs-button' type='button' onClick={() => {
             if(whichTag === 'none') setWhichTag('gender');
           }}>
             <p className={`basics-form-content-inputs-button-gender ${genderIdx > -1 ? 'black' : ''}`}>{genderIdx > -1 ? genderlist[genderIdx] : gender}</p>
