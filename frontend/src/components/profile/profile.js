@@ -45,6 +45,7 @@ const Profile = props => {
     };
     // remove after styling is completed
     // props.basicsForm();
+    props.pronounsForm();
     userOr()
     setTitle();
     return(() => {

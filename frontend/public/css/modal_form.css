@@ -1,0 +1,20 @@
+.modal-form{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  width: 600px;
+  border-radius: 5px;
+  color: #2a2f35;
+}
+  .modal-form-header{
+    height: 85px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+  }
+    .modal-form-header span{
+      font-size: 19px;
+      font-weight: 500;
+    }

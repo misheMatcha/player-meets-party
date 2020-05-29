@@ -36,3 +36,18 @@
 .basics-form-content-inputs-list-arrow{}
   .basics-form-content-inputs .basics-form-content-inputs-list .basics-form-content-inputs-list-arrow i{
   }
+
+/* modal form */
+/* x */
+.modal-form-header-close{
+  height: 50px;
+  width: 50px;
+  margin-top: -34px;
+  margin-right: -39px;
+}
+  .modal-form .modal-form-header .modal-form-header-close i{
+    color: gray;
+    font-size: 20px;
+    display: flex;
+    justify-content: center;
+  }
