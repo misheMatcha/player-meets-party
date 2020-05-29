@@ -1,0 +1,71 @@
+.modal-form{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  width: 600px;
+  border-radius: 5px;
+  color: #2a2f35;
+}
+  .modal-form-header{
+    height: 85px;
+    padding: 0 40px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: white;
+    border-radius: 5px 5px 0 0;
+  }
+    .modal-form-header span{
+      font-size: 19px;
+      font-weight: 500;
+    }
+
+  .modal-form-content{
+    background-color: #f3f5f9;
+    padding: 40px;
+    width: auto;
+    border-radius: 0 0 5px 5px;
+  }
+    .modal-form-content-title{
+      font-size: 17px;
+      margin-bottom: 16px;
+      font-weight: 500;
+    }
+
+    .modal-form-content-label{
+      background-color: white;
+      border: 1px solid #ccd0d9;
+      border-radius: 3px;
+      display: flex;
+      color: #aeb4bf;
+      align-items: center;
+      height: 46px;
+      font-size: 17px;
+    }
+      .pronouns-input{
+        padding: 1px 13px;
+        color: black;
+        width: 100%;
+      }
+
+    .modal-form-buttons-wrap{
+      height: 90px;
+      display: flex;
+      align-items: flex-end;
+      color: white;
+      font-size: 16px;
+      font-weight: 600;
+    }
+      .modal-form-buttons{
+        width: 120px;
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        border-radius: 3px;
+      }
+      .mfb-submit{
+        background-color: #0500be;
+      }
+      .mfb-cancel{
+        background-color: orange;
+        margin-left: 10px;
+      }

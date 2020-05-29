@@ -62,15 +62,11 @@ const BasicsForm = props => {
     <div className='basics-form'>
       <div className='basics-form-header'>
         <span>Basics</span>
-        <div className='basics-form-header-icon' onClick={
-          () => props.closeModal()
-        }>
+        <div className='basics-form-header-icon' onClick={() => props.closeModal()}>
           <i className="fas fa-times"/>
         </div>
       </div>
-      <form className='basics-form-content' onClick={event => {
-        handleSubmit(event);
-      }}>
+      <form className='basics-form-content' onClick={event => handleSubmit(event)}>
         <p className='basics-form-content-title'>I am a...</p>
         <div className={`basics-form-content-tag-container ${displayOption === 'none' ? 'hide' : ''}`}>
           {/* refactor later for a more robust options */}
@@ -105,31 +101,27 @@ const BasicsForm = props => {
             </div>
           }
           <div className='basics-form-content-tag-actions'>
-            <button className='basics-form-content-tag-actions-cont' type='button' onClick={
-              () => setDisplayOption('none')
-            }>Continue</button>
-            <button className='basics-form-content-tag-actions-cancel' type='button' onClick={
-              () => setDisplayOption('none')
-            }>Cancel</button>
+            <button className='basics-form-content-tag-actions-cont' type='button' onClick={() => setDisplayOption('none')}>Continue</button>
+            <button className='basics-form-content-tag-actions-cancel' type='button' onClick={() => setDisplayOption('none')}>Cancel</button>
           </div>
         </div>
-         <div className='basics-form-content-inputs' style={
-           {display: displayOption === 'gender' || displayOption === 'orientation' ? 'none' : 'flex'}
-           }>
-          <button className='basics-form-content-inputs-button' type='button' onClick={
-            () => {if (displayOption === 'none') setDisplayOption('orientation');}
-            }>
+         <div className='basics-form-content-inputs' style={{
+           display: displayOption === 'gender' || displayOption === 'orientation' ? 'none' : 'flex'
+          }}>
+          <button className='basics-form-content-inputs-button' type='button' onClick={() => {
+            if (displayOption === 'none') setDisplayOption('orientation');
+          }}>
             <p className={`basics-form-content-inputs-button-gender ${idxO > -1 ? 'black' : ''}`}>
               {idxO > -1 ? orientationList[idxO] : orientation}
-              </p>
+            </p>
             <i className='fas fa-pencil-alt'/>
           </button>
-          <button className='basics-form-content-inputs-button' type='button' onClick={
-            () => {if(displayOption === 'none') setDisplayOption('gender');}
-            }>
+          <button className='basics-form-content-inputs-button' type='button' onClick={() => {
+            if(displayOption === 'none') setDisplayOption('gender');
+          }}>
             <p className={`basics-form-content-inputs-button-gender ${idxG > -1 ? 'black' : ''}`}>
               {idxG > -1 ? genderList[idxG] : gender}
-              </p>
+            </p>
             <i className='fas fa-pencil-alt'/>
             </button>
         </div>
@@ -139,12 +131,7 @@ const BasicsForm = props => {
 
             <div className='basics-form-content-inputs-list'>
               <div className='select'>
-                <select value={relationship_type} onChange={
-                  event => {
-                    event.preventDefault();
-                    updateInput(event, 'relationship_type');
-                  }
-                  }>
+                <select value={relationship_type} onChange={event => updateInput(event, 'relationship_type')}>
                   <option value='Monogamous'>Monogamous</option>
                   <option value='Non-Monogamous'>Non-Monogamous</option>
                   <option value='Open to either'>Open to either</option>
@@ -159,9 +146,7 @@ const BasicsForm = props => {
         </div>
         <div className='basics-form-buttons'>
           <button className='basics-form-buttons-temp bfsubmit' type='submit'>Save</button>
-          <button className='basics-form-buttons-temp bfcancel' type='button' onClick={
-            () => props.closeModal()}
-            >Cancel</button>
+          <button className='basics-form-buttons-temp bfcancel' type='button' onClick={() => props.closeModal()}>Cancel</button>
         </div>
       </form>
     </div>

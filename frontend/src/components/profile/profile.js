@@ -45,6 +45,7 @@ const Profile = props => {
     };
     // remove after styling is completed
     // props.basicsForm();
+    // props.pronounsForm();
     userOr()
     setTitle();
     return(() => {
@@ -98,7 +99,7 @@ const Profile = props => {
               </div>
             </div>
 
-            <div className='profile-content-details' onClick={() => props.basicsForm()}>
+            <div className='profile-content-details' onClick={() => props.pronounsForm()}>
               <div className='profile-content-details-opt'>
                 <i className='fas fa-bullhorn'/>
                 {

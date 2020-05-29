@@ -2,6 +2,7 @@ import React from 'react';
 import LoginForm from '../session/login_form_container';
 import Boost from '../boost/boost_container';
 import BasicsForm from '../profile/basics_form/basics_form_container';
+import PronounsForm from '../profile/pronouns_form/pronouns_form_container';
 
 const Modal = props => {
   if(!props.modal) return null;
@@ -16,6 +17,9 @@ const Modal = props => {
       break;
     case 'basics':
       component = <BasicsForm />;
+      break;
+    case 'pronouns':
+      component = <PronounsForm />;
       break;
     default:
       return null;
