@@ -18,7 +18,7 @@ const BasicsForm = props => {
     if(user && orientation === '') setDefaultValues();
     return () => {
     };
-  },);
+  });
 
   const setDefaultValues = () => {
     setOrientation(user.orientation);
@@ -45,7 +45,8 @@ const BasicsForm = props => {
     }
   };
 
-  const handleSubmit = () => {
+  const handleSubmit = event => {
+    event.preventDefault();
     if(user !== undefined){
       modifiedUser = {
         _id: user._id,
@@ -53,11 +54,10 @@ const BasicsForm = props => {
         gender: gender,
         relationship_type: relationship_type
       };
-      props.editUser(modifiedUser).then(() => props.closeModal());
+      props.editUser(modifiedUser);
     }
   };
-
-
+  
   return(
     <div className='basics-form'>
       <div className='basics-form-header'>
@@ -69,8 +69,7 @@ const BasicsForm = props => {
         </div>
       </div>
       <form className='basics-form-content' onClick={event => {
-        event.preventDefault();
-        handleSubmit();
+        handleSubmit(event);
       }}>
         <p className='basics-form-content-title'>I am a...</p>
         <div className={`basics-form-content-tag-container ${displayOption === 'none' ? 'hide' : ''}`}>
@@ -141,7 +140,10 @@ const BasicsForm = props => {
             <div className='basics-form-content-inputs-list'>
               <div className='select'>
                 <select value={relationship_type} onChange={
-                  event => updateInput(event, 'relationship_type')
+                  event => {
+                    event.preventDefault();
+                    updateInput(event, 'relationship_type');
+                  }
                   }>
                   <option value='Monogamous'>Monogamous</option>
                   <option value='Non-Monogamous'>Non-Monogamous</option>
