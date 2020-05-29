@@ -4,7 +4,7 @@ import { editUser } from '../../../actions/user_actions';
 import BasicsForm from './basics_form';
 
 const mSTP = state => ({
-  user: state.entities.users.user
+  user: state.entities.users.current
 });
 
 const mDTP = dispatch => ({

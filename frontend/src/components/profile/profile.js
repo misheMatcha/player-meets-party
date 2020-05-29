@@ -48,7 +48,7 @@ const Profile = props => {
       setFetchedUser(true);
     };
     // remove after styling is completed
-    // props.basicsForm();
+    props.basicsForm();
     userOr()
     setTitle();
     return(() => {

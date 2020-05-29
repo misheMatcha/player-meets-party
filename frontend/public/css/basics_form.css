@@ -167,3 +167,11 @@
 .tag-selected{
   background-color: #ebedf2;
 }
+
+
+
+.bf-test{
+  width: 500px;
+  height: 500px;
+  background-color: white;
+}
