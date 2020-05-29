@@ -40,15 +40,11 @@ const Profile = props => {
     const userOr = () => {
       if (!fetchedUser) {
         props.fetchUser(props.history.location.pathname.slice(9));
-        // if (!props.match.isExact) {
-        // } else {
-        //   props.fetchUser(localStorage.currentId);
-        // }
       }
       setFetchedUser(true);
     };
     // remove after styling is completed
-    props.basicsForm();
+    // props.basicsForm();
     userOr()
     setTitle();
     return(() => {
