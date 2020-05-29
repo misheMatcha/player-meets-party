@@ -98,7 +98,7 @@ const Profile = props => {
               </div>
             </div>
 
-            <div className='profile-content-details' onClick={() => props.basicsForm()}>
+            <div className='profile-content-details' onClick={() => props.pronounsForm()}>
               <div className='profile-content-details-opt'>
                 <i className='fas fa-bullhorn'/>
                 {

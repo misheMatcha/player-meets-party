@@ -141,7 +141,6 @@ const BasicsForm = props => {
               <div className='select'>
                 <select value={relationship_type} onChange={
                   event => {
-                    event.preventDefault();
                     updateInput(event, 'relationship_type');
                   }
                   }>

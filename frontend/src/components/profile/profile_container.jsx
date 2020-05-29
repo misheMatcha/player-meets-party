@@ -9,7 +9,8 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
   fetchUser: user_id => dispatch(requestUser(user_id)),
-  basicsForm: () => dispatch(openModal('basics'))
+  basicsForm: () => dispatch(openModal('basics')),
+  pronounsForm: () => dispatch(openModal('pronouns')),
 });
 
 export default connect(mSTP, mDTP)(Profile);
