@@ -54,7 +54,7 @@ const BasicsForm = props => {
         gender: gender,
         relationship_type: relationship_type
       };
-      props.editUser(modifiedUser);
+      props.editUser(modifiedUser).then(() => props.closeModal());
     }
   };
   
@@ -66,7 +66,7 @@ const BasicsForm = props => {
           <i className="fas fa-times"/>
         </div>
       </div>
-      <form className='basics-form-content' onClick={event => handleSubmit(event)}>
+      <form className='basics-form-content' onSubmit={event => handleSubmit(event)}>
         <p className='basics-form-content-title'>I am a...</p>
         <div className={`basics-form-content-tag-container ${displayOption === 'none' ? 'hide' : ''}`}>
           {/* refactor later for a more robust options */}
