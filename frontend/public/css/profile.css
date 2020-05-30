@@ -1,3 +1,29 @@
 .profile{
-  border: 1px solid blue;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
 }
+  .profile-header{
+    background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    color: white;
+    height: 200px;
+  }
+    .profile-header-basics{
+      border: 1px solid blue;
+      width: 1000px;
+      display: flex;
+      justify-content: space-between;
+      padding-top: 50px;
+      margin-bottom: 30px;
+    }
+      .profile-header-basics-userinfo{
+        border: 1px solid blue;
+        /* width: 100%; */
+        display: flex;
+      }
+        .profile-header .profile-header-basics img{
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
+        }
