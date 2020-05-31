@@ -11,6 +11,7 @@ import { calculateAge } from '../../util/general_util';
 const Profile = props => {
   const user = props.user;
   const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
+  const [displayMore, setDisplayMore] = useState(false);
   // placeholders
   const online = true;
   const match = '87% Match';
@@ -94,7 +95,8 @@ const Profile = props => {
     </div>
     <div className='profile-content'>
       <div className='profile-content-wrap'>
-
+        
+        {/* msgs */}
         <div className='profile-content-questions'>
           <div className='profile-content-msg'>
             <div className='profile-content-msg-header'>
@@ -104,7 +106,17 @@ const Profile = props => {
             <p className='profile-content-msg-intro'>{intro}</p>
             <div className='profile-content-msg-tail'/>
           </div>
+          {/* questions */}
+          {/* ability to toggle to view more information */}
+          <div className='profile-content-questions-section-displaytoggle display-question-height'>
+            <div className='profile-content-questions-section'>
+              iterable questions
+            </div>
+          </div>
+
+
         </div>
+
         <div className='profile-content-attributes'>
           attributes
         </div>

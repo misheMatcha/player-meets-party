@@ -1,6 +1,9 @@
 .black{
   color: #2a2f35;
 }
+.display-question-height{
+  height: 428px;
+}
 .passlike-buttons{
   width: 157px;
   height: 52px;
