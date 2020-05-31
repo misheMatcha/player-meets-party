@@ -48,6 +48,7 @@
             .profile-spacer{
               padding: 0 5px 0 4px;
               margin-left: 4px;
+              font-size: 10px;
             }
             .profile-header-basics-asl-section{
               margin-left: 4px;
@@ -62,7 +63,66 @@
 
       .profile-header-passlike{
         display: flex;
-        align-items: center;
+        align-items: flex-end;
         width: 329px;
         justify-content: space-between;
       }
+
+  .profile-content{
+    /* border: 1px solid blue; */
+    margin-top: 30px;
+    padding: 20px 60px;
+    display: flex;
+    justify-content: center;
+  }
+    .profile-content-wrap{
+      /* border: 1px solid red; */
+      width: 1000px;
+      display: flex;
+      justify-content: center;
+    }
+      .profile-content-questions{
+        /* border: 1px solid blue; */
+        /* width: 50%; */
+        padding-right: 50px;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+      }
+        .profile-content-msg{
+          /* border: 1px solid green; */
+          /* width: 510px; */
+          margin-bottom: 50px;
+          background-color: white;
+          /* filter: drop-shadow(5px 5px 4px #4444dd); */
+          border-radius: 5px;
+          padding: 16px;
+
+        }
+          .profile-content-msg-header{
+            display: flex;
+            margin-bottom: 8px;
+
+            width: 510px;
+            justify-content: space-between;
+            color: #949aa6;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 5px 10px 5px 10px;
+          }
+          .profile-content-msg-intro{
+            color: #2a2f35;
+            font-size: 17px;
+          }
+          .profile-content-msg-tail{
+            border: 5px solid blue;
+            width: 0;
+            height: 0;
+          }
+
+
+      .profile-content-attributes{
+        /* border: 1px solid rebeccapurple; */
+        /* width: 320px; */
+      }
+

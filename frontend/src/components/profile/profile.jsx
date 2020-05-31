@@ -15,6 +15,7 @@ const Profile = props => {
   const online = true;
   const match = '87% Match';
   const photo = 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg';
+  const intro = 'Hi, how are you?';
   const [fetched, setFetched] = useState(false);
   // separated into modal sections
   // refactor to a more elegant solution later
@@ -45,7 +46,6 @@ const Profile = props => {
   });
 
   const profile = <div className='profile'>
-
     <div className='profile-header'>
       <div className='profile-header-basics'>
         <div className='profile-header-basics-userinfo'>
@@ -85,14 +85,32 @@ const Profile = props => {
         </div>
         {
           isCurrentUser ? '' :
-            <div className='profile-header-passlike'>
-              <button className='passlike-buttons passlike-pass' onClick={() => console.log('Pass')}>X PASS</button>
-              <button className='passlike-buttons passlike-like' onClick={() => console.log('Like')}><i className='far fa-heart' /> LIKE</button>
-            </div>
+          <div className='profile-header-passlike'>
+            <button className='passlike-buttons passlike-pass' onClick={() => console.log('Pass')}>X PASS</button>
+            <button className='passlike-buttons passlike-like' onClick={() => console.log('Like')}><i className='far fa-heart' /> LIKE</button>
+          </div>
         }
       </div>
     </div>
+    <div className='profile-content'>
+      <div className='profile-content-wrap'>
 
+        <div className='profile-content-questions'>
+          <div className='profile-content-msg'>
+            <div className='profile-content-msg-header'>
+              <p>They wrote you an intro</p>
+              <button className='fas fa-flag' onClick={() => console.log('Flag user')}/>
+            </div>
+            <p className='profile-content-msg-intro'>{intro}</p>
+            <div className='profile-content-msg-tail'/>
+          </div>
+        </div>
+        <div className='profile-content-attributes'>
+          attributes
+        </div>
+
+      </div>
+    </div>
   </div>
 
   return user ? profile : 'loading'
