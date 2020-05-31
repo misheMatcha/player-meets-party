@@ -4,7 +4,8 @@ import { openModal } from '../../actions/modal_actions';
 import Profile from './profile';
 
 const mSTP = state => ({
-  user: state.entities.users.user
+  user: state.entities.users.user,
+  current: state.entities.users.current
 });
 
 const mDTP = dispatch => ({

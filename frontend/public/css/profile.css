@@ -10,7 +10,7 @@
     height: 200px;
   }
     .profile-header-basics{
-      border: 1px solid blue;
+      /* border: 1px solid blue; */
       width: 1000px;
       display: flex;
       justify-content: space-between;
@@ -18,7 +18,7 @@
       margin-bottom: 30px;
     }
       .profile-header-basics-userinfo{
-        border: 1px solid blue;
+        /* border: 1px solid blue; */
         /* width: 100%; */
         display: flex;
       }
@@ -27,3 +27,21 @@
           height: 180px;
           border-radius: 50%;
         }
+        .profile-header-basics-asl{
+          /* border: 1px solid red; */
+          display: flex;
+          flex-direction: column;
+          justify-content: flex-end;
+          margin-left: 8px;
+          padding: 0 12px;
+        }
+          .profile-header-basics-asl-status{
+            /* border: 1px solid yellow; */
+            display: flex;
+            height: 50px;
+          }
+          .profile-header-basics-asl-details{
+            /* border: 1px solid red; */
+            display: flex;
+            height: 36px;
+          }
