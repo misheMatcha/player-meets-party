@@ -94,30 +94,36 @@
           /* width: 510px; */
           margin-bottom: 50px;
           background-color: white;
-          /* filter: drop-shadow(5px 5px 4px #4444dd); */
+          filter: drop-shadow(0px 1px 2px #1a1a1a3a);
           border-radius: 5px;
           padding: 16px;
+          width: 510px;
 
         }
           .profile-content-msg-header{
             display: flex;
             margin-bottom: 8px;
-
-            width: 510px;
             justify-content: space-between;
             color: #949aa6;
             font-size: 15px;
             font-weight: 500;
             border-radius: 5px 10px 5px 10px;
+            position: relative;
           }
           .profile-content-msg-intro{
+            /* border: 1px solid blue; */
             color: #2a2f35;
             font-size: 17px;
           }
           .profile-content-msg-tail{
-            border: 5px solid blue;
-            width: 0;
-            height: 0;
+            width: 0; 
+            height: 0; 
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid white;
+            position: absolute;
+            margin-top: 6px;
+            transform: rotate(-90deg);
           }
 
 

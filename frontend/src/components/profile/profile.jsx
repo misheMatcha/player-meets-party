@@ -10,7 +10,7 @@ import { calculateAge } from '../../util/general_util';
 
 const Profile = props => {
   const user = props.user;
-  const isCurrentUser = (user && props.user) && (props.user._id === props.current._id);
+  const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
   // placeholders
   const online = true;
   const match = '87% Match';
