@@ -10,10 +10,11 @@ import { calculateAge } from '../../util/general_util';
 
 const Profile = props => {
   const user = props.user;
-  const isCurrentUser = user && (props.user._id === props.current._id);
+  const isCurrentUser = (user && props.user) && (props.user._id === props.current._id);
   // placeholders
   const online = true;
   const match = '87% Match';
+  const photo = 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg';
   const [fetched, setFetched] = useState(false);
   // separated into modal sections
   // refactor to a more elegant solution later
@@ -48,31 +49,47 @@ const Profile = props => {
     <div className='profile-header'>
       <div className='profile-header-basics'>
         <div className='profile-header-basics-userinfo'>
-          <img src={'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg'} alt='profile' />
+          <img src={photo} alt='profile' />
           <div className='profile-header-basics-asl'>
             <div className='profile-header-basics-asl-status'>
               <p className=''>{name}</p>
               {
-                !isCurrentUser && online ? <i className="fas fa-circle" /> : ''
+                !isCurrentUser && online ?
+                <div className='asl-online'>
+                  <i className="fas fa-circle" />
+                </div>
+                : ''
               }
               {
-                isCurrentUser ? <i className='fas fa-pencil-alt' /> : ''
+                isCurrentUser ?
+                <button className='asl-edit' onClick={() => console.log('User settings')}>
+                  <i className='fas fa-pencil-alt' />
+                </button>
+                : ''
               }
             </div>
             <div className='profile-header-basics-asl-details'>
-              <p className=''>{age}</p>
-              <p className=''>•</p>
-              <p className=''>{location}</p>
-              <p className=''>•</p>
-              <p className=''>{match}</p>
-              <button className='fas fa-ellipsis-h'/>
+              <p>{age}</p>
+              <p className='profile-spacer'>•</p>
+              <p className='profile-header-basics-asl-section'>{location}</p>
+              {
+                isCurrentUser ? '' :
+                <>
+                  <p className='profile-spacer'>•</p>
+                  <p className='profile-header-basics-asl-section asl-match'>{match}</p>
+                  <button className='fas fa-ellipsis-h' onClick={() => console.log('User actions')}/>
+                </>
+              }
             </div>
           </div>
         </div>
-        <div className=''>
-          <button className=''>x pass</button>
-          <button className=''>x like</button>
-        </div>
+        {
+          isCurrentUser ? '' :
+            <div className='profile-header-passlike'>
+              <button className='passlike-buttons passlike-pass' onClick={() => console.log('Pass')}>X PASS</button>
+              <button className='passlike-buttons passlike-like' onClick={() => console.log('Like')}><i className='far fa-heart' /> LIKE</button>
+            </div>
+        }
       </div>
     </div>
 

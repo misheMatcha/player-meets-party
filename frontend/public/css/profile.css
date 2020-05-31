@@ -10,7 +10,6 @@
     height: 200px;
   }
     .profile-header-basics{
-      /* border: 1px solid blue; */
       width: 1000px;
       display: flex;
       justify-content: space-between;
@@ -18,8 +17,6 @@
       margin-bottom: 30px;
     }
       .profile-header-basics-userinfo{
-        /* border: 1px solid blue; */
-        /* width: 100%; */
         display: flex;
       }
         .profile-header .profile-header-basics img{
@@ -28,7 +25,6 @@
           border-radius: 50%;
         }
         .profile-header-basics-asl{
-          /* border: 1px solid red; */
           display: flex;
           flex-direction: column;
           justify-content: flex-end;
@@ -36,12 +32,37 @@
           padding: 0 12px;
         }
           .profile-header-basics-asl-status{
-            /* border: 1px solid yellow; */
             display: flex;
             height: 50px;
+            font-size: 35px;
+            font-weight: 200;
           }
           .profile-header-basics-asl-details{
-            /* border: 1px solid red; */
             display: flex;
             height: 36px;
+            font-size: 19px;
+            font-weight: 200;
+            align-items: center;
+            color: #ebedf2;
           }
+            .profile-spacer{
+              padding: 0 5px 0 4px;
+              margin-left: 4px;
+            }
+            .profile-header-basics-asl-section{
+              margin-left: 4px;
+            }
+              .asl-match{
+                border-bottom: 1px dashed white;
+                cursor: pointer;
+              }
+              .asl-match:hover{
+                border-bottom: 1px solid white;
+              }
+
+      .profile-header-passlike{
+        display: flex;
+        align-items: center;
+        width: 329px;
+        justify-content: space-between;
+      }
