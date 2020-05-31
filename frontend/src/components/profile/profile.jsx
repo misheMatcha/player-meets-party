@@ -95,9 +95,9 @@ const Profile = props => {
     </div>
     <div className='profile-content'>
       <div className='profile-content-wrap'>
-        
-        {/* msgs */}
+
         <div className='profile-content-questions'>
+          {/* msgs */}
           <div className='profile-content-msg'>
             <div className='profile-content-msg-header'>
               <p>They wrote you an intro</p>
@@ -108,13 +108,27 @@ const Profile = props => {
           </div>
           {/* questions */}
           {/* ability to toggle to view more information */}
-          <div className='profile-content-questions-section-displaytoggle display-question-height'>
-            <div className='profile-content-questions-section'>
-              iterable questions
+          <div className='profile-content-questions-wrap' style={{maxHeight: displayMore ? 'none' : '500px'}}>
+            <div className='questions-section-wrap'>
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
+
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
+
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
+
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
+
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
+
+              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
             </div>
+            {
+              displayMore ? '' :
+              <div className='questions-section-display'>
+                  <button type='button' onClick={() => setDisplayMore(true)}><span>+</span> <span>More</span></button>
+              </div>
+            }
           </div>
-
-
         </div>
 
         <div className='profile-content-attributes'>
