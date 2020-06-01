@@ -11,8 +11,9 @@ import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_questions';
 
 const Profile = props => {
   const user = props.user;
-  const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
-  const [displayMore, setDisplayMore] = useState(false);
+  // const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
+  const isCurrentUser = false; // setting to false for testing - seems to error out when saving from edits
+  const [displayMore, setDisplayMore] = useState(true);
   // placeholders
   const online = true;
   const match = '87%';
@@ -113,34 +114,37 @@ const Profile = props => {
                 <p className='profile-content-msg-intro'>{intro}</p>
                 <div className='profile-content-msg-tail'/>
               </div>
-              <div className='profile-content-questions-wrap' style={{maxHeight: displayMore ? 'none' : '500px'}}>
-                <div className='questions-section-wrap'>
+
+              <div className='match-profile-container' style={{maxHeight: displayMore ? 'none' : '500px'}}>
+                <div className='match-profile-questions-container'>
                   {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
-                      if(profile_essay_answers[idx] !== ''){
+                      let essayAnswer = profile_essay_answers[idx];
+                      // if(profile_essay_answers[idx] !== ''){
                         return <>
-                          <div className='questions-section'>
-                            <div className='questions-section-header'>
-                              <div className='questions-section-details'>
-                                <p className='questions-section-details-title'>{section}</p>
-                                <p className='questions-section-details-question'>{essayQuestion}</p>
-                              </div>
-                            </div>
-                            <p>{profile_essay_answers[idx]}</p>
+                        <div className='match-profile-section'>
+                          <div className='match-profile-section-header'>
+                            <p className='match-profile-section-header-title'>{section}</p>
+                            <p className='match-profile-section-header-question'>{essayQuestion}</p>
                           </div>
+                          <div className='match-profile-section-answer'>{essayAnswer}</div>
+                          <button className='match-profile-section-like'><i className='fas fa-heart'/> LIKE</button>
+                        </div>
                         </>
-                      }
+                      // }
                     })
                   }
                 </div>
+                {/* toggles the displayer */}
                 {
                   displayMore ? '' :
-                  <div className='questions-section-display'>
+                      <div className='match-profile-display-toggle'>
                       <button type='button' onClick={() => setDisplayMore(true)}><span>+</span> <span>More</span></button>
                   </div>
                 }
               </div>
+
               <div className='profile-match-summary'>
                 <p className='profile-match-summary-header'>You & {name}</p>
                 <div className='profile-match-summary-details'>
@@ -182,15 +186,9 @@ const Profile = props => {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
                       return <>
-                        <div className='questions-section'>
-                          <div className='questions-section-header'>
-                            <div className='questions-section-details'>
-                              <p className='questions-section-details-title'>{section}</p>
-                              <p className='questions-section-details-question'>{essayQuestion}</p>
-                            </div>
-                          </div>
-                          <p>{profile_essay_answers[idx]}</p>
-                        </div>
+                      <div className=''>
+                        {section}
+                      </div>
                       </>
                     })
                   }

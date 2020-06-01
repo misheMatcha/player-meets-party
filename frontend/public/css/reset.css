@@ -57,8 +57,6 @@ html, body{
 body{
   display: flex;
   background-color: #f3f5f9;
-  /* remove after styling is finished */
-  /* background-color: orangered;  */
 }
 
 #root{

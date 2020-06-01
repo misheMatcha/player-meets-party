@@ -68,6 +68,11 @@
   font-size: 19px;
 }
 
+/* questions like */
+.match-profile-section-like i{
+  color: #ff4dc4;
+}
+
 /* basics form*/
 /* x */
 .basics-form-header-icon{
