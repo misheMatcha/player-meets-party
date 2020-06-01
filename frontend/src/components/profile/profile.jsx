@@ -101,81 +101,74 @@ const Profile = props => {
       <div className='profile-content-wrap'>
 
         <div className='profile-content-questions'>
-          {/* msgs */}
-          <div className='profile-content-msg'>
-            <div className='profile-content-msg-header'>
-              <p>They wrote you an intro</p>
-              <button className='fas fa-flag' onClick={() => console.log('Flag user')}/>
-            </div>
-            <p className='profile-content-msg-intro'>{intro}</p>
-            <div className='profile-content-msg-tail'/>
-          </div>
-          {/* questions */}
-          {/* ability to toggle to view more information */}
-          <div className='profile-content-questions-wrap' style={{maxHeight: displayMore ? 'none' : '500px'}}>
-            <div className='questions-section-wrap'>
-              {
-                ABOUTME_SECTIONS.map((section, idx) => {
-                  let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
-                  return <div className='questions-section' key={idx}>
-                    <div className='questions-section-header'>
-                      <div className='questions-section-details'>
-                        <p className='questions-section-details-title'>{section}</p>
-                        <p className='questions-section-details-question'>{essayQuestion}</p>
-                      </div>
-                      <div className='questions-section-header-toggle'>
-                        <i className="fas fa-chevron-down"/>
-                      </div>
-                    </div>
-                    <div className=''>
 
-                    </div>
-                  </div>
-                })
-              }
-            </div>
-            {
-              displayMore ? '' :
-              <div className='questions-section-display'>
-                  <button type='button' onClick={() => setDisplayMore(true)}><span>+</span> <span>More</span></button>
-              </div>
-            }
-          </div>
           {
-            isCurrentUser ? '' :
-            <div className='profile-match-summary'>
-              <p className='profile-match-summary-header'>You & {name}</p>
-              <div className='profile-match-summary-details'>
-                <div className='profile-match-summary-percent-wrap'>
-                  <div className='profile-match-summary-percent-users'>
-                    <div className='profile-match-summary-percent-you'>
-                      <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic4.jpg`} alt='you'/>
-                    </div>
-                    <div className='profile-match-summary-percent-match'>
-                      <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic5.jpg`} alt={name}/>
-                    </div>
-                  </div>
-                  <div className='profile-match-summary-percent-number'>
-                    <p>{match}</p>
-                  </div>
+            !isCurrentUser ?
+            <>
+              <div className='profile-content-msg'>
+                <div className='profile-content-msg-header'>
+                  <p>They wrote you an intro</p>
+                  <button className='fas fa-flag' onClick={() => console.log('Flag user')}/>
                 </div>
-                <div className='profile-match-summary-questions-wrap'>
-                  <div className='profile-match-summary-question-section'>
-                    <p className='profile-match-summary-question'>AGREE <span>😊</span></p>
-                    <span>8</span>
+                <p className='profile-content-msg-intro'>{intro}</p>
+                <div className='profile-content-msg-tail'/>
+              </div>
+              <div className='profile-content-questions-wrap' style={{maxHeight: displayMore ? 'none' : '500px'}}>
+                <div className='questions-section-wrap'>
+                  {
+                    ABOUTME_SECTIONS.map((section, idx) => {
+                      let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
+                      if(profile_essay_answers[idx] !== ''){
+                        return <div className=''>
+                          <p>{profile_essay_answers[idx]}</p>
+                        </div>
+                      }
+                    })
+                  }
+                </div>
+                {
+                  displayMore ? '' :
+                  <div className='questions-section-display'>
+                      <button type='button' onClick={() => setDisplayMore(true)}><span>+</span> <span>More</span></button>
                   </div>
-                  <div className='profile-match-summary-question-section mid-border'>
-                    <p className='profile-match-summary-question'>DISAGREE <span>🙃</span></p>
-                    <span>5</span>
+                }
+              </div>
+              <div className='profile-match-summary'>
+                <p className='profile-match-summary-header'>You & {name}</p>
+                <div className='profile-match-summary-details'>
+                  <div className='profile-match-summary-percent-wrap'>
+                    <div className='profile-match-summary-percent-users'>
+                      <div className='profile-match-summary-percent-you'>
+                        <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic4.jpg`} alt='you'/>
+                      </div>
+                      <div className='profile-match-summary-percent-match'>
+                        <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic5.jpg`} alt={name}/>
+                      </div>
+                    </div>
+                    <div className='profile-match-summary-percent-number'>
+                      <p>{match}</p>
+                    </div>
                   </div>
-                  <div className='profile-match-summary-question-section'>
-                    <p className='profile-match-summary-question'>FIND OUT <span>🔮</span></p>
-                    <span>138</span>
+                  <div className='profile-match-summary-questions-wrap'>
+                    <div className='profile-match-summary-question-section'>
+                      <p className='profile-match-summary-question'>AGREE <span>😊</span></p>
+                      <span>8</span>
+                    </div>
+                    <div className='profile-match-summary-question-section mid-border'>
+                      <p className='profile-match-summary-question'>DISAGREE <span>🙃</span></p>
+                      <span>5</span>
+                    </div>
+                    <div className='profile-match-summary-question-section'>
+                      <p className='profile-match-summary-question'>FIND OUT <span>🔮</span></p>
+                      <span>138</span>
+                    </div>
                   </div>
                 </div>
               </div>
-            </div>
+            </>
+             : ''
           }
+
         </div>
 
         <div className='profile-content-attributes'>
@@ -190,3 +183,8 @@ const Profile = props => {
 };
 
 export default withRouter(Profile);
+
+
+
+
+
