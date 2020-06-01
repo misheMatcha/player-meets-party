@@ -156,7 +156,7 @@
             display: flex;
             align-items: flex-end;
             font-size: 15px;
-              font-weight: 500;
+            font-weight: 500;
           }
             .profile-content-questions-wrap  .questions-section-display button:hover span{
               text-decoration: underline;
@@ -182,18 +182,13 @@
               display: flex;
             }
               .profile-match-summary-percent-wrap{
-                /* border: 1px solid red; */
                 display: flex;
                 flex-flow: nowrap;
-                /* height: 183px; */
-                /* padding: 20px 15px; */
-                /* padding: 0px 15px 10px; */
-                padding-top: 10px;
+                padding: 15px;
                 width: 187px;
               }
               .profile-match-summary-percent-wrap .profile-match-summary-percent-users, .profile-match-summary-percent-wrap .profile-match-summary-percent-number{
                 box-sizing: border-box;
-                /* width: 100%; */
                 flex: none;
                 
               }
@@ -209,7 +204,6 @@
                 .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-you, .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-match{
                   box-sizing: border-box;
                   color: blue;
-                  /* width: 100%; */
                   flex: none;
                 }
                 .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-you{}
@@ -237,26 +231,32 @@
                   align-items: center;
                   justify-content: center;
                 }
-
-                  .profile-match-summary-percent-you{
-                    /* width: 98px;
-                    height: 98px;
-                    border-radius: 50px; */
-                  }
-                  .profile-match-summary-percent-match{
-                    /* width: 98px;
-                    height: 98px;
-                    border-radius: 50px; */
-                  }
+                
               .profile-match-summary-questions-wrap{
-                border: 1px solid blue;
                 width: 280.5px;
-                display: flex;
+                font-size: 16px;
+                font-weight: 600;
               }
-                .profile-match-summary-question{
-                  border: 1px solid pink;
+                .profile-match-summary-question-section{
+                  display: flex;
+                  height: 55px;
+                  margin-left: 15px;
+                  align-items: center;
+                  justify-content: space-between;
                 }
-
+                  .profile-match-summary-question{
+                    display: flex;
+                    align-items: center;
+                    color: #0000bf;
+                  }
+                  .mid-border{
+                    border-top: 1px solid #ccd0d9;
+                    border-bottom: 1px solid #ccd0d9;
+                  }
+                    .profile-match-summary-question-section .profile-match-summary-question span{
+                      font-size: 30px;
+                      margin-left: 10px;
+                    }
 
       .profile-content-attributes{
         border: 1px solid rebeccapurple;

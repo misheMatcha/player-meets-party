@@ -14,7 +14,7 @@ const Profile = props => {
   const [displayMore, setDisplayMore] = useState(false);
   // placeholders
   const online = true;
-  const match = '87% Match';
+  const match = '87%';
   const photo = 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg';
   const intro = 'Hi, how are you?';
   const [fetched, setFetched] = useState(false);
@@ -77,7 +77,7 @@ const Profile = props => {
                 isCurrentUser ? '' :
                 <>
                   <p className='profile-spacer'>•</p>
-                  <p className='profile-header-basics-asl-section asl-match'>{match}</p>
+                  <p className='profile-header-basics-asl-section asl-match'>{`${match} Match`}</p>
                   <button className='fas fa-ellipsis-h' onClick={() => console.log('User actions')}/>
                 </>
               }
@@ -118,28 +118,41 @@ const Profile = props => {
               </div>
             }
           </div>
-          <div className='profile-match-summary'>
-            <p className='profile-match-summary-header'>You & {name}</p>
-            <div className='profile-match-summary-details'>
-              <div className='profile-match-summary-percent-wrap'>
-                <div className='profile-match-summary-percent-users'>
-                  <div className='profile-match-summary-percent-you'>
-                    <img src={photo} alt='you'/>
+          {
+            isCurrentUser ? '' :
+            <div className='profile-match-summary'>
+              <p className='profile-match-summary-header'>You & {name}</p>
+              <div className='profile-match-summary-details'>
+                <div className='profile-match-summary-percent-wrap'>
+                  <div className='profile-match-summary-percent-users'>
+                    <div className='profile-match-summary-percent-you'>
+                      <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic4.jpg`} alt='you'/>
+                    </div>
+                    <div className='profile-match-summary-percent-match'>
+                      <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic5.jpg`} alt={name}/>
+                    </div>
                   </div>
-                  <div className='profile-match-summary-percent-match'>
-                    <img src={photo} alt={name}/>
+                  <div className='profile-match-summary-percent-number'>
+                    <p>{match}</p>
                   </div>
                 </div>
-                <div className='profile-match-summary-percent-number'>
-                  <p>{`87%`}</p>
+                <div className='profile-match-summary-questions-wrap'>
+                  <div className='profile-match-summary-question-section'>
+                    <p className='profile-match-summary-question'>AGREE <span>😊</span></p>
+                    <span>8</span>
+                  </div>
+                  <div className='profile-match-summary-question-section mid-border'>
+                    <p className='profile-match-summary-question'>DISAGREE <span>🙃</span></p>
+                    <span>5</span>
+                  </div>
+                  <div className='profile-match-summary-question-section'>
+                    <p className='profile-match-summary-question'>FIND OUT <span>🔮</span></p>
+                    <span>138</span>
+                  </div>
                 </div>
-              </div>
-              <div className='profile-match-summary-questions-wrap'>
-                <p className='profile-match-summary-question'>AGREE 😊</p>
-                <span>8</span>
               </div>
             </div>
-          </div>
+          }
         </div>
 
         <div className='profile-content-attributes'>
