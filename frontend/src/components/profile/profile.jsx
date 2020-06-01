@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom'
 import { calculateAge } from '../../util/general_util';
 import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_questions';
+import MatchQuestionSection from './match_question_section.jsx';
 
 // future additions and refactors
 // - maps api to geolocate by zip
@@ -13,7 +14,8 @@ const Profile = props => {
   const user = props.user;
   // const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
   const isCurrentUser = false; // setting to false for testing - seems to error out when saving from edits
-  const [displayMore, setDisplayMore] = useState(true);
+  const [displayMore, setDisplayMore] = useState(false);
+  const [likedAnswer, setLikedAnswer] = useState(false);
   // placeholders
   const online = true;
   const match = '87%';
@@ -121,18 +123,9 @@ const Profile = props => {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
                       let essayAnswer = profile_essay_answers[idx];
-                      // if(profile_essay_answers[idx] !== ''){
-                        return <>
-                        <div className='match-profile-section'>
-                          <div className='match-profile-section-header'>
-                            <p className='match-profile-section-header-title'>{section}</p>
-                            <p className='match-profile-section-header-question'>{essayQuestion}</p>
-                          </div>
-                          <div className='match-profile-section-answer'>{essayAnswer}</div>
-                          <button className='match-profile-section-like'><i className='fas fa-heart'/> LIKE</button>
-                        </div>
-                        </>
-                      // }
+                      if(essayAnswer !== ''){
+                        return <MatchQuestionSection section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} />
+                      }
                     })
                   }
                 </div>
@@ -216,3 +209,20 @@ export default withRouter(Profile);
 
 
 
+// return <>
+//   <div className='match-profile-section'>
+//     <div className='match-profile-section-header'>
+//       <p className='match-profile-section-header-title'>{section}</p>
+//       <p className='match-profile-section-header-question'>{essayQuestion}</p>
+//     </div>
+//     <div className='match-profile-section-answer'>{essayAnswer}</div>
+//     {
+//       !likedAnswer ?
+//         <button className='match-profile-section-like' onClick={() => {
+//           setLikedAnswer(true);
+//           console.log('Answer liked')
+//         }}><i className='fas fa-heart' /> LIKE</button> :
+//         <button className='match-profile-section-comment' onClick={() => console.log('Commenting on answer')}><i className='fas fa-comment-alt' /> COMMENT</button>
+//     }
+//   </div>
+// </>

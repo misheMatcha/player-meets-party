@@ -73,6 +73,11 @@
   color: #ff4dc4;
 }
 
+/* questions comment */
+.match-profile-section-comment i{
+  color: #0500be;
+}
+
 /* basics form*/
 /* x */
 .basics-form-header-icon{
