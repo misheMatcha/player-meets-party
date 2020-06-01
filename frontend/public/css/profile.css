@@ -149,6 +149,9 @@
           }
           .profile-content-questions-wrap  .questions-section-wrap{
           }
+            .questions-section{
+              background-color: white;
+            }
           .profile-content-questions-wrap  .questions-section-display{
             margin-left: -100%;
             background: linear-gradient(transparent, #f3f5f9);

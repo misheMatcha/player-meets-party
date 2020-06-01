@@ -11,7 +11,7 @@ import { calculateAge } from '../../util/general_util';
 const Profile = props => {
   const user = props.user;
   const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
-  const [displayMore, setDisplayMore] = useState(false);
+  const [displayMore, setDisplayMore] = useState(true);
   // placeholders
   const online = true;
   const match = '87%';
@@ -110,6 +110,9 @@ const Profile = props => {
           {/* ability to toggle to view more information */}
           <div className='profile-content-questions-wrap' style={{maxHeight: displayMore ? 'none' : '500px'}}>
             <div className='questions-section-wrap'>
+              <div className='questions-section'>
+                <p>ABOUT ME</p>
+              </div>
             </div>
             {
               displayMore ? '' :
