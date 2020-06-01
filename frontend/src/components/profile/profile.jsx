@@ -110,17 +110,6 @@ const Profile = props => {
           {/* ability to toggle to view more information */}
           <div className='profile-content-questions-wrap' style={{maxHeight: displayMore ? 'none' : '500px'}}>
             <div className='questions-section-wrap'>
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
-
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
-
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
-
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
-
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
-
-              <div>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nulla feugiat velit sit amet iaculis elementum. Suspendisse vel tincidunt lectus. Proin ac diam facilisis dolor rutrum ultrices et eget nibh. Class aptent taciti sociosqu ad litora torquent per conubia nostra, per inceptos himenaeos. Nunc scelerisque tellus ac dui volutpat, non ultricies ex cursus. Praesent eu molestie velit. Proin a quam vel massa scelerisque lobortis. Phasellus nec dui fermentum, eleifend enim ac, finibus lorem. Ut quis ultrices odio, sit amet malesuada eros. Suspendisse sem felis, sagittis id lectus quis, porta rutrum risus. Aliquam non tristique nisi, in imperdiet sem. Vestibulum massa justo, aliquam ac lobortis a, accumsan eget augue.</div>
             </div>
             {
               displayMore ? '' :
@@ -128,6 +117,28 @@ const Profile = props => {
                   <button type='button' onClick={() => setDisplayMore(true)}><span>+</span> <span>More</span></button>
               </div>
             }
+          </div>
+          <div className='profile-match-summary'>
+            <p className='profile-match-summary-header'>You & {name}</p>
+            <div className='profile-match-summary-details'>
+              <div className='profile-match-summary-percent-wrap'>
+                <div className='profile-match-summary-percent-users'>
+                  <div className='profile-match-summary-percent-you'>
+                    <img src={photo} alt='you'/>
+                  </div>
+                  <div className='profile-match-summary-percent-match'>
+                    <img src={photo} alt={name}/>
+                  </div>
+                </div>
+                <div className='profile-match-summary-percent-number'>
+                  <p>{`87%`}</p>
+                </div>
+              </div>
+              <div className='profile-match-summary-questions-wrap'>
+                <p className='profile-match-summary-question'>AGREE 😊</p>
+                <span>8</span>
+              </div>
+            </div>
           </div>
         </div>
 
