@@ -119,9 +119,17 @@ const Profile = props => {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
                       if(profile_essay_answers[idx] !== ''){
-                        return <div className=''>
-                          <p>{profile_essay_answers[idx]}</p>
-                        </div>
+                        return <>
+                          <div className='questions-section'>
+                            <div className='questions-section-header'>
+                              <div className='questions-section-details'>
+                                <p className='questions-section-details-title'>{section}</p>
+                                <p className='questions-section-details-question'>{essayQuestion}</p>
+                              </div>
+                            </div>
+                            <p>{profile_essay_answers[idx]}</p>
+                          </div>
+                        </>
                       }
                     })
                   }
@@ -168,14 +176,22 @@ const Profile = props => {
             </>
              :
             <>
-              <div className='profile-content-questions-wrap' style={{ maxHeight: displayMore ? 'none' : '500px' }}>
+              <div className='profile-content-questions-wrap'>
                 <div className='questions-section-wrap'>
                   {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
-                      return <div className=''>
-                        <p>{profile_essay_answers[idx]}</p>
-                      </div>
+                      return <>
+                        <div className='questions-section'>
+                          <div className='questions-section-header'>
+                            <div className='questions-section-details'>
+                              <p className='questions-section-details-title'>{section}</p>
+                              <p className='questions-section-details-question'>{essayQuestion}</p>
+                            </div>
+                          </div>
+                          <p>{profile_essay_answers[idx]}</p>
+                        </div>
+                      </>
                     })
                   }
                 </div>
