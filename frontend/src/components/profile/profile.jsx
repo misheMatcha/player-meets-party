@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom'
 import { calculateAge } from '../../util/general_util';
+import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_questions';
 
 // future additions and refactors
 // - maps api to geolocate by zip
@@ -18,6 +19,9 @@ const Profile = props => {
   const photo = 'https://chillabit-pro.s3-us-west-1.amazonaws.com/placeholder_data/users/ocha.jpg';
   const intro = 'Hi, how are you?';
   const [fetched, setFetched] = useState(false);
+  // question section
+  const profile_essay_questions = user ? user.profile_essay_questions : 'loading...';
+  const profile_essay_answers = user ? user.profile_essay_answers : 'loading...';
   // separated into modal sections
   // refactor to a more elegant solution later
   const name = user ? user.name : 'loading...';
@@ -26,8 +30,8 @@ const Profile = props => {
   // basics
   const orientation = user ? user.orientation : 'loading...';
   const gender = user ? user.gender : 'loading...';
-  const relationship_type = user ? user.relationship_type : 'loading...';
   const relationship_status = user ? user.relationship_status : 'loading...';
+  const relationship_type = user ? user.relationship_type : 'loading...';
   // pronouns
   const pronouns = user ? user.pronouns : 'loading...';
   // looks
@@ -110,9 +114,25 @@ const Profile = props => {
           {/* ability to toggle to view more information */}
           <div className='profile-content-questions-wrap' style={{maxHeight: displayMore ? 'none' : '500px'}}>
             <div className='questions-section-wrap'>
-              <div className='questions-section'>
-                <p>ABOUT ME</p>
-              </div>
+              {
+                ABOUTME_SECTIONS.map((section, idx) => {
+                  let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
+                  return <div className='questions-section' key={idx}>
+                    <div className='questions-section-header'>
+                      <div className='questions-section-details'>
+                        <p className='questions-section-details-title'>{section}</p>
+                        <p className='questions-section-details-question'>{essayQuestion}</p>
+                      </div>
+                      <div className='questions-section-header-toggle'>
+                        <i className="fas fa-chevron-down"/>
+                      </div>
+                    </div>
+                    <div className=''>
+
+                    </div>
+                  </div>
+                })
+              }
             </div>
             {
               displayMore ? '' :

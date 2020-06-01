@@ -62,6 +62,12 @@
   color: #ebedf2;
 }
 
+/* questions toggle */
+.questions-section-header-toggle i{
+  color: #0500be;
+  font-size: 19px;
+}
+
 /* basics form*/
 /* x */
 .basics-form-header-icon{

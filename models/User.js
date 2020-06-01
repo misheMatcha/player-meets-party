@@ -26,21 +26,21 @@ const UserSchema = new Schema({
     type: Number,
     required: true
   },
-  gender: {
-    type: String,
-    default: 'Gender'
-  },
   orientation: {
     type: String,
     default: 'Orientation'
   },
-  relationship_type: {
+  gender: {
     type: String,
-    default: 'Monogamous'
+    default: 'Gender'
   },
   relationship_status: {
     type: String,
     default: 'Single'
+  },
+  relationship_type: {
+    type: String,
+    default: 'Monogamous'
   },
   pronouns: {
     type: String,
@@ -130,8 +130,13 @@ const UserSchema = new Schema({
     type: String,
     default: 'Connections'
   },
-  profile_questions: {
-    type: Array
+  profile_essay_questions: {
+    type: Array,
+    default: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+  },
+  profile_essay_answers: {
+    type: Array,
+    default: ['', '', '', '', '', '', '', '', '']
   },
   liked: {
     type: Array

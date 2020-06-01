@@ -93,6 +93,7 @@
         width: 542px;
         margin-left: 50px;
       }
+        /* messages */
         .profile-content-msg{
           /* border: 1px solid green; */
           /* width: 510px; */
@@ -131,6 +132,7 @@
             transform: rotate(-90deg);
           }
 
+        /* questions */
         .profile-content-questions-wrap{
           /* border: 1px solid red; */
           width: 100%;
@@ -145,13 +147,40 @@
             box-sizing: border-box;
             width: 100%;
             flex: none;
-            padding: 16px;
+            /* padding: 16px; */
           }
           .profile-content-questions-wrap  .questions-section-wrap{
           }
             .questions-section{
               background-color: white;
+              padding: 20px;
+              width: 100%;
+              filter: drop-shadow(0px 1px 2px #1a1a1a3a);
             }
+              .questions-section-header{
+                /* border: 1px solid blue; */
+                display: flex;
+                justify-content: space-between;
+                align-items: center;
+              }
+              .questions-section-details{
+                /* border: 1px solid red; */
+              }
+                .questions-section-details-title{
+                  /* border: 1px solid red; */
+                  font-size: 12px;
+                  color: #949aa6;
+                  font-weight: 700;
+                  letter-spacing: 1px;
+                  margin-bottom: 8px;
+                }
+                .questions-section-details-question{
+                  /* border: 1px solid red; */
+                  color: #1e1e1e;
+                  /* line-height: 22px; */
+                  font-size: 19px;
+                  font-weight: 500;
+                }
           .profile-content-questions-wrap  .questions-section-display{
             margin-left: -100%;
             background: linear-gradient(transparent, #f3f5f9);
@@ -165,6 +194,7 @@
               text-decoration: underline;
             }
 
+          /* match summary */
           .profile-match-summary{
             height: 233px;
             margin-top: 30px;
