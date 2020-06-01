@@ -12,7 +12,7 @@ import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_questions';
 const Profile = props => {
   const user = props.user;
   const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
-  const [displayMore, setDisplayMore] = useState(true);
+  const [displayMore, setDisplayMore] = useState(false);
   // placeholders
   const online = true;
   const match = '87%';
@@ -166,7 +166,21 @@ const Profile = props => {
                 </div>
               </div>
             </>
-             : ''
+             :
+            <>
+              <div className='profile-content-questions-wrap' style={{ maxHeight: displayMore ? 'none' : '500px' }}>
+                <div className='questions-section-wrap'>
+                  {
+                    ABOUTME_SECTIONS.map((section, idx) => {
+                      let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
+                      return <div className=''>
+                        <p>{profile_essay_answers[idx]}</p>
+                      </div>
+                    })
+                  }
+                </div>
+              </div>
+            </>
           }
 
         </div>

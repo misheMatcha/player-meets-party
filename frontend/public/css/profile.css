@@ -134,7 +134,7 @@
 
         /* questions */
         .profile-content-questions-wrap{
-          /* border: 1px solid red; */
+          border: 1px solid red;
           width: 100%;
           /* background-image: linear-gradient(transparent, #f3f5f9); */
           /* background-color: yellow; */
