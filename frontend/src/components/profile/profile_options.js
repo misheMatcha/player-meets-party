@@ -11,6 +11,8 @@ export const PROFILE_QUESTIONS = [
   [`What I'm actually looking for`, `You should message me if`, `Before I go on a date with someone I need to know that`, `I will never date someone that`, `My worst date`, `For our first date, let's`]
 ];
 
+export const ATTRIBUTES_SECTIONS = ['Basics', 'Pronouns', 'Looks', 'Background', 'Lifestyle', 'Family', 'I am looking for'];
+
 export const ORIENTATION_LIST = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
 
 export const GENDER_LIST = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];

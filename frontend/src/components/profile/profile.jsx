@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom'
 import { calculateAge } from '../../util/general_util';
-import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_options';
+import { ABOUTME_SECTIONS, PROFILE_QUESTIONS, ATTRIBUTES_SECTIONS } from './profile_options';
 import MatchQuestionSection from './match_question_section.jsx';
 import UserQuestionSection from './user_question_section.jsx';
+import ProfileAttributes from './profile_attributes.jsx';
 
 // future additions and refactors
 // - maps api to geolocate by zip
@@ -13,7 +14,8 @@ import UserQuestionSection from './user_question_section.jsx';
 
 const Profile = props => {
   const user = props.user;
-  const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
+  // const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
+  const isCurrentUser = false;
   const [displayMore, setDisplayMore] = useState(false);
   // placeholders
   const online = true;
@@ -26,20 +28,55 @@ const Profile = props => {
   const profile_essay_answers = user ? user.profile_essay_answers : 'loading...';
   // separated into modal sections
   // refactor to a more elegant solution later
-  const name = user ? user.name : 'loading...';
-  const age = user ? calculateAge(user.birthday) : 'loading...';
+  const name = user ? user.name : '';
+  const age = user ? calculateAge(user.birthday) : '';
   const location = 'San Jose, CA'
-  // basics
-  const orientation = user ? user.orientation : 'loading...';
-  const gender = user ? user.gender : 'loading...';
-  const relationship_status = user ? user.relationship_status : 'loading...';
-  const relationship_type = user ? user.relationship_type : 'loading...';
-  // pronouns
-  const pronouns = user ? user.pronouns : 'loading...';
-  // looks
-  // const height = user ? user.height : 'loading...';
-  // const body_type = user ? user.body_type : 'loading...';
-
+  const basic = !user ? '' : {
+    orientation: user.orientation,
+    gender: user.gender,
+    relationship_status: user.relationship_status,
+    relationship_type: user.relationship_type,
+    icon: 'fas fa-cubes'
+  };
+  const pronouns = !user ? '' : {
+    pronouns: user.pronouns,
+    icon: 'fas fa-bullhorn'
+  };
+  const looks = !user ? '' : {
+    height: user.height,
+    body_type: user.body_type,
+    icon: 'fas fa-seedling'
+  };
+  const background = !user ? '' : {
+    ethnicity: user.ethnicity,
+    languages: user.languages,
+    politics: user.politics,
+    education: user.education,
+    occupation: user.occupation,
+    religion: user.religion,
+    sign: user.sign,
+    icon: 'fas fa-globe'
+  };
+  const lifestyle = !user ? '' : {
+    tobacco: user.tobacco,
+    drinks: user.drinks,
+    marijuana: user.marijuana,
+    diet: user.diet,
+    icon: 'fas fa-glass-martini'
+  };
+  const family = !user ? '' : {
+    kids: user.kids,
+    pets: user.pets,
+    icon: 'fas fa-home'
+  };
+  const preferences = !user ? '' : {
+    pref_gender: user.pref_gender,
+    pref_distance: user.pref_distance,
+    pref_age: user.pref_age,
+    pref_connections: user.pref_connections,
+    icon: 'far fa-eye'
+  };
+  
   useEffect(() => {
     const setTitle = () => document.title = `${name} / ${age} / ${location}`;
     const checkIsUser = () => {
@@ -51,6 +88,34 @@ const Profile = props => {
     return (() => {
     });
   });
+
+  const setAttributeProps = section => {
+    switch(section){
+      case 'Basics':
+        return basic;
+        break;
+      case 'Pronouns':
+        return pronouns;
+        break;
+      case 'Looks':
+        return looks;
+        break;
+      case 'Background':
+        return background;
+        break;
+      case 'Lifestyle':
+        return lifestyle;
+        break;
+      case 'Family':
+        return family;
+        break;
+      case 'I am looking for':
+        return preferences;
+        break;
+      default:
+        break;
+    }
+  };
 
   const profile = <div className='profile'>
     <div className='profile-header'>
@@ -123,7 +188,7 @@ const Profile = props => {
                       let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
                       let essayAnswer = profile_essay_answers[idx];
                       if(essayAnswer !== ''){
-                        return <MatchQuestionSection section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} />
+                        return <MatchQuestionSection key={idx} section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} />
                       }
                     })
                   }
@@ -189,7 +254,23 @@ const Profile = props => {
         </div>
 
         <div className='profile-content-attributes'>
-          
+          {
+            isCurrentUser ?
+            <>
+              {
+                ATTRIBUTES_SECTIONS.map((section, idx) => {
+                  return <ProfileAttributes key={idx} userOrMatch={'user'} />
+                })
+              }
+            </> :
+            <>
+              {
+                ATTRIBUTES_SECTIONS.map((section, idx) => {
+                  return <ProfileAttributes key={idx} userOrMatch={'match'} section={section} attributes={setAttributeProps(section)} />
+                })
+              }
+            </>
+          }
         </div>
 
       </div>

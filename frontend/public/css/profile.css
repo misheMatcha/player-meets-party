@@ -343,4 +343,14 @@
       .profile-content-attributes{
         /* border: 1px solid rebeccapurple; */
         width: 320px;
+        margin-top: -8px;
       }
+/* MATCH */
+.attribute-match{
+  border: 1px solid rebeccapurple;
+  padding: 10px;
+  /* margin-top: -8px; */
+  /* margin-bottom: 16px; */
+  color: #2a2f35;
+  font-size: 17px;
+}
