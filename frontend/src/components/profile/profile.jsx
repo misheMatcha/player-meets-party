@@ -14,8 +14,8 @@ import ProfileAttributes from './profile_attributes.jsx';
 
 const Profile = props => {
   const user = props.user;
-  // const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
-  const isCurrentUser = false;
+  const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
+  // const isCurrentUser = false;
   const [displayMore, setDisplayMore] = useState(false);
   // placeholders
   const online = true;
@@ -76,7 +76,7 @@ const Profile = props => {
     pref_connections: user.pref_connections,
     icon: 'far fa-eye'
   };
-  
+
   useEffect(() => {
     const setTitle = () => document.title = `${name} / ${age} / ${location}`;
     const checkIsUser = () => {
@@ -93,25 +93,63 @@ const Profile = props => {
     switch(section){
       case 'Basics':
         return basic;
-        break;
       case 'Pronouns':
         return pronouns;
-        break;
       case 'Looks':
         return looks;
-        break;
       case 'Background':
         return background;
-        break;
       case 'Lifestyle':
         return lifestyle;
-        break;
       case 'Family':
         return family;
-        break;
       case 'I am looking for':
         return preferences;
+      default:
         break;
+    }
+  };
+
+  const displayAttributes = section => {
+    switch(section){
+      case 'Basics':
+        return true;
+      case 'Pronouns':
+        if(pronouns.pronouns === 'Pronouns'){
+          return false;
+        }
+      case 'Looks':
+        if(looks.height === '0ft-0in' && looks.body_type === 'Body type'){
+          return false;
+        }
+      case 'Background':
+        let ethLang, poliEd, occRel, signCheck;
+        if((background && !background.ethnicity.length) && (background && !background.languages.length)){
+          ethLang = false;
+        }
+        if(background.politics === 'Politics' && background.education === 'Education'){
+          poliEd = false;
+        }
+        if(background.occupation === 'Occupation' && background.religion === 'Religion'){
+          occRel = false;
+        }
+        if(background.sign === 'Sign'){
+          signCheck = false;
+        }
+
+        if((!ethLang && !poliEd) && (!occRel && !signCheck)){
+          return false;
+        }
+      case 'Lifestyle':
+        if((!lifestyle.tobacco && !lifestyle.drinks) && (lifestyle.diet === 'Diet' && !lifestyle.kids)){
+          return false;
+        }
+      case 'Family':
+        if(!family.kids && !family.pets){
+          return false;
+        }
+      case 'I am looking for':
+        return true;
       default:
         break;
     }
@@ -187,9 +225,7 @@ const Profile = props => {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
                       let essayAnswer = profile_essay_answers[idx];
-                      if(essayAnswer !== ''){
-                        return <MatchQuestionSection key={idx} section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} />
-                      }
+                      return essayAnswer !== '' ? <MatchQuestionSection key={idx} section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} /> : ''
                     })
                   }
                 </div>
@@ -220,15 +256,15 @@ const Profile = props => {
                   </div>
                   <div className='profile-match-summary-questions-wrap'>
                     <div className='profile-match-summary-question-section'>
-                      <p className='profile-match-summary-question'>AGREE <span>😊</span></p>
+                      <p className='profile-match-summary-question'>AGREE <span role='img' aria-label='AGREE'>😊</span></p>
                       <span>8</span>
                     </div>
                     <div className='profile-match-summary-question-section mid-border'>
-                      <p className='profile-match-summary-question'>DISAGREE <span>🙃</span></p>
+                      <p className='profile-match-summary-question'>DISAGREE <span role='img' aria-label='DISAGREE'>🙃</span></p>
                       <span>5</span>
                     </div>
                     <div className='profile-match-summary-question-section'>
-                      <p className='profile-match-summary-question'>FIND OUT <span>🔮</span></p>
+                      <p className='profile-match-summary-question'>FIND OUT <span role='img' aria-label='FIND OUT'>🔮</span></p>
                       <span>138</span>
                     </div>
                   </div>
@@ -259,14 +295,15 @@ const Profile = props => {
             <>
               {
                 ATTRIBUTES_SECTIONS.map((section, idx) => {
-                  return <ProfileAttributes key={idx} userOrMatch={'user'} />
+                  return <ProfileAttributes key={idx} userOrMatch={'user'} section={section} attributes={setAttributeProps(section)} />
                 })
               }
             </> :
             <>
               {
                 ATTRIBUTES_SECTIONS.map((section, idx) => {
-                  return <ProfileAttributes key={idx} userOrMatch={'match'} section={section} attributes={setAttributeProps(section)} />
+                  return !displayAttributes(section) ? '' :
+                  <ProfileAttributes key={idx} userOrMatch={'match'} section={section} attributes={setAttributeProps(section)} />
                 })
               }
             </>

@@ -2,15 +2,18 @@ import React, { useEffect } from 'react';
 
 const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   useEffect(() => {
-    console.log(attributes)
-  }, []);
-  const user = <>
-    <div className=''>
-      user
-    </div>
+  }, [attributes]);
+
+  const user =
+  <>
+      <div className='attribute-match'>
+        <i className={attributes.icon} />
+        <p>{section}</p>
+      </div>
   </>
 
-  const match = <>
+  const match =
+  <>
     <div className='attribute-match'>
       <i className={attributes.icon}/>
       <p>{section}</p>
