@@ -1,159 +1,346 @@
 .profile{
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
-  width: 100%;
-  display: flex;
-  flex-direction: column;
 }
-  .profile-basics{
+/* HEADER */
+  .profile-header{
     background-color: #1a1a1a;
+    display: flex;
+    justify-content: center;
+    color: white;
     height: 200px;
-    display: flex;
-    justify-content: center;
   }
-    .profile-basics-info{
+    .profile-header-basics{
+      width: 1000px;
+      display: flex;
+      justify-content: space-between;
       padding-top: 50px;
-      display: flex;
-      width: 1000px;
+      margin-bottom: 30px;
     }
-    .profile-basics-img{
-      width: 180px;
-      height: 180px;
-      border-radius: 50%;
-      }
-
-      .profile-basics-details{
+      .profile-header-basics-userinfo{
         display: flex;
-        padding: 8px 12px 12px;
-        margin-left: 8px;
-        margin-top: 37px;
-        flex-direction: column;
-        color: white;
       }
-        .profile-basics-user{
-          font-size: 35px;
-          font-weight: 200;
-          height: 50px;
+        .profile-header .profile-header-basics img{
+          width: 180px;
+          height: 180px;
+          border-radius: 50%;
         }
-
-        .profile-basics-asl{
-          font-size: 19px;
-          font-weight: 300;
-          height: 26px;
+        .profile-header-basics-asl{
           display: flex;
-          justify-content: center;
-          align-items: center;
+          flex-direction: column;
+          justify-content: flex-end;
+          margin-left: 8px;
+          padding: 0 12px;
         }
-          .profile-basics-asl-age{
-          }
-          .profile-basics-asl-spacer{
-            margin-left: 4px;
-            font-size: 15px;
-            font-weight: 200;
-            color: #949aa6;
-            width: 14px;
+          .profile-header-basics-asl-status{
             display: flex;
-            justify-content: center;
+            height: 50px;
+            font-size: 35px;
+            font-weight: 200;
+          }
+          .profile-header-basics-asl-details{
+            display: flex;
+            height: 36px;
+            font-size: 19px;
+            font-weight: 200;
             align-items: center;
+            color: #ebedf2;
           }
-          .profile-basics-asl-location{
-            margin-left: 4px;
-          }
+            .profile-spacer{
+              padding: 0 5px 0 4px;
+              margin-left: 4px;
+              font-size: 10px;
+            }
+            .profile-header-basics-asl-section{
+              margin-left: 4px;
+            }
+              .asl-match{
+                border-bottom: 1px dashed white;
+                cursor: pointer;
+              }
+              .asl-match:hover{
+                border-bottom: 1px solid white;
+              }
 
-  .profile-content-wrap{
+      .profile-header-passlike{
+        display: flex;
+        align-items: flex-end;
+        width: 329px;
+        justify-content: space-around;
+      }
+
+/* MAIN CONTENT */
+  .profile-content{
+    margin-top: 30px;
     display: flex;
     justify-content: center;
-    padding-top: 20px;
-    margin-top: 30px;
   }
-    .profile-content{
+    .profile-content-wrap{
       width: 1000px;
       display: flex;
+      justify-content: space-between;
+      padding: 20px 60px;
     }
       .profile-content-questions{
-        width: 53%;
-        background-color: white;
-        border-radius: 3px;
-        border: 1px solid #f3f5f9;
-        filter: drop-shadow(0 1mm 1mm #d6d8db);
-        margin-right: 50px;
+        display: flex;
+        flex-direction: column;
+        width: 542px;
+        margin-left: 50px;
       }
-        .profile-content-section{
-          border-bottom: 1px solid #f3f5f9;
-          display: flex;
-          padding: 20px;
-          align-items: center;
-          justify-content: space-between;
-        }
-          .profile-content-aboutme{
-            width: 440px;
-          }
-            .profile-content-aboutme-title{
-              color: #949aa6;
-              font-weight: 600;
-              font-size: 13px;
-              letter-spacing: 1px;
-              margin-bottom: 8px;
-            }
-            .profile-content-aboutme-question{
-              font-size: 18px;
-              font-weight: 500;
-            }
-          .fas.fa-angle-right{
-            font-size: 20px;
-            padding: 1px;
-            width: 30px;
-          }
 
-        .profile-content-aboutme-essay{
-          padding: 20px;
-          font-size: 17px;
-          font-weight: 300;
-        }
-          .profile-content-aboutme-essay-text{
-          }
-            .profile-content-aboutme-essay-edit{
-              padding-left: 10px;
-              font-size: 16px;
-            }
-
-      .profile-content-details-container{
-      }
-        .profile-content-details{
-          display: flex;
-          align-items: center;
-          margin-bottom: -8px;
-          padding: 8px;
-          margin-top: -8px;
-          height: 72px;
-        }
-        .profile-content-details:hover{
+/* MATCH SECTION */
+/* MESSAGES */
+        .profile-content-msg{
+          margin-bottom: 50px;
           background-color: white;
-          filter: drop-shadow(0 1mm 1mm #d6d8db);
-          border-radius: 3px;
+          filter: drop-shadow(0px 1px 2px #1a1a1a3a);
+          border-radius: 5px;
+          padding: 16px;
         }
-          .profile-content-details-opt{
+          .profile-content-msg-header{
             display: flex;
+            margin-bottom: 8px;
+            justify-content: space-between;
+            color: #949aa6;
+            font-size: 15px;
+            font-weight: 500;
+            border-radius: 5px 10px 5px 10px;
+            position: relative;
           }
-            .profile-content-details .profile-content-details-opt i{
-              /* color: yellow; */
-              font-size: 24px;
-              width: 40px;
+          .profile-content-msg-intro{
+            color: #2a2f35;
+            font-size: 17px;
+          }
+          .profile-content-msg-tail{
+            width: 0;
+            height: 0;
+            border-left: 20px solid transparent;
+            border-right: 20px solid transparent;
+            border-top: 20px solid white;
+            position: absolute;
+            margin-top: 6px;
+            transform: rotate(-90deg);
+          }
+
+/* QUESTIONS */
+        .match-profile-container{
+          overflow: hidden;
+          display: flex;
+          flex-flow: nowrap;
+        }
+        .match-profile-container .match-profile-questions-container, .match-profile-container .match-profile-display-toggle{
+          box-sizing: border-box;
+          width: 100%;
+          flex: none;
+        }
+        .match-profile-container .match-profile-questions-container{}
+          .match-profile-section{
+            margin-bottom: 13px;
+            border: 1px solid #1a1a1a1a;
+            border-radius: 5px;
+            background-color: white;
+          }
+            .match-profile-section-header{
+              font-size: 12px;
+              padding: 20px 20px 0 20px;
+              border-radius: 5px 5px 0 0;
             }
-            .profile-content-details-desc{
-              width: 246px;
-              height: 50px;
+              .match-profile-section-header-title{
+                color: #9d9dab;
+                margin-bottom: 8px;
+                font-weight: 700;
+                letter-spacing: 1px;
+              }
+              .match-profile-section-header-question{
+                color: #1e1e1e;
+                font-size: 18px;
+                font-weight: 500;
+                margin-bottom: 8px;
+              }
+            .match-profile-section-answer{
+              padding: 0 20px 20px 20px;
               font-size: 18px;
+              color: #2a2f35;
+            }
+            .match-profile-section-like{
+              background-color: white;
+              width: 100%;
+              height: 49px;
+              border-top: 1px solid #1a1a1a1a;
+              border-radius: 0 0 5px 5px;
+              text-align: center;
+              font-size: 16px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              color: #9393a9;
+            }
+            .match-profile-section-like:hover{
+              color: #ff4dc4;
+            }
+            .match-profile-section-comment{
+              width: 100%;
+              height: 49px;
+              border-top: 1px solid #1a1a1a1a;
+              border-radius: 0 0 5px 5px;
+              text-align: center;
+              font-size: 16px;
+              font-weight: 700;
+              letter-spacing: 1px;
+              color: #9393a9;
+            }
+            .match-profile-section-comment:hover{
+              color: #0500be;
             }
 
-          .profile-content-details-edit{
-            /* color: rebeccapurple; */
-            width: 30px;
-            height: 27px;
-            display: flex;
-            justify-content: center;
-            align-items: center;
+        .match-profile-container .match-profile-display-toggle{
+          margin-left: -100%;
+          background-image: linear-gradient(transparent, #f3f5f9);
+          display: flex;
+          align-items: flex-end;
+        }
+          .match-profile-container .match-profile-display-toggle button{
+            color: #0000bf;
+            font-size: 15px;
+            font-weight: 500;
           }
-            .profile-content-details-edit i{
-              font-size: 18px;
+            .match-profile-container .match-profile-display-toggle button:hover span{
+              text-decoration: underline;
             }
+
+/* USER QUESTIONS */
+          .user-profile-section{
+            margin-bottom: 13px;
+            border: 1px solid #1a1a1a1a;
+            border-radius: 5px;
+            background-color: white;
+          }
+            .user-profile-section-header{
+              /* border: 1px solid rebeccapurple; */
+              display: flex;
+              justify-content: space-between;
+              align-items: center;
+              padding: 20px;
+              font-size: 12px;
+            }
+              .user-profile-section-header-wrap{
+              }
+                .user-profile-section-header-question{
+                  color: #1e1e1e;
+                  font-size: 18px;
+                  font-weight: 500;
+                }
+              .user-profile-section-answer{
+                border-top: 1px solid #1a1a1a1a;
+                padding: 20px;
+                font-size: 18px;
+                color: #2a2f35;
+              }
+                .user-profile-section-answer span{
+                  color: #0500be;
+                  font-weight: 600;
+                  letter-spacing: 1px;
+                  font-size: 15px;
+                  margin-left: 8px;
+                }
+
+/* MATCH SUMMARY */
+          .profile-match-summary{
+            margin-top: 30px;
+          }
+            .profile-match-summary-header{
+              color: #1e1e1e;
+              font-size: 19px;
+              font-weight: 500;
+              letter-spacing: .5;
+              padding-bottom: 20px;
+            }
+
+            .profile-match-summary-details{
+              background-color: white;
+              filter: drop-shadow(0px 1px 2px #1a1a1a3a);
+              border-radius: 5px;
+              padding: 16px;
+              display: flex;
+            }
+              .profile-match-summary-percent-wrap{
+                display: flex;
+                flex-flow: nowrap;
+                padding: 15px;
+                width: 187px;
+              }
+              .profile-match-summary-percent-wrap .profile-match-summary-percent-users, .profile-match-summary-percent-wrap .profile-match-summary-percent-number{
+                box-sizing: border-box;
+                flex: none;
+
+              }
+              .profile-match-summary-percent-wrap .profile-match-summary-percent-users{
+                display: flex;
+                flex-flow: nowrap;
+              }
+              .profile-match-summary-percent-wrap .profile-match-summary-percent-users img{
+                width: 98px;
+                height: 98px;
+                border-radius: 50px;
+              }
+                .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-you, .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-match{
+                  box-sizing: border-box;
+                  color: #0000bf;
+                  flex: none;
+                }
+                .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-you{}
+                .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-match{
+                  margin-left: -5%;
+                }
+
+              .profile-match-summary-percent-wrap .profile-match-summary-percent-number{
+                margin-left: -75%;
+                margin-top: 35%;
+                border: 2.5px solid white;
+                border-radius: 50px;
+                height: fit-content;
+              }
+                .profile-match-summary-percent-wrap .profile-match-summary-percent-number p{
+                  border: 2.5px solid #0000bf;
+                  color: #0000bf;
+                  font-size: 24px;
+                  font-weight: 500;
+                  background-color: white;
+                  border-radius: 50px;
+                  width: 77px;
+                  height: 77px;
+                  display: flex;
+                  align-items: center;
+                  justify-content: center;
+                }
+
+              .profile-match-summary-questions-wrap{
+                width: 280.5px;
+                font-size: 16px;
+                font-weight: 600;
+              }
+                .profile-match-summary-question-section{
+                  display: flex;
+                  height: 55px;
+                  margin-left: 15px;
+                  align-items: center;
+                  justify-content: space-between;
+                }
+                  .profile-match-summary-question{
+                    display: flex;
+                    align-items: center;
+                    color: #0000bf;
+                  }
+                  .mid-border{
+                    border-top: 1px solid #ccd0d9;
+                    border-bottom: 1px solid #ccd0d9;
+                  }
+                    .profile-match-summary-question-section .profile-match-summary-question span{
+                      font-size: 30px;
+                      margin-left: 10px;
+                    }
+
+/* ATTRIBUTES */
+      .profile-content-attributes{
+        /* border: 1px solid rebeccapurple; */
+        width: 320px;
+      }

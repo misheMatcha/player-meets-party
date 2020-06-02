@@ -1,12 +1,86 @@
 .black{
   color: #2a2f35;
 }
-
-/* profile header pencil */
-.profile-basics-details .profile-basics-user i{
-  font-size: 17px;
+.display-question-height{
+  height: 428px;
+}
+.passlike-buttons{
+  width: 157px;
+  height: 52px;
+  background-color: white;
+  border-radius: 50px;
+  font-size: 16px;
+  text-align: center;
   font-weight: 600;
+  transition: .3s;
+}
+  .passlike-pass{
+    color: black;
+  }
+  .passlike-pass:hover{
+    background-color: #1a1a1a;
+    color: white;
+    border: 2px solid white;
+  }
+  .passlike-like{
+    color: #ff4dc4;
+  }
+  .passlike-like:hover{
+    background-color: #ff4dc4;
+    color: white;
+  }
+
+/* profile */
+/* online status */
+.asl-online{
+  color: #00d280;
+  font-size: 11px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
+}
+  .asl-online i{
+    padding: 5px;
+  }
+
+/* header pencil */
+.asl-edit{
   margin-left: 15px;
+  font-size: 17px;
+  display: flex;
+  align-items: center;
+}
+
+/* header ellipsis */
+.profile-header-basics-asl-details button{
+  padding: 1px 6px;
+  font-size: 23px;
+  margin-left: 4px;
+  color: gray;
+}
+.profile-header-basics-asl-details button:hover{
+  color: #ebedf2;
+}
+
+/* questions like */
+.match-profile-section-like i{
+  color: #ff4dc4;
+}
+
+/* questions comment */
+.match-profile-section-comment i{
+  color: #0500be;
+}
+
+/* questions select arrow */
+.user-profile-section-header i{
+  color: #0500be;
+  font-size: 19px;
+}
+
+/* answer pencil */
+.user-profile-section-answer i{
+  color: #0500be;
 }
 
 /* basics form*/
