@@ -62,12 +62,6 @@
   color: #ebedf2;
 }
 
-/* questions toggle */
-.questions-section-header-toggle i{
-  color: #0500be;
-  font-size: 19px;
-}
-
 /* questions like */
 .match-profile-section-like i{
   color: #ff4dc4;
@@ -75,6 +69,17 @@
 
 /* questions comment */
 .match-profile-section-comment i{
+  color: #0500be;
+}
+
+/* questions select arrow */
+.user-profile-section-header i{
+  color: #0500be;
+  font-size: 19px;
+}
+
+/* answer pencil */
+.user-profile-section-answer i{
   color: #0500be;
 }
 

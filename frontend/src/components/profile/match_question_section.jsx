@@ -1,9 +1,6 @@
 import React, { useState } from 'react';
-import { withRouter } from 'react-router-dom';
-import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_questions';
 
 const MatchQuestionSection = ({section, essayQuestion, essayAnswer}) => {
-  const [displayMore, setDisplayMore] = useState(false);
   const [likedAnswer, setLikedAnswer] = useState(false);
     return <>
       <div className='match-profile-section'>
@@ -24,4 +21,4 @@ const MatchQuestionSection = ({section, essayQuestion, essayAnswer}) => {
     </>
 };
 
-export default withRouter(MatchQuestionSection);
+export default MatchQuestionSection;
