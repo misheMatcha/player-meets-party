@@ -1,8 +1,7 @@
 import React, { useState, useEffect } from 'react';
+import { ORIENTATION_LIST, GENDER_LIST } from '../profile_options';
 
 const BasicsForm = props => {
-  const orientationList = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
-  const genderList = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
   const [displayOption, setDisplayOption] = useState('none');
   let user;
   let modifiedUser;
@@ -24,19 +23,19 @@ const BasicsForm = props => {
     setOrientation(user.orientation);
     setGender(user.gender);
     setRelationship_type(user.relationship_type);
-    setIdxO(orientationList.indexOf(user.orientation));
-    setIdxG(genderList.indexOf(user.gender));
+    setIdxO(ORIENTATION_LIST.indexOf(user.orientation));
+    setIdxG(GENDER_LIST.indexOf(user.gender));
   };
 
   const updateInput = (event=null, field, idx=-1) => {
     switch(field){
       case 'orientation':
         setIdxO(idx);
-        setOrientation(orientationList[idx])
+        setOrientation(ORIENTATION_LIST[idx])
         break;
       case 'gender':
         setIdxG(idx);
-        setGender(genderList[idx])
+        setGender(GENDER_LIST[idx])
         break;
       case 'relationship_type':
         setRelationship_type(event.target.value)
@@ -74,7 +73,7 @@ const BasicsForm = props => {
           { displayOption === 'orientation' ?
             <div className='basics-form-content-tag-list'>
               {
-                orientationList.map((orientationOption, idx) => {
+                ORIENTATION_LIST.map((orientationOption, idx) => {
                   return(
                     <button key={idx} type='button' className={`basics-form-content-tag ${idxO === idx ? 'tag-selected' : ''}`} onClick={() => {
                       updateInput(null, 'orientation', idx)
@@ -88,7 +87,7 @@ const BasicsForm = props => {
             :
             <div className='basics-form-content-tag-list'>
               {
-                genderList.map((genderOption, idx) => {
+                GENDER_LIST.map((genderOption, idx) => {
                   return(
                     <button key={idx} type='button' className={`basics-form-content-tag ${idxG === idx ? 'tag-selected' : ''}`} onClick={() => {
                       updateInput(null, 'gender', idx)
@@ -112,7 +111,7 @@ const BasicsForm = props => {
             if (displayOption === 'none') setDisplayOption('orientation');
           }}>
             <p className={`basics-form-content-inputs-button-gender ${idxO > -1 ? 'black' : ''}`}>
-              {idxO > -1 ? orientationList[idxO] : orientation}
+              {idxO > -1 ? ORIENTATION_LIST[idxO] : orientation}
             </p>
             <i className='fas fa-pencil-alt'/>
           </button>
@@ -120,7 +119,7 @@ const BasicsForm = props => {
             if(displayOption === 'none') setDisplayOption('gender');
           }}>
             <p className={`basics-form-content-inputs-button-gender ${idxG > -1 ? 'black' : ''}`}>
-              {idxG > -1 ? genderList[idxG] : gender}
+              {idxG > -1 ? GENDER_LIST[idxG] : gender}
             </p>
             <i className='fas fa-pencil-alt'/>
             </button>

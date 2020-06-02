@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom'
 import { calculateAge } from '../../util/general_util';
-import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_questions';
+import { ABOUTME_SECTIONS, PROFILE_QUESTIONS } from './profile_options';
 import MatchQuestionSection from './match_question_section.jsx';
 import UserQuestionSection from './user_question_section.jsx';
 
