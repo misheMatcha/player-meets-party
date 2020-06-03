@@ -151,7 +151,7 @@ const Profile = props => {
         if(!family.kids && !family.pets){
           return false;
         }else{
-          return false;
+          return true;
         }
       case 'I am looking for':
         return true;
