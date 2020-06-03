@@ -127,18 +127,20 @@ const Profile = props => {
           return true;
         }
       case 'Background':
-        const bgValues = [background.ethnicity, background.languages, background.politics, background.education, background.occupation, background.religion, background.sign];
-        const bgDefaults = [0, 0, 'Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
-        for(let i = 0; i < bgValues.length; i++){
-          let val = bgValues[i];
-          if([0,1].indexOf(i) > -1){
-            if(val && val.length > 0) return true;
-          }else{
-            const valueMatch = val && val !== bgDefaults[i];
-            if(valueMatch) return true;
-            return false;
+        const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
+        let bgDisplay = false;
+        for(const key in background){
+          let bgVal = background[key];
+
+          if(key !== 'icon'){
+            if(Array.isArray(bgVal)){
+              if(bgVal.length) bgDisplay = true;
+            }else{
+              if(bgDefaults.indexOf(bgVal) < 0) bgDisplay = true;
+            }
           }
         }
+        return bgDisplay ? true : false;
       case 'Lifestyle':
         if((!lifestyle.tobacco && !lifestyle.drinks) && (lifestyle.diet === 'Diet' && !lifestyle.kids)){
           return false;

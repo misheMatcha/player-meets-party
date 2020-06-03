@@ -347,7 +347,7 @@
       }
 /* MATCH */
 .attribute-match{
-  border: 1px solid rebeccapurple;
+  /* border: 1px solid rebeccapurple; */
   padding: 10px;
   color: #2a2f35;
   font-size: 18px;
