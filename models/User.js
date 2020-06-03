@@ -48,7 +48,7 @@ const UserSchema = new Schema({
   },
   height: {
     type: String,
-    default: `0ft-0in`
+    default: `0"0'`
   },
   body_type: {
     type: String,
@@ -136,7 +136,7 @@ const UserSchema = new Schema({
   },
   profile_essay_answers: {
     type: Array,
-    default: [``, ``, ``, ``, ``, ``]
+    default: [``, ``, ``, ``, ``, ``, ``, ``, ``]
   },
   liked: {
     type: Array

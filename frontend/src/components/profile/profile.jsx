@@ -14,8 +14,8 @@ import ProfileAttributes from './profile_attributes.jsx';
 
 const Profile = props => {
   const user = props.user;
-  const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
-  // const isCurrentUser = false;
+  // const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
+  const isCurrentUser = false;
   const [displayMore, setDisplayMore] = useState(false);
   // placeholders
   const online = true;
@@ -117,35 +117,38 @@ const Profile = props => {
       case 'Pronouns':
         if(pronouns.pronouns === 'Pronouns'){
           return false;
+        }else{
+          return true;
         }
       case 'Looks':
-        if(looks.height === '0ft-0in' && looks.body_type === 'Body type'){
+        if(looks.height === `0"0'` && looks.body_type === 'Body type'){
           return false;
+        }else{
+          return true;
         }
       case 'Background':
-        let ethLang, poliEd, occRel, signCheck;
-        if((background && !background.ethnicity.length) && (background && !background.languages.length)){
-          ethLang = false;
-        }
-        if(background.politics === 'Politics' && background.education === 'Education'){
-          poliEd = false;
-        }
-        if(background.occupation === 'Occupation' && background.religion === 'Religion'){
-          occRel = false;
-        }
-        if(background.sign === 'Sign'){
-          signCheck = false;
-        }
-
-        if((!ethLang && !poliEd) && (!occRel && !signCheck)){
-          return false;
+        const bgValues = [background.ethnicity, background.languages, background.politics, background.education, background.occupation, background.religion, background.sign];
+        const bgDefaults = [0, 0, 'Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
+        for(let i = 0; i < bgValues.length; i++){
+          let val = bgValues[i];
+          if([0,1].indexOf(i) > -1){
+            if(val && val.length > 0) return true;
+          }else{
+            const valueMatch = val && val !== bgDefaults[i];
+            if(valueMatch) return true;
+            return false;
+          }
         }
       case 'Lifestyle':
         if((!lifestyle.tobacco && !lifestyle.drinks) && (lifestyle.diet === 'Diet' && !lifestyle.kids)){
           return false;
+        }else{
+          return true;
         }
       case 'Family':
         if(!family.kids && !family.pets){
+          return false;
+        }else{
           return false;
         }
       case 'I am looking for':

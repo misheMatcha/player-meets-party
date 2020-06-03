@@ -84,6 +84,11 @@
   color: #0500be;
 }
 
+/* attributes icons */
+.attribute-match i{
+  font-size: 24px;
+}
+
 /* basics form*/
 /* x */
 .basics-form-header-icon{
