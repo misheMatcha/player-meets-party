@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom'
-import { calculateAge } from '../../util/general_util';
+import { calculateAge, checkDefaults } from '../../util/general_util';
 import { ABOUTME_SECTIONS, PROFILE_QUESTIONS, ATTRIBUTES_SECTIONS } from './profile_options';
 import MatchQuestionSection from './match_question_section.jsx';
 import UserQuestionSection from './user_question_section.jsx';
@@ -108,16 +108,6 @@ const Profile = props => {
       default:
         break;
     }
-  };
-
-  const checkDefaults = (arr, attObj) => {
-    for(const att in attObj){
-      const attVal = attObj[att];
-      if(att !== 'icon'){
-        if(arr.indexOf(attVal) === -1) return true;
-      }
-    }
-    return false;
   };
 
   const displayAttributes = section => {
