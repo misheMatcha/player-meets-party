@@ -7,7 +7,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const [matchAttributes, setMatchAttributes] = useState('');
 
   useEffect(() => {
-    checkAndSortAttributes();
+    filterAttributes();
   });
 
   const sortAttributes = (arr, att, attVal) => {
@@ -18,7 +18,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
     }
   };
   
-  const checkAndSortAttributes = () => {
+  const filterAttributes = () => {
     for(const att in attributes){
       let attVal = attributes[att];
       if(att !== 'icon'){
@@ -28,11 +28,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
             sortAttributes(basicDefaults, att, attVal);
             break;
           case 'Pronouns':
-            if(attVal === 'Pronouns'){
-              missingAttributes.push(attVal);
-            }else{
-              addStringFlavor(att, attVal);
-            }
+            attVal === 'Pronouns' ? missingAttributes.push(attVal) : addStringFlavor(att, attVal);
             break;
           case 'Looks':
             const looksDefaults = [`0"0'`, 'Body type'];
@@ -56,8 +52,12 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
             }
             break;
           case 'Lifestyle':
+            const lsDefaults = ['Smoking', 'Drinking', 'Marijuana', 'Diet'];
+            sortAttributes(lsDefaults, att, attVal);
             break;
           case 'Family':
+            const famDefaults = ['Children', 'Pets'];
+            sortAttributes(famDefaults, att, attVal);
             break;
           case 'I am looking for':
             break;
@@ -78,6 +78,26 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
         break;
       case 'politics':
         hasAttributes.push('Politically ' + attVal);
+      case 'smoking':
+        if(attVal === 'false'){
+          hasAttributes.push(`Doesn't smoke cigarettes`);
+        }else{
+          hasAttributes.push('Smokes cigarettes ' + attVal);
+        }
+        break;
+      case 'drinks':
+        if(attVal === 'false'){
+          hasAttributes.push(`Doesn't drink`);
+        }else{
+          hasAttributes.push('Drinks ' + attVal);
+        }
+        break;
+      case 'marijuana':
+        if(attVal === 'false'){
+          hasAttributes.push(`Doesn't smoke marijuana`);
+        }else{
+          hasAttributes.push('Smokes marijuana ' + attVal);
+        }
         break;
       default:
         hasAttributes.push(attVal);
