@@ -48,7 +48,7 @@ const UserSchema = new Schema({
   },
   height: {
     type: String,
-    default: `0"0'`
+    default: `Height`
   },
   body_type: {
     type: String,
@@ -124,7 +124,7 @@ const UserSchema = new Schema({
   },
   pref_age: {
     type: String,
-    default: '00 - 00'
+    default: 'Ages'
   },
   pref_connections: {
     type: String,

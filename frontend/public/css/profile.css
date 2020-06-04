@@ -215,7 +215,6 @@
             background-color: white;
           }
             .user-profile-section-header{
-              /* border: 1px solid rebeccapurple; */
               display: flex;
               justify-content: space-between;
               align-items: center;
@@ -341,13 +340,11 @@
 
 /* ATTRIBUTES */
       .profile-content-attributes{
-        /* border: 1px solid rebeccapurple; */
         width: 320px;
         margin-top: -8px;
       }
 /* MATCH */
 .attribute-match{
-  /* border: 1px solid rebeccapurple; */
   padding: 10px;
   color: #2a2f35;
   font-size: 18px;
@@ -356,8 +353,6 @@
 }
   .attribute-match p{
     margin-left: 15px;
-    /* display: flex; */
-    /* flex-wrap: nowrap; */
   }
 /* USER */
   .user-pro{
@@ -374,8 +369,8 @@
       .user-pro-att{
       }
         .user-pro-att-has{
-          /* color: white; */
         }
         .user-pro-att-miss{
           color: #aeb4bf;
+          margin-top: 8px;
         }

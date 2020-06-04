@@ -117,7 +117,7 @@ const Profile = props => {
       case 'Pronouns':
         return pronouns.pronouns === 'Pronouns' ? false : true;
       case 'Looks':
-        const looksDefaults = [`0"0'`, 'Body type'];
+        const looksDefaults = [`Height`, 'Body type'];
         return checkDefaults(looksDefaults, looks);
       case 'Background':
         const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];

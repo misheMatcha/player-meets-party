@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { convertToString } from '../../util/general_util';
 
 const ProfileAttributes = ({userOrMatch, section, attributes}) => {
-  const hasAttributes = [];
+  const hasMatchAttributes = [];
+  const hasUserAttributes = [];
   const missingAttributes = [];
   const [matchAttributes, setMatchAttributes] = useState('');
   const [userAttributes, setUserAttributes] = useState('');
@@ -10,16 +11,24 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
 
   useEffect(() => {
     filterAttributes();
+    convertForDisplay();
   });
 
   const sortAttributes = (arr, att, attVal) => {
     if(arr.indexOf(attVal) > -1){
       missingAttributes.push(attVal);
     }else{
+      hasUserAttributes.push(attVal)
       addStringFlavor(att, attVal);
     }
   };
-  
+
+  const convertForDisplay = () => {
+    setMatchAttributes(convertToString(hasMatchAttributes));
+    setUserAttributes(convertToString(hasUserAttributes));
+    setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
+  };
+
   const filterAttributes = () => {
     for(const att in attributes){
       let attVal = attributes[att];
@@ -33,7 +42,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
             attVal === 'Pronouns' ? missingAttributes.push(attVal) : addStringFlavor(att, attVal);
             break;
           case 'Looks':
-            const looksDefaults = [`0"0'`, 'Body type'];
+            const looksDefaults = [`Height`, 'Body type'];
             sortAttributes(looksDefaults, att, attVal);
             break;
           case 'Background':
@@ -74,67 +83,67 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const addStringFlavor = (att, attVal) => {
     switch(att){
       case 'ethnicity':
-        hasAttributes.push(convertToString(attVal));
+        hasMatchAttributes.push(convertToString(attVal));
         break;
       case 'languages':
-        hasAttributes.push('Speaks ' + convertToString(attVal));
+        hasMatchAttributes.push('Speaks ' + convertToString(attVal));
         break;
       case 'politics':
-        hasAttributes.push('Politically ' + attVal);
+        hasMatchAttributes.push('Politically ' + attVal);
       case 'smoking':
         if(attVal === 'false'){
-          hasAttributes.push(`Doesn't smoke cigarettes`);
+          hasMatchAttributes.push(`Doesn't smoke cigarettes`);
         }else{
-          hasAttributes.push('Smokes cigarettes ' + attVal);
+          hasMatchAttributes.push('Smokes cigarettes ' + attVal);
         }
         break;
       case 'drinks':
         if(attVal === 'false'){
-          hasAttributes.push(`Doesn't drink`);
+          hasMatchAttributes.push(`Doesn't drink`);
         }else{
-          hasAttributes.push('Drinks ' + attVal);
+          hasMatchAttributes.push('Drinks ' + attVal);
         }
         break;
       case 'marijuana':
         if(attVal === 'false'){
-          hasAttributes.push(`Doesn't smoke marijuana`);
+          hasMatchAttributes.push(`Doesn't smoke marijuana`);
         }else{
-          hasAttributes.push('Smokes marijuana ' + attVal);
+          hasMatchAttributes.push('Smokes marijuana ' + attVal);
         }
         break;
       case 'marijuana':
         if(attVal === 'false'){
-          hasAttributes.push(`Doesn't smoke marijuana`);
+          hasMatchAttributes.push(`Doesn't smoke marijuana`);
         }else{
-          hasAttributes.push('Smokes marijuana ' + attVal);
+          hasMatchAttributes.push('Smokes marijuana ' + attVal);
         }
         break;
       case 'children':
         if(attVal === 'false'){
-          hasAttributes.push(`Doesn't have kids`);
+          hasMatchAttributes.push(`Doesn't have kids`);
         }else{
-          hasAttributes.push('Has kid(s)');
+          hasMatchAttributes.push('Has kid(s)');
         }
         break;
       case 'pets':
         if(attVal === 'false'){
-          hasAttributes.push(`Doesn't have pet(s)`);
+          hasMatchAttributes.push(`Doesn't have pet(s)`);
         }else{
-          hasAttributes.push('Has ' + attVal);
+          hasMatchAttributes.push('Has ' + attVal);
         }
         break;
       case 'pref_gender':
         if(attVal === 'Gender'){
-          hasAttributes.push('Looking for people');
+          hasMatchAttributes.push('Looking for people');
         }else{
-          hasAttributes.push('Looking for ' + attVal);
+          hasMatchAttributes.push('Looking for ' + attVal);
         }
         break;
       case 'pref_connections':
         if(attVal === 'Connections'){
-          hasAttributes.push(`for short & long term dating, hookups, and new friends.`);
+          hasMatchAttributes.push(`for short & long term dating, hookups, and new friends.`);
         }else{
-          hasAttributes.push('for ' + attVal);
+          hasMatchAttributes.push('for ' + attVal);
         }
         break;
       case 'pref_distance':
@@ -142,10 +151,9 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
       case 'pref_age':
         break;
       default:
-        hasAttributes.push(attVal);
+        hasMatchAttributes.push(attVal);
         break;
     }
-    setMatchAttributes(convertToString(hasAttributes))
   };
 
   const user =
