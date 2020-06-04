@@ -10,6 +10,14 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
     checkAndSortAttributes();
   });
 
+  const sortAttributes = (arr, att, attVal) => {
+    if(arr.indexOf(attVal) > -1){
+      missingAttributes.push(attVal);
+    }else{
+      addStringFlavor(att, attVal);
+    }
+  };
+  
   const checkAndSortAttributes = () => {
     for(const att in attributes){
       let attVal = attributes[att];
@@ -17,12 +25,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
         switch (section) {
           case 'Basics':
             const basicDefaults = ['Orientation', 'Gender'];
-
-            if(basicDefaults.indexOf(attVal) > -1){
-              missingAttributes.push(attVal);
-            }else{
-              addStringFlavor(att, attVal);
-            }
+            sortAttributes(basicDefaults, att, attVal);
             break;
           case 'Pronouns':
             if(attVal === 'Pronouns'){
@@ -33,11 +36,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
             break;
           case 'Looks':
             const looksDefaults = [`0"0'`, 'Body type'];
-            if(looksDefaults.indexOf(attVal) > -1){
-              missingAttributes.push(attVal);
-            }else{
-              addStringFlavor(att, attVal);
-            }
+            sortAttributes(looksDefaults, att, attVal);
             break;
           case 'Background':
             const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
