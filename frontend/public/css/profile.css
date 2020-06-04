@@ -215,7 +215,6 @@
             background-color: white;
           }
             .user-profile-section-header{
-              /* border: 1px solid rebeccapurple; */
               display: flex;
               justify-content: space-between;
               align-items: center;
@@ -341,6 +340,37 @@
 
 /* ATTRIBUTES */
       .profile-content-attributes{
-        /* border: 1px solid rebeccapurple; */
         width: 320px;
+        margin-top: -8px;
       }
+/* MATCH */
+.attribute-match{
+  padding: 10px;
+  color: #2a2f35;
+  font-size: 18px;
+  display: flex;
+  font-weight: 300;
+}
+  .attribute-match p{
+    margin-left: 15px;
+  }
+/* USER */
+  .user-pro{
+    justify-content: space-between;
+    border-radius: 3px;
+  }
+  .user-pro:hover{
+    background-color: white;
+    filter: drop-shadow(0px 1px 2px #ccd0d9)
+  }
+    .user-pro-att-wrap{
+      display: flex;
+    }
+      .user-pro-att{
+      }
+        .user-pro-att-has{
+        }
+        .user-pro-att-miss{
+          color: #aeb4bf;
+          margin-top: 8px;
+        }

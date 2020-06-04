@@ -47,8 +47,8 @@ const UserSchema = new Schema({
     default: 'Pronouns'
   },
   height: {
-    type: Number,
-    default: 0
+    type: String,
+    default: `Height`
   },
   body_type: {
     type: String,
@@ -80,29 +80,29 @@ const UserSchema = new Schema({
     type: String,
     default: 'Sign'
   },
-  tobacco: {
-    type: Boolean,
-    default: false
+  smoking: {
+    type: String,
+    default: 'Smoking'
   },
   drinks: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: 'Drinking'
   },
   marijuana: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: 'Marijuana'
   },
   diet: {
     type: String,
     default: 'Diet'
   },
-  kids: {
-    type: Boolean,
-    default: false
+  children: {
+    type: String,
+    default: 'Children'
   },
   pets: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: 'Pets'
   },
   gamelist: {
     type: Array
@@ -119,12 +119,12 @@ const UserSchema = new Schema({
     default: 'Gender'
   },
   pref_distance: {
-    type: Number,
-    default: 0
+    type: String,
+    default: 'Distance'
   },
   pref_age: {
-    type: Number,
-    default: 18
+    type: String,
+    default: 'Ages'
   },
   pref_connections: {
     type: String,
@@ -136,11 +136,7 @@ const UserSchema = new Schema({
   },
   profile_essay_answers: {
     type: Array,
-    default: [`Lorem ipsum dolor sit amet, consectetur adipiscing elit. Etiam a urna ac ex aliquam ultricies sit amet vestibulum justo. Suspendisse sodales porta nunc sit amet egestas. Sed feugiat, metus vitae tempor venenatis, libero diam fringilla lacus, non ornare leo purus vitae neque. Aliquam ullamcorper mauris eros, et euismod nunc hendrerit nec. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia curae; Phasellus porta nibh nulla, et facilisis nulla viverra eu. Curabitur consectetur commodo lectus, eget iaculis elit tempor ac.
-
-Duis sed eros ac odio rhoncus venenatis id sit amet enim. Morbi vehicula nec enim vitae ultricies. Morbi venenatis augue a orci fringilla mollis. Proin varius nulla dapibus, sollicitudin sapien id, facilisis tortor. Duis sagittis arcu vel lectus hendrerit finibus. Sed non leo ac purus molestie commodo. Maecenas dignissim placerat lectus in convallis. Nulla sagittis nulla nec nulla euismod, quis ornare leo pulvinar. Sed a viverra dui, feugiat pretium ipsum.`, 'test number two', `Integer ac mollis tellus, id euismod ipsum. Quisque mattis fermentum sem, at cursus sapien elementum a. Sed diam purus, venenatis non cursus ut, molestie a neque. Nulla rhoncus congue ligula, sit amet ultrices neque sollicitudin a. Duis pulvinar mauris id nibh mollis, in fermentum est blandit. Aenean a convallis ex. Aenean sit amet quam dui. Aenean facilisis semper massa, nec maximus nibh ullamcorper a. In varius augue orci, sed elementum nunc rutrum sed. Maecenas aliquet est vitae efficitur pulvinar. Fusce molestie vel mauris non sagittis.
-
-Vestibulum viverra libero et magna consequat maximus. Aenean vulputate, libero vel egestas imperdiet, nisi nibh lacinia nisl, non pharetra nisi est in purus. Duis in interdum urna, ut hendrerit neque. Phasellus convallis nisl et porta auctor. Donec ornare purus a lorem malesuada, non vehicula felis ullamcorper. Nulla sagittis lacus eget nisi malesuada convallis. Ut ullamcorper in lectus nec elementum. Proin lacus dui, accumsan id venenatis id, porttitor ut massa. Nunc consequat non lectus sit amet maximus`, '', '', '', '', '', '']
+    default: [``, ``, ``, ``, ``, ``, ``, ``, ``]
   },
   liked: {
     type: Array

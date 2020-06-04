@@ -16,6 +16,7 @@
 }
   .passlike-pass{
     color: black;
+    border: 2px solid #1a1a1a;
   }
   .passlike-pass:hover{
     background-color: #1a1a1a;
@@ -81,6 +82,17 @@
 /* answer pencil */
 .user-profile-section-answer i{
   color: #0500be;
+}
+
+/* attributes icons */
+.attribute-match i{
+  font-size: 24px;
+}
+
+/* attributes user toggle */
+.user-att-toggle i{
+  color: #0500be;
+  font-size: 19px;
 }
 
 /* basics form*/
