@@ -7,12 +7,10 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const [matchAttributes, setMatchAttributes] = useState('');
 
   useEffect(() => {
-    sortAndStringifyAttributes();
-    console.log('has: ', hasAttributes)
-    console.log('missing: ', missingAttributes)
-  }, []);
+    checkAndSortAttributes();
+  });
 
-  const sortAndStringifyAttributes = () => {
+  const checkAndSortAttributes = () => {
     for(const att in attributes){
       let attVal = attributes[att];
       if(att !== 'icon'){
@@ -24,15 +22,20 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
           case 'Looks':
             break;
           case 'Background':
+            const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
+
             if(Array.isArray(attVal)){
               if(attVal.length){
-                // console.log(attVal)
-                bgStringy(att, attVal)
+                addStringFlavor(att, attVal)
               }else{
                 att === 'ethnicity' ? missingAttributes.push('Ethnicity') : missingAttributes.push('Language');
               }
             }else{
-              // console.log('not array')
+              if(bgDefaults.indexOf(attVal) < 0){
+                addStringFlavor(att, attVal);
+              }else{
+                missingAttributes.push(attVal);
+              }
             }
             break;
           case 'Lifestyle':
@@ -48,7 +51,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
     }
   };
 
-  const bgStringy = (att, attVal) => {
+  const addStringFlavor = (att, attVal) => {
     switch(att){
       case 'ethnicity':
         hasAttributes.push(convertToString(attVal));
@@ -56,7 +59,11 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
       case 'languages':
         hasAttributes.push('Speaks ' + convertToString(attVal));
         break;
+      case 'politics':
+        hasAttributes.push('Politically ' + attVal);
+        break;
       default:
+        hasAttributes.push(attVal);
         break;
     }
     setMatchAttributes(convertToString(hasAttributes))
