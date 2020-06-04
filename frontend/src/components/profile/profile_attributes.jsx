@@ -16,10 +16,28 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
       if(att !== 'icon'){
         switch (section) {
           case 'Basics':
+            const basicDefaults = ['Orientation', 'Gender'];
+
+            if(basicDefaults.indexOf(attVal) > -1){
+              missingAttributes.push(attVal);
+            }else{
+              addStringFlavor(att, attVal);
+            }
             break;
           case 'Pronouns':
+            if(attVal === 'Pronouns'){
+              missingAttributes.push(attVal);
+            }else{
+              addStringFlavor(att, attVal);
+            }
             break;
           case 'Looks':
+            const looksDefaults = [`0"0'`, 'Body type'];
+            if(looksDefaults.indexOf(attVal) > -1){
+              missingAttributes.push(attVal);
+            }else{
+              addStringFlavor(att, attVal);
+            }
             break;
           case 'Background':
             const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];

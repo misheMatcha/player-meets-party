@@ -113,7 +113,7 @@ const Profile = props => {
   const displayAttributes = section => {
     switch(section){
       case 'Basics':
-        return false;
+        return true;
       case 'Pronouns':
         if(pronouns.pronouns === 'Pronouns'){
           return false;
@@ -154,7 +154,7 @@ const Profile = props => {
           return true;
         }
       case 'I am looking for':
-        return false;
+        return true;
       default:
         break;
     }
