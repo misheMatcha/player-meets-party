@@ -58,14 +58,14 @@ const Profile = props => {
     icon: 'fas fa-globe'
   };
   const lifestyle = !user ? '' : {
-    tobacco: user.tobacco,
+    smoking: user.smoking,
     drinks: user.drinks,
     marijuana: user.marijuana,
     diet: user.diet,
     icon: 'fas fa-glass-martini'
   };
   const family = !user ? '' : {
-    kids: user.kids,
+    children: user.children,
     pets: user.pets,
     icon: 'fas fa-home'
   };
@@ -110,22 +110,25 @@ const Profile = props => {
     }
   };
 
+  const checkDefaults = (arr, attObj) => {
+    for(const att in attObj){
+      const attVal = attObj[att];
+      if(att !== 'icon'){
+        if(arr.indexOf(attVal) === -1) return true;
+      }
+    }
+    return false;
+  };
+
   const displayAttributes = section => {
     switch(section){
       case 'Basics':
         return true;
       case 'Pronouns':
-        if(pronouns.pronouns === 'Pronouns'){
-          return false;
-        }else{
-          return true;
-        }
+        return pronouns.pronouns === 'Pronouns' ? false : true;
       case 'Looks':
-        if(looks.height === `0"0'` && looks.body_type === 'Body type'){
-          return false;
-        }else{
-          return true;
-        }
+        const looksDefaults = [`0"0'`, 'Body type'];
+        return checkDefaults(looksDefaults, looks);
       case 'Background':
         const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
         let bgDisplay = false;
@@ -142,17 +145,11 @@ const Profile = props => {
         }
         return bgDisplay ? true : false;
       case 'Lifestyle':
-        if((!lifestyle.tobacco && !lifestyle.drinks) && (lifestyle.diet === 'Diet' && !lifestyle.kids)){
-          return false;
-        }else{
-          return true;
-        }
+        const lsDefaults = ['Smoking', 'Drinking', 'Marijuana', 'Diet'];
+        return checkDefaults(lsDefaults, lifestyle);
       case 'Family':
-        if(!family.kids && !family.pets){
-          return false;
-        }else{
-          return true;
-        }
+        const famDefaults = ['Children', 'Pets'];
+        return checkDefaults(famDefaults, family);
       case 'I am looking for':
         return true;
       default:

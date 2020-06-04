@@ -80,29 +80,29 @@ const UserSchema = new Schema({
     type: String,
     default: 'Sign'
   },
-  tobacco: {
-    type: Boolean,
-    default: false
+  smoking: {
+    type: String,
+    default: 'Smoking'
   },
   drinks: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: 'Drinking'
   },
   marijuana: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: 'Marijuana'
   },
   diet: {
     type: String,
     default: 'Diet'
   },
-  kids: {
-    type: Boolean,
-    default: false
+  children: {
+    type: String,
+    default: 'Children'
   },
   pets: {
-    type: Boolean,
-    default: false
+    type: String,
+    default: 'Pets'
   },
   gamelist: {
     type: Array
@@ -123,8 +123,8 @@ const UserSchema = new Schema({
     default: 0
   },
   pref_age: {
-    type: Number,
-    default: 18
+    type: String,
+    default: '00 - 00'
   },
   pref_connections: {
     type: String,
