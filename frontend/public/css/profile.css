@@ -359,3 +359,23 @@
     /* display: flex; */
     /* flex-wrap: nowrap; */
   }
+/* USER */
+  .user-pro{
+    justify-content: space-between;
+    border-radius: 3px;
+  }
+  .user-pro:hover{
+    background-color: white;
+    filter: drop-shadow(0px 1px 2px #ccd0d9)
+  }
+    .user-pro-att-wrap{
+      display: flex;
+    }
+      .user-pro-att{
+      }
+        .user-pro-att-has{
+          /* color: white; */
+        }
+        .user-pro-att-miss{
+          color: #aeb4bf;
+        }

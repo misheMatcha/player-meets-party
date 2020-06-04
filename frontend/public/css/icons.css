@@ -89,6 +89,12 @@
   font-size: 24px;
 }
 
+/* attributes user toggle */
+.user-att-toggle i{
+  color: #0500be;
+  font-size: 19px;
+}
+
 /* basics form*/
 /* x */
 .basics-form-header-icon{

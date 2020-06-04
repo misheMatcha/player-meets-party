@@ -15,7 +15,7 @@ import ProfileAttributes from './profile_attributes.jsx';
 const Profile = props => {
   const user = props.user;
   // const isCurrentUser = user && props.user ? props.user._id === props.current._id : false;
-  const isCurrentUser = false;
+  const isCurrentUser = true;
   const [displayMore, setDisplayMore] = useState(false);
   // placeholders
   const online = true;

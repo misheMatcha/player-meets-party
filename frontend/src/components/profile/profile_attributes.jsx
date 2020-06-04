@@ -5,6 +5,8 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const hasAttributes = [];
   const missingAttributes = [];
   const [matchAttributes, setMatchAttributes] = useState('');
+  const [userAttributes, setUserAttributes] = useState('');
+  const [missingUserAttributes, setMissingUserAttributes] = useState('');
 
   useEffect(() => {
     filterAttributes();
@@ -41,7 +43,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
               if(attVal.length){
                 addStringFlavor(att, attVal)
               }else{
-                att === 'ethnicity' ? missingAttributes.push('Ethnicity') : missingAttributes.push('Language');
+                att === 'ethnicity' ? missingAttributes.push('Ethnicity') : missingAttributes.push('Language(s)');
               }
             }else{
               if(bgDefaults.indexOf(attVal) < 0){
@@ -148,9 +150,17 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
 
   const user =
   <>
-      <div className='attribute-match'>
-        <i className={attributes.icon} />
-        <p>{section}</p>
+      <div className='attribute-match user-pro'>
+        <div className='user-pro-att-wrap'>
+          <i className={attributes.icon} />
+          <div className='user-pro-att'>
+            <p className='user-pro-att-has'>{userAttributes}</p>
+            <p className='user-pro-att-miss'>{missingUserAttributes}</p>
+          </div>
+        </div>
+        <div className='user-att-toggle'>
+          <i className='fas fa-chevron-right'/>
+        </div>
       </div>
   </>
 
