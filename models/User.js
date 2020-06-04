@@ -119,8 +119,8 @@ const UserSchema = new Schema({
     default: 'Gender'
   },
   pref_distance: {
-    type: Number,
-    default: 0
+    type: String,
+    default: 'Distance'
   },
   pref_age: {
     type: String,

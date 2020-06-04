@@ -60,6 +60,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
             sortAttributes(famDefaults, att, attVal);
             break;
           case 'I am looking for':
+            addStringFlavor(att, attVal);
             break;
           default:
             break;
@@ -98,6 +99,45 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
         }else{
           hasAttributes.push('Smokes marijuana ' + attVal);
         }
+        break;
+      case 'marijuana':
+        if(attVal === 'false'){
+          hasAttributes.push(`Doesn't smoke marijuana`);
+        }else{
+          hasAttributes.push('Smokes marijuana ' + attVal);
+        }
+        break;
+      case 'children':
+        if(attVal === 'false'){
+          hasAttributes.push(`Doesn't have kids`);
+        }else{
+          hasAttributes.push('Has kid(s)');
+        }
+        break;
+      case 'pets':
+        if(attVal === 'false'){
+          hasAttributes.push(`Doesn't have pet(s)`);
+        }else{
+          hasAttributes.push('Has ' + attVal);
+        }
+        break;
+      case 'pref_gender':
+        if(attVal === 'Gender'){
+          hasAttributes.push('Looking for people');
+        }else{
+          hasAttributes.push('Looking for ' + attVal);
+        }
+        break;
+      case 'pref_connections':
+        if(attVal === 'Connections'){
+          hasAttributes.push(`for short & long term dating, hookups, and new friends.`);
+        }else{
+          hasAttributes.push('for ' + attVal);
+        }
+        break;
+      case 'pref_distance':
+        break;
+      case 'pref_age':
         break;
       default:
         hasAttributes.push(attVal);
