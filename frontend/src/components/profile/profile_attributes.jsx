@@ -1,16 +1,16 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
+import { convertToString } from '../../util/general_util';
 
 const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const hasAttributes = [];
   const missingAttributes = [];
-  const stringifiedAttributes = [];
+  const [matchAttributes, setMatchAttributes] = useState('');
 
   useEffect(() => {
     sortAndStringifyAttributes();
-    console.log('has: ' ,hasAttributes)
-    console.log('missing: ' ,missingAttributes)
-    console.log('str: ' ,stringifiedAttributes)
-  });
+    console.log('has: ', hasAttributes)
+    console.log('missing: ', missingAttributes)
+  }, []);
 
   const sortAndStringifyAttributes = () => {
     for(const att in attributes){
@@ -26,13 +26,13 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
           case 'Background':
             if(Array.isArray(attVal)){
               if(attVal.length){
-                bgStringy(att, attVal);
-                hasAttributes.push(attVal.join(', '));
+                // console.log(attVal)
+                bgStringy(att, attVal)
               }else{
                 att === 'ethnicity' ? missingAttributes.push('Ethnicity') : missingAttributes.push('Language');
               }
             }else{
-              console.log('not array')
+              // console.log('not array')
             }
             break;
           case 'Lifestyle':
@@ -51,17 +51,17 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const bgStringy = (att, attVal) => {
     switch(att){
       case 'ethnicity':
-        stringifiedAttributes.push(attVal.join(', '));
+        hasAttributes.push(convertToString(attVal));
         break;
-      case 'language':
-        let attStr = attVal.join(', ');
-        stringifiedAttributes.push(('Speaks ' + attStr));
+      case 'languages':
+        hasAttributes.push('Speaks ' + convertToString(attVal));
         break;
       default:
         break;
     }
+    setMatchAttributes(convertToString(hasAttributes))
   };
-  
+
   const user =
   <>
       <div className='attribute-match'>
@@ -74,9 +74,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   <>
     <div className='attribute-match'>
       <i className={attributes.icon}/>
-      <p className=''>
-        {hasAttributes.join(', ')}
-      </p>
+      <p className=''>{matchAttributes}</p>
     </div>
   </>
 

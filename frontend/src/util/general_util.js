@@ -7,3 +7,7 @@ export const calculateAge = birthday => {
 
   return age;
 };
+
+export const convertToString = array => {
+  return array.join(', ');
+};
