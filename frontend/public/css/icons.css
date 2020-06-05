@@ -90,10 +90,14 @@
 }
 
 /* attributes user toggle */
-.user-att-toggle i{
-  color: #0500be;
-  font-size: 19px;
+.user-att-toggle{
+  display: flex;
+  align-items: center;
 }
+  .user-att-toggle i{
+    color: #0500be;
+    font-size: 19px;
+  }
 
 /* basics form*/
 /* x */

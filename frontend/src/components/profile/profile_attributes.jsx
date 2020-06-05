@@ -6,13 +6,11 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const hasUserAttributes = [];
   const missingAttributes = [];
   const [matchAttributes, setMatchAttributes] = useState('');
-  const [userAttributes, setUserAttributes] = useState('');
   const [missingUserAttributes, setMissingUserAttributes] = useState('');
 
   useEffect(() => {
     filterAttributes();
     convertForDisplay();
-    // console.log(missingAttributes)
   });
 
   const sortAttributes = (arr, att, attVal) => {
@@ -26,7 +24,6 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
 
   const convertForDisplay = () => {
     setMatchAttributes(convertToString(hasMatchAttributes));
-    setUserAttributes(convertToString(hasUserAttributes));
     if(missingAttributes.length) setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
   };
 
