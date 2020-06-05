@@ -12,6 +12,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   useEffect(() => {
     filterAttributes();
     convertForDisplay();
+    // console.log(missingAttributes)
   });
 
   const sortAttributes = (arr, att, attVal) => {
@@ -26,7 +27,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const convertForDisplay = () => {
     setMatchAttributes(convertToString(hasMatchAttributes));
     setUserAttributes(convertToString(hasUserAttributes));
-    setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
+    if(missingAttributes.length) setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
   };
 
   const filterAttributes = () => {
@@ -82,6 +83,9 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
 
   const addStringFlavor = (att, attVal) => {
     switch(att){
+      case 'pronouns':
+        hasMatchAttributes.push('Uses ' +  attVal + ' pronouns');
+        break;
       case 'ethnicity':
         hasMatchAttributes.push(convertToString(attVal));
         break;
@@ -162,7 +166,7 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
         <div className='user-pro-att-wrap'>
           <i className={attributes.icon} />
           <div className='user-pro-att'>
-            <p className='user-pro-att-has'>{userAttributes}</p>
+            <p className='user-pro-att-has'>{matchAttributes}</p>
             <p className='user-pro-att-miss'>{missingUserAttributes}</p>
           </div>
         </div>
