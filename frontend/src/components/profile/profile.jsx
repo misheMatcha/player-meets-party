@@ -4,7 +4,7 @@ import { calculateAge, checkDefaults } from '../../util/general_util';
 import { ABOUTME_SECTIONS, PROFILE_QUESTIONS, ATTRIBUTES_SECTIONS } from './profile_options';
 import MatchQuestionSection from './match_question_section.jsx';
 import UserQuestionSection from './user_question_section.jsx';
-import ProfileAttributes from './profile_attributes.jsx';
+import ProfileAttributes from './profile_attributes_container';
 
 // future additions and refactors
 // - maps api to geolocate by zip
@@ -85,6 +85,7 @@ const Profile = props => {
     };
     checkIsUser()
     setTitle();
+    // props.test();
     return (() => {
     });
   });

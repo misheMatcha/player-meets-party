@@ -1,0 +1,33 @@
+.attribute-form{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  color: #2a2f35;
+}
+  .attribute-form-container{
+    background-color: white;
+    border-radius: 5px;
+    width: 600px;
+  }
+    .attribute-form-header{
+      /* background-color: white; */
+      font-size: 21px;
+      font-weight: 500;
+      padding: 0 40px;
+      height: 85px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+    .attribute-form-header-title{
+    }
+    .attribute-form-header-close{
+      /* border: 1px solid blue; */
+      color: #aeb4bf;
+      margin: -35px -40px 0;
+      width: 50px;
+      height: 50px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+    }

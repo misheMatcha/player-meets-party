@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { convertToString } from '../../util/general_util';
 
-const ProfileAttributes = ({userOrMatch, section, attributes}) => {
+const ProfileAttributes = props => {
   const hasMatchAttributes = [];
   const hasUserAttributes = [];
   const missingAttributes = [];
@@ -28,10 +28,10 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   };
 
   const filterAttributes = () => {
-    for(const att in attributes){
-      let attVal = attributes[att];
+    for(const att in props.attributes){
+      let attVal = props.attributes[att];
       if(att !== 'icon'){
-        switch (section) {
+        switch (props.section) {
           case 'Basics':
             const basicDefaults = ['Orientation', 'Gender'];
             sortAttributes(basicDefaults, att, attVal);
@@ -159,9 +159,35 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
 
   const user =
   <>
-      <div className='attribute-match user-pro'>
+      <div className='attribute-match user-pro' onClick={() => {
+        switch(props.section){
+          case 'Basics':
+            props.basics();
+            break;
+          case 'Pronouns':
+            props.pronouns();
+            break;
+          case 'Looks':
+            props.looks();
+            break;
+          case 'Background':
+            props.background();
+            break;
+          case 'Lifestyle':
+            props.lifestyle();
+            break;
+          case 'Family':
+            props.family();
+            break;
+          case 'I am looking for':
+            props.lookingFor();
+            break;
+          default:
+            break;
+        }
+      }}>
         <div className='user-pro-att-wrap'>
-          <i className={attributes.icon} />
+          <i className={props.attributes.icon} />
           <div className='user-pro-att'>
             <p className='user-pro-att-has'>{matchAttributes}</p>
             <p className='user-pro-att-miss'>{missingUserAttributes}</p>
@@ -176,12 +202,12 @@ const ProfileAttributes = ({userOrMatch, section, attributes}) => {
   const match =
   <>
     <div className='attribute-match'>
-      <i className={attributes.icon}/>
+      <i className={props.attributes.icon}/>
       <p className=''>{matchAttributes}</p>
     </div>
   </>
 
-  return userOrMatch === 'user' ? user : match;
+  return props.userOrMatch === 'user' ? user : match;
 };
 
 export default ProfileAttributes;
