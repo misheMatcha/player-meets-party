@@ -17,6 +17,7 @@ const AttributesForm = props => {
   const [education, setEducation] = useState(props.user.education);
   const [occupation, setOccupation] = useState(props.user.occupation);
   const [religion, setReligion] = useState(props.user.religion);
+  const [religion_weight, setReligion_weight] = useState(props.user.religion_weight);
   const [sign, setSign] = useState(props.user.sign);
   const [smoking, setSmoking] = useState(props.user.smoking);
   const [drinks, setDrinks] = useState(props.user.drinks);
@@ -61,6 +62,15 @@ const AttributesForm = props => {
       case 'diet':
         setDiet(event.target.value);
         break;
+      case 'religion':
+        setReligion(event.target.value);
+        break;
+      case 'religion_weight':
+        setReligion_weight(event.target.value);
+        break;
+      case 'sign':
+        setSign(event.target.value);
+        break;
       default:
         break;
     }
@@ -94,6 +104,7 @@ const AttributesForm = props => {
         modifiedUser.education = education;
         modifiedUser.occupation = occupation;
         modifiedUser.religion = religion;
+        modifiedUser.religion_weight = religion_weight;
         modifiedUser.sign = sign;
         break;
       case 'Lifestyle':
@@ -230,7 +241,90 @@ const AttributesForm = props => {
 
   const backgroundContent = <>
     <div className=''>
-      bg
+      <div className=''>
+        <p className='attribute-form-section-title'>Ethnicity</p>
+      </div>
+      <div className=''>
+        <p className='attribute-form-section-title'>Speaks</p>
+      </div>
+      <div className=''>
+        <p className='attribute-form-section-title'>Politics</p>
+      </div>
+      <div className=''>
+        <p className='attribute-form-section-title'>Education</p>
+      </div>
+      <div className=''>
+        <p className='attribute-form-section-title'>Occupation</p>
+      </div>
+      <div className=''>
+        <p className='attribute-form-section-title'>Religion</p>
+        <div className='display-flex jc-space-between'>
+          <div className='selectlist-container'>
+          <div className='selectlist'>
+            <div className='select'>
+              <select value={religion} onChange={event => handleUpdate(event, 'religion')}>
+                <option value='---'>---</option>
+                <option value='Agnostic'>Agnosticism</option>
+                <option value='Atheism'>Atheism</option>
+                <option value='Christian'>Christianity</option>
+                <option value='Jewish'>Judaism</option>
+                <option value='Catholic'>Catholicism</option>
+                <option value='Muslim'>Islam</option>
+                <option value='Hindu'>Hinduism</option>
+                <option value='Buddhist'>Buddhism</option>
+                <option value='Sikh'>Sikh</option>
+                <option value='Other'>Other</option>
+              </select>
+            </div>
+          </div>
+          <div className='selectlist-arrow'>
+            <i className="fas fa-chevron-down" />
+          </div>
+        </div>
+        <div className='selectlist-container'>
+          <div className='selectlist'>
+            <div className='select'>
+              <select value={religion_weight} onChange={event => handleUpdate(event, 'religion_weight')}>
+                <option value='---'>---</option>
+                <option value="(and it's important)">and it's important</option>
+                <option value="(but it's not important)">but it's not important</option>
+                <option value='(and laughing about it)'>and laughing about it</option>
+              </select>
+            </div>
+          </div>
+          <div className='selectlist-arrow'>
+            <i className="fas fa-chevron-down" />
+          </div>
+        </div>
+        </div>
+      </div>
+      <div className='attribute-form-section-wrap'>
+        <p className='attribute-form-section-title'>Sign</p>
+        <div className='selectlist-container'>
+          <div className='selectlist'>
+            <div className='select'>
+              <select value={sign} onChange={event => handleUpdate(event, 'sign')}>
+                <option value='---'>---</option>
+                <option value='Aquarius'>Aquarius</option>
+                <option value='Pisces'>Pisces</option>
+                <option value='Aries'>Aries</option>
+                <option value='Taurus'>Taurus</option>
+                <option value='Gemini'>Gemini</option>
+                <option value='Cancer'>Cancer</option>
+                <option value='Leo'>Leo</option>
+                <option value='Virgo'>Virgo</option>
+                <option value='Libra'>Libra</option>
+                <option value='Scorpio'>Scorpio</option>
+                <option value='Sagittarius'>Sagittarius</option>
+                <option value='Capricorn'>Capricorn</option>
+              </select>
+            </div>
+          </div>
+          <div className='selectlist-arrow'>
+            <i className="fas fa-chevron-down" />
+          </div>
+        </div>
+      </div>
     </div>
   </>
 

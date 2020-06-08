@@ -76,6 +76,10 @@ const UserSchema = new Schema({
     type: String,
     default: 'Religion'
   },
+  religion_weight: {
+    type: String,
+    default: 'Religion Weight'
+  },
   sign: {
     type: String,
     default: 'Sign'
