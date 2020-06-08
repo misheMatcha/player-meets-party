@@ -177,6 +177,10 @@
         outline: 0;
       }
 
+.attribute-form-section-position{
+  display: flex;
+}
+
 /* HEIGHT */
 .selectlist-container-height{
   background-color: white;

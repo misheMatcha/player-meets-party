@@ -49,6 +49,18 @@ const AttributesForm = props => {
       case 'body-type':
         setBody_type(event.target.value);
         break;
+      case 'smoking':
+        setSmoking(event.target.value);
+        break;
+      case 'drinks':
+        setDrinks(event.target.value);
+        break;
+      case 'marijuana':
+        setMarijuana(event.target.value);
+        break;
+      case 'diet':
+        setDiet(event.target.value);
+        break;
       default:
         break;
     }
@@ -223,8 +235,91 @@ const AttributesForm = props => {
   </>
 
   const lifestyleContent = <>
-    <div className=''>
-      life
+    <div className='attribute-form-section display-flex flex-column'>
+      <div className='attribute-form-section-position jc-space-between'>
+        <div className='attribute-form-section-wrap'>
+          <p className='attribute-form-section-title'>Tobacco</p>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={smoking} onChange={event => handleUpdate(event, 'smoking')}>
+                  <option value='---'>---</option>
+                  <option value='often'>Often</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+        <div className='attribute-form-section-wrap'>
+          <p className='attribute-form-section-title'>Drinks</p>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={drinks} onChange={event => handleUpdate(event, 'drinks')}>
+                  <option value='---'>---</option>
+                  <option value='often'>Often</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='attribute-form-section-position jc-space-between height-spacing'>
+        <div className='attribute-form-section-wrap'>
+          <p className='attribute-form-section-title'>Marijuana</p>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={marijuana} onChange={event => handleUpdate(event, 'marijuana')}>
+                  <option value='---'>---</option>
+                  <option value='often'>Often</option>
+                  <option value='sometimes'>Sometimes</option>
+                  <option value='never'>Never</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+        <div className='attribute-form-section-wrap'>
+          <p className='attribute-form-section-title'>Diet</p>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={diet} onChange={event => handleUpdate(event, 'diet')}>
+                  <option value='---'>---</option>
+                  <option value='Omnivore'>Omnivore</option>
+                  <option value='Vegetarian'>Vegetarian</option>
+                  <option value='Vegan'>Vegan</option>
+                  <option value='Kosher'>Kosher</option>
+                  <option value='Halal'>Halal</option>
+                  <option value='Gluten Free'>Gluten Free</option>
+                  <option value='Pescatarian'>Pescatarian</option>
+                  <option value='Jain'>Jain</option>
+                  <option value='Lactovegetarian'>Lactovegetarian</option>
+                  <option value='Intermittent Fasting'>Intermittent Fasting</option>
+                  <option value='Ketogenic'>Ketogenic</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </>
 

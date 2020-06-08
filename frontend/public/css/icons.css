@@ -13,6 +13,12 @@
 .input-spacing{
   margin-left: 10px;
 }
+.flex-column{
+  flex-direction: column;
+}
+.height-spacing{
+  margin-top: 40px;
+}
 .input-half-width{
   width: 100%;
 }
