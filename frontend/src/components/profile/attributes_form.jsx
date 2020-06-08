@@ -75,10 +75,16 @@ const AttributesForm = props => {
           <p className='attribute-form-header-title'>{props.formType}</p>
           <div className='attribute-form-header-close' onClick={() => props.closeModal()}>X</div>
         </div>
-        <div className=''>
-          {
-            whichForm(props.formType)
-          }
+        <div className='attribute-form-sections'>
+          <form className='' onSubmit={() => console.log('submit')}>
+            {
+              whichForm(props.formType)
+            }
+            <div className='attribute-form-buttons'>
+              <button className='attribute-form-buttons-save' type='submit'>SAVE</button>
+              <button className='attribute-form-buttons-cancel' type='button' onClick={() => props.closeModal()}>CANCEL</button>
+            </div>
+          </form>
         </div>
       </div>
     </div>
