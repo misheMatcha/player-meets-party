@@ -8,6 +8,8 @@ const AttributesForm = props => {
   const [relationship_type, setRelationship_type] = useState(props.user.relationship_type);
   const [pronouns, setPronouns ] = useState(props.user.pronouns);
   const [height, setHeight] = useState(props.user.height);
+  const [heightFt, setHeightFt] = useState(props.user.height.slice(0, 2));
+  const [heightIn, setHeightIn] = useState(props.user.height.slice(2));
   const [body_type, setBody_type] = useState(props.user.body_type);
   const [ethnicity, setEthnicity] = useState(props.user.ethnicity);
   const [languages, setLanguages] = useState(props.user.languages);
@@ -38,6 +40,15 @@ const AttributesForm = props => {
       case 'pronouns':
         setPronouns(event.target.value);
         break;
+      case 'height-ft':
+        setHeightFt(event.target.value);
+        break;
+      case 'height-in':
+        setHeightIn(event.target.value);
+        break;
+      case 'body-type':
+        setBody_type(event.target.value);
+        break;
       default:
         break;
     }
@@ -61,7 +72,7 @@ const AttributesForm = props => {
         modifiedUser.pronouns = pronouns;
         break;
       case 'Looks':
-        modifiedUser.height = height;
+        modifiedUser.height = heightFt + heightIn;
         modifiedUser.body_type = body_type;
         break;
       case 'Background':
@@ -92,6 +103,7 @@ const AttributesForm = props => {
       default:
         break;
     }
+    // console.log(modifiedUser)
 
     props.updateUser(modifiedUser).then(() => props.closeModal());
   };
@@ -133,8 +145,85 @@ const AttributesForm = props => {
   </>
 
   const looksContent = <>
-    <div className=''>
-      looks
+    <div className='attribute-form-section display-flex jc-space-between'>
+      <div className='attribute-form-section-wrap'>
+        <p className='attribute-form-section-title'>Height</p>
+        <div className='attribute-form-section display-flex'>
+          <div className='attribute-form-selectlist'>
+            <div className='select'>
+              <select value={heightFt} onChange={event => handleUpdate(event, 'height-ft')}>
+                <option value="3'">3'</option>
+                <option value="4'">4'</option>
+                <option value="5'">5'</option>
+                <option value="6'">6'</option>
+                <option value="7'">7'</option>
+              </select>
+            </div>
+          </div>
+          <div className='attribute-form-selectlist'>
+            <div className='select'>
+              <select value={heightIn} onChange={event => handleUpdate(event, 'height-in')}>
+                <option value='0"'>0"</option>
+                <option value='1"'>1"</option>
+                <option value='2"'>2"</option>
+                <option value='3"'>3"</option>
+                <option value='4"'>4"</option>
+                <option value='5"'>5"</option>
+                <option value='6"'>6"</option>
+                <option value='7"'>7"</option>
+                <option value='8"'>8"</option>
+                <option value='9"'>9"</option>
+                <option value='10"'>10"</option>
+                <option value='11"'>11"</option>
+              </select>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='attribute-form-section-wrap'>
+        <p className='attribute-form-section-title'>Body type</p>
+        {/* <div className='attribute-form-section-select-bodytype'>
+          <div className='attribute-form-selectlist'>
+            <div className='select input-half-width'>
+              <select className='select-wrap' value={body_type} onChange={event => handleUpdate(event, 'body-type')}>
+                <option value='---'>---</option>
+                <option value='Thin'>Thin</option>
+                <option value='Overweight'>Overweight</option>
+                <option value='Average build'>Average build</option>
+                <option value='Fit'>Fit</option>
+                <option value='Jacked'>Jacked</option>
+                <option value='A little extra'>A little extra</option>
+                <option value='Curvy'>Curvy</option>
+                <option value='Full figured'>Full figured</option>
+              </select>
+              <div className='select-icon'>
+                <i className='fas fa-chevron-down'/>
+              </div>
+            </div>
+          </div>
+        </div> */}
+        <div className='selectlist-container'>
+
+          <div className='selectlist'>
+            <div className='select'>
+              <select value={body_type} onChange={event => handleUpdate(event, 'body-type')}>
+                <option value='---'>---</option>
+                <option value='Thin'>Thin</option>
+                <option value='Overweight'>Overweight</option>
+                <option value='Average build'>Average build</option>
+                <option value='Fit'>Fit</option>
+                <option value='Jacked'>Jacked</option>
+                <option value='A little extra'>A little extra</option>
+                <option value='Curvy'>Curvy</option>
+                <option value='Full figured'>Full figured</option>
+              </select>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </>
 

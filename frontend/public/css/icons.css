@@ -4,6 +4,18 @@
 .display-question-height{
   height: 428px;
 }
+.display-flex{
+  display: flex;
+}
+.jc-space-between{
+  justify-content: space-between;
+}
+.input-half-width{
+  width: 249.59px;
+}
+.input-half-width{
+  width: 100%;
+}
 .passlike-buttons{
   width: 157px;
   height: 52px;
@@ -97,6 +109,12 @@
   .user-att-toggle i{
     color: #0500be;
     font-size: 19px;
+  }
+
+/* attributes form */
+/* select arrow */
+.selectlist-arrow{}
+  .selectlist-arrow i{
   }
 
 /* basics form*/

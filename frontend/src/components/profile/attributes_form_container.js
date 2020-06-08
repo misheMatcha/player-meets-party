@@ -9,7 +9,6 @@ const mSTP = state => ({
 
 const mDTP = dispatch => ({
   closeModal: () => dispatch(closeModal()),
-  fetchUser: userId => dispatch(requestUser(userId)),
   updateUser: user => dispatch(editUser(user))
 });
 
