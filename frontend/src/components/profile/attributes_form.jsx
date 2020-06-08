@@ -2,35 +2,33 @@ import React, { useEffect, useState } from 'react';
 import { closeModal } from '../../actions/modal_actions';
 
 const AttributesForm = props => {
-  const [orientation, setOrientation ] = useState('');
-  const [gender, setGender ] = useState('');
-  const [relationship_status, setRelationship_status ] = useState('');
-  const [relationship_type, setRelationship_type ] = useState('');
-  const [pronouns, setPronouns ] = useState('');
-  const [height, setHeight ] = useState('');
-  const [body_type, setBody_type ] = useState('');
-  const [ethnicity, setEthnicity ] = useState('');
-  const [languages, setLanguages ] = useState('');
-  const [politics, setPolitics ] = useState('');
-  const [education, setEducation ] = useState('');
-  const [occupation, setOccupation ] = useState('');
-  const [religion, setReligion ] = useState('');
-  const [sign, setSign ] = useState('');
-  const [smoking, setSmoking ] = useState('');
-  const [drinks, setDrinks ] = useState('');
-  const [marijuana, setMarijuana ] = useState('');
-  const [diet, setDiet ] = useState('');
-  const [children, setChildren ] = useState('');
-  const [pets, setPets ] = useState('');
-  const [pref_gender, setPref_gender ] = useState('');
-  const [pref_distance, setPref_distance ] = useState('');
-  const [pref_age, setPref_age ] = useState('');
-  const [pref_connections, setPref_connections ] = useState('');
+  const [orientation, setOrientation ] = useState(props.user.orientation);
+  const [gender, setGender ] = useState(props.user.gender);
+  const [relationship_status, setRelationship_status] = useState(props.user.relationship_status);
+  const [relationship_type, setRelationship_type] = useState(props.user.relationship_type);
+  const [pronouns, setPronouns ] = useState(props.user.pronouns);
+  const [height, setHeight] = useState(props.user.height);
+  const [body_type, setBody_type] = useState(props.user.body_type);
+  const [ethnicity, setEthnicity] = useState(props.user.ethnicity);
+  const [languages, setLanguages] = useState(props.user.languages);
+  const [politics, setPolitics] = useState(props.user.politics);
+  const [education, setEducation] = useState(props.user.education);
+  const [occupation, setOccupation] = useState(props.user.occupation);
+  const [religion, setReligion] = useState(props.user.religion);
+  const [sign, setSign] = useState(props.user.sign);
+  const [smoking, setSmoking] = useState(props.user.smoking);
+  const [drinks, setDrinks] = useState(props.user.drinks);
+  const [marijuana, setMarijuana] = useState(props.user.marijuana);
+  const [diet, setDiet] = useState(props.user.diet);
+  const [children, setChildren] = useState(props.user.children);
+  const [pets, setPets] = useState(props.user.pets);
+  const [pref_gender, setPref_gender] = useState(props.user.pref_gender);
+  const [pref_distance, setPref_distance] = useState(props.user.pref_distance);
+  const [pref_age, setPref_age] = useState(props.user.pref_age);
+  const [pref_connections, setPref_connections] = useState(props.user.pref_connections);
 
   useEffect(() => {
   })
-
-  const setDefaultValues = formType => {};
 
   const handleUpdate = (event, field) => {
     switch(field){

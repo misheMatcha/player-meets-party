@@ -35,6 +35,7 @@
   .attribute-form-sections{
     background-color: #f3f5f9;
     padding: 40px;
+    border-radius: 5px;
   }
     .attribute-form-section{
       /* border: 1px solid blue; */
@@ -44,8 +45,10 @@
         font-size: 17px;
         font-weight: 600;
         letter-spacing: .25px;
+        margin-bottom: 10px;
       }
       .attribute-form-section-label{
+        border: 1px solid #ccd0d9;
         width: 100%;
         height: 46px;
         background-color: white;
