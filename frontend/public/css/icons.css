@@ -10,8 +10,8 @@
 .jc-space-between{
   justify-content: space-between;
 }
-.input-half-width{
-  width: 249.59px;
+.input-spacing{
+  margin-left: 10px;
 }
 .input-half-width{
   width: 100%;

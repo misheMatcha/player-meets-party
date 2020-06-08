@@ -126,26 +126,40 @@
       }
 
 /* SELECT STYLING */
-.selectlist-container{}
+.selectlist-container{
+  background-color: white;
+  display: flex;
+  border-radius: 3px;
+  filter: drop-shadow(0px 1px 2px #ccd0d9);
+  color: #9393a9;
+  width: 249.50px;
+}
+.selectlist-container:hover{
+  filter: drop-shadow(0px 1px 2px #9393a9b7);
+  color: black;
+}
+.selectlist-container .selectlist, .selectlist-container .selectlist-arrow{
+  box-sizing: border-box;
+  flex: none;
+}
+.selectlist-container .selectlist{}
+.selectlist-container .selectlist-arrow{
+  margin-left: -10%;
+  display: flex;
+  align-items: center;
+}
   .selectlist{
-    width: 249.50px;
-    background-color: white;
-    border-radius: 3px;
+    /* width: 249.50px; */
+    width: 100%;
     position: relative;
     display: flex;
     justify-content: space-evenly;
     align-items: center;
-    filter: drop-shadow(0px 1px 2px #ccd0d9);
-    color: #9393a9;
-  }
-  .selectlist:hover{
-    filter: drop-shadow(0px 1px 2px #9393a9b7);
-    color: black;
   }
     .select{
     }
     .selectlist .select{
-      width: 80%;
+      width: 100%;
     }
       .selectlist .select select{
         position: relative;
@@ -160,5 +174,54 @@
         font-weight: 300;
       }
       .selectlist .select select:focus{
+        outline: 0;
+      }
+
+/* HEIGHT */
+.selectlist-container-height{
+  background-color: white;
+  display: flex;
+  border-radius: 3px;
+  filter: drop-shadow(0px 1px 2px #ccd0d9);
+  color: #9393a9;
+  width: 119.8px;
+}
+.selectlist-container-height:hover{
+  filter: drop-shadow(0px 1px 2px #9393a9b7);
+  color: black;
+}
+.selectlist-container-height .selectlist-height, .selectlist-container-height .selectlist-arrow-height{
+  box-sizing: border-box;
+  flex: none;
+}
+.selectlist-container-height .selectlist-height{}
+.selectlist-container-height .selectlist-arrow-height{
+  margin-left: -20%;
+  display: flex;
+  align-items: center;
+}
+  .selectlist-height{
+    width: 119.8px;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+    .selectlist-height .select{
+      width: 100%;
+    }
+      .selectlist-height .select select{
+        position: relative;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: transparent;
+        line-height: 1.5;
+        width: 100%;
+        padding: 10px;
+        font-size: 17px;
+        font-weight: 300;
+      }
+      .selectlist-height .select select:focus{
         outline: 0;
       }

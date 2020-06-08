@@ -149,61 +149,50 @@ const AttributesForm = props => {
       <div className='attribute-form-section-wrap'>
         <p className='attribute-form-section-title'>Height</p>
         <div className='attribute-form-section display-flex'>
-          <div className='attribute-form-selectlist'>
-            <div className='select'>
-              <select value={heightFt} onChange={event => handleUpdate(event, 'height-ft')}>
-                <option value="3'">3'</option>
-                <option value="4'">4'</option>
-                <option value="5'">5'</option>
-                <option value="6'">6'</option>
-                <option value="7'">7'</option>
-              </select>
+          <div className='selectlist-container-height'>
+            <div className='selectlist-height'>
+              <div className='select'>
+                <select value={heightFt} onChange={event => handleUpdate(event, 'height-ft')}>
+                  <option value="3'">3'</option>
+                  <option value="4'">4'</option>
+                  <option value="5'">5'</option>
+                  <option value="6'">6'</option>
+                  <option value="7'">7'</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow-height'>
+              <i className="fas fa-chevron-down" />
             </div>
           </div>
-          <div className='attribute-form-selectlist'>
-            <div className='select'>
-              <select value={heightIn} onChange={event => handleUpdate(event, 'height-in')}>
-                <option value='0"'>0"</option>
-                <option value='1"'>1"</option>
-                <option value='2"'>2"</option>
-                <option value='3"'>3"</option>
-                <option value='4"'>4"</option>
-                <option value='5"'>5"</option>
-                <option value='6"'>6"</option>
-                <option value='7"'>7"</option>
-                <option value='8"'>8"</option>
-                <option value='9"'>9"</option>
-                <option value='10"'>10"</option>
-                <option value='11"'>11"</option>
-              </select>
+          <div className='selectlist-container-height input-spacing'>
+            <div className='selectlist-height'>
+              <div className='select'>
+                <select value={heightIn} onChange={event => handleUpdate(event, 'height-in')}>
+                  <option value='0"'>0"</option>
+                  <option value='1"'>1"</option>
+                  <option value='2"'>2"</option>
+                  <option value='3"'>3"</option>
+                  <option value='4"'>4"</option>
+                  <option value='5"'>5"</option>
+                  <option value='6"'>6"</option>
+                  <option value='7"'>7"</option>
+                  <option value='8"'>8"</option>
+                  <option value='9"'>9"</option>
+                  <option value='10"'>10"</option>
+                  <option value='11"'>11"</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow-height'>
+              <i className="fas fa-chevron-down" />
             </div>
           </div>
         </div>
       </div>
       <div className='attribute-form-section-wrap'>
         <p className='attribute-form-section-title'>Body type</p>
-        {/* <div className='attribute-form-section-select-bodytype'>
-          <div className='attribute-form-selectlist'>
-            <div className='select input-half-width'>
-              <select className='select-wrap' value={body_type} onChange={event => handleUpdate(event, 'body-type')}>
-                <option value='---'>---</option>
-                <option value='Thin'>Thin</option>
-                <option value='Overweight'>Overweight</option>
-                <option value='Average build'>Average build</option>
-                <option value='Fit'>Fit</option>
-                <option value='Jacked'>Jacked</option>
-                <option value='A little extra'>A little extra</option>
-                <option value='Curvy'>Curvy</option>
-                <option value='Full figured'>Full figured</option>
-              </select>
-              <div className='select-icon'>
-                <i className='fas fa-chevron-down'/>
-              </div>
-            </div>
-          </div>
-        </div> */}
         <div className='selectlist-container'>
-
           <div className='selectlist'>
             <div className='select'>
               <select value={body_type} onChange={event => handleUpdate(event, 'body-type')}>
@@ -218,9 +207,9 @@ const AttributesForm = props => {
                 <option value='Full figured'>Full figured</option>
               </select>
             </div>
-            <div className='selectlist-arrow'>
-              <i className="fas fa-chevron-down" />
-            </div>
+          </div>
+          <div className='selectlist-arrow'>
+            <i className="fas fa-chevron-down" />
           </div>
         </div>
       </div>
