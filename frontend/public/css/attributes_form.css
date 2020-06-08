@@ -36,6 +36,31 @@
     background-color: #f3f5f9;
     padding: 40px;
   }
+    .attribute-form-section{
+      /* border: 1px solid blue; */
+    }
+      .attribute-form-section-title{
+        /* border: 1px solid red; */
+        font-size: 17px;
+        font-weight: 600;
+        letter-spacing: .25px;
+      }
+      .attribute-form-section-label{
+        width: 100%;
+        height: 46px;
+        background-color: white;
+        display: flex;
+        font-size: 19px;
+        font-weight: 300;
+        justify-content: center;
+      }
+        .attribute-form-section-label input{
+          width: 90%;
+        }
+        .attribute-form-section-label input::placeholder{
+          color: #2a2f357c;
+        }
+
     .attribute-form-buttons{
       margin-top: 45px;
     }

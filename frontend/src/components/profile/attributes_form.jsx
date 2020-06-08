@@ -1,51 +1,49 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { closeModal } from '../../actions/modal_actions';
 
 const AttributesForm = props => {
+  const [orientation, setOrientation ] = useState('');
+  const [gender, setGender ] = useState('');
+  const [relationship_status, setRelationship_status ] = useState('');
+  const [relationship_type, setRelationship_type ] = useState('');
+  const [pronouns, setPronouns ] = useState('');
+  const [height, setHeight ] = useState('');
+  const [body_type, setBody_type ] = useState('');
+  const [ethnicity, setEthnicity ] = useState('');
+  const [languages, setLanguages ] = useState('');
+  const [politics, setPolitics ] = useState('');
+  const [education, setEducation ] = useState('');
+  const [occupation, setOccupation ] = useState('');
+  const [religion, setReligion ] = useState('');
+  const [sign, setSign ] = useState('');
+  const [smoking, setSmoking ] = useState('');
+  const [drinks, setDrinks ] = useState('');
+  const [marijuana, setMarijuana ] = useState('');
+  const [diet, setDiet ] = useState('');
+  const [children, setChildren ] = useState('');
+  const [pets, setPets ] = useState('');
+  const [pref_gender, setPref_gender ] = useState('');
+  const [pref_distance, setPref_distance ] = useState('');
+  const [pref_age, setPref_age ] = useState('');
+  const [pref_connections, setPref_connections ] = useState('');
+
   useEffect(() => {
   })
 
-  const basics = <>
-    <div className=''>
-      basics
-    </div>
-  </>
+  const setDefaultValues = formType => {};
 
-  const pronouns = <>
-    <div className=''>
-      pro
-    </div>
-  </>
-
-  const looks = <>
-    <div className=''>
-      looks
-    </div>
-  </>
-
-  const background = <>
-    <div className=''>
-      bg
-    </div>
-  </>
-
-  const lifestyle = <>
-    <div className=''>
-      life
-    </div>
-  </>
-
-  const family = <>
-    <div className=''>
-      fam
-    </div>
-  </>
-
-  const lookingFor = <>
-    <div className=''>
-      looking for
-    </div>
-  </>
+  const handleUpdate = (event, field) => {
+    switch(field){
+      case 'orientation':
+        setOrientation(event.target.value);
+        break;
+      case 'pronouns':
+        setPronouns(event.target.value);
+        break;
+      default:
+        break;
+    }
+  };
 
   const handleSubmit = (event, formType) => {
     event.preventDefault();
@@ -56,68 +54,115 @@ const AttributesForm = props => {
 
     switch (formType) {
       case 'Basics':
-        modifiedUser.orientation = 'replace'
-        modifiedUser.gender = 'replace'
-        modifiedUser.relationship_status = 'replace'
-        modifiedUser.relationship_type = 'replace'
+        modifiedUser.orientation = orientation;
+        modifiedUser.gender = gender;
+        modifiedUser.relationship_status = relationship_status;
+        modifiedUser.relationship_type = relationship_type;
         break;
       case 'Pronouns':
-        modifiedUser.pronouns = 'replace'
+        modifiedUser.pronouns = pronouns;
         break;
       case 'Looks':
-        modifiedUser.height = 'replace'
-        modifiedUser.body_type = 'replace'
+        modifiedUser.height = height;
+        modifiedUser.body_type = body_type;
         break;
       case 'Background':
-        modifiedUser.ethnicity = 'replace'
-        modifiedUser.languages = 'replace'
-        modifiedUser.politics = 'replace'
-        modifiedUser.education = 'replace'
-        modifiedUser.occupation = 'replace'
-        modifiedUser.religion = 'replace'
-        modifiedUser.sign = 'replace'
+        modifiedUser.ethnicity = ethnicity;
+        modifiedUser.languages = languages;
+        modifiedUser.politics = politics;
+        modifiedUser.education = education;
+        modifiedUser.occupation = occupation;
+        modifiedUser.religion = religion;
+        modifiedUser.sign = sign;
         break;
       case 'Lifestyle':
-        modifiedUser.smoking = 'replace'
-        modifiedUser.drinks = 'replace'
-        modifiedUser.marijuana = 'replace'
-        modifiedUser.diet = 'replace'
+        modifiedUser.smoking = smoking;
+        modifiedUser.drinks = drinks;
+        modifiedUser.marijuana = marijuana;
+        modifiedUser.diet = diet;
         break;
       case 'Family':
-        modifiedUser.children = 'replace'
-        modifiedUser.pets = 'replace'
+        modifiedUser.children = children;
+        modifiedUser.pets = pets;
         break;
       case 'I am looking for':
-        modifiedUser.pref_gender = 'replace'
-        modifiedUser.pref_distance = 'replace'
-        modifiedUser.pref_age = 'replace'
-        modifiedUser.pref_connections = 'replace'
+        modifiedUser.pref_gender = pref_gender;
+        modifiedUser.pref_distance = pref_distance;
+        modifiedUser.pref_age = pref_age;
+        modifiedUser.pref_connections = pref_connections;
         break;
       default:
         break;
     }
+
+    props.updateUser(modifiedUser).then(() => props.closeModal());
   };
 
   const whichForm = formType => {
     switch (formType) {
       case 'Basics':
-        return basics;
+        return basicsContent;
       case 'Pronouns':
-        return pronouns;
+        return pronounsContent;
       case 'Looks':
-        return looks;
+        return looksContent;
       case 'Background':
-        return background;
+        return backgroundContent;
       case 'Lifestyle':
-        return lifestyle;
+        return lifestyleContent;
       case 'Family':
-        return family;
+        return familyContent;
       case 'I am looking for':
-        return lookingFor;
+        return lookingForContent;
       default:
         break;
     }
   };
+
+  const basicsContent = <>
+    <div className=''>
+      basics
+    </div>
+  </>
+
+  const pronounsContent = <>
+    <div className='attribute-form-section'>
+      <p className='attribute-form-section-title'>{props.formType}</p>
+      <label className='attribute-form-section-label'>
+        <input type='text' placeholder='ex: they/them, or enter your own' value={pronouns} onChange={event => handleUpdate(event, 'pronouns')}/>
+      </label>
+    </div>
+  </>
+
+  const looksContent = <>
+    <div className=''>
+      looks
+    </div>
+  </>
+
+  const backgroundContent = <>
+    <div className=''>
+      bg
+    </div>
+  </>
+
+  const lifestyleContent = <>
+    <div className=''>
+      life
+    </div>
+  </>
+
+  const familyContent = <>
+    <div className=''>
+      fam
+    </div>
+  </>
+
+  const lookingForContent = <>
+    <div className=''>
+      looking for
+    </div>
+  </>
 
   return <>
     <div className='attribute-form'>
