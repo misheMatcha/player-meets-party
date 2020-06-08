@@ -47,8 +47,59 @@ const AttributesForm = props => {
     </div>
   </>
 
+  const handleSubmit = (event, formType) => {
+    event.preventDefault();
+
+    const modifiedUser = {
+      _id: props.currentId
+    };
+
+    switch (formType) {
+      case 'Basics':
+        modifiedUser.orientation = 'replace'
+        modifiedUser.gender = 'replace'
+        modifiedUser.relationship_status = 'replace'
+        modifiedUser.relationship_type = 'replace'
+        break;
+      case 'Pronouns':
+        modifiedUser.pronouns = 'replace'
+        break;
+      case 'Looks':
+        modifiedUser.height = 'replace'
+        modifiedUser.body_type = 'replace'
+        break;
+      case 'Background':
+        modifiedUser.ethnicity = 'replace'
+        modifiedUser.languages = 'replace'
+        modifiedUser.politics = 'replace'
+        modifiedUser.education = 'replace'
+        modifiedUser.occupation = 'replace'
+        modifiedUser.religion = 'replace'
+        modifiedUser.sign = 'replace'
+        break;
+      case 'Lifestyle':
+        modifiedUser.smoking = 'replace'
+        modifiedUser.drinks = 'replace'
+        modifiedUser.marijuana = 'replace'
+        modifiedUser.diet = 'replace'
+        break;
+      case 'Family':
+        modifiedUser.children = 'replace'
+        modifiedUser.pets = 'replace'
+        break;
+      case 'I am looking for':
+        modifiedUser.pref_gender = 'replace'
+        modifiedUser.pref_distance = 'replace'
+        modifiedUser.pref_age = 'replace'
+        modifiedUser.pref_connections = 'replace'
+        break;
+      default:
+        break;
+    }
+  };
+
   const whichForm = formType => {
-    switch (props.formType) {
+    switch (formType) {
       case 'Basics':
         return basics;
       case 'Pronouns':
@@ -76,7 +127,7 @@ const AttributesForm = props => {
           <div className='attribute-form-header-close' onClick={() => props.closeModal()}>X</div>
         </div>
         <div className='attribute-form-sections'>
-          <form className='' onSubmit={() => console.log('submit')}>
+          <form className='' onSubmit={event => handleSubmit(event, props.formType)}>
             {
               whichForm(props.formType)
             }

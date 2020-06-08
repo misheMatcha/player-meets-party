@@ -23,25 +23,25 @@ const Modal = props => {
       component = <PronounsForm />;
       break;
     case 'Basics':
-      component = <AttributesForm formType='Basics' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='Basics' />;
       break;
     case 'Pronouns':
-      component = <AttributesForm formType='Pronouns' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='Pronouns' />;
       break;
     case 'Looks':
-      component = <AttributesForm formType='Looks' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='Looks' />;
       break;
     case 'Background':
-      component = <AttributesForm formType='Background' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='Background' />;
       break;
     case 'Lifestyle':
-      component = <AttributesForm formType='Lifestyle' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='Lifestyle' />;
       break;
     case 'Family':
-      component = <AttributesForm formType='Family' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='Family' />;
       break;
     case 'I am looking for':
-      component = <AttributesForm formType='I am looking for' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='I am looking for' />;
       break;
     default:
       return null;
