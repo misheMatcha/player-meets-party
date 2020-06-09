@@ -4,6 +4,27 @@
 .display-question-height{
   height: 428px;
 }
+.display-flex{
+  display: flex;
+}
+.jc-space-between{
+  justify-content: space-between;
+}
+.input-spacing{
+  margin-left: 10px;
+}
+.flex-column{
+  flex-direction: column;
+}
+.height-spacing{
+  margin-top: 40px;
+}
+.height-spacing-mini{
+  margin-top: 10px;
+}
+.input-half-width{
+  width: 100%;
+}
 .passlike-buttons{
   width: 157px;
   height: 52px;
@@ -90,10 +111,20 @@
 }
 
 /* attributes user toggle */
-.user-att-toggle i{
-  color: #0500be;
-  font-size: 19px;
+.user-att-toggle{
+  display: flex;
+  align-items: center;
 }
+  .user-att-toggle i{
+    color: #0500be;
+    font-size: 19px;
+  }
+
+/* attributes form */
+/* select arrow */
+.selectlist-arrow{}
+  .selectlist-arrow i{
+  }
 
 /* basics form*/
 /* x */

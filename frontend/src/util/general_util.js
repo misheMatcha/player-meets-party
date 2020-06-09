@@ -9,7 +9,17 @@ export const calculateAge = birthday => {
 };
 
 export const convertToString = array => {
-  return array.join(', ');
+  if(!array.length) return '';
+  let converted = '';
+  for(let i = 0; i < array.length; i++){
+    let el = array[i];
+    if(i !== array.length - 1){
+      converted = converted + el + ', ';
+    }else{
+      converted = converted + el;
+    }
+  }
+  return converted;
 };
 
 export const checkDefaults = (arr, attObj) => {
