@@ -91,8 +91,6 @@ const ProfileAttributes = props => {
           hasMatchAttributes.push('Speaks ' + convertToString(attVal));
         }
         break;
-      case 'politics':
-        hasMatchAttributes.push('Politically ' + attVal);
       case 'smoking':
         if(attVal === 'false'){
           hasMatchAttributes.push(`Doesn't smoke cigarettes`);
@@ -105,13 +103,6 @@ const ProfileAttributes = props => {
           hasMatchAttributes.push(`Doesn't drink`);
         }else{
           hasMatchAttributes.push('Drinks ' + attVal);
-        }
-        break;
-      case 'marijuana':
-        if(attVal === 'false'){
-          hasMatchAttributes.push(`Doesn't smoke marijuana`);
-        }else{
-          hasMatchAttributes.push('Smokes marijuana ' + attVal);
         }
         break;
       case 'marijuana':
