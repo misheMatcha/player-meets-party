@@ -935,7 +935,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={religion_weight} onChange={event => handleUpdate(event, 'religion_weight')}>
-                <option value='—'>—</option>
+                <option value=''>—</option>
                 <option value="(and it's important)">and it's important</option>
                 <option value="(but it's not important)">but it's not important</option>
                 <option value='(and laughing about it)'>and laughing about it</option>

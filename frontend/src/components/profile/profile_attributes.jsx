@@ -112,6 +112,15 @@ const ProfileAttributes = props => {
           hasMatchAttributes.push('Smokes marijuana ' + attVal);
         }
         break;
+      case 'religion':
+        if(props.attributes.religion_weight){
+          hasMatchAttributes.push(attVal + ' ' + props.attributes.religion_weight);
+        }else{
+          hasMatchAttributes.push(attVal);
+        }
+        break;
+      case 'religion_weight':
+        break;
       case 'children':
         if(attVal === 'false'){
           hasMatchAttributes.push(`Doesn't have kids`);

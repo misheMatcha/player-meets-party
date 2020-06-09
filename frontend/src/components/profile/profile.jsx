@@ -54,6 +54,7 @@ const Profile = props => {
     education: user.education,
     occupation: user.occupation,
     religion: user.religion,
+    religion_weight: user.religion_weight,
     sign: user.sign,
     icon: 'fas fa-globe'
   };
