@@ -19,6 +19,9 @@
 .height-spacing{
   margin-top: 40px;
 }
+.height-spacing-mini{
+  margin-top: 10px;
+}
 .input-half-width{
   width: 100%;
 }

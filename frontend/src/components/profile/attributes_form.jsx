@@ -7,12 +7,21 @@ const AttributesForm = props => {
   const [relationship_status, setRelationship_status] = useState(props.user.relationship_status);
   const [relationship_type, setRelationship_type] = useState(props.user.relationship_type);
   const [pronouns, setPronouns ] = useState(props.user.pronouns);
-  const [height, setHeight] = useState(props.user.height);
   const [heightFt, setHeightFt] = useState(props.user.height.slice(0, 2));
   const [heightIn, setHeightIn] = useState(props.user.height.slice(2));
   const [body_type, setBody_type] = useState(props.user.body_type);
   const [ethnicity, setEthnicity] = useState(props.user.ethnicity);
   const [languages, setLanguages] = useState(props.user.languages);
+  const [language1, setLanguage1] = useState(props.user.languages[0]);
+  const [language2, setLanguage2] = useState(props.user.languages[1]);
+  const [language3, setLanguage3] = useState(props.user.languages[2]);
+  const [language4, setLanguage4] = useState(props.user.languages[3]);
+  const [language5, setLanguage5] = useState(props.user.languages[4]);
+  const [lang1Fluency, setLang1Fluency] = useState(props.user.languages[0]);
+  const [lang2Fluency, setLang2Fluency] = useState(props.user.languages[1]);
+  const [lang3Fluency, setLang3Fluency] = useState(props.user.languages[2]);
+  const [lang4Fluency, setLang4Fluency] = useState(props.user.languages[3]);
+  const [lang5Fluency, setLang5Fluency] = useState(props.user.languages[4]);
   const [politics, setPolitics] = useState(props.user.politics);
   const [education, setEducation] = useState(props.user.education);
   const [occupation, setOccupation] = useState(props.user.occupation);
@@ -62,6 +71,39 @@ const AttributesForm = props => {
       case 'diet':
         setDiet(event.target.value);
         break;
+      case 'asian':
+        setDiet(event.target.value);
+        break;
+      case 'language1':
+        setLanguage1(event.target.value);
+        break;
+      case 'language2':
+        setLanguage2(event.target.value);
+        break;
+      case 'language3':
+        setLanguage3(event.target.value);
+        break;
+      case 'language4':
+        setLanguage4(event.target.value);
+        break;
+      case 'language5':
+        setLanguage5(event.target.value);
+        break;
+      case 'lang1Fluency':
+        setLang1Fluency(event.target.value);
+        break;
+      case 'lang2Fluency':
+        setLang2Fluency(event.target.value);
+        break;
+      case 'lang3Fluency':
+        setLang3Fluency(event.target.value);
+        break;
+      case 'lang4Fluency':
+        setLang4Fluency(event.target.value);
+        break;
+      case 'lang5Fluency':
+        setLang5Fluency(event.target.value);
+        break;
       case 'politics':
         setPolitics(event.target.value);
         break;
@@ -80,6 +122,17 @@ const AttributesForm = props => {
       default:
         break;
     }
+  };
+
+  const addLanguagesToArray = languages => {
+    const updatedLanguages = [];
+    for(let i = 0; i < languages.length; i++){
+      let language = languages[i];
+      if(language && language !== 'none'){
+        updatedLanguages.push(language);
+      }
+    }
+    return updatedLanguages;
   };
 
   const handleSubmit = (event, formType) => {
@@ -105,7 +158,7 @@ const AttributesForm = props => {
         break;
       case 'Background':
         modifiedUser.ethnicity = ethnicity;
-        modifiedUser.languages = languages;
+        modifiedUser.languages = addLanguagesToArray([language1, language2, language3, language4, language5]);
         modifiedUser.politics = politics;
         modifiedUser.education = education;
         modifiedUser.occupation = occupation;
@@ -225,7 +278,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={body_type} onChange={event => handleUpdate(event, 'body-type')}>
-                <option value='---'>---</option>
+                <option value='—'>—</option>
                 <option value='Thin'>Thin</option>
                 <option value='Overweight'>Overweight</option>
                 <option value='Average build'>Average build</option>
@@ -249,17 +302,574 @@ const AttributesForm = props => {
     <div className=''>
       <div className=''>
         <p className='attribute-form-section-title'>Ethnicity</p>
+        <input type='checkbox' onChange={event => handleUpdate(event, 'Asian')}/>
       </div>
-      <div className=''>
+      <div className='height-spacing'>
         <p className='attribute-form-section-title'>Speaks</p>
+        <div className='display-flex jc-space-between'>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={language1} onChange={event => handleUpdate(event, 'language1')}>
+                  <option value='none'>—</option>
+                  <option value="English">English</option>
+                  <option value="Afrikaans">Afrikaans</option>
+                  <option value="Albanian">Albanian</option>
+                  <option value="Arabic">Arabic</option>
+                  <option value="Armenian">Armenian</option>
+                  <option value="Basque">Basque</option>
+                  <option value="Belarusian">Belarusian</option>
+                  <option value="Bengali">Bengali</option>
+                  <option value="Breton">Breton</option>
+                  <option value="Bulgarian">Bulgarian</option>
+                  <option value="Catalan">Catalan</option>
+                  <option value="Cebuano">Cebuano</option>
+                  <option value="Chechen">Chechen</option>
+                  <option value="Chinese">Chinese</option>
+                  <option value="Chinese (Cantonese)">Chinese (Cantonese)</option>
+                  <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+                  <option value="C++">C++</option>
+                  <option value="Croatian">Croatian</option>
+                  <option value="Czech">Czech</option>
+                  <option value="Danish">Danish</option>
+                  <option value="Dutch">Dutch</option>
+                  <option value="Esperanto">Esperanto</option>
+                  <option value="Estonian">Estonian</option>
+                  <option value="Finnish">Finnish</option>
+                  <option value="French">French</option>
+                  <option value="Frisian">Frisian</option>
+                  <option value="Georgian">Georgian</option>
+                  <option value="German">German</option>
+                  <option value="Greek">Greek</option>
+                  <option value="Gujarati">Gujarati</option>
+                  <option value="Ancient Greek">Ancient Greek</option>
+                  <option value="Hawaiian">Hawaiian</option>
+                  <option value="Hebrew">Hebrew</option>
+                  <option value="Hindi">Hindi</option>
+                  <option value="Hungarian">Hungarian</option>
+                  <option value="Icelandic">Icelandic</option>
+                  <option value="Ilongo">Ilongo</option>
+                  <option value="Indonesian">Indonesian</option>
+                  <option value="Irish">Irish</option>
+                  <option value="Italian">Italian</option>
+                  <option value="Japanese">Japanese</option>
+                  <option value="Khmer">Khmer</option>
+                  <option value="Korean">Korean</option>
+                  <option value="Latin">Latin</option>
+                  <option value="Latvian">Latvian</option>
+                  <option value="Lisp">LISP</option>
+                  <option value="Lithuanian">Lithuanian</option>
+                  <option value="Malay">Malay</option>
+                  <option value="Maori">Maori</option>
+                  <option value="Mongolian">Mongolian</option>
+                  <option value="Norwegian">Norwegian</option>
+                  <option value="Occitan">Occitan</option>
+                  <option value="Other">Other</option>
+                  <option value="Persian">Persian</option>
+                  <option value="Polish">Polish</option>
+                  <option value="Portuguese">Portuguese</option>
+                  <option value="Punjabi">Punjabi</option>
+                  <option value="Romanian">Romanian</option>
+                  <option value="Rotuman">Rotuman</option>
+                  <option value="Russian">Russian</option>
+                  <option value="Sanskrit">Sanskrit</option>
+                  <option value="Sardinian">Sardinian</option>
+                  <option value="Serbian">Serbian</option>
+                  <option value="Sign Language">Sign Language</option>
+                  <option value="Slovak">Slovak</option>
+                  <option value="Slovenian">Slovenian</option>
+                  <option value="Spanish">Spanish</option>
+                  <option value="Swahili">Swahili</option>
+                  <option value="Swedish">Swedish</option>
+                  <option value="Tagalog">Tagalog</option>
+                  <option value="Tamil">Tamil</option>
+                  <option value="Thai">Thai</option>
+                  <option value="Tibetan">Tibetan</option>
+                  <option value="Turkish">Turkish</option>
+                  <option value="Ukrainian">Ukrainian</option>
+                  <option value="Urdu">Urdu</option>
+                  <option value="Vietnamese">Vietnamese</option>
+                  <option value="Welsh">Welsh</option>
+                  <option value="Yiddish">Yiddish</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={lang1Fluency} onChange={event => handleUpdate(event, 'lang1Fluency')}>
+                  <option value='—'>—</option>
+                  <option value='Fluently'>Fluently</option>
+                  <option value='Somewhat'>Somewhat</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+
+        {
+          language1 && language1 !== 'none' ?
+          <div className='display-flex jc-space-between height-spacing-mini'>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={language2} onChange={event => handleUpdate(event, 'language2')}>
+                    <option value='none'>—</option>
+                    <option value="English">English</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Albanian">Albanian</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Armenian">Armenian</option>
+                    <option value="Basque">Basque</option>
+                    <option value="Belarusian">Belarusian</option>
+                    <option value="Bengali">Bengali</option>
+                    <option value="Breton">Breton</option>
+                    <option value="Bulgarian">Bulgarian</option>
+                    <option value="Catalan">Catalan</option>
+                    <option value="Cebuano">Cebuano</option>
+                    <option value="Chechen">Chechen</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Chinese (Cantonese)">Chinese (Cantonese)</option>
+                    <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+                    <option value="C++">C++</option>
+                    <option value="Croatian">Croatian</option>
+                    <option value="Czech">Czech</option>
+                    <option value="Danish">Danish</option>
+                    <option value="Dutch">Dutch</option>
+                    <option value="Esperanto">Esperanto</option>
+                    <option value="Estonian">Estonian</option>
+                    <option value="Finnish">Finnish</option>
+                    <option value="French">French</option>
+                    <option value="Frisian">Frisian</option>
+                    <option value="Georgian">Georgian</option>
+                    <option value="German">German</option>
+                    <option value="Greek">Greek</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Ancient Greek">Ancient Greek</option>
+                    <option value="Hawaiian">Hawaiian</option>
+                    <option value="Hebrew">Hebrew</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Hungarian">Hungarian</option>
+                    <option value="Icelandic">Icelandic</option>
+                    <option value="Ilongo">Ilongo</option>
+                    <option value="Indonesian">Indonesian</option>
+                    <option value="Irish">Irish</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Khmer">Khmer</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Latin">Latin</option>
+                    <option value="Latvian">Latvian</option>
+                    <option value="Lisp">LISP</option>
+                    <option value="Lithuanian">Lithuanian</option>
+                    <option value="Malay">Malay</option>
+                    <option value="Maori">Maori</option>
+                    <option value="Mongolian">Mongolian</option>
+                    <option value="Norwegian">Norwegian</option>
+                    <option value="Occitan">Occitan</option>
+                    <option value="Other">Other</option>
+                    <option value="Persian">Persian</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Punjabi">Punjabi</option>
+                    <option value="Romanian">Romanian</option>
+                    <option value="Rotuman">Rotuman</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Sanskrit">Sanskrit</option>
+                    <option value="Sardinian">Sardinian</option>
+                    <option value="Serbian">Serbian</option>
+                    <option value="Sign Language">Sign Language</option>
+                    <option value="Slovak">Slovak</option>
+                    <option value="Slovenian">Slovenian</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Swahili">Swahili</option>
+                    <option value="Swedish">Swedish</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Tibetan">Tibetan</option>
+                    <option value="Turkish">Turkish</option>
+                    <option value="Ukrainian">Ukrainian</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Welsh">Welsh</option>
+                    <option value="Yiddish">Yiddish</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
+                    <option value='—'>—</option>
+                    <option value='Fluently'>Fluently</option>
+                    <option value='Somewhat'>Somewhat</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+          </div>
+          : ''
+        }
+
+        {
+          language2 && language2 !== 'none' ?
+          <div className='display-flex jc-space-between height-spacing-mini'>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={language3} onChange={event => handleUpdate(event, 'language3')}>
+                    <option value='none'>—</option>
+                    <option value="English">English</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Albanian">Albanian</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Armenian">Armenian</option>
+                    <option value="Basque">Basque</option>
+                    <option value="Belarusian">Belarusian</option>
+                    <option value="Bengali">Bengali</option>
+                    <option value="Breton">Breton</option>
+                    <option value="Bulgarian">Bulgarian</option>
+                    <option value="Catalan">Catalan</option>
+                    <option value="Cebuano">Cebuano</option>
+                    <option value="Chechen">Chechen</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Chinese (Cantonese)">Chinese (Cantonese)</option>
+                    <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+                    <option value="C++">C++</option>
+                    <option value="Croatian">Croatian</option>
+                    <option value="Czech">Czech</option>
+                    <option value="Danish">Danish</option>
+                    <option value="Dutch">Dutch</option>
+                    <option value="Esperanto">Esperanto</option>
+                    <option value="Estonian">Estonian</option>
+                    <option value="Finnish">Finnish</option>
+                    <option value="French">French</option>
+                    <option value="Frisian">Frisian</option>
+                    <option value="Georgian">Georgian</option>
+                    <option value="German">German</option>
+                    <option value="Greek">Greek</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Ancient Greek">Ancient Greek</option>
+                    <option value="Hawaiian">Hawaiian</option>
+                    <option value="Hebrew">Hebrew</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Hungarian">Hungarian</option>
+                    <option value="Icelandic">Icelandic</option>
+                    <option value="Ilongo">Ilongo</option>
+                    <option value="Indonesian">Indonesian</option>
+                    <option value="Irish">Irish</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Khmer">Khmer</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Latin">Latin</option>
+                    <option value="Latvian">Latvian</option>
+                    <option value="Lisp">LISP</option>
+                    <option value="Lithuanian">Lithuanian</option>
+                    <option value="Malay">Malay</option>
+                    <option value="Maori">Maori</option>
+                    <option value="Mongolian">Mongolian</option>
+                    <option value="Norwegian">Norwegian</option>
+                    <option value="Occitan">Occitan</option>
+                    <option value="Other">Other</option>
+                    <option value="Persian">Persian</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Punjabi">Punjabi</option>
+                    <option value="Romanian">Romanian</option>
+                    <option value="Rotuman">Rotuman</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Sanskrit">Sanskrit</option>
+                    <option value="Sardinian">Sardinian</option>
+                    <option value="Serbian">Serbian</option>
+                    <option value="Sign Language">Sign Language</option>
+                    <option value="Slovak">Slovak</option>
+                    <option value="Slovenian">Slovenian</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Swahili">Swahili</option>
+                    <option value="Swedish">Swedish</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Tibetan">Tibetan</option>
+                    <option value="Turkish">Turkish</option>
+                    <option value="Ukrainian">Ukrainian</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Welsh">Welsh</option>
+                    <option value="Yiddish">Yiddish</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
+                    <option value='—'>—</option>
+                    <option value='Fluently'>Fluently</option>
+                    <option value='Somewhat'>Somewhat</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+          </div>
+          : ''
+        }
+
+        {
+          language3 && language3 !== 'none' ?
+          <div className='display-flex jc-space-between height-spacing-mini'>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={language4} onChange={event => handleUpdate(event, 'language4')}>
+                    <option value='none'>—</option>
+                    <option value="English">English</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Albanian">Albanian</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Armenian">Armenian</option>
+                    <option value="Basque">Basque</option>
+                    <option value="Belarusian">Belarusian</option>
+                    <option value="Bengali">Bengali</option>
+                    <option value="Breton">Breton</option>
+                    <option value="Bulgarian">Bulgarian</option>
+                    <option value="Catalan">Catalan</option>
+                    <option value="Cebuano">Cebuano</option>
+                    <option value="Chechen">Chechen</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Chinese (Cantonese)">Chinese (Cantonese)</option>
+                    <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+                    <option value="C++">C++</option>
+                    <option value="Croatian">Croatian</option>
+                    <option value="Czech">Czech</option>
+                    <option value="Danish">Danish</option>
+                    <option value="Dutch">Dutch</option>
+                    <option value="Esperanto">Esperanto</option>
+                    <option value="Estonian">Estonian</option>
+                    <option value="Finnish">Finnish</option>
+                    <option value="French">French</option>
+                    <option value="Frisian">Frisian</option>
+                    <option value="Georgian">Georgian</option>
+                    <option value="German">German</option>
+                    <option value="Greek">Greek</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Ancient Greek">Ancient Greek</option>
+                    <option value="Hawaiian">Hawaiian</option>
+                    <option value="Hebrew">Hebrew</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Hungarian">Hungarian</option>
+                    <option value="Icelandic">Icelandic</option>
+                    <option value="Ilongo">Ilongo</option>
+                    <option value="Indonesian">Indonesian</option>
+                    <option value="Irish">Irish</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Khmer">Khmer</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Latin">Latin</option>
+                    <option value="Latvian">Latvian</option>
+                    <option value="Lisp">LISP</option>
+                    <option value="Lithuanian">Lithuanian</option>
+                    <option value="Malay">Malay</option>
+                    <option value="Maori">Maori</option>
+                    <option value="Mongolian">Mongolian</option>
+                    <option value="Norwegian">Norwegian</option>
+                    <option value="Occitan">Occitan</option>
+                    <option value="Other">Other</option>
+                    <option value="Persian">Persian</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Punjabi">Punjabi</option>
+                    <option value="Romanian">Romanian</option>
+                    <option value="Rotuman">Rotuman</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Sanskrit">Sanskrit</option>
+                    <option value="Sardinian">Sardinian</option>
+                    <option value="Serbian">Serbian</option>
+                    <option value="Sign Language">Sign Language</option>
+                    <option value="Slovak">Slovak</option>
+                    <option value="Slovenian">Slovenian</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Swahili">Swahili</option>
+                    <option value="Swedish">Swedish</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Tibetan">Tibetan</option>
+                    <option value="Turkish">Turkish</option>
+                    <option value="Ukrainian">Ukrainian</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Welsh">Welsh</option>
+                    <option value="Yiddish">Yiddish</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
+                    <option value='—'>—</option>
+                    <option value='Fluently'>Fluently</option>
+                    <option value='Somewhat'>Somewhat</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+          </div>
+          : ''
+        }
+
+        {
+          language4 && language4 !== 'none' ?
+          <div className='display-flex jc-space-between height-spacing-mini'>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={language5} onChange={event => handleUpdate(event, 'language5')}>
+                    <option value='none'>—</option>
+                    <option value="English">English</option>
+                    <option value="Afrikaans">Afrikaans</option>
+                    <option value="Albanian">Albanian</option>
+                    <option value="Arabic">Arabic</option>
+                    <option value="Armenian">Armenian</option>
+                    <option value="Basque">Basque</option>
+                    <option value="Belarusian">Belarusian</option>
+                    <option value="Bengali">Bengali</option>
+                    <option value="Breton">Breton</option>
+                    <option value="Bulgarian">Bulgarian</option>
+                    <option value="Catalan">Catalan</option>
+                    <option value="Cebuano">Cebuano</option>
+                    <option value="Chechen">Chechen</option>
+                    <option value="Chinese">Chinese</option>
+                    <option value="Chinese (Cantonese)">Chinese (Cantonese)</option>
+                    <option value="Chinese (Mandarin)">Chinese (Mandarin)</option>
+                    <option value="C++">C++</option>
+                    <option value="Croatian">Croatian</option>
+                    <option value="Czech">Czech</option>
+                    <option value="Danish">Danish</option>
+                    <option value="Dutch">Dutch</option>
+                    <option value="Esperanto">Esperanto</option>
+                    <option value="Estonian">Estonian</option>
+                    <option value="Finnish">Finnish</option>
+                    <option value="French">French</option>
+                    <option value="Frisian">Frisian</option>
+                    <option value="Georgian">Georgian</option>
+                    <option value="German">German</option>
+                    <option value="Greek">Greek</option>
+                    <option value="Gujarati">Gujarati</option>
+                    <option value="Ancient Greek">Ancient Greek</option>
+                    <option value="Hawaiian">Hawaiian</option>
+                    <option value="Hebrew">Hebrew</option>
+                    <option value="Hindi">Hindi</option>
+                    <option value="Hungarian">Hungarian</option>
+                    <option value="Icelandic">Icelandic</option>
+                    <option value="Ilongo">Ilongo</option>
+                    <option value="Indonesian">Indonesian</option>
+                    <option value="Irish">Irish</option>
+                    <option value="Italian">Italian</option>
+                    <option value="Japanese">Japanese</option>
+                    <option value="Khmer">Khmer</option>
+                    <option value="Korean">Korean</option>
+                    <option value="Latin">Latin</option>
+                    <option value="Latvian">Latvian</option>
+                    <option value="Lisp">LISP</option>
+                    <option value="Lithuanian">Lithuanian</option>
+                    <option value="Malay">Malay</option>
+                    <option value="Maori">Maori</option>
+                    <option value="Mongolian">Mongolian</option>
+                    <option value="Norwegian">Norwegian</option>
+                    <option value="Occitan">Occitan</option>
+                    <option value="Other">Other</option>
+                    <option value="Persian">Persian</option>
+                    <option value="Polish">Polish</option>
+                    <option value="Portuguese">Portuguese</option>
+                    <option value="Punjabi">Punjabi</option>
+                    <option value="Romanian">Romanian</option>
+                    <option value="Rotuman">Rotuman</option>
+                    <option value="Russian">Russian</option>
+                    <option value="Sanskrit">Sanskrit</option>
+                    <option value="Sardinian">Sardinian</option>
+                    <option value="Serbian">Serbian</option>
+                    <option value="Sign Language">Sign Language</option>
+                    <option value="Slovak">Slovak</option>
+                    <option value="Slovenian">Slovenian</option>
+                    <option value="Spanish">Spanish</option>
+                    <option value="Swahili">Swahili</option>
+                    <option value="Swedish">Swedish</option>
+                    <option value="Tagalog">Tagalog</option>
+                    <option value="Tamil">Tamil</option>
+                    <option value="Thai">Thai</option>
+                    <option value="Tibetan">Tibetan</option>
+                    <option value="Turkish">Turkish</option>
+                    <option value="Ukrainian">Ukrainian</option>
+                    <option value="Urdu">Urdu</option>
+                    <option value="Vietnamese">Vietnamese</option>
+                    <option value="Welsh">Welsh</option>
+                    <option value="Yiddish">Yiddish</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+            <div className='selectlist-container'>
+              <div className='selectlist'>
+                <div className='select'>
+                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
+                    <option value='—'>—</option>
+                    <option value='Fluently'>Fluently</option>
+                    <option value='Somewhat'>Somewhat</option>
+                  </select>
+                </div>
+              </div>
+              <div className='selectlist-arrow'>
+                <i className="fas fa-chevron-down" />
+              </div>
+            </div>
+          </div>
+          : ''
+        }
+
       </div>
-      <div className='attribute-form-section-wrap'>
+      <div className='attribute-form-section-wrap height-spacing'>
         <p className='attribute-form-section-title'>Politics</p>
         <div className='selectlist-container'>
           <div className='selectlist'>
             <div className='select'>
               <select value={politics} onChange={event => handleUpdate(event, 'politics')}>
-                <option value='---'>---</option>
+                <option value='—'>—</option>
                 <option value='Politically liberal'>Politically liberal</option>
                 <option value='Politically moderate'>Politically moderate</option>
                 <option value='Politically conservative'>Politically conservative</option>
@@ -272,13 +882,13 @@ const AttributesForm = props => {
           </div>
         </div>
       </div>
-      <div className='attribute-form-section-wrap'>
+      <div className='attribute-form-section-wrap height-spacing'>
         <p className='attribute-form-section-title'>Education</p>
         <div className='selectlist-container'>
           <div className='selectlist'>
             <div className='select'>
               <select value={education} onChange={event => handleUpdate(event, 'education')}>
-                <option value='---'>---</option>
+                <option value='—'>—</option>
                 <option value='High school'>High school</option>
                 <option value='Trade/tech school'>Trade/tech school</option>
                 <option value='In college'>In college</option>
@@ -293,17 +903,17 @@ const AttributesForm = props => {
           </div>
         </div>
       </div>
-      <div className=''>
+      <div className='height-spacing'>
         <p className='attribute-form-section-title'>Occupation</p>
       </div>
-      <div className=''>
+      <div className='height-spacing'>
         <p className='attribute-form-section-title'>Religion</p>
         <div className='display-flex jc-space-between'>
           <div className='selectlist-container'>
           <div className='selectlist'>
             <div className='select'>
               <select value={religion} onChange={event => handleUpdate(event, 'religion')}>
-                <option value='---'>---</option>
+                <option value='—'>—</option>
                 <option value='Agnostic'>Agnosticism</option>
                 <option value='Atheism'>Atheism</option>
                 <option value='Christian'>Christianity</option>
@@ -325,7 +935,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={religion_weight} onChange={event => handleUpdate(event, 'religion_weight')}>
-                <option value='---'>---</option>
+                <option value='—'>—</option>
                 <option value="(and it's important)">and it's important</option>
                 <option value="(but it's not important)">but it's not important</option>
                 <option value='(and laughing about it)'>and laughing about it</option>
@@ -338,13 +948,13 @@ const AttributesForm = props => {
         </div>
         </div>
       </div>
-      <div className='attribute-form-section-wrap'>
+      <div className='attribute-form-section-wrap height-spacing'>
         <p className='attribute-form-section-title'>Sign</p>
         <div className='selectlist-container'>
           <div className='selectlist'>
             <div className='select'>
               <select value={sign} onChange={event => handleUpdate(event, 'sign')}>
-                <option value='---'>---</option>
+                <option value='—'>—</option>
                 <option value='Aquarius'>Aquarius</option>
                 <option value='Pisces'>Pisces</option>
                 <option value='Aries'>Aries</option>
@@ -377,7 +987,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={smoking} onChange={event => handleUpdate(event, 'smoking')}>
-                  <option value='---'>---</option>
+                  <option value='—'>—</option>
                   <option value='often'>Often</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -395,7 +1005,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={drinks} onChange={event => handleUpdate(event, 'drinks')}>
-                  <option value='---'>---</option>
+                  <option value='—'>—</option>
                   <option value='often'>Often</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -415,7 +1025,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={marijuana} onChange={event => handleUpdate(event, 'marijuana')}>
-                  <option value='---'>---</option>
+                  <option value='—'>—</option>
                   <option value='often'>Often</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -433,7 +1043,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={diet} onChange={event => handleUpdate(event, 'diet')}>
-                  <option value='---'>---</option>
+                  <option value='—'>—</option>
                   <option value='Omnivore'>Omnivore</option>
                   <option value='Vegetarian'>Vegetarian</option>
                   <option value='Vegan'>Vegan</option>

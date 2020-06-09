@@ -87,7 +87,9 @@ const ProfileAttributes = props => {
         hasMatchAttributes.push(convertToString(attVal));
         break;
       case 'languages':
-        hasMatchAttributes.push('Speaks ' + convertToString(attVal));
+        if(attVal !== '—'){
+          hasMatchAttributes.push('Speaks ' + convertToString(attVal));
+        }
         break;
       case 'politics':
         hasMatchAttributes.push('Politically ' + attVal);
