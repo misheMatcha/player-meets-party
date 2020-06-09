@@ -62,6 +62,12 @@ const AttributesForm = props => {
       case 'diet':
         setDiet(event.target.value);
         break;
+      case 'politics':
+        setPolitics(event.target.value);
+        break;
+      case 'education':
+        setEducation(event.target.value);
+        break;
       case 'religion':
         setReligion(event.target.value);
         break;
@@ -247,11 +253,45 @@ const AttributesForm = props => {
       <div className=''>
         <p className='attribute-form-section-title'>Speaks</p>
       </div>
-      <div className=''>
+      <div className='attribute-form-section-wrap'>
         <p className='attribute-form-section-title'>Politics</p>
+        <div className='selectlist-container'>
+          <div className='selectlist'>
+            <div className='select'>
+              <select value={politics} onChange={event => handleUpdate(event, 'politics')}>
+                <option value='---'>---</option>
+                <option value='Politically liberal'>Politically liberal</option>
+                <option value='Politically moderate'>Politically moderate</option>
+                <option value='Politically conservative'>Politically conservative</option>
+                <option value='Other'>Other</option>
+              </select>
+            </div>
+          </div>
+          <div className='selectlist-arrow'>
+            <i className="fas fa-chevron-down" />
+          </div>
+        </div>
       </div>
-      <div className=''>
+      <div className='attribute-form-section-wrap'>
         <p className='attribute-form-section-title'>Education</p>
+        <div className='selectlist-container'>
+          <div className='selectlist'>
+            <div className='select'>
+              <select value={education} onChange={event => handleUpdate(event, 'education')}>
+                <option value='---'>---</option>
+                <option value='High school'>High school</option>
+                <option value='Trade/tech school'>Trade/tech school</option>
+                <option value='In college'>In college</option>
+                <option value='Undergraduate degree'>Undergraduate degree</option>
+                <option value='In grad school'>In grad school</option>
+                <option value='Graduate degree'>Graduate degree</option>
+              </select>
+            </div>
+          </div>
+          <div className='selectlist-arrow'>
+            <i className="fas fa-chevron-down" />
+          </div>
+        </div>
       </div>
       <div className=''>
         <p className='attribute-form-section-title'>Occupation</p>
