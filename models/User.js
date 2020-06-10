@@ -76,27 +76,27 @@ const UserSchema = new Schema({
   },
   politics: {
     type: String,
-    default: 'Politics'
+    default: ''
   },
   education: {
     type: String,
-    default: 'Education'
+    default: ''
   },
   occupation: {
     type: String,
-    default: 'Occupation'
+    default: ''
   },
   religion: {
     type: String,
-    default: 'Religion'
+    default: ''
   },
   religion_weight: {
     type: String,
-    default: 'Religion Weight'
+    default: ''
   },
   sign: {
     type: String,
-    default: 'Sign'
+    default: ''
   },
   smoking: {
     type: String,

@@ -59,18 +59,19 @@ const ProfileAttributes = props => {
             sortAttributes(looksDefaults, att, attVal);
             break;
           case 'Background':
+            const bgAttributes = ['politics', 'education', 'occupation', 'religion', 'sign'];
             const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
 
-            if(att === 'languages'){
-              // languages - array
-              if(attVal.length){
-                addStringFlavor(att, attVal);
-              }else{
-                missingAttributes.push('Language(s)');
-              }
-            }else if(att === 'ethnicity'){
-              // ethnicities - obj
-              switch(anyEthnicities(attVal)){
+            switch(att){
+              case 'languages':
+                if(attVal.length){
+                  addStringFlavor(att, attVal);
+                }else{
+                  missingAttributes.push('Language(s)');
+                }
+                break;
+              case 'ethnicity':
+                switch(anyEthnicities(attVal)){
                 case true:
                   addStringFlavor(att, sortEthnicities(attVal));
                   break;
@@ -79,14 +80,20 @@ const ProfileAttributes = props => {
                   break;
                 default:
                   break;
-              }
-            }else{
-              // all other vars are strings - checking for default values
-              if (bgDefaults.indexOf(attVal) < 0) {
-                addStringFlavor(att, attVal);
-              } else {
-                missingAttributes.push(attVal);
-              }
+                }
+                break;
+              case 'religion_weight':
+                break;
+              case 'fluency':
+                break;
+              default:
+                if(attVal){
+                  addStringFlavor(att, attVal);
+                }else{
+                  let bgAttIdx = bgAttributes.indexOf(att);
+                  missingAttributes.push(bgDefaults[bgAttIdx]);
+                }
+                break;
             }
             break;
           case 'Lifestyle':
@@ -169,7 +176,7 @@ const ProfileAttributes = props => {
         break;
       case 'religion':
         if(props.attributes.religion_weight){
-          if (props.attributes.religion_weight !== 'Religion Weight'){
+          if (props.attributes.religion_weight !== ''){
             hasMatchAttributes.push(attVal + ' ' + props.attributes.religion_weight);
           }
         }else{

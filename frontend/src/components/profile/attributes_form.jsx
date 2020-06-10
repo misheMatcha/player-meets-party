@@ -48,13 +48,18 @@ const AttributesForm = props => {
   const [pref_connections, setPref_connections] = useState(props.user.pref_connections);
 
   useEffect(() => {
-    console.log(asian)
-  })
+  });
 
   const handleUpdate = (event, field) => {
     switch(field){
       case 'orientation':
         setOrientation(event.target.value);
+        break;
+      case 'gender':
+        setGender(event.target.value);
+        break;
+      case 'relationship_type':
+        setRelationship_type(event.target.value);
         break;
       case 'pronouns':
         setPronouns(event.target.value);
@@ -130,6 +135,9 @@ const AttributesForm = props => {
         break;
       case 'education':
         setEducation(event.target.value);
+        break;
+      case 'occupation':
+        setOccupation(event.target.value);
         break;
       case 'religion':
         setReligion(event.target.value);
@@ -1008,6 +1016,11 @@ const AttributesForm = props => {
       </div>
       <div className='height-spacing'>
         <p className='attribute-form-section-title'>Occupation</p>
+        <div className=''>
+          <label className=''>
+            <input type='text' value={occupation} onChange={event => handleUpdate(event, 'occupation')}/>
+          </label>
+        </div>
       </div>
       <div className='height-spacing'>
         <p className='attribute-form-section-title'>Religion</p>
