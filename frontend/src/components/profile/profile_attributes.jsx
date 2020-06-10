@@ -27,6 +27,21 @@ const ProfileAttributes = props => {
     if(missingAttributes.length) setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
   };
 
+  const anyEthnicities = ethnicities => {
+    for (let ethnicity in ethnicities) {
+      if (ethnicities[ethnicity]) return true;
+    }
+    return false;
+  };
+
+  const sortEthnicities = ethnicities => {
+    const updatedEthnicities = [];
+    for(let ethnicity in ethnicities){
+      if(ethnicities[ethnicity]) updatedEthnicities.push(ethnicity);
+    }
+    return updatedEthnicities;
+  };
+
   const filterAttributes = () => {
     for(const att in props.attributes){
       let attVal = props.attributes[att];
@@ -46,25 +61,30 @@ const ProfileAttributes = props => {
           case 'Background':
             const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
 
-            if(Array.isArray(attVal)){
+            if(att === 'languages'){
+              // languages - array
               if(attVal.length){
-                addStringFlavor(att, attVal)
-              }else{
-                switch(att){
-                  case 'ethnicity':
-                    missingAttributes.push('Ethnicity');
-                    break;
-                  case 'languages':
-                    missingAttributes.push('Language(s)');
-                    break;
-                  default:
-                    break;
-                }
-              }
-            }else{
-              if(bgDefaults.indexOf(attVal) < 0){
                 addStringFlavor(att, attVal);
               }else{
+                missingAttributes.push('Language(s)');
+              }
+            }else if(att === 'ethnicity'){
+              // ethnicities - obj
+              switch(anyEthnicities(attVal)){
+                case true:
+                  addStringFlavor(att, sortEthnicities(attVal));
+                  break;
+                case false:
+                  missingAttributes.push('Ethnicity');
+                  break;
+                default:
+                  break;
+              }
+            }else{
+              // all other vars are strings - checking for default values
+              if (bgDefaults.indexOf(attVal) < 0) {
+                addStringFlavor(att, attVal);
+              } else {
                 missingAttributes.push(attVal);
               }
             }
@@ -102,7 +122,7 @@ const ProfileAttributes = props => {
 
     let fluentLanguages = convertToString(speaks);
     let someLanguages = convertToString(some);
-    
+
     if(speaks.length && some.length){
       hasMatchAttributes.push('Speaks ' + fluentLanguages + ', and some ' + someLanguages);
     }else if(speaks.length && !some.length){

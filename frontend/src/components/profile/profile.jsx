@@ -113,6 +113,13 @@ const Profile = props => {
     }
   };
 
+  const anyEthnicities = ethnicities => {
+    for(let ethnicity in ethnicities){
+      if (ethnicities[ethnicity]) return true;
+    }
+    return false;
+  };
+
   const displayAttributes = section => {
     switch(section){
       case 'Basics':
@@ -131,6 +138,10 @@ const Profile = props => {
           if(key !== 'icon'){
             if(Array.isArray(bgVal)){
               if(bgVal.length) bgDisplay = true;
+            }else if(typeof bgVal === 'object'){
+              if(anyEthnicities(bgVal)){
+                bgDisplay = true;
+              }
             }else{
               if(bgDefaults.indexOf(bgVal) < 0) bgDisplay = true;
             }

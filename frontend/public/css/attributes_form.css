@@ -125,6 +125,17 @@
         background-color: #9393a9b7;
       }
 
+/* ETHNICITY */
+.ethnicity-wrap{
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  letter-spacing: .5px;
+}
+  .ethnicity-wrap label input{
+    margin-right: 10px;
+  }
+
 /* SELECT STYLING */
 .selectlist-container{
   background-color: white;

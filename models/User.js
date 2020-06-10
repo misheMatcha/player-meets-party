@@ -55,7 +55,18 @@ const UserSchema = new Schema({
     default: 'Body type'
   },
   ethnicity: {
-    type: Array
+    type: Object,
+    default: {
+      'Asian': false,
+      'Black': false,
+      'Hispanic / Latin': false,
+      'Indian': false,
+      'Middle Eastern': false,
+      'Native American': false,
+      'Pacific Islander': false,
+      'White': false,
+      'Other': false
+    }
   },
   languages: {
     type: Array

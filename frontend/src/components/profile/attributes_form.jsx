@@ -11,6 +11,15 @@ const AttributesForm = props => {
   const [heightIn, setHeightIn] = useState(props.user.height.slice(2));
   const [body_type, setBody_type] = useState(props.user.body_type);
   const [ethnicity, setEthnicity] = useState(props.user.ethnicity);
+  const [asian, setAsian] = useState(props.user.ethnicity['Asian']);
+  const [black, setBlack] = useState(props.user.ethnicity['Black']);
+  const [latin, setLatin] = useState(props.user.ethnicity['Hispanic / Latin']);
+  const [indian, setIndian] = useState(props.user.ethnicity['Indian']);
+  const [middleEastern, setMiddleEastern] = useState(props.user.ethnicity['Middle Eastern']);
+  const [nativeAmerican, setNativeAmerican] = useState(props.user.ethnicity['Native American']);
+  const [pacificIslander, setPacificIslander] = useState(props.user.ethnicity['Pacific Islander']);
+  const [white, setWhite] = useState(props.user.ethnicity['White']);
+  const [other, setOther] = useState(props.user.ethnicity['Other']);
   const [language1, setLanguage1] = useState(props.user.languages[0]);
   const [language2, setLanguage2] = useState(props.user.languages[1]);
   const [language3, setLanguage3] = useState(props.user.languages[2]);
@@ -39,6 +48,7 @@ const AttributesForm = props => {
   const [pref_connections, setPref_connections] = useState(props.user.pref_connections);
 
   useEffect(() => {
+    console.log(asian)
   })
 
   const handleUpdate = (event, field) => {
@@ -58,20 +68,32 @@ const AttributesForm = props => {
       case 'body-type':
         setBody_type(event.target.value);
         break;
-      case 'smoking':
-        setSmoking(event.target.value);
+      case 'Asian':
+        setAsian(!asian);
         break;
-      case 'drinks':
-        setDrinks(event.target.value);
+      case 'Black':
+        setBlack(!black);
         break;
-      case 'marijuana':
-        setMarijuana(event.target.value);
+      case 'Hispanic / Latin':
+        setLatin(!latin);
         break;
-      case 'diet':
-        setDiet(event.target.value);
+      case 'Indian':
+        setIndian(!indian);
         break;
-      case 'asian':
-        setDiet(event.target.value);
+      case 'Middle Eastern':
+        setMiddleEastern(!middleEastern);
+        break;
+      case 'Native American':
+        setNativeAmerican(!nativeAmerican);
+        break;
+      case 'Pacific Islander':
+        setPacificIslander(!pacificIslander);
+        break;
+      case 'White':
+        setWhite(!white);
+        break;
+      case 'Other':
+        setOther(!other);
         break;
       case 'language1':
         setLanguage1(event.target.value);
@@ -118,6 +140,18 @@ const AttributesForm = props => {
       case 'sign':
         setSign(event.target.value);
         break;
+      case 'smoking':
+        setSmoking(event.target.value);
+        break;
+      case 'drinks':
+        setDrinks(event.target.value);
+        break;
+      case 'marijuana':
+        setMarijuana(event.target.value);
+        break;
+      case 'diet':
+        setDiet(event.target.value);
+        break;
       default:
         break;
     }
@@ -133,7 +167,7 @@ const AttributesForm = props => {
     }
     return updatedLanguages;
   };
-  
+
   const addFluencyToArray = (languages, fluencies) => {
     const updatedFluencies = [];
     for(let i = 0; i < fluencies.length; i++){
@@ -172,7 +206,17 @@ const AttributesForm = props => {
         modifiedUser.body_type = body_type;
         break;
       case 'Background':
-        modifiedUser.ethnicity = ethnicity;
+        modifiedUser.ethnicity = {
+          'Asian': asian,
+          'Black': black,
+          'Hispanic / Latin': latin,
+          'Indian': indian,
+          'Middle Eastern': middleEastern,
+          'Native American': nativeAmerican,
+          'Pacific Islander': pacificIslander,
+          'White': white,
+          'Other': other
+        };
         modifiedUser.languages = addLanguagesToArray([language1, language2, language3, language4, language5]);
         modifiedUser.fluency = addFluencyToArray([language1, language2, language3, language4, language5], [fluency1, fluency2, fluency3, fluency4, fluency5]);
         modifiedUser.politics = politics;
@@ -318,7 +362,50 @@ const AttributesForm = props => {
     <div className=''>
       <div className=''>
         <p className='attribute-form-section-title'>Ethnicity</p>
-        <input type='checkbox' onChange={event => handleUpdate(event, 'Asian')}/>
+        <div className='display-flex jc-space-between'>
+          <div className='ethnicity-wrap'>
+            <label>
+              <input type='checkbox' checked={asian} onChange={event => handleUpdate(event, 'Asian')}/>
+              Asian
+            </label>
+            <label>
+              <input type='checkbox' checked={black} onChange={event => handleUpdate(event, 'Black')}/>
+              Black
+            </label>
+            <label>
+              <input type='checkbox' checked={latin} onChange={event => handleUpdate(event, 'Hispanic / Latin')}/>
+              Hispanic / Latin
+            </label>
+          </div>
+          <div className='ethnicity-wrap'>
+            <label>
+              <input type='checkbox' checked={indian} onChange={event => handleUpdate(event, 'Indian')}/>
+              Indian
+            </label>
+            <label>
+              <input type='checkbox' checked={middleEastern} onChange={event => handleUpdate(event, 'Middle Eastern')}/>
+              Middle Eastern
+            </label>
+            <label>
+              <input type='checkbox' checked={nativeAmerican} onChange={event => handleUpdate(event, 'Native American')}/>
+              Native American
+            </label>
+          </div>
+          <div className='ethnicity-wrap'>
+            <label>
+              <input type='checkbox' checked={pacificIslander} onChange={event => handleUpdate(event, 'Pacific Islander')}/>
+              Pacific Islander
+            </label>
+            <label>
+              <input type='checkbox' checked={white} onChange={event => handleUpdate(event, 'White')}/>
+              White
+            </label>
+            <label>
+              <input type='checkbox' checked={other} onChange={event => handleUpdate(event, 'Other')}/>
+              Other
+            </label>
+          </div>
+        </div>
       </div>
       <div className='height-spacing'>
         <p className='attribute-form-section-title'>Speaks</p>
