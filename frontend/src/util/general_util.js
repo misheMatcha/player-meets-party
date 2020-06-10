@@ -31,3 +31,26 @@ export const checkDefaults = (arr, attObj) => {
   }
   return false;
 };
+
+export const isEmptyStr = str => {
+  // console.log(str.length)
+};
+
+// if there is a value that is not empty then return false
+export const checkForEmptyDefaults = obj => {
+  for(let key in obj){
+    let val = obj[key];
+    if(key !== 'icon'){
+      console.log(val.length)
+      if(!val.length) return false;
+    }
+  }
+  return true;
+};
+
+export const anyTrueValues = object => {
+  for (let key in object) {
+    if (object[key]) return true;
+  }
+  return false;
+};

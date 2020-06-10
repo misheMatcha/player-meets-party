@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { convertToString } from '../../util/general_util';
+import { convertToString, anyTrueValues, isEmptyStr } from '../../util/general_util';
 
 const ProfileAttributes = props => {
   const hasMatchAttributes = [];
@@ -12,6 +12,44 @@ const ProfileAttributes = props => {
     filterAttributes();
     convertForDisplay();
   });
+
+  const sortAtt = (attList, attDefaults, att, attVal) => {
+    if(typeof attVal === 'object'){
+      switch(Array.isArray(attVal)){
+        case true:
+          if(attVal.length){
+            addStringFlavor(att, attVal);
+          }else{
+            let attIdx = attList.indexOf(att);
+            missingAttributes.push(attDefaults[attIdx]);
+          }
+          break;
+        case false:
+          // if its an object instead of an array
+          if(anyTrueValues(attVal)){
+            addStringFlavor(att, attVal);
+          }else{
+            let attIdx = attList.indexOf(att);
+            if(attIdx < -1) missingAttributes.push(attDefaults[attIdx]);
+          }
+          break;
+        default:
+          break;
+      }
+    }else{
+      switch(!attVal.length){
+        case false:
+          addStringFlavor(att, attVal);
+          break;
+        case true:
+          let attIdx = attList.indexOf(att);
+          missingAttributes.push(attDefaults[attIdx]);
+          break;
+        default:
+          break;
+      }
+    }
+  };
 
   const sortAttributes = (arr, att, attVal) => {
     if(arr.indexOf(attVal) > -1){
@@ -26,14 +64,7 @@ const ProfileAttributes = props => {
     setMatchAttributes(convertToString(hasMatchAttributes));
     if(missingAttributes.length) setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
   };
-
-  const anyEthnicities = ethnicities => {
-    for (let ethnicity in ethnicities) {
-      if (ethnicities[ethnicity]) return true;
-    }
-    return false;
-  };
-
+  
   const sortEthnicities = ethnicities => {
     const updatedEthnicities = [];
     for(let ethnicity in ethnicities){
@@ -48,15 +79,33 @@ const ProfileAttributes = props => {
       if(att !== 'icon'){
         switch (props.section) {
           case 'Basics':
-            const basicDefaults = ['Orientation', 'Gender'];
-            sortAttributes(basicDefaults, att, attVal);
+            // const basicsAttributes = ['orientation', 'gender'];
+            // const basicsAttributesDefaults = ['Orientation', 'Gender'];
+            if(att === 'orientation' || att === 'gender'){
+              if(anyTrueValues(attVal)){
+                addStringFlavor(att, attVal);
+              }else{
+                if(att === 'orientation'){
+                  missingAttributes.push('Orientation');
+                }else{
+                  missingAttributes.push('Gender');
+                }
+              }
+            }else{
+              addStringFlavor(att, attVal);
+            }
             break;
           case 'Pronouns':
-            attVal === 'Pronouns' ? missingAttributes.push(attVal) : addStringFlavor(att, attVal);
+            if(attVal){
+              addStringFlavor(att, attVal);
+            }else{
+              missingAttributes.push('Pronouns');
+            }
             break;
           case 'Looks':
-            const looksDefaults = [`Height`, 'Body type'];
-            sortAttributes(looksDefaults, att, attVal);
+            const looksAttributes = ['height', 'body_type'];
+            const looksAttributesDefaults = ['Height', 'Body type'];
+            sortAtt(looksAttributes, looksAttributesDefaults, att, attVal);
             break;
           case 'Background':
             const bgAttributes = ['politics', 'education', 'occupation', 'religion', 'sign'];
@@ -71,7 +120,7 @@ const ProfileAttributes = props => {
                 }
                 break;
               case 'ethnicity':
-                switch(anyEthnicities(attVal)){
+                switch(anyTrueValues(attVal)){
                 case true:
                   addStringFlavor(att, sortEthnicities(attVal));
                   break;
@@ -99,12 +148,14 @@ const ProfileAttributes = props => {
             }
             break;
           case 'Lifestyle':
-            const lsDefaults = ['Smoking', 'Drinking', 'Marijuana', 'Diet'];
-            sortAttributes(lsDefaults, att, attVal);
+            const lifestyleAttributes = ['smoking', 'drinks', 'marijuana', 'diet'];
+            const lifestyleAttributesDefaults = ['Smoking', 'Drinks', 'Marijuana', 'Diet'];
+            sortAtt(lifestyleAttributes, lifestyleAttributesDefaults, att, attVal);
             break;
           case 'Family':
-            const famDefaults = ['Children', 'Pets'];
-            sortAttributes(famDefaults, att, attVal);
+            const familyAttributes = ['children', 'wants_children', 'pets'];
+            const familyAttributesDefaults = ['Children', 'Pets'];
+            sortAtt(familyAttributes, familyAttributesDefaults, att, attVal);
             break;
           case 'I am looking for':
             addStringFlavor(att, attVal);
