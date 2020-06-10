@@ -60,6 +60,9 @@ const UserSchema = new Schema({
   languages: {
     type: Array
   },
+  fluency: {
+    type: Array
+  },
   politics: {
     type: String,
     default: 'Politics'

@@ -11,17 +11,16 @@ const AttributesForm = props => {
   const [heightIn, setHeightIn] = useState(props.user.height.slice(2));
   const [body_type, setBody_type] = useState(props.user.body_type);
   const [ethnicity, setEthnicity] = useState(props.user.ethnicity);
-  const [languages, setLanguages] = useState(props.user.languages);
   const [language1, setLanguage1] = useState(props.user.languages[0]);
   const [language2, setLanguage2] = useState(props.user.languages[1]);
   const [language3, setLanguage3] = useState(props.user.languages[2]);
   const [language4, setLanguage4] = useState(props.user.languages[3]);
   const [language5, setLanguage5] = useState(props.user.languages[4]);
-  const [lang1Fluency, setLang1Fluency] = useState(props.user.languages[0]);
-  const [lang2Fluency, setLang2Fluency] = useState(props.user.languages[1]);
-  const [lang3Fluency, setLang3Fluency] = useState(props.user.languages[2]);
-  const [lang4Fluency, setLang4Fluency] = useState(props.user.languages[3]);
-  const [lang5Fluency, setLang5Fluency] = useState(props.user.languages[4]);
+  const [fluency1, setFluency1] = useState(props.user.fluency[0]);
+  const [fluency2, setFluency2] = useState(props.user.fluency[1]);
+  const [fluency3, setFluency3] = useState(props.user.fluency[2]);
+  const [fluency4, setFluency4] = useState(props.user.fluency[3]);
+  const [fluency5, setFluency5] = useState(props.user.fluency[4]);
   const [politics, setPolitics] = useState(props.user.politics);
   const [education, setEducation] = useState(props.user.education);
   const [occupation, setOccupation] = useState(props.user.occupation);
@@ -89,20 +88,20 @@ const AttributesForm = props => {
       case 'language5':
         setLanguage5(event.target.value);
         break;
-      case 'lang1Fluency':
-        setLang1Fluency(event.target.value);
+      case 'fluency1':
+        setFluency1(event.target.value);
         break;
-      case 'lang2Fluency':
-        setLang2Fluency(event.target.value);
+      case 'fluency2':
+        setFluency2(event.target.value);
         break;
-      case 'lang3Fluency':
-        setLang3Fluency(event.target.value);
+      case 'fluency3':
+        setFluency3(event.target.value);
         break;
-      case 'lang4Fluency':
-        setLang4Fluency(event.target.value);
+      case 'fluency4':
+        setFluency4(event.target.value);
         break;
-      case 'lang5Fluency':
-        setLang5Fluency(event.target.value);
+      case 'fluency5':
+        setFluency5(event.target.value);
         break;
       case 'politics':
         setPolitics(event.target.value);
@@ -128,11 +127,27 @@ const AttributesForm = props => {
     const updatedLanguages = [];
     for(let i = 0; i < languages.length; i++){
       let language = languages[i];
-      if(language && language !== 'none'){
+      if(language && language !== ''){
         updatedLanguages.push(language);
       }
     }
     return updatedLanguages;
+  };
+  
+  const addFluencyToArray = (languages, fluencies) => {
+    const updatedFluencies = [];
+    for(let i = 0; i < fluencies.length; i++){
+      let fluency = fluencies[i];
+      let language = languages[i];
+      if(language){
+        if(!fluency){
+          updatedFluencies.push('');
+        }else{
+          updatedFluencies.push(fluency);
+        }
+      }
+    }
+    return updatedFluencies;
   };
 
   const handleSubmit = (event, formType) => {
@@ -159,6 +174,7 @@ const AttributesForm = props => {
       case 'Background':
         modifiedUser.ethnicity = ethnicity;
         modifiedUser.languages = addLanguagesToArray([language1, language2, language3, language4, language5]);
+        modifiedUser.fluency = addFluencyToArray([language1, language2, language3, language4, language5], [fluency1, fluency2, fluency3, fluency4, fluency5]);
         modifiedUser.politics = politics;
         modifiedUser.education = education;
         modifiedUser.occupation = occupation;
@@ -311,7 +327,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={language1} onChange={event => handleUpdate(event, 'language1')}>
-                  <option value='none'>—</option>
+                  <option value=''>—</option>
                   <option value="English">English</option>
                   <option value="Afrikaans">Afrikaans</option>
                   <option value="Albanian">Albanian</option>
@@ -401,8 +417,8 @@ const AttributesForm = props => {
           <div className='selectlist-container'>
             <div className='selectlist'>
               <div className='select'>
-                <select value={lang1Fluency} onChange={event => handleUpdate(event, 'lang1Fluency')}>
-                  <option value='—'>—</option>
+                <select value={fluency1} onChange={event => handleUpdate(event, 'fluency1')}>
+                  <option value=''>—</option>
                   <option value='Fluently'>Fluently</option>
                   <option value='Somewhat'>Somewhat</option>
                 </select>
@@ -415,13 +431,13 @@ const AttributesForm = props => {
         </div>
 
         {
-          language1 && language1 !== 'none' ?
+          language1 && language1 !== '' ?
           <div className='display-flex jc-space-between height-spacing-mini'>
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
                   <select value={language2} onChange={event => handleUpdate(event, 'language2')}>
-                    <option value='none'>—</option>
+                    <option value=''>—</option>
                     <option value="English">English</option>
                     <option value="Afrikaans">Afrikaans</option>
                     <option value="Albanian">Albanian</option>
@@ -511,8 +527,8 @@ const AttributesForm = props => {
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
-                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
-                    <option value='—'>—</option>
+                  <select value={fluency2} onChange={event => handleUpdate(event, 'fluency2')}>
+                    <option value=''>—</option>
                     <option value='Fluently'>Fluently</option>
                     <option value='Somewhat'>Somewhat</option>
                   </select>
@@ -527,13 +543,13 @@ const AttributesForm = props => {
         }
 
         {
-          language2 && language2 !== 'none' ?
+          language2 && language2 !== '' ?
           <div className='display-flex jc-space-between height-spacing-mini'>
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
                   <select value={language3} onChange={event => handleUpdate(event, 'language3')}>
-                    <option value='none'>—</option>
+                    <option value=''>—</option>
                     <option value="English">English</option>
                     <option value="Afrikaans">Afrikaans</option>
                     <option value="Albanian">Albanian</option>
@@ -623,8 +639,8 @@ const AttributesForm = props => {
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
-                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
-                    <option value='—'>—</option>
+                  <select value={fluency3} onChange={event => handleUpdate(event, 'fluency3')}>
+                    <option value=''>—</option>
                     <option value='Fluently'>Fluently</option>
                     <option value='Somewhat'>Somewhat</option>
                   </select>
@@ -639,13 +655,13 @@ const AttributesForm = props => {
         }
 
         {
-          language3 && language3 !== 'none' ?
+          language3 && language3 !== '' ?
           <div className='display-flex jc-space-between height-spacing-mini'>
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
                   <select value={language4} onChange={event => handleUpdate(event, 'language4')}>
-                    <option value='none'>—</option>
+                    <option value=''>—</option>
                     <option value="English">English</option>
                     <option value="Afrikaans">Afrikaans</option>
                     <option value="Albanian">Albanian</option>
@@ -735,8 +751,8 @@ const AttributesForm = props => {
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
-                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
-                    <option value='—'>—</option>
+                  <select value={fluency4} onChange={event => handleUpdate(event, 'fluency4')}>
+                    <option value=''>—</option>
                     <option value='Fluently'>Fluently</option>
                     <option value='Somewhat'>Somewhat</option>
                   </select>
@@ -751,13 +767,13 @@ const AttributesForm = props => {
         }
 
         {
-          language4 && language4 !== 'none' ?
+          language4 && language4 !== '' ?
           <div className='display-flex jc-space-between height-spacing-mini'>
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
                   <select value={language5} onChange={event => handleUpdate(event, 'language5')}>
-                    <option value='none'>—</option>
+                    <option value=''>—</option>
                     <option value="English">English</option>
                     <option value="Afrikaans">Afrikaans</option>
                     <option value="Albanian">Albanian</option>
@@ -847,8 +863,8 @@ const AttributesForm = props => {
             <div className='selectlist-container'>
               <div className='selectlist'>
                 <div className='select'>
-                  <select value={lang2Fluency} onChange={event => handleUpdate(event, 'lang2Fluency')}>
-                    <option value='—'>—</option>
+                  <select value={fluency5} onChange={event => handleUpdate(event, 'fluency5')}>
+                    <option value=''>—</option>
                     <option value='Fluently'>Fluently</option>
                     <option value='Somewhat'>Somewhat</option>
                   </select>
@@ -915,7 +931,7 @@ const AttributesForm = props => {
               <select value={religion} onChange={event => handleUpdate(event, 'religion')}>
                 <option value='—'>—</option>
                 <option value='Agnostic'>Agnosticism</option>
-                <option value='Atheism'>Atheism</option>
+                <option value='Atheist'>Atheism</option>
                 <option value='Christian'>Christianity</option>
                 <option value='Jewish'>Judaism</option>
                 <option value='Catholic'>Catholicism</option>

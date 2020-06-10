@@ -50,6 +50,7 @@ const Profile = props => {
   const background = !user ? '' : {
     ethnicity: user.ethnicity,
     languages: user.languages,
+    fluency: user.fluency,
     politics: user.politics,
     education: user.education,
     occupation: user.occupation,

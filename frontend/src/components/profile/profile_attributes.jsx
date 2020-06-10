@@ -50,7 +50,16 @@ const ProfileAttributes = props => {
               if(attVal.length){
                 addStringFlavor(att, attVal)
               }else{
-                att === 'ethnicity' ? missingAttributes.push('Ethnicity') : missingAttributes.push('Language(s)');
+                switch(att){
+                  case 'ethnicity':
+                    missingAttributes.push('Ethnicity');
+                    break;
+                  case 'languages':
+                    missingAttributes.push('Language(s)');
+                    break;
+                  default:
+                    break;
+                }
               }
             }else{
               if(bgDefaults.indexOf(attVal) < 0){
@@ -78,6 +87,29 @@ const ProfileAttributes = props => {
     }
   };
 
+  const sortLanguagesByFluency = (languages, fluencies) => {
+    const speaks = [];
+    const some = [];
+    for(let i = 0; i < languages.length; i++){
+      let fluency = fluencies[i];
+      let language = languages[i];
+      if(fluency === '' || fluency === 'Fluently'){
+        speaks.push(language);
+      }else{
+        some.push(language);
+      }
+    }
+
+    let fluentLanguages = convertToString(speaks);
+    let someLanguages = convertToString(some);
+    
+    if(some.length){
+      hasMatchAttributes.push('Speaks ' + fluentLanguages + ', and some ' + someLanguages);
+    }else{
+      hasMatchAttributes.push('Speaks ' + fluentLanguages);
+    }
+  };
+
   const addStringFlavor = (att, attVal) => {
     switch(att){
       case 'pronouns':
@@ -87,9 +119,10 @@ const ProfileAttributes = props => {
         hasMatchAttributes.push(convertToString(attVal));
         break;
       case 'languages':
-        if(attVal !== '—'){
-          hasMatchAttributes.push('Speaks ' + convertToString(attVal));
-        }
+        sortLanguagesByFluency(attVal, props.attributes.fluency)
+        break;
+      case 'fluency':
+        // this attribute is only meant to enhance flavor and shouldn't be directly added to the array
         break;
       case 'smoking':
         if(attVal === 'false'){
@@ -114,7 +147,9 @@ const ProfileAttributes = props => {
         break;
       case 'religion':
         if(props.attributes.religion_weight){
-          hasMatchAttributes.push(attVal + ' ' + props.attributes.religion_weight);
+          if (props.attributes.religion_weight !== 'Religion Weight'){
+            hasMatchAttributes.push(attVal + ' ' + props.attributes.religion_weight);
+          }
         }else{
           hasMatchAttributes.push(attVal);
         }
