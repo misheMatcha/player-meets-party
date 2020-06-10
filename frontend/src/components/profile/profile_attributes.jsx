@@ -103,10 +103,12 @@ const ProfileAttributes = props => {
     let fluentLanguages = convertToString(speaks);
     let someLanguages = convertToString(some);
     
-    if(some.length){
+    if(speaks.length && some.length){
       hasMatchAttributes.push('Speaks ' + fluentLanguages + ', and some ' + someLanguages);
-    }else{
+    }else if(speaks.length && !some.length){
       hasMatchAttributes.push('Speaks ' + fluentLanguages);
+    }else if(!speaks.length && some.length){
+      hasMatchAttributes.push('Speaks some ' + someLanguages);
     }
   };
 
