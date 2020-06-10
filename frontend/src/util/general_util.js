@@ -32,8 +32,14 @@ export const checkDefaults = (arr, attObj) => {
   return false;
 };
 
-export const isEmptyStr = str => {
-  // console.log(str.length)
+export const trueObjectValuesToArray = obj => {
+  const values = [];
+  for(let key in obj){
+    if(obj[key]){
+      values.push(key);
+    }
+  }
+  return values;
 };
 
 // if there is a value that is not empty then return false

@@ -42,7 +42,12 @@ const AttributesForm = props => {
   const [marijuana, setMarijuana] = useState(props.user.marijuana);
   const [diet, setDiet] = useState(props.user.diet);
   const [children, setChildren] = useState(props.user.children);
+  const [wants_children, setWants_children] = useState(props.user.wants_children);
   const [pets, setPets] = useState(props.user.pets);
+  const [hasDogs, setHasDogs] = useState(props.user.pets['Has dog(s)']);
+  const [hasCats, setHasCats] = useState(props.user.pets['Has cat(s)']);
+  const [hasOtherPets, setHasOtherPets] = useState(props.user.pets['Has other pet(s)']);
+  const [noPets, setNoPets] = useState(props.user.pets["Doesn't have pet(s)"]);
   const [pref_gender, setPref_gender] = useState(props.user.pref_gender);
   const [pref_distance, setPref_distance] = useState(props.user.pref_distance);
   const [pref_age, setPref_age] = useState(props.user.pref_age);
@@ -164,6 +169,27 @@ const AttributesForm = props => {
       case 'diet':
         setDiet(event.target.value);
         break;
+      case 'children':
+        setChildren(event.target.value);
+        break;
+      case 'wants_children':
+        setWants_children(event.target.value);
+        break;
+      case 'pets':
+        setPets(event.target.value);
+        break;
+      case 'Has dog(s)':
+        setHasDogs(!hasDogs);
+        break;
+      case 'Has cat(s)':
+        setHasCats(!hasCats);
+        break;
+      case 'Has other pet(s)':
+        setHasOtherPets(!hasOtherPets);
+        break;
+      case "Doesn't have pet(s)":
+        setNoPets(!noPets);
+        break;
       default:
         break;
     }
@@ -247,7 +273,13 @@ const AttributesForm = props => {
         break;
       case 'Family':
         modifiedUser.children = children;
-        modifiedUser.pets = pets;
+        modifiedUser.wants_children = wants_children;
+        modifiedUser.pets = {
+          'Has dog(s)': hasDogs,
+          'Has cat(s)': hasCats,
+          'Has other pet(s)': hasOtherPets,
+          "Doesn't have pet(s)": noPets
+        };
         break;
       case 'I am looking for':
         modifiedUser.pref_gender = pref_gender;
@@ -1191,9 +1223,91 @@ const AttributesForm = props => {
     </div>
   </>
 
+  const childrenOptionsDisplay = children => {
+    switch(children){
+      case 'Has kid(s)':
+        return <>
+          <option value='and might want more'>and might want more</option>
+          <option value='and wants more'>and wants more</option>
+          <option value="and doesn't want more">and doesn't want more</option>
+        </>
+      case "Doesn't have kids":
+        return <>
+          <option value='but might want kids'>but might want kids</option>
+          <option value='but wants kids'>but wants kids</option>
+          <option value="and doesn't want kids">but doesn't want kids</option>
+        </>
+      default:
+        return <>
+          <option value='Might want kids'>Might want kids</option>
+          <option value='Wants kids'>Wants kids</option>
+          <option value="Doesn't want kids">Doesn't want kids</option>
+        </>
+    }
+  };
+
   const familyContent = <>
     <div className=''>
-      fam
+      <div className='attribute-form-section-position jc-space-between'>
+        <div className='attribute-form-section-wrap'>
+          <p className='attribute-form-section-title'>Has Kids</p>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={children} onChange={event => handleUpdate(event, 'children')}>
+                  <option value=''>—</option>
+                  <option value='Has kid(s)'>Has kid(s)</option>
+                  <option value="Doesn't have kids">Doesn't have kids</option>
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+        <div className='attribute-form-section-wrap'>
+          <p className='attribute-form-section-title'>Wants Kids</p>
+          <div className='selectlist-container'>
+            <div className='selectlist'>
+              <div className='select'>
+                <select value={wants_children} onChange={event => handleUpdate(event, 'wants_children')}>
+                  <option value=''>—</option>
+                  {childrenOptionsDisplay(children)}
+                </select>
+              </div>
+            </div>
+            <div className='selectlist-arrow'>
+              <i className="fas fa-chevron-down" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div className='height-spacing'>
+        <p className='attribute-form-section-title'>Pets</p>
+        <div className='display-flex jc-space-between'>
+          <div className='ethnicity-wrap'>
+            <label>
+              <input type='checkbox' checked={hasDogs} onChange={event => handleUpdate(event, 'Has dog(s)')} />
+              Has dog(s)
+            </label>
+            <label>
+              <input type='checkbox' checked={hasCats} onChange={event => handleUpdate(event, 'Has cat(s)')} />
+              Has cat(s)
+            </label>
+            <label>
+              <input type='checkbox' checked={hasOtherPets} onChange={event => handleUpdate(event, 'Has other pet(s)')} />
+              Has other pet(s)
+            </label>
+          </div>
+          <div className='ethnicity-wrap'>
+            <label>
+              <input type='checkbox' checked={noPets} onChange={event => handleUpdate(event, "Doesn't have pet(s)")} />
+              "Doesn't have pet(s)"
+            </label>
+          </div>
+        </div>
+      </div>
     </div>
   </>
 

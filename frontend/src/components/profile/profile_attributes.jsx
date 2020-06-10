@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { convertToString, anyTrueValues, isEmptyStr } from '../../util/general_util';
+import { convertToString, anyTrueValues, trueObjectValuesToArray } from '../../util/general_util';
 
 const ProfileAttributes = props => {
   const hasMatchAttributes = [];
@@ -51,20 +51,11 @@ const ProfileAttributes = props => {
     }
   };
 
-  const sortAttributes = (arr, att, attVal) => {
-    if(arr.indexOf(attVal) > -1){
-      missingAttributes.push(attVal);
-    }else{
-      hasUserAttributes.push(attVal)
-      addStringFlavor(att, attVal);
-    }
-  };
-
   const convertForDisplay = () => {
     setMatchAttributes(convertToString(hasMatchAttributes));
     if(missingAttributes.length) setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
   };
-  
+
   const sortEthnicities = ethnicities => {
     const updatedEthnicities = [];
     for(let ethnicity in ethnicities){
@@ -153,9 +144,30 @@ const ProfileAttributes = props => {
             sortAtt(lifestyleAttributes, lifestyleAttributesDefaults, att, attVal);
             break;
           case 'Family':
-            const familyAttributes = ['children', 'wants_children', 'pets'];
-            const familyAttributesDefaults = ['Children', 'Pets'];
-            sortAtt(familyAttributes, familyAttributesDefaults, att, attVal);
+            // const familyAttributes = ['children', 'wants_children', 'pets'];
+            // const familyAttributesDefaults = ['Children', 'Pets'];
+            // sortAtt(familyAttributes, familyAttributesDefaults, att, attVal);
+            switch(att){
+              case 'children':
+                if(attVal){
+                  addStringFlavor(att, attVal);
+                }else if(!props.attributes.wants_children && !attVal){
+                  missingAttributes.push('Children');
+                }
+                break;
+              case 'wants_children':
+                if(!props.attributes.children && attVal){
+                  addStringFlavor(att, attVal);
+                }
+                break;
+              case 'pets':
+                if(anyTrueValues(attVal)){
+                  addStringFlavor(att, attVal)
+                }else{
+                  missingAttributes.push('Pets');
+                }
+                break;
+            }
             break;
           case 'I am looking for':
             addStringFlavor(att, attVal);
@@ -246,18 +258,15 @@ const ProfileAttributes = props => {
         }
         break;
       case 'children':
-        if(attVal === 'false'){
-          hasMatchAttributes.push(`Doesn't have kids`);
-        }else{
-          hasMatchAttributes.push('Has kid(s)');
+        if(attVal && props.attributes.wants_children){
+          hasMatchAttributes.push(attVal + ' ' + props.attributes.wants_children);
+        }else if(attVal && !props.attributes.wants_children){
+          hasMatchAttributes.push(attVal);
         }
         break;
       case 'pets':
-        if(attVal === 'false'){
-          hasMatchAttributes.push(`Doesn't have pet(s)`);
-        }else{
-          hasMatchAttributes.push('Has ' + attVal);
-        }
+        let petValues = trueObjectValuesToArray(attVal);
+        hasMatchAttributes.push(convertToString(petValues));
         break;
       case 'pref_gender':
         if(attVal === 'Gender'){
