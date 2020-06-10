@@ -54,6 +54,7 @@ const Profile = props => {
     politics: user.politics,
     education: user.education,
     occupation: user.occupation,
+    employer: user.employer,
     religion: user.religion,
     religion_weight: user.religion_weight,
     sign: user.sign,

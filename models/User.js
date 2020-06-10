@@ -86,6 +86,10 @@ const UserSchema = new Schema({
     type: String,
     default: ''
   },
+  employer: {
+    type: String,
+    default: ''
+  },
   religion: {
     type: String,
     default: ''

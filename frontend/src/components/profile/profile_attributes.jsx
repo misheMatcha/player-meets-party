@@ -86,6 +86,8 @@ const ProfileAttributes = props => {
                 break;
               case 'fluency':
                 break;
+              case 'employer':
+                break;
               default:
                 if(attVal){
                   addStringFlavor(att, attVal);
@@ -153,6 +155,24 @@ const ProfileAttributes = props => {
       case 'fluency':
         // this attribute is only meant to enhance flavor and shouldn't be directly added to the array
         break;
+      case 'religion':
+        if(props.attributes.religion_weight){
+          if (props.attributes.religion_weight !== ''){
+            hasMatchAttributes.push(attVal + ' ' + props.attributes.religion_weight);
+          }
+        }else{
+          hasMatchAttributes.push(attVal);
+        }
+        break;
+      case 'religion_weight':
+        break;
+      case 'occupation':
+        if(props.attributes.employer){
+          hasMatchAttributes.push(attVal + ' at ' + props.attributes.employer);
+        }else{
+          hasMatchAttributes.push(attVal);
+        }
+        break;
       case 'smoking':
         if(attVal === 'false'){
           hasMatchAttributes.push(`Doesn't smoke cigarettes`);
@@ -173,17 +193,6 @@ const ProfileAttributes = props => {
         }else{
           hasMatchAttributes.push('Smokes marijuana ' + attVal);
         }
-        break;
-      case 'religion':
-        if(props.attributes.religion_weight){
-          if (props.attributes.religion_weight !== ''){
-            hasMatchAttributes.push(attVal + ' ' + props.attributes.religion_weight);
-          }
-        }else{
-          hasMatchAttributes.push(attVal);
-        }
-        break;
-      case 'religion_weight':
         break;
       case 'children':
         if(attVal === 'false'){

@@ -33,6 +33,7 @@ const AttributesForm = props => {
   const [politics, setPolitics] = useState(props.user.politics);
   const [education, setEducation] = useState(props.user.education);
   const [occupation, setOccupation] = useState(props.user.occupation);
+  const [employer, setEmployer] = useState(props.user.employer);
   const [religion, setReligion] = useState(props.user.religion);
   const [religion_weight, setReligion_weight] = useState(props.user.religion_weight);
   const [sign, setSign] = useState(props.user.sign);
@@ -139,6 +140,9 @@ const AttributesForm = props => {
       case 'occupation':
         setOccupation(event.target.value);
         break;
+      case 'employer':
+        setEmployer(event.target.value);
+        break;
       case 'religion':
         setReligion(event.target.value);
         break;
@@ -230,6 +234,7 @@ const AttributesForm = props => {
         modifiedUser.politics = politics;
         modifiedUser.education = education;
         modifiedUser.occupation = occupation;
+        modifiedUser.employer = employer;
         modifiedUser.religion = religion;
         modifiedUser.religion_weight = religion_weight;
         modifiedUser.sign = sign;
@@ -346,7 +351,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={body_type} onChange={event => handleUpdate(event, 'body-type')}>
-                <option value='—'>—</option>
+                <option value=''>—</option>
                 <option value='Thin'>Thin</option>
                 <option value='Overweight'>Overweight</option>
                 <option value='Average build'>Average build</option>
@@ -980,7 +985,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={politics} onChange={event => handleUpdate(event, 'politics')}>
-                <option value='—'>—</option>
+                <option value=''>—</option>
                 <option value='Politically liberal'>Politically liberal</option>
                 <option value='Politically moderate'>Politically moderate</option>
                 <option value='Politically conservative'>Politically conservative</option>
@@ -999,7 +1004,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={education} onChange={event => handleUpdate(event, 'education')}>
-                <option value='—'>—</option>
+                <option value=''>—</option>
                 <option value='High school'>High school</option>
                 <option value='Trade/tech school'>Trade/tech school</option>
                 <option value='In college'>In college</option>
@@ -1018,7 +1023,10 @@ const AttributesForm = props => {
         <p className='attribute-form-section-title'>Occupation</p>
         <div className=''>
           <label className=''>
-            <input type='text' value={occupation} onChange={event => handleUpdate(event, 'occupation')}/>
+            <input type='text' placeholder='Title' value={occupation} onChange={event => handleUpdate(event, 'occupation')}/>
+          </label>
+          <label className=''>
+            <input type='text' placeholder='Employer' value={employer} onChange={event => handleUpdate(event, 'employer')}/>
           </label>
         </div>
       </div>
@@ -1029,7 +1037,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={religion} onChange={event => handleUpdate(event, 'religion')}>
-                <option value='—'>—</option>
+                <option value=''>—</option>
                 <option value='Agnostic'>Agnosticism</option>
                 <option value='Atheist'>Atheism</option>
                 <option value='Christian'>Christianity</option>
@@ -1070,7 +1078,7 @@ const AttributesForm = props => {
           <div className='selectlist'>
             <div className='select'>
               <select value={sign} onChange={event => handleUpdate(event, 'sign')}>
-                <option value='—'>—</option>
+                <option value=''>—</option>
                 <option value='Aquarius'>Aquarius</option>
                 <option value='Pisces'>Pisces</option>
                 <option value='Aries'>Aries</option>
@@ -1103,7 +1111,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={smoking} onChange={event => handleUpdate(event, 'smoking')}>
-                  <option value='—'>—</option>
+                  <option value=''>—</option>
                   <option value='often'>Often</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -1121,7 +1129,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={drinks} onChange={event => handleUpdate(event, 'drinks')}>
-                  <option value='—'>—</option>
+                  <option value=''>—</option>
                   <option value='often'>Often</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -1141,7 +1149,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={marijuana} onChange={event => handleUpdate(event, 'marijuana')}>
-                  <option value='—'>—</option>
+                  <option value=''>—</option>
                   <option value='often'>Often</option>
                   <option value='sometimes'>Sometimes</option>
                   <option value='never'>Never</option>
@@ -1159,7 +1167,7 @@ const AttributesForm = props => {
             <div className='selectlist'>
               <div className='select'>
                 <select value={diet} onChange={event => handleUpdate(event, 'diet')}>
-                  <option value='—'>—</option>
+                  <option value=''>—</option>
                   <option value='Omnivore'>Omnivore</option>
                   <option value='Vegetarian'>Vegetarian</option>
                   <option value='Vegan'>Vegan</option>
