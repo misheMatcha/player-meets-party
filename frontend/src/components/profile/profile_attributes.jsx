@@ -276,22 +276,32 @@ const ProfileAttributes = props => {
         hasMatchAttributes.push(convertToString(petValues));
         break;
       case 'pref_gender':
-        if(attVal === 'Gender'){
-          hasMatchAttributes.push('Looking for people');
+        let checkPrefGender = anyTrueValues(attVal);
+        if(!checkPrefGender) {
+          if(props.attributes.pref_distance){
+            hasMatchAttributes.push('Looking for People within ' + props.attributes.pref_distance);
+          }else{
+            hasMatchAttributes.push('Looking for People');
+          }
         }else{
-          hasMatchAttributes.push('Looking for ' + attVal);
+          hasMatchAttributes.push('Looking for ' + convertToString(attVal));
         }
         break;
       case 'pref_connections':
-        if(attVal === 'Connections'){
-          hasMatchAttributes.push(`for short & long term dating, hookups, and new friends.`);
+        if(!anyTrueValues(attVal)){
+          hasMatchAttributes.push('for short & long term dating, hookups, and new friends.')
         }else{
-          hasMatchAttributes.push('for ' + attVal);
+          hasMatchAttributes.push('for ' + convertToString(attVal));
         }
         break;
       case 'pref_distance':
         break;
       case 'pref_age':
+        if(!attVal || attVal === '-'){
+          hasMatchAttributes.push('all ages');
+        }else{
+          hasMatchAttributes.push('ages ' + attVal);
+        }
         break;
       default:
         hasMatchAttributes.push(attVal);

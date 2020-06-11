@@ -8,6 +8,7 @@ export const calculateAge = birthday => {
   return age;
 };
 
+// refactor to also convert objects
 export const convertToString = array => {
   if(!array.length) return '';
   let converted = '';
