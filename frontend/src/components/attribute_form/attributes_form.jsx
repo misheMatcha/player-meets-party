@@ -988,8 +988,8 @@ const AttributesForm = props => {
       </div>
       <div className='attribute-form-section-wrap height-spacing'>
         <p className='attribute-form-section-title'>Politics</p>
-        <div className='selectlist-container'>
-          <div className='selectlist'>
+        <div className='selectlist-container-full-width'>
+          <div className='selectlist-full-width'>
             <div className='select'>
               <select value={politics} onChange={event => handleUpdate(event, 'politics')}>
                 <option value=''>—</option>
@@ -1000,15 +1000,15 @@ const AttributesForm = props => {
               </select>
             </div>
           </div>
-          <div className='selectlist-arrow'>
+          <div className='selectlist-arrow-full-width'>
             <i className="fas fa-chevron-down" />
           </div>
         </div>
       </div>
       <div className='attribute-form-section-wrap height-spacing'>
         <p className='attribute-form-section-title'>Education</p>
-        <div className='selectlist-container'>
-          <div className='selectlist'>
+        <div className='selectlist-container-full-width'>
+          <div className='selectlist-full-width'>
             <div className='select'>
               <select value={education} onChange={event => handleUpdate(event, 'education')}>
                 <option value=''>—</option>
@@ -1021,18 +1021,18 @@ const AttributesForm = props => {
               </select>
             </div>
           </div>
-          <div className='selectlist-arrow'>
+          <div className='selectlist-arrow-full-width'>
             <i className="fas fa-chevron-down" />
           </div>
         </div>
       </div>
       <div className='height-spacing'>
         <p className='attribute-form-section-title'>Occupation</p>
-        <div className=''>
-          <label className=''>
+        <div className='display-flex jc-space-between'>
+          <label className='attribute-form-input-label'>
             <input type='text' placeholder='Title' value={occupation} onChange={event => handleUpdate(event, 'occupation')}/>
           </label>
-          <label className=''>
+          <label className='attribute-form-input-label'>
             <input type='text' placeholder='Employer' value={employer} onChange={event => handleUpdate(event, 'employer')}/>
           </label>
         </div>
@@ -1260,25 +1260,25 @@ const AttributesForm = props => {
       </div>
       <div className='height-spacing'>
         <p className='attribute-form-section-title'>Pets</p>
-        <div className='display-flex jc-space-between'>
-          <div className='ethnicity-wrap'>
+        <div className='pets-wrap-container'>
+          <div className='pets-wrap'>
             <label>
               <input type='checkbox' checked={hasDogs} onChange={event => handleUpdate(event, 'Has dog(s)')} />
-              Has dog(s)
+              <p>Has dog(s)</p>
             </label>
             <label>
               <input type='checkbox' checked={hasCats} onChange={event => handleUpdate(event, 'Has cat(s)')} />
-              Has cat(s)
+              <p>Has cat(s)</p>
             </label>
             <label>
               <input type='checkbox' checked={hasOtherPets} onChange={event => handleUpdate(event, 'Has other pet(s)')} />
-              Has other pet(s)
+              <p>Has other pet(s)</p>
             </label>
           </div>
-          <div className='ethnicity-wrap'>
+          <div className='pets-wrap-nopets'>
             <label>
               <input type='checkbox' checked={noPets} onChange={event => handleUpdate(event, "Doesn't have pet(s)")} />
-              "Doesn't have pet(s)"
+              <p>Doesn't have pet(s)</p>
             </label>
           </div>
         </div>

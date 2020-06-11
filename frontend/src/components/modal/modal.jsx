@@ -2,13 +2,14 @@ import React from 'react';
 import LoginForm from '../session/login_form_container';
 import Boost from '../boost/boost_container';
 import AttributesForm from '../attribute_form/attributes_form_container';
-import BackgroundForm from '../attribute_form/background_form/background_form_container';
 import BasicsForm from '../attribute_form/basics_form/basics_form_container';
 
 const Modal = props => {
   if(!props.modal) return null;
 
   let component;
+  let bgStyle = 'modal-background';
+  let childStyle = 'modal-child';
   switch(props.modal){
     case 'login':
       component = <LoginForm />;
@@ -27,6 +28,7 @@ const Modal = props => {
       break;
     case 'Background':
       component = <AttributesForm currentId={localStorage.currentId} formType='Background' />;
+      childStyle = 'modal-form-bg';
       break;
     case 'Lifestyle':
       component = <AttributesForm currentId={localStorage.currentId} formType='Lifestyle' />;
@@ -42,8 +44,8 @@ const Modal = props => {
   }
 
   return(
-    <div className='modal-background' onClick={props.closeModal}>
-      <div className='modal-child' onClick={event => event.stopPropagation()}>
+    <div className={bgStyle} onClick={props.closeModal}>
+      <div className={childStyle} onClick={event => event.stopPropagation()}>
         { component }
       </div>
     </div>
