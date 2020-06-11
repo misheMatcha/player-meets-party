@@ -3,7 +3,6 @@ import { convertToString, anyTrueValues, trueObjectValuesToArray } from '../../u
 
 const ProfileAttributes = props => {
   const hasMatchAttributes = [];
-  const hasUserAttributes = [];
   const missingAttributes = [];
   const [matchAttributes, setMatchAttributes] = useState('');
   const [missingUserAttributes, setMissingUserAttributes] = useState('');
@@ -206,6 +205,14 @@ const ProfileAttributes = props => {
 
   const addStringFlavor = (att, attVal) => {
     switch(att){
+      case 'orientation':
+        let orientationValues = trueObjectValuesToArray(attVal);
+        hasMatchAttributes.push(convertToString(orientationValues));
+        break;
+      case 'gender':
+        let genderValues = trueObjectValuesToArray(attVal);
+        hasMatchAttributes.push(convertToString(genderValues));
+        break;
       case 'pronouns':
         hasMatchAttributes.push('Uses ' +  attVal + ' pronouns');
         break;

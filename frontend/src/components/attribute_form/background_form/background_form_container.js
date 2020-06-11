@@ -1,10 +1,10 @@
 import { connect } from 'react-redux';
+import BackgroundForm from './background_form.jsx';
 import { closeModal } from '../../../actions/modal_actions';
 import { editUser } from '../../../actions/user_actions';
-import BasicsForm from './basics_form';
 
 const mSTP = state => ({
-  user: state.entities.users.current
+  user: state.entities.users.user
 });
 
 const mDTP = dispatch => ({
@@ -12,4 +12,4 @@ const mDTP = dispatch => ({
   editUser: user => dispatch(editUser(user))
 });
 
-export default connect(mSTP, mDTP)(BasicsForm);
+export default connect(mSTP, mDTP)(BackgroundForm);

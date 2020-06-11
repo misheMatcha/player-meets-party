@@ -136,6 +136,14 @@
     margin-right: 10px;
   }
 
+/* ORIENTATION/GENDER */
+.form-section-tags-container{
+  background-color: yellow;
+}
+  .form-section-tag{
+    background-color: violet;
+  }
+
 /* SELECT STYLING */
 .selectlist-container{
   background-color: white;
@@ -240,3 +248,20 @@
       .selectlist-height .select select:focus{
         outline: 0;
       }
+
+/* new basics form */
+.form-tag-button{
+  /* height: 36px; */
+  padding: 10px;
+  margin-right: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  border: 1px solid #d8dce3;
+  border-radius: 3px;
+  color: #2a2f35dc;
+  font-size: 17px;
+  font-weight: 200;
+}
+.selected-tag{
+  background: #ebedf2;
+}

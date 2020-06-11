@@ -13,6 +13,8 @@ export const PROFILE_QUESTIONS = [
 
 export const ATTRIBUTES_SECTIONS = ['Basics', 'Pronouns', 'Looks', 'Background', 'Lifestyle', 'Family', 'I am looking for'];
 
-export const ORIENTATION_LIST = ['Straight', 'Gay', 'Bisexual', 'Asexual', 'Demisexual', 'Heteroflexible', 'Homoflexible', 'Lesbian', 'Pansexual', 'Queer', 'Questioning'];
+export const ORIENTATION_LIST = ['Straight', 'Gay', 'Bisexual', 'Lesbian', 'Queer', 'Pansexual', 'Questioning', 'Heteroflexible', 'Homoflexible', 'Asexual', 'Gray-asexual', 'Demisexual', 'Reciprosexual', 'Akiosexual', 'Aceflux', 'Grayromantic', 'Demiromantic', 'Recipromantic', 'Akioromantic', 'Aroflux'];
 
-export const GENDER_LIST = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender Nonconforming', 'Hijra', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
+export const GENDER_LIST = ['Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender-nonconforming', 'Hijira', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];
+
+export const ORIGENDER_LIST = ['Straight', 'Gay', 'Bisexual', 'Lesbian', 'Queer', 'Pansexual', 'Questioning', 'Heteroflexible', 'Homoflexible', 'Asexual', 'Gray-asexual', 'Demisexual', 'Reciprosexual', 'Akiosexual', 'Aceflux', 'Grayromantic', 'Demiromantic', 'Recipromantic', 'Akioromantic', 'Aroflux', 'Woman', 'Man', 'Agender', 'Androgynous', 'Bigender', 'Cis Man', 'Cis Woman', 'Genderfluid', 'Genderqueer', 'Gender-nonconforming', 'Hijira', 'Intersex', 'Non-binary', 'Other', 'Pangender', 'Transfeminine', 'Transgender', 'Transmasculine', 'Transsexual', 'Trans Man', 'Trans Woman', 'Two Spirit'];

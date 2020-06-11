@@ -1,9 +1,10 @@
 import React from 'react';
 import LoginForm from '../session/login_form_container';
 import Boost from '../boost/boost_container';
-import BasicsForm from '../profile/basics_form/basics_form_container';
 import PronounsForm from '../profile/pronouns_form/pronouns_form_container';
 import AttributesForm from '../profile/attributes_form_container';
+import BackgroundForm from '../attribute_form/background_form/background_form_container';
+import BasicsForm from '../attribute_form/basics_form/basics_form_container';
 
 const Modal = props => {
   if(!props.modal) return null;
@@ -16,14 +17,14 @@ const Modal = props => {
     case 'boost':
       component = <Boost />;
       break;
-    case 'basics':
-      component = <BasicsForm />;
-      break;
+    // case 'basics1':
+    //   component = <BasicsForm1 />;
+    //   break;
     case 'pronouns':
       component = <PronounsForm />;
       break;
     case 'Basics':
-      component = <AttributesForm currentId={localStorage.currentId} formType='Basics' />;
+      component = <BasicsForm formType='Basics' />;
       break;
     case 'Pronouns':
       component = <AttributesForm currentId={localStorage.currentId} formType='Pronouns' />;
@@ -32,7 +33,7 @@ const Modal = props => {
       component = <AttributesForm currentId={localStorage.currentId} formType='Looks' />;
       break;
     case 'Background':
-      component = <AttributesForm currentId={localStorage.currentId} formType='Background' />;
+      component = <BackgroundForm formType='Background' />;
       break;
     case 'Lifestyle':
       component = <AttributesForm currentId={localStorage.currentId} formType='Lifestyle' />;

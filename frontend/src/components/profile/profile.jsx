@@ -121,13 +121,6 @@ const Profile = props => {
     return false;
   };
 
-  const checkForEmptyDefaults = obj => {
-    for (let key in obj) {
-      let val = obj[key];
-      console.log(obj)
-    }
-  };
-  
   const displayAttributes = section => {
     switch(section){
       case 'Basics':
