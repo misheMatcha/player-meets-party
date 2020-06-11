@@ -57,3 +57,12 @@ export const has5options = options => {
   }
   return false;
 };
+
+// future - max tags  is 5
+export const checkTagCount = list => {
+  let count = 0;
+  list.forEach(item => {
+    if (item) count++;
+  })
+  return count;
+};
