@@ -313,7 +313,7 @@ const BasicsForm = props => {
           <form className='' onSubmit={event => handleSubmit(event)}>
             <p className='attribute-form-section-title'>I am a...</p>
             <div>
-              <div style={{display: display === 'orientation' || display === 'gender' ? 'flex' : 'none'}}>
+              <div className='basics-tag-display-wrap' style={{display: display === 'orientation' || display === 'gender' ? 'flex' : 'none'}}>
                 <div>
                   {
                     display === 'orientation' ?
@@ -333,25 +333,68 @@ const BasicsForm = props => {
                     </div>
                   }
                 </div>
-                <div className=''>
-                  <div className=''>
-                    <button type='button' onClick={() => setDisplay('none')}>Continue</button>
-                    <button type='button' onClick={() => {
-                      // revertTagChanges(tagHolder, display);
-                      handleChange(tagHolder, 'cancel', display);
-                      setTagHolder([]);
-                      setDisplay('none');
-                      }}>Cancel</button>
-                  </div>
+                <div className='basics-tag-display-buttons'>
+                  <button className='tag-continue' type='button' onClick={() => setDisplay('none')}>Continue</button>
+                  <button className='tag-canel' type='button' onClick={() => {
+                    handleChange(tagHolder, 'cancel', display);
+                    setTagHolder([]);
+                    setDisplay('none');
+                    }}>Cancel</button>
                 </div>
               </div>
-              <div className='display-flex jc-space-between'>
-                <button className='' type='button' onClick={() => setDisplay('orientation')} >{displayTagsAsStr(orientation, ORIENTATION_LIST)}</button>
-                <button className='' type='button' onClick={() => setDisplay('gender')}>{displayTagsAsStr(gender, GENDER_LIST)}</button>
+              <div className='jc-space-between' style={{display: display === 'none' ? 'flex' : 'none'}}>
+                <button className='basics-tag-display' type='button' onClick={() => setDisplay('orientation')} >{!displayTagsAsStr(orientation, ORIENTATION_LIST).length ?
+                <p>ex: straight, gay, etc...</p> :
+                displayTagsAsStr(orientation, ORIENTATION_LIST)}</button>
+                <button className='basics-tag-display' type='button' onClick={() => setDisplay('gender')}>{!displayTagsAsStr(gender, GENDER_LIST).length ?
+                <p>ex: woman, man, etc...</p> :
+                displayTagsAsStr(gender, GENDER_LIST)}</button>
               </div>
             </div>
-
-
+            <div className='attribute-form-section-wrap height-spacing'>
+              <p className='attribute-form-section-title'>Relationship Type</p>
+              <div className='selectlist-container'>
+                <div className='selectlist'>
+                  <div className='select'>
+                    <select value={relationship_type} onChange={event => handleChange(event.target.value, 'relationship_type')}>
+                      <option value=''>—</option>
+                      <option value="Monogamous">Monogamous</option>
+                      <option value="Non-monogamous">Non-monogamous</option>
+                      <option value="Open to either">Open to either</option>
+                    </select>
+                  </div>
+                </div>
+                <div className='selectlist-arrow'>
+                  <i className="fas fa-chevron-down" />
+                </div>
+              </div>
+              <div className='monogamy-details'>
+                {
+                  relationship_type === 'Monogamous' ? <p>You will see and be seen by people who are monogamous and open to monogamy. <span>Learn more.</span></p> : relationship_type === 'Non-monogamous' ? <p>You will see and be seen by people who are non-monogamous and open to non-monogamy. <span>Learn more.</span></p> : <p>You will see and be seen by people who are monogamous, non-monogamous, and open to either. <span>Learn more.</span></p>
+                }
+              </div>
+            </div>
+            {
+              relationship_type === 'Non-monogamous' ?
+                <div className='attribute-form-section-wrap height-spacing'>
+                  <p className='attribute-form-section-title'>Status</p>
+                  <div className='selectlist-container'>
+                    <div className='selectlist'>
+                      <div className='select'>
+                        <select value={relationship_status} onChange={event => handleChange(event.target.value, 'relationship_status')}>
+                          <option value=''>—</option>
+                          <option value="Single">Single</option>
+                          <option value="Partnered">Partnered</option>
+                          <option value="Married">Married</option>
+                        </select>
+                      </div>
+                    </div>
+                    <div className='selectlist-arrow'>
+                      <i className="fas fa-chevron-down" />
+                    </div>
+                  </div>
+                </div> : ''
+            }
             <div className='attribute-form-buttons'>
               <button className='attribute-form-buttons-save' type='submit'>SAVE</button>
               <button className='attribute-form-buttons-cancel' type='button' onClick={() => props.closeModal()}>CANCEL</button>
