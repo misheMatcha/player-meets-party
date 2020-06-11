@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { ORIENTATION_LIST, GENDER_LIST, ORIGENDER_LIST } from '../../profile/profile_options';
+import { convertToString } from '../../../util/general_util';
 
 const BasicsForm = props => {
   const [straight, setStraight] = useState(props.user.orientation['Straight']);
@@ -23,7 +24,7 @@ const BasicsForm = props => {
   const [akioromantic, setAkioromantic] = useState(props.user.orientation['Akioromantic']);
   const [aroflux, setAroflux] = useState(props.user.orientation['Aroflux']);
   let orientation = [straight, gay, bisexual, lesbian, queer, pansexual, questioning, heteroflexible, homoflexible, asexual, grayAsexual, demisexual, reciprosexual, akiosexual, aceflux, grayromantic, demiromantic, recipromantic, akioromantic, aroflux];
-  const [oCount, setOCount] = useState(0);
+  const [oCount, setOCount] = useState(null);
 
   const [woman, setWoman] = useState(props.user.gender['Woman']);
   const [man, setMan] = useState(props.user.gender['Man']);
@@ -48,11 +49,13 @@ const BasicsForm = props => {
   const [transWoman, setTransWoman] = useState(props.user.gender['Trans Woman']);
   const [twoSpirit, setTwoSpirit] = useState(props.user.gender['Two Spirit']);
   let gender = [woman, man, agender, androgynous, bigender, cisMan, cisWoman, genderfluid, genderqueer, genderNonconforming, hijira, intersex, nonBinary, other, pangender, transfeminine, transgender, transmasculine, transsexual, transMan, transWoman, twoSpirit];
-  const [gCount, setGCount] = useState(0);
+  const [gCount, setGCount] = useState(null);
 
   const [relationship_status, setRelationship_status] = useState(props.user.relationship_status);
   const [relationship_type, setRelationship_type] = useState(props.user.relationship_type);
   useEffect(() => {
+    if(oCount === null) initialCountTotal(orientation, setOCount);
+    if(gCount === null) initialCountTotal(gender, setGCount);
   });
 
   const initialCountTotal = (list, setter) => {
@@ -63,8 +66,8 @@ const BasicsForm = props => {
     setter(result);
   };
 
-  const handleChange = (change, field) => {
-    switch(field){
+  const updateOrientation = type => {
+    switch (type) {
       case 'Straight':
         setStraight(!straight);
         break;
@@ -125,6 +128,98 @@ const BasicsForm = props => {
         break;
       case 'Aroflux':
         setAroflux(!aroflux);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const updateGender = type => {
+    switch (type) {
+      case 'Woman':
+        setWoman(!woman);
+        break;
+      case 'Man':
+        setMan(!man);
+        break;
+      case 'Agender':
+        setAgender(!agender);
+        break;
+      case 'Androgynous':
+        setAndrogynous(!androgynous);
+        break;
+      case 'Bigender':
+        setBigender(!bigender);
+        break;
+      case 'Cis Man':
+        setCisMan(!cisMan);
+        break;
+      case 'Cis Woman':
+        setCisWoman(!cisWoman);
+        break;
+      case 'Genderfluid':
+        setGenderfluid(!genderfluid);
+        break;
+      case 'Genderqueer':
+        setGenderqueer(!genderqueer);
+        break;
+      case 'Gender-nonconforming':
+        setGenderNonconforming(!genderNonconforming);
+        break;
+      case 'Hijira':
+        setHijira(!hijira);
+        break;
+      case 'Intersex':
+        setIntersex(!intersex);
+        break;
+      case 'Non-binary':
+        setNonBinary(!nonBinary);
+        break;
+      case 'Other':
+        setOther(!other);
+        break;
+      case 'Pangender':
+        setPangender(!pangender);
+        break;
+      case 'Transfeminine':
+        setTransfeminine(!transfeminine);
+        break;
+      case 'Transgender':
+        setTransgender(!transgender);
+        break;
+      case 'Transmasculine':
+        setTransmasculine(!transmasculine);
+        break;
+      case 'Transsexual':
+        setTranssexual(!transsexual);
+        break;
+      case 'Trans Man':
+        setTransMan(!transMan);
+        break;
+      case 'Trans Woman':
+        setTransWoman(!transWoman);
+        break;
+      case 'Two Spirit':
+        setTwoSpirit(!twoSpirit);
+        break;
+      default:
+        break;
+    }
+  };
+
+  const handleChange = (change, field, type=null) => {
+    switch(field){
+      case 'orientation':
+        updateOrientation(type);
+        break;
+      case 'gender':
+        updateGender(type);
+        break;
+      case 'relationship_status':
+        setRelationship_status(change);
+        break;
+      case 'relationship_type':
+        setRelationship_type(change);
         break;
       default:
         break;
@@ -199,13 +294,33 @@ const BasicsForm = props => {
         </div>
         <div className='attribute-form-sections'>
           <form className='' onSubmit={event => handleSubmit(event)}>
+            <p className='attribute-form-section-title'>I am a...</p>
             <div className=''>
-              {
-                ORIENTATION_LIST.map((orient, idx) => {
-                  return <button key={idx} className={`form-tag-button ${orientation[idx] ? 'selected-tag' : ''}`} type='button' onClick={event => handleChange(event.target.value, orient)}>{orient}</button>
-                })
-              }
+              <div className=''>
+                {
+                  ORIENTATION_LIST.map((orient, idx) => {
+                    return <button key={idx} className={`form-tag-button ${orientation[idx] ? 'selected-tag' : ''}`} type='button' onClick={event => handleChange(event, 'orientation', orient)}>{orient}</button>
+                  })
+                }
+              </div>
+              <div className=''>
+                {
+                  GENDER_LIST.map((gen, idx) => {
+                    return <button key={idx} className={`form-tag-button ${gender[idx] ? 'selected-tag' : ''}`} type='button' onClick={event => handleChange(event, 'gender', gen)}>{gen}</button>
+                  })
+                }
+              </div>
+              <div className=''>
+                <button>Continue</button>
+                <button>Cancel</button>
+              </div>
             </div>
+            
+            <div className='display-flex jc-space-between'>
+              <button className=''></button>
+              <button className=''></button>
+            </div>
+
             <div className='attribute-form-buttons'>
               <button className='attribute-form-buttons-save' type='submit'>SAVE</button>
               <button className='attribute-form-buttons-cancel' type='button' onClick={() => props.closeModal()}>CANCEL</button>
