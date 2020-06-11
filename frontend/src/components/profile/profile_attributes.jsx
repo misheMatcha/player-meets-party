@@ -1,9 +1,8 @@
 import React, { useEffect, useState } from 'react';
-import { convertToString } from '../../util/general_util';
+import { convertToString, anyTrueValues, trueObjectValuesToArray } from '../../util/general_util';
 
 const ProfileAttributes = props => {
   const hasMatchAttributes = [];
-  const hasUserAttributes = [];
   const missingAttributes = [];
   const [matchAttributes, setMatchAttributes] = useState('');
   const [missingUserAttributes, setMissingUserAttributes] = useState('');
@@ -13,12 +12,41 @@ const ProfileAttributes = props => {
     convertForDisplay();
   });
 
-  const sortAttributes = (arr, att, attVal) => {
-    if(arr.indexOf(attVal) > -1){
-      missingAttributes.push(attVal);
+  const sortAtt = (attList, attDefaults, att, attVal) => {
+    if(typeof attVal === 'object'){
+      switch(Array.isArray(attVal)){
+        case true:
+          if(attVal.length){
+            addStringFlavor(att, attVal);
+          }else{
+            let attIdx = attList.indexOf(att);
+            missingAttributes.push(attDefaults[attIdx]);
+          }
+          break;
+        case false:
+          // if its an object instead of an array
+          if(anyTrueValues(attVal)){
+            addStringFlavor(att, attVal);
+          }else{
+            let attIdx = attList.indexOf(att);
+            if(attIdx < -1) missingAttributes.push(attDefaults[attIdx]);
+          }
+          break;
+        default:
+          break;
+      }
     }else{
-      hasUserAttributes.push(attVal)
-      addStringFlavor(att, attVal);
+      switch(!attVal.length){
+        case false:
+          addStringFlavor(att, attVal);
+          break;
+        case true:
+          let attIdx = attList.indexOf(att);
+          missingAttributes.push(attDefaults[attIdx]);
+          break;
+        default:
+          break;
+      }
     }
   };
 
@@ -27,46 +55,118 @@ const ProfileAttributes = props => {
     if(missingAttributes.length) setMissingUserAttributes('Add: ' + convertToString(missingAttributes))
   };
 
+  const sortEthnicities = ethnicities => {
+    const updatedEthnicities = [];
+    for(let ethnicity in ethnicities){
+      if(ethnicities[ethnicity]) updatedEthnicities.push(ethnicity);
+    }
+    return updatedEthnicities;
+  };
+
   const filterAttributes = () => {
     for(const att in props.attributes){
       let attVal = props.attributes[att];
       if(att !== 'icon'){
         switch (props.section) {
           case 'Basics':
-            const basicDefaults = ['Orientation', 'Gender'];
-            sortAttributes(basicDefaults, att, attVal);
-            break;
-          case 'Pronouns':
-            attVal === 'Pronouns' ? missingAttributes.push(attVal) : addStringFlavor(att, attVal);
-            break;
-          case 'Looks':
-            const looksDefaults = [`Height`, 'Body type'];
-            sortAttributes(looksDefaults, att, attVal);
-            break;
-          case 'Background':
-            const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
-
-            if(Array.isArray(attVal)){
-              if(attVal.length){
-                addStringFlavor(att, attVal)
-              }else{
-                att === 'ethnicity' ? missingAttributes.push('Ethnicity') : missingAttributes.push('Language(s)');
-              }
-            }else{
-              if(bgDefaults.indexOf(attVal) < 0){
+            // const basicsAttributes = ['orientation', 'gender'];
+            // const basicsAttributesDefaults = ['Orientation', 'Gender'];
+            if(att === 'orientation' || att === 'gender'){
+              if(anyTrueValues(attVal)){
                 addStringFlavor(att, attVal);
               }else{
-                missingAttributes.push(attVal);
+                if(att === 'orientation'){
+                  missingAttributes.push('Orientation');
+                }else{
+                  missingAttributes.push('Gender');
+                }
               }
+            }else{
+              addStringFlavor(att, attVal);
+            }
+            break;
+          case 'Pronouns':
+            if(attVal){
+              addStringFlavor(att, attVal);
+            }else{
+              missingAttributes.push('Pronouns');
+            }
+            break;
+          case 'Looks':
+            const looksAttributes = ['height', 'body_type'];
+            const looksAttributesDefaults = ['Height', 'Body type'];
+            sortAtt(looksAttributes, looksAttributesDefaults, att, attVal);
+            break;
+          case 'Background':
+            const bgAttributes = ['politics', 'education', 'occupation', 'religion', 'sign'];
+            const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
+
+            switch(att){
+              case 'languages':
+                if(attVal.length){
+                  addStringFlavor(att, attVal);
+                }else{
+                  missingAttributes.push('Language(s)');
+                }
+                break;
+              case 'ethnicity':
+                switch(anyTrueValues(attVal)){
+                case true:
+                  addStringFlavor(att, sortEthnicities(attVal));
+                  break;
+                case false:
+                  missingAttributes.push('Ethnicity');
+                  break;
+                default:
+                  break;
+                }
+                break;
+              case 'religion_weight':
+                break;
+              case 'fluency':
+                break;
+              case 'employer':
+                break;
+              default:
+                if(attVal){
+                  addStringFlavor(att, attVal);
+                }else{
+                  let bgAttIdx = bgAttributes.indexOf(att);
+                  missingAttributes.push(bgDefaults[bgAttIdx]);
+                }
+                break;
             }
             break;
           case 'Lifestyle':
-            const lsDefaults = ['Smoking', 'Drinking', 'Marijuana', 'Diet'];
-            sortAttributes(lsDefaults, att, attVal);
+            const lifestyleAttributes = ['smoking', 'drinks', 'marijuana', 'diet'];
+            const lifestyleAttributesDefaults = ['Smoking', 'Drinks', 'Marijuana', 'Diet'];
+            sortAtt(lifestyleAttributes, lifestyleAttributesDefaults, att, attVal);
             break;
           case 'Family':
-            const famDefaults = ['Children', 'Pets'];
-            sortAttributes(famDefaults, att, attVal);
+            // const familyAttributes = ['children', 'wants_children', 'pets'];
+            // const familyAttributesDefaults = ['Children', 'Pets'];
+            // sortAtt(familyAttributes, familyAttributesDefaults, att, attVal);
+            switch(att){
+              case 'children':
+                if(attVal){
+                  addStringFlavor(att, attVal);
+                }else if(!props.attributes.wants_children && !attVal){
+                  missingAttributes.push('Children');
+                }
+                break;
+              case 'wants_children':
+                if(!props.attributes.children && attVal){
+                  addStringFlavor(att, attVal);
+                }
+                break;
+              case 'pets':
+                if(anyTrueValues(attVal)){
+                  addStringFlavor(att, attVal)
+                }else{
+                  missingAttributes.push('Pets');
+                }
+                break;
+            }
             break;
           case 'I am looking for':
             addStringFlavor(att, attVal);
@@ -78,8 +178,41 @@ const ProfileAttributes = props => {
     }
   };
 
+  const sortLanguagesByFluency = (languages, fluencies) => {
+    const speaks = [];
+    const some = [];
+    for(let i = 0; i < languages.length; i++){
+      let fluency = fluencies[i];
+      let language = languages[i];
+      if(fluency === '' || fluency === 'Fluently'){
+        speaks.push(language);
+      }else{
+        some.push(language);
+      }
+    }
+
+    let fluentLanguages = convertToString(speaks);
+    let someLanguages = convertToString(some);
+
+    if(speaks.length && some.length){
+      hasMatchAttributes.push('Speaks ' + fluentLanguages + ', and some ' + someLanguages);
+    }else if(speaks.length && !some.length){
+      hasMatchAttributes.push('Speaks ' + fluentLanguages);
+    }else if(!speaks.length && some.length){
+      hasMatchAttributes.push('Speaks some ' + someLanguages);
+    }
+  };
+
   const addStringFlavor = (att, attVal) => {
     switch(att){
+      case 'orientation':
+        let orientationValues = trueObjectValuesToArray(attVal);
+        hasMatchAttributes.push(convertToString(orientationValues));
+        break;
+      case 'gender':
+        let genderValues = trueObjectValuesToArray(attVal);
+        hasMatchAttributes.push(convertToString(genderValues));
+        break;
       case 'pronouns':
         hasMatchAttributes.push('Uses ' +  attVal + ' pronouns');
         break;
@@ -87,12 +220,29 @@ const ProfileAttributes = props => {
         hasMatchAttributes.push(convertToString(attVal));
         break;
       case 'languages':
-        if(attVal !== '—'){
-          hasMatchAttributes.push('Speaks ' + convertToString(attVal));
+        sortLanguagesByFluency(attVal, props.attributes.fluency)
+        break;
+      case 'fluency':
+        // this attribute is only meant to enhance flavor and shouldn't be directly added to the array
+        break;
+      case 'religion':
+        if(props.attributes.religion_weight){
+          if (props.attributes.religion_weight !== ''){
+            hasMatchAttributes.push(attVal + ' ' + props.attributes.religion_weight);
+          }
+        }else{
+          hasMatchAttributes.push(attVal);
         }
         break;
-      case 'politics':
-        hasMatchAttributes.push('Politically ' + attVal);
+      case 'religion_weight':
+        break;
+      case 'occupation':
+        if(props.attributes.employer){
+          hasMatchAttributes.push(attVal + ' at ' + props.attributes.employer);
+        }else{
+          hasMatchAttributes.push(attVal);
+        }
+        break;
       case 'smoking':
         if(attVal === 'false'){
           hasMatchAttributes.push(`Doesn't smoke cigarettes`);
@@ -114,44 +264,44 @@ const ProfileAttributes = props => {
           hasMatchAttributes.push('Smokes marijuana ' + attVal);
         }
         break;
-      case 'marijuana':
-        if(attVal === 'false'){
-          hasMatchAttributes.push(`Doesn't smoke marijuana`);
-        }else{
-          hasMatchAttributes.push('Smokes marijuana ' + attVal);
-        }
-        break;
       case 'children':
-        if(attVal === 'false'){
-          hasMatchAttributes.push(`Doesn't have kids`);
-        }else{
-          hasMatchAttributes.push('Has kid(s)');
+        if(attVal && props.attributes.wants_children){
+          hasMatchAttributes.push(attVal + ' ' + props.attributes.wants_children);
+        }else if(attVal && !props.attributes.wants_children){
+          hasMatchAttributes.push(attVal);
         }
         break;
       case 'pets':
-        if(attVal === 'false'){
-          hasMatchAttributes.push(`Doesn't have pet(s)`);
-        }else{
-          hasMatchAttributes.push('Has ' + attVal);
-        }
+        let petValues = trueObjectValuesToArray(attVal);
+        hasMatchAttributes.push(convertToString(petValues));
         break;
       case 'pref_gender':
-        if(attVal === 'Gender'){
-          hasMatchAttributes.push('Looking for people');
+        let checkPrefGender = anyTrueValues(attVal);
+        if(!checkPrefGender) {
+          if(props.attributes.pref_distance){
+            hasMatchAttributes.push('Looking for People within ' + props.attributes.pref_distance);
+          }else{
+            hasMatchAttributes.push('Looking for People');
+          }
         }else{
-          hasMatchAttributes.push('Looking for ' + attVal);
+          hasMatchAttributes.push('Looking for ' + convertToString(attVal));
         }
         break;
       case 'pref_connections':
-        if(attVal === 'Connections'){
-          hasMatchAttributes.push(`for short & long term dating, hookups, and new friends.`);
+        if(!anyTrueValues(attVal)){
+          hasMatchAttributes.push('for short & long term dating, hookups, and new friends.')
         }else{
-          hasMatchAttributes.push('for ' + attVal);
+          hasMatchAttributes.push('for ' + convertToString(attVal));
         }
         break;
       case 'pref_distance':
         break;
       case 'pref_age':
+        if(!attVal || attVal === '-'){
+          hasMatchAttributes.push('all ages');
+        }else{
+          hasMatchAttributes.push('ages ' + attVal);
+        }
         break;
       default:
         hasMatchAttributes.push(attVal);

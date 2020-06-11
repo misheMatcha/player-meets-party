@@ -2,12 +2,13 @@ export const calculateAge = birthday => {
   const birthDate = new Date(birthday);
   const currentDate = new Date(Date.now());
   let age = currentDate.getFullYear() - birthDate.getFullYear();
-  
+
   if(currentDate.getMonth() < birthDate.getMonth() || (currentDate.getMonth() === birthDate.getMonth() && currentDate.getDate() < birthDate.getDate())) age--;
 
   return age;
 };
 
+// refactor to also convert objects
 export const convertToString = array => {
   if(!array.length) return '';
   let converted = '';
@@ -30,4 +31,39 @@ export const checkDefaults = (arr, attObj) => {
     }
   }
   return false;
+};
+
+export const trueObjectValuesToArray = obj => {
+  const values = [];
+  for(let key in obj){
+    if(obj[key]){
+      values.push(key);
+    }
+  }
+  return values;
+};
+
+export const anyTrueValues = object => {
+  for (let key in object) {
+    if (object[key]) return true;
+  }
+  return false;
+};
+
+export const has5options = options => {
+  let count = 0;
+  for(let option in options){
+    if(options[option]) count++;
+    if(count === 5) return true;
+  }
+  return false;
+};
+
+// future - max tags  is 5
+export const checkTagCount = list => {
+  let count = 0;
+  list.forEach(item => {
+    if (item) count++;
+  })
+  return count;
 };

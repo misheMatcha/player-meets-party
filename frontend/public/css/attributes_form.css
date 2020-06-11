@@ -125,6 +125,25 @@
         background-color: #9393a9b7;
       }
 
+/* ETHNICITY */
+.ethnicity-wrap{
+  display: flex;
+  flex-direction: column;
+  font-size: 16px;
+  letter-spacing: .5px;
+}
+  .ethnicity-wrap label input{
+    margin-right: 10px;
+  }
+
+/* ORIENTATION/GENDER */
+.form-section-tags-container{
+  background-color: yellow;
+}
+  .form-section-tag{
+    background-color: violet;
+  }
+
 /* SELECT STYLING */
 .selectlist-container{
   background-color: white;
@@ -229,3 +248,178 @@
       .selectlist-height .select select:focus{
         outline: 0;
       }
+
+/* POLITICS/EDUCATION */
+.selectlist-container-full-width{
+  background-color: white;
+  display: flex;
+  border-radius: 3px;
+  filter: drop-shadow(0px 1px 2px #ccd0d9);
+  color: #9393a9;
+  /* width: 119.8px; */
+  width: 100%;
+}
+.selectlist-container-full-width:hover{
+  filter: drop-shadow(0px 1px 2px #9393a9b7);
+  color: black;
+}
+.selectlist-container-full-width .selectlist-full-width, .selectlist-container-full-width .selectlist-arrow-full-width{
+  box-sizing: border-box;
+  flex: none;
+}
+.selectlist-container-full-width .selectlist-full-width{}
+.selectlist-container-full-width .selectlist-arrow-full-width{
+  margin-left: -5%;
+  display: flex;
+  align-items: center;
+}
+  .selectlist-full-width{
+    /* width: 119.8px; */
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+  }
+    .selectlist-full-width .select{
+      width: 100%;
+    }
+      .selectlist-full-width .select select{
+        position: relative;
+        -moz-appearance: none;
+        -webkit-appearance: none;
+        background: transparent;
+        border: transparent;
+        line-height: 1.5;
+        width: 100%;
+        padding: 10px;
+        font-size: 17px;
+        font-weight: 300;
+      }
+      .selectlist-full-width .select select:focus{
+        outline: 0;
+      }
+
+/* new basics form */
+.form-tag-button{
+  /* height: 36px; */
+  padding: 10px;
+  margin-right: 10px;
+  background-color: white;
+  margin-bottom: 10px;
+  border: 1px solid #d8dce3;
+  border-radius: 3px;
+  color: #2a2f35dc;
+  font-size: 15px;
+  font-weight: 200;
+}
+.form-tag-button:hover{
+  background: #ebedf2;
+}
+.selected-tag{
+  background: #ebedf2;
+}
+
+.basics-tag-display-wrap{
+  flex-direction: column;
+}
+.basics-tag-display{
+  height: 23px;
+  width: 226px;
+  padding: 10px;
+  background-color: white;
+  border: 1px solid #d8dce3;
+  font-size: 17px;
+  border-radius: 3px;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  filter: drop-shadow(0px 1px 1px #ccd0d9);
+}
+.basics-tag-display:hover{
+  filter: drop-shadow(0px 1px 1px #a1a1a5b7);
+}
+  .basics-tag-display p{
+    color: #b0bbce;
+  }
+
+.basics-tag-display-buttons{
+  font-size: 18px;
+  margin-top: 20px;
+}
+  .basics-tag-display-buttons button{
+    padding: 10px 15px;
+  }
+  .tag-continue{
+    background-color: #00d280;
+    color: white;
+    border-radius: 3px;
+  }
+  .tag-cancel{
+    margin-left: 5px;
+  }
+
+.monogamy-details{
+  margin-top: 15px;
+  width: 80%;
+  letter-spacing: .75px;
+  line-height: 21px;
+}
+  .monogamy-details span{
+    font-weight: 500;
+    color: #0500be;
+  }
+
+/* OCCUPATION */
+.attribute-form-input-label{
+  width: 217.45px;
+  height: 46px;
+  background-color: white;
+  border: 1px solid #d8dce3;
+  padding: 0 15px;
+  border-radius: 3px;
+  display: flex;
+  align-items: center;
+  font-size: 16px;
+}
+.attribute-form-input-label:hover{
+  border: 1px solid #a1a1a5b7;
+}
+.attribute-form-input-label input::placeholder{
+  color: #a1a1a5b7;
+}
+
+/* PETS */
+.pets-wrap-container{
+  display: flex;
+  flex-direction: column;
+}
+.pets-wrap{
+  display: flex;
+  font-size: 17px;
+  letter-spacing: .5px;
+  flex-wrap: wrap;
+}
+  .pets-wrap label{
+    display: flex;
+    align-items: center;
+    width: 171px;
+  }
+    .pets-wrap label input{
+    }
+    .pets-wrap label p{
+      margin-left: 10px;
+    }
+
+.pets-wrap-nopets{
+  margin-top: 20px;
+  font-size: 17px;
+  letter-spacing: .5px;
+}
+  .pets-wrap-nopets label{
+    display: flex;
+    align-items: center;
+  }
+    .pets-wrap-nopets label p{
+      margin-left: 10px;
+    }

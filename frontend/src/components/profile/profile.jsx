@@ -50,10 +50,13 @@ const Profile = props => {
   const background = !user ? '' : {
     ethnicity: user.ethnicity,
     languages: user.languages,
+    fluency: user.fluency,
     politics: user.politics,
     education: user.education,
     occupation: user.occupation,
+    employer: user.employer,
     religion: user.religion,
+    religion_weight: user.religion_weight,
     sign: user.sign,
     icon: 'fas fa-globe'
   };
@@ -66,6 +69,7 @@ const Profile = props => {
   };
   const family = !user ? '' : {
     children: user.children,
+    wants_children: user.wants_children,
     pets: user.pets,
     icon: 'fas fa-home'
   };
@@ -85,7 +89,6 @@ const Profile = props => {
     };
     checkIsUser()
     setTitle();
-    // props.test();
     return (() => {
     });
   });
@@ -111,15 +114,24 @@ const Profile = props => {
     }
   };
 
+  const anyTrueValues = object => {
+    for (let key in object) {
+      if (object[key]) return true;
+    }
+    return false;
+  };
+
   const displayAttributes = section => {
     switch(section){
       case 'Basics':
         return true;
       case 'Pronouns':
-        return pronouns.pronouns === 'Pronouns' ? false : true;
+        // return pronouns.pronouns ? true : false;
+        // console.log(pronouns)
+        return true;
       case 'Looks':
-        const looksDefaults = [`Height`, 'Body type'];
-        return checkDefaults(looksDefaults, looks);
+        // console.log(looks)
+        // return true;
       case 'Background':
         const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
         let bgDisplay = false;
@@ -129,6 +141,10 @@ const Profile = props => {
           if(key !== 'icon'){
             if(Array.isArray(bgVal)){
               if(bgVal.length) bgDisplay = true;
+            }else if(typeof bgVal === 'object'){
+              if(anyTrueValues(bgVal)){
+                bgDisplay = true;
+              }
             }else{
               if(bgDefaults.indexOf(bgVal) < 0) bgDisplay = true;
             }

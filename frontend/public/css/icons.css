@@ -10,6 +10,9 @@
 .jc-space-between{
   justify-content: space-between;
 }
+.jc-space-evenly{
+  justify-content: space-evenly;
+}
 .input-spacing{
   margin-left: 10px;
 }
