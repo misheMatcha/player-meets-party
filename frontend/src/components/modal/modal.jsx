@@ -1,7 +1,7 @@
 import React from 'react';
 import LoginForm from '../session/login_form_container';
 import Boost from '../boost/boost_container';
-import AttributesForm from '../profile/attributes_form_container';
+import AttributesForm from '../attribute_form/attributes_form_container';
 import BackgroundForm from '../attribute_form/background_form/background_form_container';
 import BasicsForm from '../attribute_form/basics_form/basics_form_container';
 
@@ -26,7 +26,7 @@ const Modal = props => {
       component = <AttributesForm currentId={localStorage.currentId} formType='Looks' />;
       break;
     case 'Background':
-      component = <BackgroundForm formType='Background' />;
+      component = <AttributesForm currentId={localStorage.currentId} formType='Background' />;
       break;
     case 'Lifestyle':
       component = <AttributesForm currentId={localStorage.currentId} formType='Lifestyle' />;

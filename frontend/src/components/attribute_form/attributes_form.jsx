@@ -3,52 +3,6 @@ import { closeModal } from '../../actions/modal_actions';
 import { has5options } from '../../util/general_util';
 
 const AttributesForm = props => {
-  const [straight, setStraight] = useState(props.user.orientation['Straight']);
-  const [gay, setGay] = useState(props.user.orientation['Gay']);
-  const [bisexual, setBisexual] = useState(props.user.orientation['Bisexual']);
-  const [lesbian, setLesbian] = useState(props.user.orientation['Lesbian']);
-  const [queer, setQueer] = useState(props.user.orientation['Queer']);
-  const [pansexual, setPansexual] = useState(props.user.orientation['Pansexual']);
-  const [questioning, setQuestioning] = useState(props.user.orientation['Questioning']);
-  const [heteroflexible, setHeteroflexible] = useState(props.user.orientation['Heteroflexible']);
-  const [homoflexible, setHomoflexible] = useState(props.user.orientation['Homoflexible']);
-  const [asexual, setAsexual] = useState(props.user.orientation['Asexual']);
-  const [grayAsexual, setGrayAsexual] = useState(props.user.orientation['Gray-asexual']);
-  const [demisexual, setDemisexual] = useState(props.user.orientation['Demisexual']);
-  const [reciprosexual, setReciprosexual] = useState(props.user.orientation['Reciprosexual']);
-  const [akiosexual, setAkiosexual] = useState(props.user.orientation['Akiosexual']);
-  const [aceflux, setAceflux] = useState(props.user.orientation['Aceflux']);
-  const [grayromantic, setGrayromantic] = useState(props.user.orientation['Grayromantic']);
-  const [demiromantic, setDemiromantic] = useState(props.user.orientation['Demiromantic']);
-  const [recipromantic, setRecipromantic] = useState(props.user.orientation['Recipromantic']);
-  const [akioromantic, setAkioromantic] = useState(props.user.orientation['Akioromantic']);
-  const [aroflux, setAroflux] = useState(props.user.orientation['Aroflux']);
-  let orientation = [straight, gay, bisexual, lesbian, queer, pansexual, questioning, heteroflexible, homoflexible, asexual, grayAsexual, demisexual, reciprosexual, akiosexual, aceflux, grayromantic, demiromantic, recipromantic, akioromantic, aroflux];
-  const [woman, setWoman] = useState(props.user.gender['Woman']);
-  const [man, setMan] = useState(props.user.gender['Man']);
-  const [agender, setAgender] = useState(props.user.gender['Agender']);
-  const [androgynous, setAndrogynous] = useState(props.user.gender['Androgynous']);
-  const [bigender, setBigender] = useState(props.user.gender['Bigender']);
-  const [cisMan, setCisMan] = useState(props.user.gender['Cis Man']);
-  const [cisWoman, setCisWoman] = useState(props.user.gender['Cis Woman']);
-  const [genderfluid, setGenderfluid] = useState(props.user.gender['Genderfluid']);
-  const [genderqueer, setGenderqueer] = useState(props.user.gender['Genderqueer']);
-  const [genderNonconforming, setGenderNonconforming] = useState(props.user.gender['Gender Nonconforming']);
-  const [hijira, setHijira] = useState(props.user.gender['Hijira']);
-  const [intersex, setIntersex] = useState(props.user.gender['Intersex']);
-  const [nonBinary, setNonBinary] = useState(props.user.gender['Non-binary']);
-  const [otherGender, setOtherGender] = useState(props.user.gender['Other']);
-  const [pangender, setPangender] = useState(props.user.gender['Pangender']);
-  const [transfeminine, setTransfeminine] = useState(props.user.gender['Transfeminine']);
-  const [transgender, setTransgender] = useState(props.user.gender['Transgender']);
-  const [transmasculine, setTransmasculine] = useState(props.user.gender['Transmasculine']);
-  const [transsexual, setTranssexual] = useState(props.user.gender['Transsexual']);
-  const [transMan, setTransMan] = useState(props.user.gender['Trans Man']);
-  const [transWoman, setTransWoman] = useState(props.user.gender['Trans Woman']);
-  const [twoSpirit, setTwoSpirit] = useState(props.user.gender['Two Spirit']);
-  let gender = [woman, man, agender, androgynous, bigender, cisMan, cisWoman, genderfluid, genderqueer, genderNonconforming, hijira, intersex, nonBinary, otherGender, pangender, transfeminine, transgender, transmasculine, transsexual, transMan, transWoman, twoSpirit];
-  const [relationship_status, setRelationship_status] = useState(props.user.relationship_status);
-  const [relationship_type, setRelationship_type] = useState(props.user.relationship_type);
   const [pronouns, setPronouns ] = useState(props.user.pronouns);
   const [heightFt, setHeightFt] = useState(props.user.height.slice(0, 2));
   const [heightIn, setHeightIn] = useState(props.user.height.slice(2));
@@ -103,221 +57,6 @@ const AttributesForm = props => {
 
   const handleUpdate = (event, field) => {
     switch(field){
-      case 'Straight':
-        console.log(field)
-
-        // if(has5options(orientation)){
-        //   setStraight(!straight);
-        // }
-        break;
-      case 'Gay':
-        if(!has5options(orientation)){
-          setGay(!gay);
-        }
-        break;
-      case 'Bisexual':
-        if(!has5options(orientation)){
-          setBisexual(!bisexual);
-        }
-        break;
-      case 'Lesbian':
-        if(!has5options(orientation)){
-          setLesbian(!lesbian);
-        }
-        break;
-      case 'Queer':
-        if(!has5options(orientation)){
-          setQueer(!queer);
-        }
-        break;
-      case 'Pansexual':
-        if(!has5options(orientation)){
-          setPansexual(!pansexual);
-        }
-        break;
-      case 'Questioning':
-        if(!has5options(orientation)){
-          setQuestioning(!questioning);
-        }
-        break;
-      case 'Heteroflexible':
-        if(!has5options(orientation)){
-          setHeteroflexible(!heteroflexible);
-        }
-        break;
-      case 'Homoflexible':
-        if(!has5options(orientation)){
-          setHomoflexible(!homoflexible);
-        }
-        break;
-      case 'Asexual':
-        if(!has5options(orientation)){
-          setAsexual(!asexual);
-        }
-        break;
-      case 'Gray-asexual':
-        if(!has5options(orientation)){
-          setGrayAsexual(!grayAsexual);
-        }
-        break;
-      case 'Demisexual':
-        if(!has5options(orientation)){
-          setDemisexual(!demisexual);
-        }
-        break;
-      case 'Reciprosexual':
-        if(!has5options(orientation)){
-          setReciprosexual(!reciprosexual);
-        }
-        break;
-      case 'Akiosexual':
-        if(!has5options(orientation)){
-          setAkiosexual(!akiosexual);
-        }
-        break;
-      case 'Aceflux':
-        if(!has5options(orientation)){
-          setAceflux(!aceflux);
-        }
-        break;
-      case 'Grayromantic':
-        if(!has5options(orientation)){
-          setGrayromantic(!grayromantic);
-        }
-        break;
-      case 'Demiromantic':
-        if(!has5options(orientation)){
-          setDemiromantic(!demiromantic);
-        }
-        break;
-      case 'Recipromantic':
-        if(!has5options(orientation)){
-          setRecipromantic(!recipromantic);
-        }
-        break;
-      case 'Akioromantic':
-        if(!has5options(orientation)){
-          setAkioromantic(!akioromantic);
-        }
-        break;
-      case 'Aroflux':
-        if(!has5options(orientation)){
-          setAroflux(!aroflux);
-        }
-        break;
-      case 'Woman':
-        if(!has5options(gender)){
-          setWoman(!woman);
-        }
-        break;
-      case 'Man':
-        if(!has5options(gender)){
-          setMan(!man);
-        }
-        break;
-      case 'Agender':
-        if(!has5options(gender)){
-          setAgender(!agender);
-        }
-        break;
-      case 'Androgynous':
-        if(!has5options(gender)){
-          setAndrogynous(!androgynous);
-        }
-        break;
-      case 'Bigender':
-        if(!has5options(gender)){
-          setBigender(!bigender);
-        }
-        break;
-      case 'Cis Man':
-        if(!has5options(gender)){
-          setCisMan(!cisMan);
-        }
-        break;
-      case 'Cis Woman':
-        if(!has5options(gender)){
-          setCisWoman(!cisWoman);
-        }
-        break;
-      case 'Genderfluid':
-        if(!has5options(gender)){
-          setGenderfluid(!genderfluid);
-        }
-        break;
-      case 'Genderqueer':
-        if(!has5options(gender)){
-          setGenderqueer(!genderqueer);
-        }
-        break;
-      case 'Gender Nonconforming':
-        if(!has5options(gender)){
-          setGenderNonconforming(!genderNonconforming);
-        }
-        break;
-      case 'Hijira':
-        if(!has5options(gender)){
-          setHijira(!hijira);
-        }
-        break;
-      case 'Intersex':
-        if(!has5options(gender)){
-          setIntersex(!intersex);
-        }
-        break;
-      case 'Non-binary':
-        if(!has5options(gender)){
-          setNonBinary(!nonBinary);
-        }
-        break;
-      case 'Other':
-        if(!has5options(gender)){
-          setOtherGender(!otherGender);
-        }
-        break;
-      case 'Pangender':
-        if(!has5options(gender)){
-          setPangender(!pangender);
-        }
-        break;
-      case 'Transfeminine':
-        if(!has5options(gender)){
-          setTransfeminine(!transfeminine);
-        }
-        break;
-      case 'Transgender':
-        if(!has5options(gender)){
-          setTransgender(!transgender);
-        }
-        break;
-      case 'Transmasculine':
-        if(!has5options(gender)){
-          setTransmasculine(!transmasculine);
-        }
-        break;
-      case 'Transsexual':
-        if(!has5options(gender)){
-          setTranssexual(!transsexual);
-        }
-        break;
-      case 'Trans Man':
-        if(!has5options(gender)){
-          setTransMan(!transMan);
-        }
-        break;
-      case 'Trans Woman':
-        if(!has5options(gender)){
-          setTransWoman(!transWoman);
-        }
-        break;
-      case 'Two Spirit':
-        if(!has5options(gender)){
-          setTwoSpirit(!twoSpirit);
-        }
-        break;
-      case 'relationship_type':
-        setRelationship_type(event.target.value);
-        break;
       case 'pronouns':
         setPronouns(event.target.value);
         break;
@@ -481,56 +220,6 @@ const AttributesForm = props => {
     };
 
     switch (formType) {
-      case 'Basics':
-        modifiedUser.orientation = {
-          'Straight': straight,
-          'Gay': gay,
-          'Bisexual': bisexual,
-          'Lesbian': lesbian,
-          'Queer': queer,
-          'Pansexual': pansexual,
-          'Questioning': questioning,
-          'Heteroflexible': heteroflexible,
-          'Homoflexible': homoflexible,
-          'Asexual': asexual,
-          'Gray-asexual': grayAsexual,
-          'Demisexual': demisexual,
-          'Reciprosexual': reciprosexual,
-          'Akiosexual': akiosexual,
-          'Aceflux': aceflux,
-          'Grayromantic': grayromantic,
-          'Demiromantic': demiromantic,
-          'Recipromantic': recipromantic,
-          'Akioromantic': akioromantic,
-          'Aroflux': aroflux
-        };
-        modifiedUser.gender = {
-          'Woman': woman,
-          'Man': man,
-          'Agender': agender,
-          'Androgynous': androgynous,
-          'Bigender': bigender,
-          'Cis Man': cisMan,
-          'Cis Woman': cisWoman,
-          'Genderfluid': genderfluid,
-          'Genderqueer': genderqueer,
-          'Gender Nonconforming': genderNonconforming,
-          'Hijira': hijira,
-          'Intersex': intersex,
-          'Non-binary': nonBinary,
-          'Other': otherGender,
-          'Pangender': pangender,
-          'Transfeminine': transfeminine,
-          'Transgender': transgender,
-          'Transmasculine': transmasculine,
-          'Transsexual': transsexual,
-          'Trans Man': transMan,
-          'Trans Woman': transWoman,
-          'Two Spirit': twoSpirit
-        };
-        modifiedUser.relationship_status = relationship_status;
-        modifiedUser.relationship_type = relationship_type;
-        break;
       case 'Pronouns':
         modifiedUser.pronouns = pronouns;
         break;
@@ -585,15 +274,12 @@ const AttributesForm = props => {
       default:
         break;
     }
-    // console.log(modifiedUser)
 
     props.updateUser(modifiedUser).then(() => props.closeModal());
   };
 
   const whichForm = formType => {
     switch (formType) {
-      case 'Basics':
-        return basicsContent;
       case 'Pronouns':
         return pronounsContent;
       case 'Looks':
@@ -610,24 +296,6 @@ const AttributesForm = props => {
         break;
     }
   };
-
-  const basicsContent = <>
-    <div className=''>
-      <div className=''>
-        <p className='attribute-form-section-title'>I am a...</p>
-        <div className=''>
-          <div className=''>
-            <p className='' style={{marginBottom: '10px'}}>Select up to 5</p>
-            <div className='form-section-tags-container'>
-              <label className='form-section-tag'>Straight
-                <input value={straight} onChange={event => handleUpdate(event, 'Straight')}/>
-              </label>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </>
 
   const pronounsContent = <>
     <div className='attribute-form-section'>
