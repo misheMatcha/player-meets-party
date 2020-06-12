@@ -357,7 +357,6 @@ const BasicsForm = props => {
                 <div className='selectlist'>
                   <div className='select'>
                     <select value={relationship_type} onChange={event => handleChange(event.target.value, 'relationship_type')}>
-                      <option value=''>—</option>
                       <option value="Monogamous">Monogamous</option>
                       <option value="Non-monogamous">Non-monogamous</option>
                       <option value="Open to either">Open to either</option>
@@ -382,7 +381,6 @@ const BasicsForm = props => {
                     <div className='selectlist'>
                       <div className='select'>
                         <select value={relationship_status} onChange={event => handleChange(event.target.value, 'relationship_status')}>
-                          <option value=''>—</option>
                           <option value="Single">Single</option>
                           <option value="Partnered">Partnered</option>
                           <option value="Married">Married</option>

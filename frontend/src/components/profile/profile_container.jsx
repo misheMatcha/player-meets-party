@@ -1,5 +1,5 @@
 import { connect } from 'react-redux';
-import { requestUser } from '../../actions/user_actions';
+import { requestUser, editUser } from '../../actions/user_actions';
 import { openModal } from '../../actions/modal_actions';
 import Profile from './profile';
 
@@ -11,7 +11,8 @@ const mSTP = state => ({
 const mDTP = dispatch => ({
   fetchUser: user_id => dispatch(requestUser(user_id)),
   basicsForm: () => dispatch(openModal('basics')),
-  pronounsForm: () => dispatch(openModal('pronouns'))
+  pronounsForm: () => dispatch(openModal('pronouns')),
+  editUser: user => dispatch(editUser(user))
 });
 
 export default connect(mSTP, mDTP)(Profile);

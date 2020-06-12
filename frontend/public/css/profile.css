@@ -375,3 +375,11 @@
           color: #aeb4bf;
           margin-top: 8px;
         }
+
+/* USER QUESTIONS COMPONENT */
+.essay-write-button{
+  cursor: pointer;
+}
+.essay-placeholder{
+  color: #aeb4bf;
+}

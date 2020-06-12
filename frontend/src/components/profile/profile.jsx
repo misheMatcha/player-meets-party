@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom'
-import { calculateAge, checkDefaults } from '../../util/general_util';
+import { calculateAge, checkDefaults, displayAttribute, anyTrueValues } from '../../util/general_util';
 import { ABOUTME_SECTIONS, PROFILE_QUESTIONS, ATTRIBUTES_SECTIONS } from './profile_options';
 import MatchQuestionSection from './match_question_section.jsx';
 import UserQuestionSection from './user_question_section.jsx';
@@ -126,37 +126,15 @@ const Profile = props => {
       case 'Basics':
         return true;
       case 'Pronouns':
-        // return pronouns.pronouns ? true : false;
-        // console.log(pronouns)
-        return true;
+        return displayAttribute(pronouns, anyTrueValues);
       case 'Looks':
-        // console.log(looks)
-        // return true;
+        return displayAttribute(looks, anyTrueValues);
       case 'Background':
-        const bgDefaults = ['Politics', 'Education', 'Occupation', 'Religion', 'Sign'];
-        let bgDisplay = false;
-        for(const key in background){
-          let bgVal = background[key];
-
-          if(key !== 'icon'){
-            if(Array.isArray(bgVal)){
-              if(bgVal.length) bgDisplay = true;
-            }else if(typeof bgVal === 'object'){
-              if(anyTrueValues(bgVal)){
-                bgDisplay = true;
-              }
-            }else{
-              if(bgDefaults.indexOf(bgVal) < 0) bgDisplay = true;
-            }
-          }
-        }
-        return bgDisplay ? true : false;
+        return displayAttribute(background, anyTrueValues);
       case 'Lifestyle':
-        const lsDefaults = ['Smoking', 'Drinking', 'Marijuana', 'Diet'];
-        return checkDefaults(lsDefaults, lifestyle);
+        return displayAttribute(lifestyle, anyTrueValues);
       case 'Family':
-        const famDefaults = ['Children', 'Pets'];
-        return checkDefaults(famDefaults, family);
+        return displayAttribute(family, anyTrueValues);
       case 'I am looking for':
         return true;
       default:
@@ -232,9 +210,9 @@ const Profile = props => {
                 <div className='match-profile-questions-container'>
                   {
                     ABOUTME_SECTIONS.map((section, idx) => {
-                      let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
-                      let essayAnswer = profile_essay_answers[idx];
-                      return essayAnswer !== '' ? <MatchQuestionSection key={idx} section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} /> : ''
+                      let mQuestion = profile_essay_questions[idx];
+                      let mAnswer = profile_essay_answers[idx];
+                      if(mAnswer) return <MatchQuestionSection key={idx} section={section} question={mQuestion} answer={mAnswer} />
                     })
                   }
                 </div>
@@ -286,9 +264,10 @@ const Profile = props => {
                 <div className='questions-section-wrap'>
                   {
                     ABOUTME_SECTIONS.map((section, idx) => {
-                      let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
-                      let essayAnswer = profile_essay_answers[idx];
-                      return <UserQuestionSection key={idx} section={section} essayList={PROFILE_QUESTIONS[idx]} essayQuestion={essayQuestion} essayAnswer={essayAnswer} />
+                      let question = profile_essay_questions[idx];
+                      let answer = profile_essay_answers[idx];
+                      let questionPlaceholderIdx = PROFILE_QUESTIONS[section].indexOf(question);
+                      return <UserQuestionSection key={idx} section={section} sectionIdx={idx} essayIdx={questionPlaceholderIdx} defaultQuestion={question} defaultAnswer={answer} />
                     })
                   }
                 </div>
