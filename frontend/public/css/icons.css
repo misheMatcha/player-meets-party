@@ -171,3 +171,13 @@
     display: flex;
     justify-content: center;
   }
+
+/* essay form */
+/* camera */
+.essay-form-answer-camera{
+  height: 30px;
+  display: flex;
+  justify-content: flex-end;
+  align-items: flex-end;
+}
+  .essay-form-answer-camera i{}

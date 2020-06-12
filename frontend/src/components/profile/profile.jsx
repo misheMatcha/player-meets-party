@@ -288,7 +288,7 @@ const Profile = props => {
                       let question = profile_essay_questions[idx];
                       let answer = profile_essay_answers[idx];
                       let questionPlaceholderIdx = PROFILE_QUESTIONS[section].indexOf(question);
-                      return <UserQuestionSection key={idx} section={section} essayIdx={questionPlaceholderIdx} defaultQuestion={question} defaultAnswer={answer} />
+                      return <UserQuestionSection key={idx} section={section} sectionIdx={idx} essayIdx={questionPlaceholderIdx} defaultQuestion={question} defaultAnswer={answer} />
                     })
                   }
                 </div>

@@ -1,0 +1,72 @@
+.modal-background {
+  position: fixed;
+  top: 0;
+  bottom: 0;
+  right: 0;
+  left: 0;
+  background: rgba(0, 0, 0, 0.7);
+  z-index: 10;
+}
+
+.modal-child-ef-aboutme {
+  position: absolute;
+  top: 33.4%;
+  left: 36%;
+  transform: translate(-50%, -50%);
+}
+
+.essay-form{
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  color: #1e1e1e;
+}
+  .essay-form-header{
+    background-color: white;
+    width: 500px;
+    padding: 20px;
+  }
+    .essay-form-header-title{
+      color: #9d9dab;
+      margin-bottom: 8px;
+      font-weight: 700;
+      letter-spacing: 1px;
+    }
+    .essay-form-header-question{
+      /* font-size: 18px;
+      font-weight: 600;
+      letter-spacing: .3px; */
+      color: #1e1e1e;
+      font-size: 18px;
+      font-weight: 500;
+      /* margin-bottom: 8px; */
+    }
+
+  .essay-form-answer{
+    background-color: white;
+    width: 500px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+  }
+    .essay-form-answer textarea{}
+
+  .essay-form-buttons{
+    padding: 12px;
+    display: flex;
+    justify-content: flex-end;
+  }
+    .essay-form-buttons button{
+      color: white;
+      padding: 10px 25px;
+      font-weight: 500;
+      font-size: 17px;
+      border-radius: 3px;
+      letter-spacing: 1px;
+    }
+      .essay-form-buttons-cancel{
+        background-color: #9392ab;
+      }
+      .essay-form-buttons-save{
+        margin-left: 10px;
+        background-color: #0500be;
+      }
