@@ -212,7 +212,7 @@ const Profile = props => {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let mQuestion = profile_essay_questions[idx];
                       let mAnswer = profile_essay_answers[idx];
-                      return <MatchQuestionSection key={idx} section={section} question={mQuestion} answer={mAnswer} />
+                      if(mAnswer) return <MatchQuestionSection key={idx} section={section} question={mQuestion} answer={mAnswer} />
                     })
                   }
                 </div>
