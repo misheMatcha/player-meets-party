@@ -49,7 +49,6 @@
       }
         /* undo icon */
         .doubletake-userlist-undo i{
-          /* color: blueviolet; */
         }
       .doubletake-userlist-photos{
         margin-left: 25px;
@@ -58,4 +57,7 @@
         .doubletake-userlist img{
           height: 52.2px;
           width: 52.2px;
+          border: 2px solid transparent;
+          border-radius: 50%;
+          margin-right: 10px;
         }
