@@ -380,3 +380,6 @@
 .essay-write-button{
   cursor: pointer;
 }
+.essay-placeholder{
+  color: #aeb4bf;
+}

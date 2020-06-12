@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 const EssayForm = props => {
+  useEffect(() => {
+    console.log(props)
+  });
   return <>
-    essayyyyy
+    <div className=''>
+      <div className=''>
+        <p>{props.formType}</p>
+        <p></p>
+      </div>
+    </div>
   </>
 };
 

@@ -276,11 +276,11 @@ const UserSchema = new Schema({
   },
   profile_essay_questions: {
     type: Array,
-    default: [0, 0, 0, 0, 0, 0, 0, 0, 0]
+    default: ['My self-summary', 'Current goal', 'I could probably beat you at', 'My golden rule', 'I value', 'The last show I binged', 'A perfect day', "The most private thing I'm willing to admit", "What I'm actually looking for"]
   },
   profile_essay_answers: {
     type: Array,
-    default: [``, ``, ``, ``, ``, ``, ``, ``, ``]
+    default: ['', '', '', '', '', '', '', '', '']
   },
   liked: {
     type: Array

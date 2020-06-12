@@ -1,8 +1,13 @@
-import React, { useEffect } from 'react';
+import React, { useEffect, useState } from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
+import { PROFILE_QUESTIONS, PROFILE_QUESTIONS_PLACEHOLDERS } from './profile_options';
 
-export const UserQuestionSection = ({section, essayList, essayQuestion, essayAnswer, aboutMe, aspirations, talent, myTraits, needs, hobbies, moments, secrets, dating}) => {
+export const UserQuestionSection = ({section, sectionIdx, essayIdx, defaultQuestion, defaultAnswer, aboutMe, aspirations, talent, myTraits, needs, hobbies, moments, secrets, dating}) => {
+  const [question, setQuestion] = useState(defaultQuestion)
+  const placeholder = PROFILE_QUESTIONS_PLACEHOLDERS[section][essayIdx];
+  const [answer, setAnswer] = useState(defaultAnswer)
+
   useEffect(() => {
   });
 
@@ -45,12 +50,12 @@ export const UserQuestionSection = ({section, essayList, essayQuestion, essayAns
       <div className='user-profile-section-header'>
         <div className='user-profile-section-header-wrap'>
           <p className='match-profile-section-header-title'>{section}</p>
-          <p className='user-profile-section-header-question'>{essayQuestion}</p>
+          <p className='user-profile-section-header-question'>{question}</p>
         </div>
         <i className='fas fa-chevron-down'/>
       </div>
-      <div className='user-profile-section-answer'>
-        {essayAnswer}
+      <div className='user-profile-section-answer' style={{color: !answer ? '#aeb4bf' : ''}}>
+        {!answer ? placeholder : answer}
         <span className='essay-write-button' onClick={() => dispatchCorrectForm(section)}>
           <i className='fas fa-pencil-alt'/> WRITE
         </span>
@@ -59,7 +64,8 @@ export const UserQuestionSection = ({section, essayList, essayQuestion, essayAns
   </>
 };
 
-const mSTP = state => ({});
+const mSTP = state => ({
+});
 
 const mDTP = dispatch => ({
   aboutMe: () => dispatch(openModal('ABOUT ME')),

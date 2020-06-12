@@ -232,9 +232,8 @@ const Profile = props => {
                 <div className='match-profile-questions-container'>
                   {
                     ABOUTME_SECTIONS.map((section, idx) => {
-                      let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
-                      let essayAnswer = profile_essay_answers[idx];
-                      return essayAnswer !== '' ? <MatchQuestionSection key={idx} section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} /> : ''
+                      // refactor to display only questions that have answers
+                      // <MatchQuestionSection key={idx} section={section} essayQuestion={essayQuestion} essayAnswer={essayAnswer} />
                     })
                   }
                 </div>
@@ -286,9 +285,10 @@ const Profile = props => {
                 <div className='questions-section-wrap'>
                   {
                     ABOUTME_SECTIONS.map((section, idx) => {
-                      let essayQuestion = PROFILE_QUESTIONS[idx][profile_essay_questions[idx]];
-                      let essayAnswer = profile_essay_answers[idx];
-                      return <UserQuestionSection key={idx} section={section} essayList={PROFILE_QUESTIONS[idx]} essayQuestion={essayQuestion} essayAnswer={essayAnswer} />
+                      let question = profile_essay_questions[idx];
+                      let answer = profile_essay_answers[idx];
+                      let questionPlaceholderIdx = PROFILE_QUESTIONS[section].indexOf(question);
+                      return <UserQuestionSection key={idx} section={section} essayIdx={questionPlaceholderIdx} defaultQuestion={question} defaultAnswer={answer} />
                     })
                   }
                 </div>
