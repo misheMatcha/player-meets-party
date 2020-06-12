@@ -6,12 +6,10 @@ import { PROFILE_QUESTIONS, PROFILE_QUESTIONS_PLACEHOLDERS } from './profile_opt
 export const UserQuestionSection = ({answers, section, sectionIdx, essayIdx, defaultQuestion, defaultAnswer, aboutMe, aspirations, talent, myTraits, needs, hobbies, moments, secrets, dating}) => {
   const [question, setQuestion] = useState(defaultQuestion)
   const placeholder = PROFILE_QUESTIONS_PLACEHOLDERS[section][essayIdx];
-  // const [answer, setAnswer] = useState(defaultAnswer)
   const answerIdx = PROFILE_QUESTIONS[section].indexOf(question)
   const answer = answers[sectionIdx];
 
   useEffect(() => {
-    console.log(answer)
   });
 
   const dispatchCorrectForm = section => {

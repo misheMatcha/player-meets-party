@@ -180,4 +180,22 @@
   justify-content: flex-end;
   align-items: flex-end;
 }
-  .essay-form-answer-camera i{}
+  .essay-form-answer-camera i{
+    font-size: 21px;
+    padding: 10px;
+  }
+  .essay-form-answer-camera i:hover{
+    animation: bounce 1s;
+  }
+
+@keyframes bounce {
+  0% {
+    margin-bottom: 0px;
+  }
+  50% {
+    margin-bottom: 7px;
+  }
+  100% {
+    margin-bottom: 0px;
+  }
+};
