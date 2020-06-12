@@ -1,3 +1,8 @@
+.sticky{
+  position: sticky;
+  top: 0;
+  width: 100%;
+}
 .navbar-container{
   font-family: 'IBM Plex Sans', sans-serif;
   font-size: 14px;
