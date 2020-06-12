@@ -67,3 +67,20 @@ export const checkTagCount = list => {
   })
   return count;
 };
+
+// check if any there are any user entered values to be displayed
+export const displayAttribute = (attributes, objChecker) => {
+  for(let attributeName in attributes){
+    let attribute = attributes[attributeName];
+    if(attributeName !== 'icon'){
+      if(typeof attribute === 'string' && attribute.length){
+        return true
+      }else if(Array.isArray(attribute) && attribute.length){
+        if(attribute.some(att => att !== '')) return true;
+      }else{
+        if(objChecker(attribute)) return true;
+      }
+    }
+  }
+  return false;
+};
