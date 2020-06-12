@@ -3,12 +3,15 @@ import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
 import { PROFILE_QUESTIONS, PROFILE_QUESTIONS_PLACEHOLDERS } from './profile_options';
 
-export const UserQuestionSection = ({section, sectionIdx, essayIdx, defaultQuestion, defaultAnswer, aboutMe, aspirations, talent, myTraits, needs, hobbies, moments, secrets, dating}) => {
+export const UserQuestionSection = ({answers, section, sectionIdx, essayIdx, defaultQuestion, defaultAnswer, aboutMe, aspirations, talent, myTraits, needs, hobbies, moments, secrets, dating}) => {
   const [question, setQuestion] = useState(defaultQuestion)
   const placeholder = PROFILE_QUESTIONS_PLACEHOLDERS[section][essayIdx];
-  const [answer, setAnswer] = useState(defaultAnswer)
+  // const [answer, setAnswer] = useState(defaultAnswer)
+  const answerIdx = PROFILE_QUESTIONS[section].indexOf(question)
+  const answer = answers[sectionIdx];
 
   useEffect(() => {
+    console.log(answer)
   });
 
   const dispatchCorrectForm = section => {
@@ -65,6 +68,7 @@ export const UserQuestionSection = ({section, sectionIdx, essayIdx, defaultQuest
 };
 
 const mSTP = state => ({
+  answers: state.entities.users.user.profile_essay_answers
 });
 
 const mDTP = dispatch => ({

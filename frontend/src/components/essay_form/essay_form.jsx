@@ -8,8 +8,8 @@ const EssayForm = props => {
   const updatedAnswers = props.user.profile_essay_answers;
   const placeholderIdx = PROFILE_QUESTIONS[props.formType].indexOf(question);
   const placeholder = PROFILE_QUESTIONS_PLACEHOLDERS[props.formType][placeholderIdx];
+
   useEffect(() => {
-    console.log(placeholder)
   });
 
   const handleChange = event => {
