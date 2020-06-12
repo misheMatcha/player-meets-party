@@ -24,12 +24,12 @@
 }
   .doubletake{
     width: 940px;
-    border: 1px solid blueviolet;
+    /* border: 1px solid blueviolet; */
   }
     .doubletake-userlist{
       color: white;
       display: flex;
-      padding-top: 20px;
+      padding: 20px 0;
     }
       .doubletake-userlist-undo{
         margin-left: -77px;
@@ -53,11 +53,21 @@
       .doubletake-userlist-photos{
         margin-left: 25px;
         display: flex;
+        width: 940px;
       }
-        .doubletake-userlist img{
-          height: 52.2px;
-          width: 52.2px;
-          border: 2px solid transparent;
-          border-radius: 50%;
-          margin-right: 10px;
+        .doubletake-userlist-photos a{
+          margin-right: 44.5px;
         }
+          .doubletake-userlist img{
+            height: 54px;
+            width: 54px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+          }
+
+    .doubletake-match-preview{
+      height: 442px;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 0 rgba(0,0,0,.14);
+    }
