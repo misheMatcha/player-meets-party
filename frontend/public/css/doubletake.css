@@ -1,0 +1,73 @@
+.doubletake-container{
+  display: flex;
+  justify-content: center;
+  height: 100%;
+  flex-flow: nowrap;
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 17px;
+  color: #2a2f35;
+}
+.doubletake-container .doubletake-bg, .doubletake-container .doubletake-content{
+  box-sizing: border-box;
+  width: 100%;
+  flex: none;
+}
+.doubletake-container .doubletake-bg{}
+  .doubletake-bg-header{
+    height: 182px;
+    background-color: #1a1a1a;
+  }
+.doubletake-container .doubletake-content{
+  margin-left: -100%;
+  display: flex;
+  justify-content: center;
+}
+  .doubletake{
+    width: 940px;
+    /* border: 1px solid blueviolet; */
+  }
+    .doubletake-userlist{
+      color: white;
+      display: flex;
+      padding: 20px 0;
+    }
+      .doubletake-userlist-undo{
+        margin-left: -77px;
+        height: 52.2px;
+        width: 52.2px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border: 2px solid #1a1a1a;
+        border-radius: 50%;
+        transition: 1s;
+        color: #1a1a1a;
+      }
+      .doubletake-userlist-undo:hover{
+        border: 2px solid white;
+        color: white;
+      }
+        /* undo icon */
+        .doubletake-userlist-undo i{
+        }
+      .doubletake-userlist-photos{
+        margin-left: 25px;
+        display: flex;
+        width: 940px;
+      }
+        .doubletake-userlist-photos a{
+          margin-right: 44.5px;
+        }
+          .doubletake-userlist img{
+            height: 54px;
+            width: 54px;
+            border: 2px solid transparent;
+            border-radius: 50%;
+          }
+
+    .doubletake-match-preview{
+      height: 442px;
+      background-color: white;
+      border-radius: 4px;
+      box-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 0 rgba(0,0,0,.14);
+    }

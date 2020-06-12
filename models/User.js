@@ -188,7 +188,7 @@ const UserSchema = new Schema({
   platforms: {
     type: Array,
   },
-  pref_: {
+  pref_orientation: {
     type: Object,
     default: {
       'Straight': false,

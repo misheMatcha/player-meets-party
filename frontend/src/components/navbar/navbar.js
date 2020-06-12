@@ -35,7 +35,7 @@ const Navbar = props => {
   };
 
   return(
-    <div className='navbar-container'>
+    <div className='navbar-container sticky'>
       <div className='navbar'>
         <div className='navbar-content'>
           <p className='navbar-content-logo'>PMP</p>
