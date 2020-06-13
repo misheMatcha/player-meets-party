@@ -1,9 +1,6 @@
 import React, { useEffect, useState } from 'react';
 
 const ComingSoon = props => {
-  useEffect(() => {
-  });
-
   const calculateTimeLeft = date => {
     const difference = new Date(date) - new Date();
     let timeLeft = {};
@@ -21,24 +18,32 @@ const ComingSoon = props => {
   };
   const [timeLeft, setTimeLeft] = useState(calculateTimeLeft('12-02-2020'));
 
-  return <div className='coming-soon'>
-    <p>We can't wait for you to see this feature!</p>
-    <div className='coming-soon-countdown'>
-      <div className='coming-soon-countdown-times'>
-        <p>{timeLeft.days}</p>
-        <p>days</p>
-      </div>
-      <div className='coming-soon-countdown-times'>
-        <p>{timeLeft.hours}</p>
-        <p>hrs</p>
-      </div>
-      <div className='coming-soon-countdown-times'>
-        <p>{timeLeft.minutes}</p>
-        <p>min</p>
-      </div>
-      <div className='coming-soon-countdown-times'>
-        <p>{timeLeft.seconds}</p>
-        <p>sec</p>
+  useEffect(() => {
+    setTimeout(() => {
+      setTimeLeft(calculateTimeLeft('12-02-2020'));
+    }, 1000);
+  });
+  
+  return <div className='coming-soon-container'>
+    <div className='coming-soon'>
+      <p>We can't wait for you to see this feature!</p>
+      <div className='coming-soon-countdown'>
+        <div className='coming-soon-countdown-times'>
+          <p>{timeLeft.days}</p>
+          <p className='times-increment'>days</p>
+        </div>
+        <div className='coming-soon-countdown-times'>
+          <p>{timeLeft.hours}</p>
+          <p className='times-increment'>hrs</p>
+        </div>
+        <div className='coming-soon-countdown-times'>
+          <p>{timeLeft.minutes}</p>
+          <p className='times-increment'>min</p>
+        </div>
+        <div className='coming-soon-countdown-times'>
+          <p>{timeLeft.seconds}</p>
+          <p className='times-increment'>sec</p>
+        </div>
       </div>
     </div>
   </div>
