@@ -58,38 +58,46 @@
   /* coming soon */
   .coming-soon-container{
     font-family: 'IBM Plex Sans', sans-serif;
-    font-size: 72px;
+    font-size: 50px;
     display: flex;
     height: 100%;
     align-items: center;
-    color: rgba(128, 128, 128, 0.377);
+    color: white;
     font-weight: 600;
-    letter-spacing: 1px;
     flex-direction: column;
+    background-image: url('https://chillabit-pro.s3-us-west-1.amazonaws.com/comingsoon-dinner.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    text-align: center;
   }
     .coming-soon{
-      margin-top: 10%;
       display: flex;
       flex-direction: column;
-      justify-content: center;
       align-items: center;
     }
+      .coming-soon-header{
+        padding: 40px 0;
+      }
       .coming-soon-countdown{
         display: flex;
-        margin-top: 20px;
-        letter-spacing: 1px;
+        justify-content: space-evenly;
+        width: 835px;
       }
-        .coming-soon-countdown-times{
-          border: 3px solid rgba(128, 128, 128, 0.377);
-          width: 160px;
-          margin-right: 50px;
+        .coming-soon-countdown-time{
+          border: 1px dotted white;
+          border-bottom: 5px solid yellow;
+          width: 180px;
+          height: 180px;
           display: flex;
-          justify-content: center;
-          align-items: center;
           flex-direction: column;
+          align-items: center;
+          justify-content: center;
+          letter-spacing: 5px;
         }
-          .times-increment{
-            font-size: 30px;
+          .coming-soon-countdown-increment{
+            letter-spacing: 0;
+            font-size: 20px;
+            font-weight: 300;
           }
 
 /* profile */

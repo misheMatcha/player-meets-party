@@ -26,23 +26,23 @@ const ComingSoon = props => {
   
   return <div className='coming-soon-container'>
     <div className='coming-soon'>
-      <p>We can't wait for you to see this feature!</p>
+      <p className='coming-soon-header'>Coming soon</p>
       <div className='coming-soon-countdown'>
-        <div className='coming-soon-countdown-times'>
+        <div className='coming-soon-countdown-time'>
           <p>{timeLeft.days}</p>
-          <p className='times-increment'>days</p>
+          <p className='coming-soon-countdown-increment'>DAYS</p>
         </div>
-        <div className='coming-soon-countdown-times'>
+        <div className='coming-soon-countdown-time'>
           <p>{timeLeft.hours}</p>
-          <p className='times-increment'>hrs</p>
+          <p className='coming-soon-countdown-increment'>HOURS</p>
         </div>
-        <div className='coming-soon-countdown-times'>
+        <div className='coming-soon-countdown-time'>
           <p>{timeLeft.minutes}</p>
-          <p className='times-increment'>min</p>
+          <p className='coming-soon-countdown-increment'>MINUTES</p>
         </div>
-        <div className='coming-soon-countdown-times'>
+        <div className='coming-soon-countdown-time'>
           <p>{timeLeft.seconds}</p>
-          <p className='times-increment'>sec</p>
+          <p className='coming-soon-countdown-increment'>SECONDS</p>
         </div>
       </div>
     </div>
