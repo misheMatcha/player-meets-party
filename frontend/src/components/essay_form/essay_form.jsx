@@ -3,7 +3,7 @@ import { PROFILE_QUESTIONS, ABOUTME_SECTIONS, PROFILE_QUESTIONS_PLACEHOLDERS } f
 
 const EssayForm = props => {
   let answerIdx = ABOUTME_SECTIONS.indexOf(props.formType);
-  const [question, setQuestion] = useState(props.user.profile_essay_questions[answerIdx]);
+  const question = props.user.profile_essay_questions[answerIdx];
   const [answer, setAnswer] = useState(props.user.profile_essay_answers[answerIdx]);
   const updatedAnswers = props.user.profile_essay_answers;
   const placeholderIdx = PROFILE_QUESTIONS[props.formType].indexOf(question);

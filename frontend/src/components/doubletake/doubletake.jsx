@@ -29,11 +29,11 @@ const Doubletake = props => {
               {
                 props.users.map((user, idx) => {
                   if((user._id !== localStorage.currentId) && (idx <= 10)){
-                    return <>
+                    return <div key={user._id}>
                     <Link to={`/profile/${user._id}`}>
                       <img src={testPhoto} alt='profile' />
                     </Link>
-                    </>
+                    </div>
                   }
                 })
               }

@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from 'react';
+import React, { useEffect } from 'react';
 import { connect } from 'react-redux';
 import { openModal } from '../../actions/modal_actions';
-import { PROFILE_QUESTIONS, PROFILE_QUESTIONS_PLACEHOLDERS } from './profile_options';
+import { PROFILE_QUESTIONS_PLACEHOLDERS } from './profile_options';
 
-export const UserQuestionSection = ({answers, section, sectionIdx, essayIdx, defaultQuestion, defaultAnswer, aboutMe, aspirations, talent, myTraits, needs, hobbies, moments, secrets, dating}) => {
-  const [question, setQuestion] = useState(defaultQuestion)
+export const UserQuestionSection = ({answers, section, sectionIdx, essayIdx, defaultQuestion, aboutMe, aspirations, talent, myTraits, needs, hobbies, moments, secrets, dating}) => {
+  const question = defaultQuestion;
   const placeholder = PROFILE_QUESTIONS_PLACEHOLDERS[section][essayIdx];
-  const answerIdx = PROFILE_QUESTIONS[section].indexOf(question)
   const answer = answers[sectionIdx];
 
   useEffect(() => {
