@@ -1,13 +1,10 @@
 import React, { useEffect, useState } from 'react';
-import { closeModal } from '../../actions/modal_actions';
-import { has5options } from '../../util/general_util';
 
 const AttributesForm = props => {
   const [pronouns, setPronouns ] = useState(props.user.pronouns);
   const [heightFt, setHeightFt] = useState(props.user.height.slice(0, 2));
   const [heightIn, setHeightIn] = useState(props.user.height.slice(2));
   const [body_type, setBody_type] = useState(props.user.body_type);
-  const [ethnicity, setEthnicity] = useState(props.user.ethnicity);
   const [asian, setAsian] = useState(props.user.ethnicity['Asian']);
   const [black, setBlack] = useState(props.user.ethnicity['Black']);
   const [latin, setLatin] = useState(props.user.ethnicity['Hispanic / Latin']);
@@ -40,7 +37,6 @@ const AttributesForm = props => {
   const [diet, setDiet] = useState(props.user.diet);
   const [children, setChildren] = useState(props.user.children);
   const [wants_children, setWants_children] = useState(props.user.wants_children);
-  const [pets, setPets] = useState(props.user.pets);
   const [hasDogs, setHasDogs] = useState(props.user.pets['Has dog(s)']);
   const [hasCats, setHasCats] = useState(props.user.pets['Has cat(s)']);
   const [hasOtherPets, setHasOtherPets] = useState(props.user.pets['Has other pet(s)']);
@@ -49,8 +45,6 @@ const AttributesForm = props => {
   const [pref_distance, setPref_distance] = useState(props.user.pref_distance);
   const [pref_age, setPref_age] = useState(props.user.pref_age);
   const [pref_connections, setPref_connections] = useState(props.user.pref_connections);
-  const [orientationCount, setOrientationCount] = useState(0);
-  const [genderCount, setGenderCount] = useState(0);
 
   useEffect(() => {
   });
@@ -164,9 +158,6 @@ const AttributesForm = props => {
         break;
       case 'wants_children':
         setWants_children(event.target.value);
-        break;
-      case 'pets':
-        setPets(event.target.value);
         break;
       case 'Has dog(s)':
         setHasDogs(!hasDogs);

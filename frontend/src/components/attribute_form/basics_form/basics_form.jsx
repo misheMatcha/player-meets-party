@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { ORIENTATION_LIST, GENDER_LIST, ORIGENDER_LIST } from '../../profile/profile_options';
-import { convertToString, checkTagCount } from '../../../util/general_util';
+import { ORIENTATION_LIST, GENDER_LIST } from '../../profile/profile_options';
+import { convertToString } from '../../../util/general_util';
 
 const BasicsForm = props => {
   const [straight, setStraight] = useState(props.user.orientation['Straight']);

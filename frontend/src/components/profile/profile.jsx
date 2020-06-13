@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { withRouter } from 'react-router-dom'
-import { calculateAge, checkDefaults, displayAttribute, anyTrueValues } from '../../util/general_util';
+import { calculateAge, displayAttribute } from '../../util/general_util';
 import { ABOUTME_SECTIONS, PROFILE_QUESTIONS, ATTRIBUTES_SECTIONS } from './profile_options';
 import MatchQuestionSection from './match_question_section.jsx';
 import UserQuestionSection from './user_question_section.jsx';
@@ -212,7 +212,10 @@ const Profile = props => {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let mQuestion = profile_essay_questions[idx];
                       let mAnswer = profile_essay_answers[idx];
-                      if(mAnswer) return <MatchQuestionSection key={idx} section={section} question={mQuestion} answer={mAnswer} />
+                      if(mAnswer) {
+                        return <MatchQuestionSection key={idx} section={section} question={mQuestion} answer={mAnswer} />
+                      };
+                      return '';
                     })
                   }
                 </div>
@@ -265,9 +268,8 @@ const Profile = props => {
                   {
                     ABOUTME_SECTIONS.map((section, idx) => {
                       let question = profile_essay_questions[idx];
-                      let answer = profile_essay_answers[idx];
                       let questionPlaceholderIdx = PROFILE_QUESTIONS[section].indexOf(question);
-                      return <UserQuestionSection key={idx} section={section} sectionIdx={idx} essayIdx={questionPlaceholderIdx} defaultQuestion={question} defaultAnswer={answer} />
+                      return <UserQuestionSection key={idx} section={section} sectionIdx={idx} essayIdx={questionPlaceholderIdx} defaultQuestion={question} />
                     })
                   }
                 </div>

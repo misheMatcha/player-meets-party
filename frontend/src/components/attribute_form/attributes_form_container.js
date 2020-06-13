@@ -1,7 +1,7 @@
 import { connect } from 'react-redux';
 import AttributesForm from './attributes_form.jsx';
 import { closeModal } from '../../actions/modal_actions';
-import { requestUser, editUser } from '../../actions/user_actions';
+import { editUser } from '../../actions/user_actions';
 
 const mSTP = state => ({
   user: state.entities.users.user

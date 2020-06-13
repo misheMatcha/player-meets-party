@@ -166,6 +166,8 @@ const ProfileAttributes = props => {
                   missingAttributes.push('Pets');
                 }
                 break;
+              default:
+                break;
             }
             break;
           case 'I am looking for':
