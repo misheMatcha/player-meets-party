@@ -65,18 +65,50 @@
     color: white;
     font-weight: 600;
     flex-direction: column;
-    background-image: url('https://chillabit-pro.s3-us-west-1.amazonaws.com/comingsoon-dinner.jpg');
     background-size: cover;
     background-repeat: no-repeat;
     text-align: center;
+  }
+  .csc-discover{
+    background-image: url('https://chillabit-pro.s3-us-west-1.amazonaws.com/comingsoon-explore.jpg');
+  }
+  .csc-search{
+    background-image: url('https://chillabit-pro.s3-us-west-1.amazonaws.com/comingsoon-search.jpg');
+  }
+  .csc-likes{
+    background-image: url('https://chillabit-pro.s3-us-west-1.amazonaws.com/comingsoon-dinner.jpg');
+  }
+  .csc-discover-border{
+    color: orangered;
+    border: 1px dotted orangered;
+    border-bottom: 5px solid orangered;
+  }
+  .csc-search-border{
+    border: 1px dotted green;
+    color: green;
+    border-bottom: 5px solid green;
+  }
+  .csc-likes-border{
+    border: 1px dotted yellow;
+    color: yellow;
+    border-bottom: 5px solid yellow;
   }
     .coming-soon{
       display: flex;
       flex-direction: column;
       align-items: center;
     }
-      .coming-soon-header{
+      .coming-soon-header-discover{
         padding: 40px 0;
+        color: orangered;
+      }
+      .coming-soon-header-search{
+        padding: 40px 0;
+        color: green;
+      }
+      .coming-soon-header-likes{
+        padding: 40px 0;
+        color: yellow;
       }
       .coming-soon-countdown{
         display: flex;
@@ -84,8 +116,6 @@
         width: 835px;
       }
         .coming-soon-countdown-time{
-          border: 1px dotted white;
-          border-bottom: 5px solid yellow;
           width: 180px;
           height: 180px;
           display: flex;
