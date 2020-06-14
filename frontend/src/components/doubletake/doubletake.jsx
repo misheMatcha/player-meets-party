@@ -11,62 +11,71 @@ const Doubletake = props => {
 
   useEffect(() => {
     if(!props.users) props.fetchUsers();
+    if(user._id === localStorage.currentId) setListIdx(listIdx + 1);
     return(() => {
     });
   });
-  
+
   return <div className='doubletake-container'>
     <div className='doubletake-bg'>
       <div className='doubletake-bg-header'/>
     </div>
     <div className='doubletake-content'>
       <div className='doubletake'>
-        <div className='doubletake-userlist'>
-          <button className='doubletake-userlist-undo'><i className="fas fa-undo-alt"/></button>
-          {
-            !props.users ? 'loading...' :
-            <div className='doubletake-userlist-photos'>
-              {
-                props.users.map((user, idx) => {
-                  if((user._id !== localStorage.currentId) && (idx <= 10)){
-                    return <div key={user._id}>
-                    <Link to={`/profile/${user._id}`}>
-                      <img src={testPhoto} alt='profile' />
-                    </Link>
-                    </div>
-                  }
-                })
-              }
+        <div className='doubletake-header'>
+          <div className='doubletake-matchlist-wrap'>
+            <div className='doubletake-undo'>
+              <button type='button' className='fas fa-undo-alt' />
             </div>
-          }
+            <div className='doubletake-matchlist'>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+              <img src={testPhoto} alt='match'/>
+            </div>
+          </div>
         </div>
-        <div className='doubletake-match-preview'>
-          <div className='doubletake-match-preview-details'>
-            <div className=''>
-              <p>{user.name}</p>
-              <p>{calculateAge(user.birthday)} {location} {match}</p>
+        <div className='doubletake-preview'>
+          <div className='doubletake-preview-info'>
+            <div className='doubletake-preview-info-wrap'>
+              <div className='doubletake-preview-info-asl'>
+                <p>{user.name}</p>
+                <div className='doubletake-preview-info-asl-details'>
+                  <p>{calculateAge(user.birthday)}</p>
+                  <p>•</p>
+                  <p>{location}</p>
+                  <p>•</p>
+                  <p>{match}</p>
+                  <Link to={`/profile/${user._id}`}>View Profile <i className="fas fa-chevron-right"/></Link>
+                </div>
+              </div>
             </div>
-            <div className=''>
-              <button>X PASS</button>
-              <button>X LIKE</button>
+            <div className='doubletake-preview-info-buttons'>
+              <button className='doubletake-preview-pass'>PASS</button>
+              <button className='doubletake-preview-like'>LIKE</button>
             </div>
           </div>
-          <div className=''>
-            photo gallery
+          <div className='doubletake-gallery-wrap'>
+            <div className='doubletake-gallery'>
+              <img src={testPhoto} alt='match' />
+              <img src={testPhoto} alt='match' />
+              <img src={testPhoto} alt='match' />
+              <img src={testPhoto} alt='match' />
+              <img src={testPhoto} alt='match' />
+            </div>
           </div>
-          <div className=''>
+          <div className='doubletake-preview-footer-wrap'>
             <p>If you like each other, we’ll let you know!</p>
-            <div className=''>
-              future buttons for gallery view
+            <div className='doubletake-preview-footer'>
+              <button className='doubletake-preview-footer-selected'/>
+              <button className='doubletake-preview-footer-notselected'/>
             </div>
-          </div>
-        </div>
-        <div className='doubletake-match-details'>
-          <div className='doubletake-match-details-essays'>
-            map out essay questions/answers
-          </div>
-          <div className='doubletake-match-details-attributes'>
-            map out attributes
           </div>
         </div>
       </div>

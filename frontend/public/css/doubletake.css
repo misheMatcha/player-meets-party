@@ -21,53 +21,106 @@
   margin-left: -100%;
   display: flex;
   justify-content: center;
+  /* flex-direction: column; */
+  /* align-items: center; */
+  /* background-color: green; */
 }
   .doubletake{
+    /* border: 5px solid blueviolet; */
+    /* background-color: violet; */
     width: 940px;
-    /* border: 1px solid blueviolet; */
   }
-    .doubletake-userlist{
-      color: white;
-      display: flex;
+    .doubletake-header{
+      /* background-color: tomato; */
       padding: 20px 0;
     }
-      .doubletake-userlist-undo{
-        margin-left: -77px;
-        height: 52.2px;
-        width: 52.2px;
+      .doubletake-matchlist-wrap{
+        /* background-color: blue; */
         display: flex;
-        align-items: center;
-        justify-content: center;
-        border: 2px solid #1a1a1a;
-        border-radius: 50%;
-        transition: 1s;
-        color: #1a1a1a;
       }
-      .doubletake-userlist-undo:hover{
-        border: 2px solid white;
-        color: white;
-      }
-        /* undo icon */
-        .doubletake-userlist-undo i{
+        .doubletake-undo{
+          margin-left: -83px;
+          /* background-color: yellow; */
+          padding-right: 23px;
         }
-      .doubletake-userlist-photos{
-        margin-left: 25px;
-        display: flex;
-        width: 940px;
-      }
-        .doubletake-userlist-photos a{
-          margin-right: 44.5px;
-        }
-          .doubletake-userlist img{
-            height: 54px;
-            width: 54px;
-            border: 2px solid transparent;
+          .doubletake-undo button{
+            height: 60px;
+            width: 60px;
             border-radius: 50%;
+            border: 3px solid #413f3f;
+            color: #413f3f;
+            text-align: center;
+            font-size: 20px;
+            transition: 1s;
+          }
+          .doubletake-undo button:hover{
+            border: 3px solid white;
+            color: white;
+          }
+        .doubletake-matchlist{
+          width: 940px;
+          /* background-color: blue; */
+          display: flex;
+          justify-content: space-between;
+        }
+          .doubletake-matchlist img{
+            height: 60px;
+            width: 60px;
+            border-radius: 50%;
+            border: 2px solid transparent;
           }
 
-    .doubletake-match-preview{
-      height: 442px;
+    .doubletake-preview{
+      display: flex;
+      flex-direction: column;
       background-color: white;
-      border-radius: 4px;
       box-shadow: 0 1px 4px rgba(0,0,0,.1), 0 1px 0 rgba(0,0,0,.14);
+      border-radius: 4px;
+      padding: 0 30px;
     }
+      .doubletake-preview-info{
+        display: flex;
+        justify-content: space-between;
+        padding: 20px 0;
+      }
+        .doubletake-preview-info-wrap{}
+          .doubletake-preview-info-asl{
+            display: flex;
+          }
+            .doubletake-preview-info-asl-details{
+              display: flex;
+            }
+
+      .doubletake-preview-info-buttons{}
+        .doubletake-preview-pass{}
+        .doubletake-preview-like{}
+
+      .doubletake-gallery-wrap{
+        overflow: hidden;
+      }
+        .doubletake-gallery{
+          width: fit-content;
+          display: flex;
+        }
+          .doubletake-gallery img{
+            width: 262px;
+            margin-right: 10px;
+            border-radius: 4px;
+          }
+
+      .doubletake-preview-footer-wrap{
+        padding: 30px 0;
+        display: flex;
+        justify-content: space-between;
+      }
+        .doubletake-preview-footer{
+          color: #ccd0d9;
+        }
+          .doubletake-preview-footer button{
+            border-radius: 50%;
+            /* background-color: #ccd0d9; */
+            border: 2px solid #ccd0d9;
+            height: 10px;
+            width: 10px;
+            margin-left: 5px;
+          }
