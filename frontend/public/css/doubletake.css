@@ -173,7 +173,7 @@
 
       .doubletake-match-profile-content{
         /* background-color: teal; */
-        padding: 0 30px;
+        padding: 0 30px 30px;
         display: flex;
         justify-content: space-between;
       }

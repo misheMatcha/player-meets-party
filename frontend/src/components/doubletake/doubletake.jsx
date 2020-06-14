@@ -1,8 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { calculateAge, displayAttribute, anyTrueValues } from '../../util/general_util';
-import { ABOUTME_SECTIONS } from '../profile/profile_options';
-import MatchQuestionSection from '../profile/match_question_section';
 import ProfileAttributes from '../profile/profile_attributes';
 
 const Doubletake = props => {
@@ -61,7 +59,7 @@ const Doubletake = props => {
     if(user._id === localStorage.currentId) setListIdx(listIdx + 1);
     return(() => {
     });
-  });
+  }, [props, user._id, listIdx]);
 
   return <div className='doubletake-container'>
     <div className='doubletake-bg'>
@@ -94,7 +92,7 @@ const Doubletake = props => {
               <div className='doubletake-preview-info-asl'>
                 <p className='doubletake-preview-info-asl-name'>{user.name}</p>
                 <div className='doubletake-preview-info-asl-details'>
-                  <p>{calculateAge(user.birthday)}</p>
+                  <p>{`${calculateAge(user.birthday)}`}</p>
                   <p className='doubletake-preview-info-asl-details-spacer'>•</p>
                   <p>{location}</p>
                   <p className='doubletake-preview-info-asl-details-spacer'>•</p>
@@ -105,7 +103,7 @@ const Doubletake = props => {
             </div>
             <div className='doubletake-preview-info-buttons'>
               <button className='doubletake-preview-pass'>X PASS</button>
-              <button className='doubletake-preview-like'><i className="fas fa-heart"/>LIKE</button>
+              <button className='doubletake-preview-like' onClick={() => setListIdx(listIdx + 1)}><i className="fas fa-heart"/>LIKE</button>
             </div>
           </div>
           <div className='doubletake-gallery-wrap'>
@@ -138,6 +136,7 @@ const Doubletake = props => {
                         <p>{answer}</p>
                       </div>
                     }
+                    return '';
                   })
                 }
               </>
