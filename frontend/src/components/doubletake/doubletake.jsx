@@ -53,13 +53,50 @@ const Doubletake = props => {
   };
   const attributeArray = [basic, pronouns, looks, background, lifestyle, family];
   const attributeSection = ['Basics', 'Pronouns', 'Looks', 'Background', 'Lifestyle', 'Family'];
+  const liked = !props.curUser ? '' : props.curUser.liked;
+  const passed = !props.curUser ? '' : props.curUser.passed;
 
   useEffect(() => {
     if(!props.users) props.fetchUsers();
     if(user._id === localStorage.currentId) setListIdx(listIdx + 1);
+    if(!props.curUser || props.curUser._id !== localStorage.currentId) props.fetchCurrentUser(localStorage.currentId);
     return(() => {
     });
   }, [props, user._id, listIdx]);
+
+  const matchlistUserComponent = (match, activeMatchId, idx) => {
+    let matchlistStyle = 'doubletake-matchlist-default';
+    let whichIcon = 'none';
+    let iconStyle = '';
+
+
+    if(match._id !== localStorage.currentId){
+      if(match._id === user._id) {
+        matchlistStyle = 'doubletake-matchlist-active';
+    }
+      if(liked.indexOf(match._id) > -1) {
+        matchlistStyle = 'doubletake-matchlist-liked';
+        whichIcon = 'liked';
+        iconStyle = 'fas fa-heart';
+    }
+      if(passed.indexOf(match._id) > -1) {
+        matchlistStyle = 'doubletake-matchlist-passed';
+        whichIcon = 'passed';
+        iconStyle = 'fas fa-times';
+    }
+
+      return <div className='doubletake-matchlist-img-wrap'>
+        <img className='doubletake-matchlist-img' key={match._id} src={testPhoto} alt={match.name} />
+        <div className={`doubletake-matchlist-img-overlay ${matchlistStyle}`}>
+          {
+            whichIcon === 'none' ? '' : whichIcon === 'liked' ? <i className={iconStyle} /> : <p>X</p>
+          }
+        </div>
+      </div>
+    }
+
+    return '';
+  };
 
   return <div className='doubletake-container'>
     <div className='doubletake-bg'>
@@ -73,16 +110,11 @@ const Doubletake = props => {
               <button type='button' className='fas fa-undo-alt' />
             </div>
             <div className='doubletake-matchlist'>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
-              <img src={testPhoto} alt='match'/>
+              {
+                !props.users ? '' : props.users.map((matched, idx) => {
+                  return idx <= 9 ? matchlistUserComponent(matched, user._id, idx) : '';
+                })
+              }
             </div>
           </div>
         </div>
@@ -102,8 +134,14 @@ const Doubletake = props => {
               </div>
             </div>
             <div className='doubletake-preview-info-buttons'>
-              <button className='doubletake-preview-pass'>X PASS</button>
-              <button className='doubletake-preview-like' onClick={() => setListIdx(listIdx + 1)}><i className="fas fa-heart"/>LIKE</button>
+              <button className='doubletake-preview-pass' onClick={() => {
+                passed.push(user._id);
+                setListIdx(listIdx + 1);
+                }}>X PASS</button>
+              <button className='doubletake-preview-like' onClick={() => {
+                liked.push(user._id);
+                setListIdx(listIdx + 1);
+                }}><i className="fas fa-heart"/>LIKE</button>
             </div>
           </div>
           <div className='doubletake-gallery-wrap'>

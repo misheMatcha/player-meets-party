@@ -21,26 +21,18 @@
   margin-left: -100%;
   display: flex;
   justify-content: center;
-  /* flex-direction: column; */
-  /* align-items: center; */
-  /* background-color: green; */
 }
   .doubletake{
-    /* border: 5px solid blueviolet; */
-    /* background-color: violet; */
     width: 940px;
   }
     .doubletake-header{
-      /* background-color: tomato; */
       padding: 20px 0;
     }
       .doubletake-matchlist-wrap{
-        /* background-color: blue; */
         display: flex;
       }
         .doubletake-undo{
           margin-left: -83px;
-          /* background-color: yellow; */
           padding-right: 23px;
         }
           .doubletake-undo button{
@@ -59,15 +51,54 @@
           }
         .doubletake-matchlist{
           width: 940px;
-          /* background-color: blue; */
           display: flex;
-          justify-content: space-between;
+          color: #1a1a1a;
         }
-          .doubletake-matchlist img{
-            height: 60px;
-            width: 60px;
+          .doubletake-matchlist-img-wrap{
+            display: flex;
+            flex-flow: row nowrap;
+          }
+          .doubletake-matchlist-img-wrap .doubletake-matchlist-img, .doubletake-matchlist-img-wrap .doubletake-matchlist-img-overlay{
+            box-sizing: border-box;
+            flex: none;
+          }
+          .doubletake-matchlist-img-wrap .doubletake-matchlist-img{
+          }
+          .doubletake-matchlist-img-wrap .doubletake-matchlist-img-overlay{
+            margin-left: -50%;
+          }
+          .doubletake-matchlist-img, .doubletake-matchlist-img-overlay{
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
-            border: 2px solid transparent;
+            border-width: 3px;
+            border-style: solid;
+          }
+          .doubletake-matchlist-default{
+            color: #1a1a1a;
+            background-color: #1a1a1a;
+            opacity: 50%;
+          }
+          .doubletake-matchlist-active{
+            color: white;
+          }
+          .doubletake-matchlist-liked{
+            color: #ff4dc4;
+            background-color: #1a1a1a80;
+            border-width: 0px;
+            font-size: 20px;
+          }
+          .doubletake-matchlist-passed{
+            color: white;
+            background-color: #1a1a1a80;
+            border-width: 0px;
+            font-size: 20px;
+            font-weight: 500;
+          }
+          .doubletake-matchlist-img-overlay{
+            display: flex;
+            justify-content: center;
+            align-items: center;
           }
 
     .doubletake-preview{
@@ -172,15 +203,12 @@
           }
 
       .doubletake-match-profile-content{
-        /* background-color: teal; */
         padding: 0 30px 30px;
         display: flex;
         justify-content: space-between;
       }
         .doubletake-match-profile-essay{
           width: 500px;
-          /* padding: 30px; */
-          /* background: blue; */
         }
           .doubletake-match-profile-essay-wrap{
             margin-top: 30px;
@@ -196,6 +224,4 @@
         .doubletake-match-profile-attributes{
           width: 320px;
           padding-top: 30px;
-          /* padding: 30px; */
-          /* background: yellow; */
         }
