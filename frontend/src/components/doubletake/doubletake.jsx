@@ -1,6 +1,8 @@
 import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { calculateAge } from '../../util/general_util';
+import { ABOUTME_SECTIONS } from '../profile/profile_options';
+import MatchQuestionSection from '../profile/match_question_section';
 
 const Doubletake = props => {
   const [listIdx, setListIdx] = useState(0);
@@ -77,6 +79,26 @@ const Doubletake = props => {
               <button className='doubletake-preview-footer-notselected'/>
             </div>
           </div>
+        </div>
+        <div className='doubletake-match-profile-content'>
+          <div className='doubletake-match-profile-essay'>
+            {
+              !user ? 'loading...' :
+              <>
+                {
+                  user.profile_essay_answers.map((answer, idx) => {
+                    if(answer){
+                      return <div className='doubletake-match-profile-essay-wrap'>
+                        <p className='doubletake-match-profile-essay-title'>{user.profile_essay_questions[idx]}</p>
+                        <p>{answer}</p>
+                      </div>
+                    }
+                  })
+                }
+              </>
+            }
+          </div>
+          <div className='doubletake-match-profile-attributes'></div>
         </div>
       </div>
     </div>

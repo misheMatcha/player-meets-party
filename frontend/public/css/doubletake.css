@@ -170,3 +170,31 @@
             width: 10px;
             margin-left: 5px;
           }
+
+      .doubletake-match-profile-content{
+        /* background-color: teal; */
+        padding: 0 30px;
+        display: flex;
+        justify-content: space-between;
+      }
+        .doubletake-match-profile-essay{
+          width: 500px;
+          /* padding: 30px; */
+          /* background: blue; */
+        }
+          .doubletake-match-profile-essay-wrap{
+            margin-top: 30px;
+            font-size: 17px;
+            line-height: 25px;
+          }
+            .doubletake-match-profile-essay-title{
+              margin-bottom: 15px;
+              font-size: 19px;
+              font-weight: 500;
+            }
+
+        .doubletake-match-profile-attributes{
+          width: 320px;
+          /* padding: 30px; */
+          /* background: yellow; */
+        }
