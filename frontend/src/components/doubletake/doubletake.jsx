@@ -45,20 +45,20 @@ const Doubletake = props => {
           <div className='doubletake-preview-info'>
             <div className='doubletake-preview-info-wrap'>
               <div className='doubletake-preview-info-asl'>
-                <p>{user.name}</p>
+                <p className='doubletake-preview-info-asl-name'>{user.name}</p>
                 <div className='doubletake-preview-info-asl-details'>
                   <p>{calculateAge(user.birthday)}</p>
-                  <p>•</p>
+                  <p className='doubletake-preview-info-asl-details-spacer'>•</p>
                   <p>{location}</p>
-                  <p>•</p>
-                  <p>{match}</p>
+                  <p className='doubletake-preview-info-asl-details-spacer'>•</p>
+                  <p>{match} Match</p>
                   <Link to={`/profile/${user._id}`}>View Profile <i className="fas fa-chevron-right"/></Link>
                 </div>
               </div>
             </div>
             <div className='doubletake-preview-info-buttons'>
-              <button className='doubletake-preview-pass'>PASS</button>
-              <button className='doubletake-preview-like'>LIKE</button>
+              <button className='doubletake-preview-pass'>X PASS</button>
+              <button className='doubletake-preview-like'><i className="fas fa-heart"/>LIKE</button>
             </div>
           </div>
           <div className='doubletake-gallery-wrap'>
