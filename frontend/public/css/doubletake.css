@@ -77,18 +77,14 @@
             object-fit: cover;
           }
           .doubletake-matchlist-img{
-            /* width: 55px; */
-            /* height: 55px; */
           }
           .doubletake-matchlist-img-overlay{
-            /* width: 55px; */
-            /* height: 55px; */
             display: flex;
             justify-content: center;
             align-items: center;
           }
             .doubletake-matchlist-default{
-              color: #1a1a1a;
+              color: transparent;
               background-color: #1a1a1a;
               opacity: 50%;
             }
