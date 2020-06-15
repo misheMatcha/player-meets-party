@@ -291,6 +291,9 @@ const UserSchema = new Schema({
   blocked: {
     type: Array
   },
+  ph_photos: {
+    type: Array
+  },
   date: {
     type: Date,
     default: Date.now
