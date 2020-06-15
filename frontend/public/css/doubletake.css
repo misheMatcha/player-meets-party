@@ -53,6 +53,7 @@
           width: 940px;
           display: flex;
           color: #1a1a1a;
+          overflow: hidden;
         }
           .doubletake-matchlist-img-wrap{
             display: flex;
@@ -68,38 +69,44 @@
             margin-left: -50%;
           }
           .doubletake-matchlist-img, .doubletake-matchlist-img-overlay{
-            width: 55px;
-            height: 55px;
+            /* max-width: 55px;
+            max-height: 55px; */
             border-radius: 50%;
             border-width: 3px;
             border-style: solid;
           }
-          .doubletake-matchlist-default{
-            color: #1a1a1a;
-            background-color: #1a1a1a;
-            opacity: 50%;
-          }
-          .doubletake-matchlist-active{
-            color: white;
-          }
-          .doubletake-matchlist-liked{
-            color: #ff4dc4;
-            background-color: #1a1a1a80;
-            border-width: 0px;
-            font-size: 20px;
-          }
-          .doubletake-matchlist-passed{
-            color: white;
-            background-color: #1a1a1a80;
-            border-width: 0px;
-            font-size: 20px;
-            font-weight: 500;
+          .doubletake-matchlist-img{
+            width: 55px;
+            height: 55px;
           }
           .doubletake-matchlist-img-overlay{
+            width: 55px;
+            height: 55px;
             display: flex;
             justify-content: center;
             align-items: center;
           }
+            .doubletake-matchlist-default{
+              color: #1a1a1a;
+              background-color: #1a1a1a;
+              opacity: 50%;
+            }
+            .doubletake-matchlist-active{
+              color: white;
+            }
+            .doubletake-matchlist-liked{
+              color: #ff4dc4;
+              background-color: #1a1a1a80;
+              border-width: 0px;
+              font-size: 20px;
+            }
+            .doubletake-matchlist-passed{
+              color: white;
+              background-color: #1a1a1a80;
+              border-width: 0px;
+              font-size: 20px;
+              font-weight: 500;
+            }
 
     .doubletake-preview{
       display: flex;
@@ -180,6 +187,7 @@
         }
           .doubletake-gallery img{
             width: 262px;
+            height: 262px;
             margin-right: 10px;
             border-radius: 4px;
           }

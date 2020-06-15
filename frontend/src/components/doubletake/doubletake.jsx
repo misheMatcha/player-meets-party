@@ -85,8 +85,8 @@ const Doubletake = props => {
         iconStyle = 'fas fa-times';
     }
 
-      return <div className='doubletake-matchlist-img-wrap'>
-        <img className='doubletake-matchlist-img' key={match._id} src={testPhoto} alt={match.name} />
+      return <div key={idx} className='doubletake-matchlist-img-wrap'>
+        <img className='doubletake-matchlist-img' key={match._id} src={match.ph_photos[0]} alt={match.name} />
         <div className={`doubletake-matchlist-img-overlay ${matchlistStyle}`}>
           {
             whichIcon === 'none' ? '' : whichIcon === 'liked' ? <i className={iconStyle} /> : <p>X</p>
@@ -112,7 +112,7 @@ const Doubletake = props => {
             <div className='doubletake-matchlist'>
               {
                 !props.users ? '' : props.users.map((matched, idx) => {
-                  return idx <= 9 ? matchlistUserComponent(matched, user._id, idx) : '';
+                  return matchlistUserComponent(matched, user._id, idx);
                 })
               }
             </div>
@@ -146,11 +146,11 @@ const Doubletake = props => {
           </div>
           <div className='doubletake-gallery-wrap'>
             <div className='doubletake-gallery'>
-              <img src={testPhoto} alt='match' />
-              <img src={testPhoto} alt='match' />
-              <img src={testPhoto} alt='match' />
-              <img src={testPhoto} alt='match' />
-              <img src={testPhoto} alt='match' />
+              {
+                !user ? '' : user.ph_photos.map((imgLink, idx) => {
+                  return <img key={idx} src={imgLink} alt={user.name} />
+                })
+              }
             </div>
           </div>
           <div className='doubletake-preview-footer-wrap'>
