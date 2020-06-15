@@ -24,6 +24,7 @@
           width: 180px;
           height: 180px;
           border-radius: 50%;
+          object-fit: cover;
         }
         .profile-header-basics-asl{
           display: flex;
@@ -280,6 +281,7 @@
                 width: 98px;
                 height: 98px;
                 border-radius: 50px;
+                object-fit: cover;
               }
                 .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-you, .profile-match-summary-percent-wrap .profile-match-summary-percent-users .profile-match-summary-percent-match{
                   box-sizing: border-box;

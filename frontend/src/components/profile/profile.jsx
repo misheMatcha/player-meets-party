@@ -80,6 +80,8 @@ const Profile = props => {
     pref_connections: user.pref_connections,
     icon: 'far fa-eye'
   };
+  const matchAvatar = !props.user ? '' : props.user.ph_photos[0];
+  const userAvatar = !props.current ? '' : props.current.ph_photos[0];
 
   useEffect(() => {
     const setTitle = () => document.title = `${name} / ${age} / ${location}`;
@@ -146,7 +148,7 @@ const Profile = props => {
     <div className='profile-header'>
       <div className='profile-header-basics'>
         <div className='profile-header-basics-userinfo'>
-          <img src={photo} alt='profile' />
+          <img src={matchAvatar} alt='profile' />
           <div className='profile-header-basics-asl'>
             <div className='profile-header-basics-asl-status'>
               <p className=''>{name}</p>
@@ -234,10 +236,10 @@ const Profile = props => {
                   <div className='profile-match-summary-percent-wrap'>
                     <div className='profile-match-summary-percent-users'>
                       <div className='profile-match-summary-percent-you'>
-                        <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic4.jpg`} alt='you'/>
+                        <img src={userAvatar} alt='you'/>
                       </div>
                       <div className='profile-match-summary-percent-match'>
-                        <img src={`https://chillabit-seeds.s3-us-west-1.amazonaws.com/user_generic5.jpg`} alt={name}/>
+                        <img src={matchAvatar} alt={name}/>
                       </div>
                     </div>
                     <div className='profile-match-summary-percent-number'>

@@ -41,7 +41,8 @@ const ComingSoon = props => {
           titleClass: 'coming-soon-header-likes',
           imgClass: 'csc-likes',
           bottomBorder: 'csc-likes-border',
-          date: '2020/07/02'
+          date: '2020/07/02',
+          desc: `F`
         };
         return options;
       default:
@@ -49,36 +50,44 @@ const ComingSoon = props => {
     }
   };
   const displayOptions = setDisplayOptions(props.history.location.pathname);
-  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft(displayOptions.date));
+  const [timeLeft, setTimeLeft] = useState(calculateTimeLeft('2020/07/02'));
 
   useEffect(() => {
-    setTimeout(() => {
-      setTimeLeft(calculateTimeLeft(displayOptions.date));
-    }, 1000);
+    if(props.history.location.pathname === '/who-likes-you'){
+      setTimeout(() => {
+        setTimeLeft(calculateTimeLeft('2020/07/02'));
+      }, 1000);
+    }
   });
-  
-  return <div className={`coming-soon-container ${displayOptions.imgClass}`}>
-    <div className='coming-soon'>
-      <p className={displayOptions.titleClass}>coming soon</p>
-      <div className='coming-soon-countdown'>
-        <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
-          <p>{timeLeft.days}</p>
-          <p className='coming-soon-countdown-increment'>DAYS</p>
-        </div>
-        <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
-          <p>{timeLeft.hours}</p>
-          <p className='coming-soon-countdown-increment'>HOURS</p>
-        </div>
-        <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
-          <p>{timeLeft.minutes}</p>
-          <p className='coming-soon-countdown-increment'>MINUTES</p>
-        </div>
-        <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
-          <p>{timeLeft.seconds}</p>
-          <p className='coming-soon-countdown-increment'>SECONDS</p>
-        </div>
+
+  const likesCountdown = <div className='coming-soon'>
+    <p className={displayOptions.titleClass}>Join us in counting down the days left for our upcomming update</p>
+    <div className='coming-soon-countdown'>
+      <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
+        <p>{timeLeft.days}</p>
+        <p className='coming-soon-countdown-increment'>DAYS</p>
+      </div>
+      <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
+        <p>{timeLeft.hours}</p>
+        <p className='coming-soon-countdown-increment'>HOURS</p>
+      </div>
+      <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
+        <p>{timeLeft.minutes}</p>
+        <p className='coming-soon-countdown-increment'>MINUTES</p>
+      </div>
+      <div className={`coming-soon-countdown-time ${displayOptions.bottomBorder}`}>
+        <p>{timeLeft.seconds}</p>
+        <p className='coming-soon-countdown-increment'>SECONDS</p>
       </div>
     </div>
+  </div>;
+
+  const otherComponents = <div className='coming-soon-other'>
+    <p className={displayOptions.titleClass}>coming soon</p>
+  </div>
+  
+  return <div className={`coming-soon-container ${displayOptions.imgClass}`}>
+    {props.history.location.pathname === '/who-likes-you' ? likesCountdown : otherComponents}
   </div>
 };
 
