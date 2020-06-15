@@ -72,11 +72,11 @@ const Navbar = props => {
               <div className='fas fa-angle-down'/>
             </button>
             <div className={`navbar-profile-list dropdown-content ${hideOpts ? '' : 'block'}`}>
-              <p className='navbar-profile-item'><Link to={`/profile/${props.authUser ? props.authUser.id : ''}`} onClick={() => {
+              <button className='navbar-profile-item-linktoprofile' onClick={() => {
                 // quick fix to ensure rerender
                 props.history.push(`/profile/${props.authUser.id}`)
                 window.location.reload(true)
-                }}>Profile</Link></p>
+              }}>Profile</button>
               <p className='navbar-profile-item'>Settings</p>
               <p className='navbar-profile-item'>Help</p>
               <p className='navbar-profile-item' onClick={() => props.logout()}>Sign Out</p>

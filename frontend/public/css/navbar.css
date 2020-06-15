@@ -197,6 +197,12 @@
           border-bottom: 1px solid #666;
           cursor: pointer;
         }
+        .navbar-profile-item-linktoprofile{
+          padding: 12px;
+          border-bottom: 1px solid #666;
+          cursor: pointer;
+          width: 85%;
+        }
         .navbar-profile-item:hover{
           background-color: #333;
         }
