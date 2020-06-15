@@ -67,7 +67,7 @@ const Navbar = props => {
         <div className='navbar-misc'>
           <div className={`navbar-profile dropdown ${hideOpts ? '' : 'navbar-hover-bg'}`} onClick={() => toggleDropdown('opts')}>
             <button className='navbar-profile-btn'>
-              <img className='navbar-profile-img' src={placeholder.profile} alt='profile'/>
+              <img className='navbar-profile-img' src={!props.user ? '' : props.user.ph_photos[0]} alt='profile'/>
               <p className='navbar-profile-user'>{props.user ? props.user.name : `loading...`}</p>
               <div className='fas fa-angle-down'/>
             </button>

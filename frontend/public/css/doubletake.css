@@ -69,19 +69,20 @@
             margin-left: -50%;
           }
           .doubletake-matchlist-img, .doubletake-matchlist-img-overlay{
-            /* max-width: 55px;
-            max-height: 55px; */
+            width: 55px;
+            height: 55px;
             border-radius: 50%;
             border-width: 3px;
             border-style: solid;
+            object-fit: cover;
           }
           .doubletake-matchlist-img{
-            width: 55px;
-            height: 55px;
+            /* width: 55px; */
+            /* height: 55px; */
           }
           .doubletake-matchlist-img-overlay{
-            width: 55px;
-            height: 55px;
+            /* width: 55px; */
+            /* height: 55px; */
             display: flex;
             justify-content: center;
             align-items: center;
@@ -190,6 +191,7 @@
             height: 262px;
             margin-right: 10px;
             border-radius: 4px;
+            object-fit: cover;
           }
 
       .doubletake-preview-footer-wrap{
