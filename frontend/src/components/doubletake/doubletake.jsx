@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { calculateAge, displayAttribute, anyTrueValues } from '../../util/general_util';
 import ProfileAttributes from '../profile/profile_attributes';
+import faker from 'faker';
 
 const Doubletake = props => {
   const [listIdx, setListIdx] = useState(0);
