@@ -12,6 +12,7 @@
   color: white;
   display: flex;
   justify-content: center;
+  z-index: 1;
 }
   .navbar{
     width: 1440px;
