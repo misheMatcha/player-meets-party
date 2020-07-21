@@ -55,7 +55,7 @@ const ComingSoon = props => {
   useEffect(() => {
     if(props.history.location.pathname === '/who-likes-you'){
       setTimeout(() => {
-        setTimeLeft(calculateTimeLeft('2020/07/02'));
+        setTimeLeft(calculateTimeLeft('2020/012/02'));
       }, 1000);
     }
   });
