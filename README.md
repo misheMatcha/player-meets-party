@@ -41,15 +41,14 @@ By clicking 'Sign in' a modal will appear, which offers for a smooth transition 
 
 ![pmp-session-modal](https://user-images.githubusercontent.com/52799217/83065518-78871780-a018-11ea-9fd4-bc35414752a2.gif)
 
-### Add personality to profiles
+### Profile personality
+Dating profiles provide information about the match, but they don't have to be boring. Attributes are rendered with flavor to add more personality to profiles without the hassle.
 
 
 ![Screen Shot 2020-08-03 at 10 40 42 AM](https://user-images.githubusercontent.com/52799217/89210902-c9197480-d575-11ea-9a1a-24e000931b04.png)
 ![Screen Shot 2020-08-03 at 10 40 57 AM](https://user-images.githubusercontent.com/52799217/89210970-e77f7000-d575-11ea-903c-6782a6de183d.png)
 
 ```javascript
-const addStringFlavor = (att, attVal) => {
-    switch(att){
     case 'smoking':
         if(attVal === 'false'){
           hasMatchAttributes.push(`Doesn't smoke cigarettes`);
@@ -74,8 +73,12 @@ const addStringFlavor = (att, attVal) => {
       default:
         hasMatchAttributes.push(attVal);
         break;
-    }
 ```
+
+### Hidden essays
+Looking at matches can be overwhelming, sometimes there is too much information. Match profiles have their essay answers hidden intially to prevent information overload for the user. Allowing the user to get a quick glimpse of their potential match before jumping into their essays.
+
+![Screen Shot 2020-08-03 at 3 32 59 PM](https://user-images.githubusercontent.com/52799217/89233527-a0f23b80-d59e-11ea-84a7-213cbefd72f3.png)
 
 ### Technologies Used
 Player Meets Party is built using MongoDB, Express, Node.js, and React with Redux.
