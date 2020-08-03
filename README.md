@@ -78,7 +78,7 @@ Dating profiles provide information about the match, but they don't have to be b
 ### Hidden essays
 Looking at matches can be overwhelming, sometimes there is too much information. Match profiles have their essay answers hidden intially to prevent information overload for the user. Allowing the user to get a quick glimpse of their potential match before jumping into their essays.
 
-![Screen Shot 2020-08-03 at 3 32 59 PM](https://user-images.githubusercontent.com/52799217/89233527-a0f23b80-d59e-11ea-84a7-213cbefd72f3.png)
+![Screen Shot 2020-08-03 at 3 56 50 PM](https://user-images.githubusercontent.com/52799217/89234916-f2e89080-d5a1-11ea-99ab-b8ab7a912d96.png)
 
 ### Technologies Used
 Player Meets Party is built using MongoDB, Express, Node.js, and React with Redux.
