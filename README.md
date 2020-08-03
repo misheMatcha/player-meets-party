@@ -12,6 +12,8 @@ Player Meets Party was designed to bridge the gap within the dating community fo
 ### Transitioning background
 Each div utilizes a keyframe to transition seamlessly between images. Since keyframes don’t have intervals, percentages are calculated specifically to account for a timed interval transition.
 
+![splash-trans-nr](https://user-images.githubusercontent.com/52799217/83064010-f138a480-a015-11ea-84e9-9a125a50741f.gif)
+
 ```css
 @keyframes bgtrans-2 {
   8% { opacity: 0; }
@@ -32,8 +34,6 @@ Each div utilizes a keyframe to transition seamlessly between images. Since keyf
 }
 ```
 
-![splash-trans-nr](https://user-images.githubusercontent.com/52799217/83064010-f138a480-a015-11ea-84e9-9a125a50741f.gif)
-
 ### Authentication
 With a vibrant splash page to entice potential users to join, they will need to create an account or login to access any site features.
 
@@ -41,8 +41,45 @@ By clicking 'Sign in' a modal will appear, which offers for a smooth transition 
 
 ![pmp-session-modal](https://user-images.githubusercontent.com/52799217/83065518-78871780-a018-11ea-9fd4-bc35414752a2.gif)
 
+### Add personality to profiles
+
+
+![Screen Shot 2020-08-03 at 10 40 42 AM](https://user-images.githubusercontent.com/52799217/89210902-c9197480-d575-11ea-9a1a-24e000931b04.png)
+![Screen Shot 2020-08-03 at 10 40 57 AM](https://user-images.githubusercontent.com/52799217/89210970-e77f7000-d575-11ea-903c-6782a6de183d.png)
+
+```javascript
+const addStringFlavor = (att, attVal) => {
+    switch(att){
+    case 'smoking':
+        if(attVal === 'false'){
+          hasMatchAttributes.push(`Doesn't smoke cigarettes`);
+        }else{
+          hasMatchAttributes.push('Smokes cigarettes ' + attVal);
+        }
+        break;
+      case 'drinks':
+        if(attVal === 'false'){
+          hasMatchAttributes.push(`Doesn't drink`);
+        }else{
+          hasMatchAttributes.push('Drinks ' + attVal);
+        }
+        break;
+      case 'marijuana':
+        if(attVal === 'false'){
+          hasMatchAttributes.push(`Doesn't smoke marijuana`);
+        }else{
+          hasMatchAttributes.push('Smokes marijuana ' + attVal);
+        }
+        break
+      default:
+        hasMatchAttributes.push(attVal);
+        break;
+    }
+```
+
 ### Technologies Used
 Player Meets Party is built using MongoDB, Express, Node.js, and React with Redux.
 
 ## Feature Roadmap
--Profile modals/questions - user has the ability to update all profile details
+- Search and search filters - Users will be able to look for matches with specific criteria
+- Messages - Users will be able to send messages to each other expressing interest in their match
