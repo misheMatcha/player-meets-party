@@ -41,6 +41,11 @@ By clicking 'Sign in' a modal will appear, which offers for a smooth transition 
 
 ![pmp-session-modal](https://user-images.githubusercontent.com/52799217/83065518-78871780-a018-11ea-9fd4-bc35414752a2.gif)
 
+### Doubletake
+Users will find potential matches every time they login. The doubletake gives users the ability to take in everything about their matches to determine if they want to continue on or pass on it.
+
+![Screen Shot 2020-08-03 at 3 59 25 PM](https://user-images.githubusercontent.com/52799217/89235041-4f4bb000-d5a2-11ea-958d-b404413a6266.png)
+
 ### Profile personality
 Dating profiles provide information about the match, but they don't have to be boring. Attributes are rendered with flavor to add more personality to profiles without the hassle.
 
