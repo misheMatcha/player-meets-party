@@ -12,9 +12,25 @@ Player Meets Party was designed to bridge the gap within the dating community fo
 ### Transitioning background
 Each div utilizes a keyframe to transition seamlessly between images. Since keyframes don’t have intervals, percentages are calculated specifically to account for a timed interval transition.
 
-https://github.com/misheMatcha/player-meets-party/blob/cdc062c443f4e3d805f8640c70f4d7d9f165656a/frontend/public/css/splash.css#L38-L53
+```css
+@keyframes bgtrans-2 {
+  8% { opacity: 0; }
+  10%, 66% { opacity: 1; }
+  68%, 100% { opacity: 0; }
+}
 
-https://github.com/misheMatcha/player-meets-party/blob/cdc062c443f4e3d805f8640c70f4d7d9f165656a/frontend/public/css/splash.css#L227-L237
+@keyframes bgtrans-3 {
+  16% { opacity: 0; }
+  18%, 58% { opacity: 1; }
+  60%, 100% { opacity: 0; }
+}
+
+@keyframes bgtrans-4 {
+  24% { opacity: 0; }
+  26%, 50% { opacity: 1; }
+  52%, 100% { opacity: 0; }
+}
+```
 
 ![splash-trans-nr](https://user-images.githubusercontent.com/52799217/83064010-f138a480-a015-11ea-84e9-9a125a50741f.gif)
 
