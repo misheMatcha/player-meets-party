@@ -7,8 +7,7 @@ module.exports = validateLoginInputs = (data) => {
   data.email = validText(data.email) ? data.email : "";
   data.password = validText(data.password) ? data.password : "";
 
-  if (!validator.isEmail(data.email))
-    errors.email = "A valid email is required";
+  if (!validator.isEmail(data.email)) errors.email = "Valid email is required";
   if (validator.isEmpty(data.email)) errors.email = "Email cannot be blank";
 
   if (validator.isEmpty(data.password))

@@ -2,14 +2,13 @@ const express = require("express");
 const router = express.Router();
 const bcrypt = require("bcryptjs");
 const jwt = require("jsonwebtoken");
+const passport = require("passport");
 
 const saltRounds = 10;
 const keys = require("../../../config/keys");
 const User = require("../../models/User");
 const validateRegisterInputs = require("../../validations/register");
 const validateLoginInputs = require("../../validations/login");
-
-router.get("/test", (req, res) => res.json({ msg: "Users test route" }));
 
 router.post("/register", (req, res) => {
   const { errors, isValid } = validateRegisterInputs(req.body);
@@ -79,5 +78,11 @@ router.post("/login", (req, res) => {
     });
   });
 });
+
+router.get(
+  "/current",
+  passport.authenticate("jwt", { session: false }),
+  (req, res) => res.json({ id: req.user.id, email: req.user.email })
+);
 
 module.exports = router;
