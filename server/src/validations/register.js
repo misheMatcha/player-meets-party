@@ -13,14 +13,14 @@ module.exports = validateRegisterInputs = (data) => {
 
   if (validator.isEmpty(data.email)) errors.email = "Email cannot be blank";
 
-  const checkStrongPassword = validator.isStrongPassword(data.password1, {
-    minLowercase: 1,
-    minUppercase: 1,
-    minNumbers: 1,
-    minSymbols: 1,
-  });
-
-  if (!checkStrongPassword)
+  if (
+    !validator.isStrongPassword(data.password1, {
+      minLowercase: 1,
+      minUppercase: 1,
+      minNumbers: 1,
+      minSymbols: 1,
+    })
+  )
     errors.password1 =
       "Password must contain at least one lowercase, uppercase, number, and symbol";
 
